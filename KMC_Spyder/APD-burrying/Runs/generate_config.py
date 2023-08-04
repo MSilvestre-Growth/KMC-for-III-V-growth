@@ -31,17 +31,21 @@ unit_cell = KMCUnitCell(
 
 lattice = KMCLattice(
     unit_cell=unit_cell,
-    repetitions=(20,20,1),
+    repetitions=(30,30,1),
     periodic=(True, True, False))
 
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A1']*200
-for i in range(200) :
-    types.append('B1')
+types = ['A1']*300
 
-possible_types = ['A1','B1']
+for i in range(300) :
+    types.append('B1')
+    
+for j in range(300) :
+    types.append('A2')
+
+possible_types = ['A1','B1','A2']
     
 configuration = KMCConfiguration(
     lattice=lattice,
