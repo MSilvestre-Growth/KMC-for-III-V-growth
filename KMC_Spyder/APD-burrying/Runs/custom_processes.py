@@ -33,3 +33,18 @@ process_1 = KMCProcess(coordinates=coordinates,
 # Create the interactions object.
 interactions = KMCInteractions(processes=[process_0, process_1],
                                implicit_wildcards=True)
+
+# Generate the KMC model to run.
+model = KMCLatticeModel(configuration=config,
+                        interactions=interactions)
+
+# Setup the control parameters, note that not specifting
+# a seed value will result in the wall clock time seeding,
+# so we would expect slightly different results each time
+# we run this test.
+control_parameters = KMCControlParameters(number_of_steps=2500000,
+                                          dump_interval=10000,
+                                          analysis_interval=100,
+                                          seed=12)
+
+model.run(control_parameters, trajectory_filename="custom_traj.py")
