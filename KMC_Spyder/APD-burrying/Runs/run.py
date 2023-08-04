@@ -7,7 +7,7 @@ Created on Fri Aug  4 17:18:14 2023
 """
 from KMCLib import *
 
-configuration = KMCConfigurationFromScript("config.py")
+config = KMCConfigurationFromScript("config.py")
 interactions  = KMCInteractionsFromScript("custom_processes.py")
 
 # Generate the KMC model to run.
