@@ -20,7 +20,6 @@ model = KMCLatticeModel(configuration=config,
 # we run this test.
 control_parameters = KMCControlParameters(number_of_steps=2500000,
                                           dump_interval=10000,
-                                          analysis_interval=100,
                                           seed=12)
 
 model.run(control_parameters, trajectory_filename="custom_traj.py")
