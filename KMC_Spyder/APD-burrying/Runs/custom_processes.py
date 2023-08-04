@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Aug  4 16:52:10 2023
+
+@author: msilvestre
+"""
+
 # Copyright (c)  2014  Mikael Leetmaa
 #
 # This file is part of the KMCLib project distributed under the terms of the
@@ -9,17 +16,17 @@ from KMCLib import *
 
 coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
 
-# Flip 'U' to 'D'.
+# A1 step advance
 process_0 = KMCProcess(coordinates=coordinates,
-                       elements_before=['U'],
-                       elements_after=['D'],
+                       elements_before=['B1'],
+                       elements_after=['A1'],
                        basis_sites=[0],
                        rate_constant=1.0)
 
-# Flip 'D' to 'U'.
+# B1 step advance
 process_1 = KMCProcess(coordinates=coordinates,
-                       elements_before=['D'],
-                       elements_after=['U'],
+                       elements_before=['A2'],
+                       elements_after=['B1'],
                        basis_sites=[0],
                        rate_constant=1.0)
 
