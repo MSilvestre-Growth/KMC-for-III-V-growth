@@ -23,13 +23,6 @@ process_0 = KMCProcess(coordinates=coordinates,
                        basis_sites=[0],
                        rate_constant=1.0)
 
-# B1 step advance
-process_1 = KMCProcess(coordinates=coordinates,
-                       elements_before=['A2'],
-                       elements_after=['B1'],
-                       basis_sites=[0],
-                       rate_constant=1.0)
-
 # Create the interactions object.
 interactions = KMCInteractions(processes=[process_0, process_1],
                                implicit_wildcards=True)
