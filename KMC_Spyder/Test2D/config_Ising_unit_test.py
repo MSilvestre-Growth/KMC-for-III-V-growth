@@ -39,20 +39,11 @@ lattice = KMCLattice(
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A1','A1','A1','A1','B1','A1','A1','A1','A1']
+types = ['U','U','U','U','D','U','U','U','U']
 
-possible_types = ['A1','B1']
+possible_types = ['U','D']
 
 configuration = KMCConfiguration(
     lattice=lattice,
     types=types,
     possible_types=possible_types)
-
-KMCLocalConfiguration(coordinates=basis_points,types=['B1'],center=0)
-print 'KMCLocalConfiguration.coordinates() '
-print KMCLocalConfiguration.coordinates(KMCLocalConfiguration)
-print '\n'
-
-print 'KMCLocalConfiguration.types() '
-print KMCLocalConfiguration.types()
-print '\n'

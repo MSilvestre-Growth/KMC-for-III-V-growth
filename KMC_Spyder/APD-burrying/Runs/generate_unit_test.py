@@ -37,11 +37,9 @@ lattice = KMCLattice(
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A1']*9
+types = ['A','B','C','D','E','F','G','H','I']
 
-types[5] = 'B1'
-
-possible_types = ['A1','B1']
+possible_types = types = ['A','B','C','D','E','F','G','H','I']
     
 configuration = KMCConfiguration(
     lattice=lattice,
