@@ -4,7 +4,7 @@ Created on Fri Aug  4 16:52:10 2023
 
 @author: msilvestre
 """
-#toto
+
 # Copyright (c)  2014  Mikael Leetmaa
 #
 # This file is part of the KMCLib project distributed under the terms of the
@@ -24,5 +24,5 @@ process_0 = KMCProcess(coordinates=coordinates,
                        rate_constant=1.0)
 
 # Create the interactions object.
-interactions = KMCInteractions(processes=[process_0, process_1],
+interactions = KMCInteractions(processes=[process_0],
                                implicit_wildcards=True)
