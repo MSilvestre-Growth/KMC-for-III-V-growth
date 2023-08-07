@@ -48,9 +48,9 @@ configuration = KMCConfiguration(
     types=types,
     possible_types=possible_types)
 
-KMCLocalConfiguration(coordinates=basis_points,types='B1',center=0)
+KMCLocalConfiguration(coordinates=basis_points,types=['B1'],center=0)
 print 'KMCLocalConfiguration.coordinates() '
-print KMCLocalConfiguration.coordinates()
+print KMCLocalConfiguration.coordinates(KMCLocalConfiguration)
 print '\n'
 
 print 'KMCLocalConfiguration.types() '
