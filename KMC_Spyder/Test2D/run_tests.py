@@ -33,19 +33,19 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         print 'elements_before[1] '
         print elements_before[1]
-        print '\n'
+	#element before 1 == nearest atom UP the reference
         
         print 'elements_before[2] '
         print elements_before[2]
-        print '\n'
+	#element before 2 == nearest atom LEFT the reference
         
         print 'elements_before[3] '
         print elements_before[3]
-        print '\n'
+	#element before 3 == nearest atom RIGHT the reference
         
         print 'elements_before[4] '
         print elements_before[4]
-        print '\n'
+	#element before 4 == nearest atom DOWN the reference
         
         # Flipping U->D
         if process_number == 0:
@@ -106,10 +106,13 @@ class IsingSpinTest(unittest.TestCase):
 
         # Load the configuration and interactions.
         configuration = KMCConfigurationFromScript("config_Ising_unit_test.py")
+
         interactions  = KMCInteractionsFromScript("custom_processes.py")
+
 
         # Set the rate calculator.
         interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
+
 
         # Create the model.
         model = KMCLatticeModel(configuration, interactions)
@@ -117,6 +120,7 @@ class IsingSpinTest(unittest.TestCase):
         # Define the parameters.
         control_parameters = KMCControlParameters(number_of_steps=1,
                                                   seed=seed)
+
 
         # Run the simulation - save trajectory to 'custom_traj_cache.py'
         model.run(control_parameters, trajectory_filename="custom_traj_py_cache_test.py")
@@ -230,7 +234,7 @@ class IsingSpinTest(unittest.TestCase):
 #         #        images must never the less be updated.
 
 
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
 
 
