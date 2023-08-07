@@ -25,42 +25,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
-        diff = 1.0
-
-        # Get the number of U and D neighbours.
-        u_neighbours = len([ e for e in [elements_before[1], elements_before[2], elements_before[3], elements_before[4]] if e == "U"])
-        d_neighbours = len([ e for e in [elements_before[1], elements_before[2], elements_before[3], elements_before[4]] if e == "D"])
         
-        print 'elements_before[1] '
-        print elements_before[1]
-        print '\n'
-        
-        print 'elements_before[2] '
-        print elements_before[2]
-        print '\n'
-        
-        print 'elements_before[3] '
-        print elements_before[3]
-        print '\n'
-        
-        print 'elements_before[4] '
-        print elements_before[4]
-        print '\n'
-        
-        # Flipping U->D
-        if process_number == 0:
-            # D neighbours count as negative, U neighbours as positive.
-            diff = u_neighbours - d_neighbours
-
-        # Flipping D->U
-        if process_number == 1:
-            # U neighbours count as negative, D neighbours as positive.
-            diff = d_neighbours - u_neighbours
-
-        J   = 1.0
-        kbT = 1.0
-
-        return min(1.0, numpy.exp(-diff*J/kbT))
+        if elements_before[1] == 'A1':
+            return 1.0
+        else:
+            return 0.0
 
     def cutoff(self):
         """ Determines the cutoff for this custom model """
