@@ -745,3 +745,32 @@ types.append(["A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","
               "B1","B1","A1","B1","B1","B1","B1","B1","B1","B1","B1","B1","B1","B1",
               "B1","B1","B1","B1","B1","B1","B1","B1","B1","B1","B1","B1","B1","B1",
               "B1","B1","B1","B1","B1","B1","B1","B1"])
+
+#toto
+
+import matplotlib.pyplot as plt
+import numpy as np
+from itertools import islice
+from PIL import Image
+
+for i in range(len(types)):
+    KMC_Result_current = types[i]
+    # Conversion of "U" in 1 and "D" in 0 for display purposes
+    for j in range(len(KMC_Result_current)):
+        if KMC_Result_current[j] == "A1":
+            KMC_Result_current[j] = 1
+        if KMC_Result_current[j] == "B1":
+            KMC_Result_current[j] = 0
+    
+    # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
+    length_to_split = 20 * np.ones(20)
+    KMC_Result_current = iter(KMC_Result_current)
+    KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
+    KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
+    
+    #Image display
+    #plt.figure()
+    #plt.imshow(KMC_Result_current_matrix)
+    
+    #Image saving in other directory
+    plt.imsave(".\Steps_number_2\Imtest%d.png" % i, KMC_Result_current_matrix)
