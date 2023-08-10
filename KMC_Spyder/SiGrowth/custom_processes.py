@@ -25,12 +25,14 @@ processes = []
 
 # Get the possible types from config
 dictionnary_of_possible_types = config.possibleTypes()
-print dictionnary_of_possible_types
+#print dictionnary_of_possible_types
 # Removal of generic '*' type from the dictionnary
 del dictionnary_of_possible_types['*']
 # Conversion of a dictionnary in the list of all entries
 list_of_possible_types = dictionnary_of_possible_types.keys()
-print list_of_possible_types
+#print list_of_possible_types
+
+processes = ['no event']*2*len(list_of_possible_types)
 
 # Get min and max height to respect types with the periodicity
 max_height = int(list_of_possible_types[0][1])
@@ -49,13 +51,13 @@ for i in range(len(list_of_possible_types)):
         min_height = current_height
         type_of_lowest_step = list_of_possible_types[i][0]
 
-print 'List of all processes :'
+#print 'List of all processes :'
 # Set each individual process in the processes list
 for i in range(len(list_of_possible_types)):
     
     current_step = list_of_possible_types[i]
     current_type_of_step = current_step[0]
-    print "current type of step = " + current_type_of_step
+    #print "current type of step = " + current_type_of_step
     current_height = int(current_step[1])
     
     if current_type_of_step == 'A':
@@ -75,12 +77,12 @@ for i in range(len(list_of_possible_types)):
         # Name of the new step
     next_step = next_step_type + next_height
     
-    print 'Add a dimere on top of the current layer ' + current_step + ' --> ' + next_step
-    processes.append(KMCProcess(coordinates=coordinates,
-                       elements_before=[current_step],
-                       elements_after=[next_step],
-                       basis_sites=[0],
-                       rate_constant=1.0))
+    #print 'Add a dimere on top of the current layer ' + current_step + ' --> ' + next_step
+    processes[current_height] = KMCProcess(coordinates=coordinates,
+                                           elements_before=[current_step],
+                                           elements_after=[next_step],
+                                           basis_sites=[0],
+                                           rate_constant=1.0)
     
     # Remove a quasi-dimere on top of the current step
     
@@ -99,12 +101,14 @@ for i in range(len(list_of_possible_types)):
         # Name of the new step
     next_step = next_step_type + next_height
     
-    print 'Remove a dimere on top of the current layer ' + current_step + ' --> ' + next_step
-    processes.append(KMCProcess(coordinates=coordinates,
-                       elements_before=[current_step],
-                       elements_after=[next_step],
-                       basis_sites=[0],
-                       rate_constant=1.0))
+    #print 'Remove a dimere on top of the current layer ' + current_step + ' --> ' + next_step
+    processes[current_height + 1] = KMCProcess(coordinates=coordinates,
+                                               elements_before=[current_step],
+                                               elements_after=[next_step],
+                                               basis_sites=[0],
+                                               rate_constant=1.0)
 
 # Create the interactions object.
+# number of one process = initial height of the targeted atom + X
+# X = 0 if the process add one dimere on top, X = 1 if it remove the dimere
 interactions = KMCInteractions(processes, implicit_wildcards=True)

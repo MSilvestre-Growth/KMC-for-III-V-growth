@@ -37,15 +37,18 @@ lattice = KMCLattice(
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A1']*300
+types = ['A1']*225
 
-for i in range(300) :
+for i in range(225) :
     types.append('B2')
     
-for j in range(300) :
+for j in range(225) :
     types.append('A3')
 
-possible_types = ['A1','B2','A3']
+for k in range(225) :
+    types.append('B4')
+
+possible_types = ['A1','B2','A3','B4']
     
 configuration = KMCConfiguration(
     lattice=lattice,

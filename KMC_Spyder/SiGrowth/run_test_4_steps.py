@@ -7,33 +7,44 @@ Created on Fri Aug  4 17:18:14 2023
 """
 from KMCLib import *
 
-#set the custom rate
+# Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
-
+    
+    # Physical values
+    Temperature = 850
+    kb = 1.38*10**(-23)
+    
+    E_substrate = 1.3
+    E_normal = 0.5
+    E_parallel = 0.05
+    k0 = 10**13
+    
+    SendFlux = 0.1
+    
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
         
-        if elements_before[1] == 'A1':
-            return 1.0
-        else:
-            return 0.0
-
+        concerned_dimere = element_before[0]
+        dimere_type = concerned_dimere[0]
+        dimere_height = int(concerned_dimere[1])
+        
+        # Add a dimere on top case
+        if process_number == dimere_height:
+            return SendFlux + k0*exp(-(E_substrate+E_normal+E_parallel)/(kb * T))
+        
+        # Remove the dimere case
+        if process_number == dimere_height + 1:
+            return k0*exp(-(E_substrate+E_normal+E_parallel)/(kb * T))
+        
     def cutoff(self):
         """ Determines the cutoff for this custom model """
         return 1.0
-    
 
-#load initial configuration
+# Load initial configuration
 config = KMCConfigurationFromScript("config_3_steps.py")
-
-print "Types possibles venant de config "
-print config.possibleTypes()
-
-print "Nb types de sites différents"
-print len(config.possibleTypes()) - 1
-# #creation of the interaction oject
-# interactions = KMCInteractionsFromScript("custom_processes.py")
+#creation of the interaction oject
+interactions = KMCInteractionsFromScript("custom_processes.py")    
 # #setting of the CustomRateCalculator in the interaction object
 # interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 
