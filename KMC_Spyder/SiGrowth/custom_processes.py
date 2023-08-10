@@ -32,7 +32,7 @@ del dictionnary_of_possible_types['*']
 list_of_possible_types = dictionnary_of_possible_types.keys()
 #print list_of_possible_types
 
-processes = ['no event']*2*len(list_of_possible_types)
+processes = ['no event']*2*(len(list_of_possible_types)-1)
 
 # Get min and max height to respect types with the periodicity
 max_height = int(list_of_possible_types[0][1])
@@ -78,7 +78,7 @@ for i in range(len(list_of_possible_types)):
     next_step = next_step_type + next_height
     
     #print 'Add a dimere on top of the current layer ' + current_step + ' --> ' + next_step
-    processes[current_height] = KMCProcess(coordinates=coordinates,
+    processes[current_height-1] = KMCProcess(coordinates=coordinates,
                                            elements_before=[current_step],
                                            elements_after=[next_step],
                                            basis_sites=[0],
@@ -102,7 +102,7 @@ for i in range(len(list_of_possible_types)):
     next_step = next_step_type + next_height
     
     #print 'Remove a dimere on top of the current layer ' + current_step + ' --> ' + next_step
-    processes[current_height + 1] = KMCProcess(coordinates=coordinates,
+    processes[current_height] = KMCProcess(coordinates=coordinates,
                                                elements_before=[current_step],
                                                elements_after=[next_step],
                                                basis_sites=[0],
