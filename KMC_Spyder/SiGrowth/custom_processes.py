@@ -18,20 +18,23 @@ from KMCLib import *
 config = KMCConfigurationFromScript("config_3_steps.py")
 
 coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
+processes = []
 
 # Generic process = add a quasi-dimere on top of a layer, or remove a quasi-dimere
 # from the top of a layer --> this has to be done for all the steps stored in config
 
 # Get the possible types from config
-dictionnary_of_possible_types = config.possibleTypes().keys()
+dictionnary_of_possible_types = config.possibleTypes()
+print dictionnary_of_possible_types
 # Removal of generic '*' type from the dictionnary
 del dictionnary_of_possible_types['*']
 # Conversion of a dictionnary in the list of all entries
 list_of_possible_types = dictionnary_of_possible_types.keys()
+print list_of_possible_types
 
 # Get min and max height to respect types with the periodicity
 max_height = int(list_of_possible_types[0][1])
-min_heigth = int(list_of_possible_types[0][1])
+min_height = int(list_of_possible_types[0][1])
 
 for i in range(len(list_of_possible_types)):
     current_height = int(list_of_possible_types[i][1])
@@ -60,7 +63,7 @@ for i in range(len(list_of_possible_types)):
     
         # if statement to respect periodicity
     if current_height == max_height:
-        next_height = min_height
+        next_height = str(min_height)
         next_step_type = type_of_lowest_step
     else:
         next_height = str(current_height + 1)
@@ -79,7 +82,7 @@ for i in range(len(list_of_possible_types)):
     
         # if statement to respect periodicity
     if current_height == min_height:
-        next_height = max_height
+        next_height = str(max_height)
         next_step_type = type_of_highest_step
     else:
         next_height = str(current_height - 1)
