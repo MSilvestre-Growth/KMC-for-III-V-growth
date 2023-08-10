@@ -41,7 +41,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 n_normal +=1
         # Add a dimere on top case
         if process_number == 2*(dimere_height - 1):
-            return SendFlux + k0*np.exp(-(E_substrate+E_normal+E_parallel)*q/(kb * T))
+            return SendFlux + k0*np.exp(-(E_substrate+n_normal*E_normal+n_parallel*E_parallel)*q/(kb * T))
         
         # Remove the dimere case
         if process_number == 2*(dimere_height-1)+1:
