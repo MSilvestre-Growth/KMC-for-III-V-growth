@@ -11,30 +11,33 @@ import numpy as np
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
     
-
+    	# Physical values
+    T = 850#temperature
+    kb = 1.38*10**(-23)
+    q = 1.6*10**(-19)
+    E_substrate = 1.3
+    E_normal = 0.5
+    E_parallel = 0.05
+    k0 = 10**13
+    
+    SendFlux = 0.1
     
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
         
+        n_parallel = 0
+        n_normal = 0        
 
-    	# Physical values
-    	T = 850 #temperature
-    	kb = 1.38*10**(-23)
-	q = 1.6*10**(-19)
-    
-    	E_substrate = 1.3
-    	E_normal = 0.5
-    	E_parallel = 0.05
-	k0 = 10**13
-    
-    	SendFlux = 0.1
-
-
-	#print element_before[0]    
+    	#print element_before[0]    
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
         dimere_height = int(concerned_dimere[1])
         
+        for i in range(1, 4+1):
+            if dimere_type == elements_before[i][0]:
+                n_parallel += 1
+            else:
+                n_normal +=1
         # Add a dimere on top case
         if process_number == dimere_height - 1:
             return SendFlux + k0*np.exp(-(E_substrate+E_normal+E_parallel)*q/(kb * T))
