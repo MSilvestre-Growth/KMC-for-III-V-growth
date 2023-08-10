@@ -15,7 +15,7 @@ Created on Fri Aug  4 16:52:10 2023
 from KMCLib import *
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("config_3_steps.py")
+config = KMCConfigurationFromScript("config_4_steps.py")
 
 coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
 processes = []
@@ -32,7 +32,7 @@ del dictionnary_of_possible_types['*']
 list_of_possible_types = dictionnary_of_possible_types.keys()
 #print list_of_possible_types
 
-processes = ['no event']*2*(len(list_of_possible_types)-1)
+processes = ['no event']*2*(len(list_of_possible_types))
 
 # Get min and max height to respect types with the periodicity
 max_height = int(list_of_possible_types[0][1])
@@ -77,8 +77,8 @@ for i in range(len(list_of_possible_types)):
         # Name of the new step
     next_step = next_step_type + next_height
     
-    #print 'Add a dimere on top of the current layer ' + current_step + ' --> ' + next_step
-    processes[current_height-1] = KMCProcess(coordinates=coordinates,
+    print 'Add a dimere on top of the current layer ' + current_step + ' --> ' + next_step
+    processes[2*(current_height-1)] = KMCProcess(coordinates=coordinates,
                                            elements_before=[current_step],
                                            elements_after=[next_step],
                                            basis_sites=[0],
@@ -101,8 +101,8 @@ for i in range(len(list_of_possible_types)):
         # Name of the new step
     next_step = next_step_type + next_height
     
-    #print 'Remove a dimere on top of the current layer ' + current_step + ' --> ' + next_step
-    processes[current_height] = KMCProcess(coordinates=coordinates,
+    print 'Remove a dimere on top of the current layer ' + current_step + ' --> ' + next_step
+    processes[2*(current_height-1)+1] = KMCProcess(coordinates=coordinates,
                                                elements_before=[current_step],
                                                elements_after=[next_step],
                                                basis_sites=[0],
@@ -111,4 +111,5 @@ for i in range(len(list_of_possible_types)):
 # Create the interactions object.
 # number of one process = initial height of the targeted atom + X
 # X = 0 if the process add one dimere on top, X = 1 if it remove the dimere
+print processes
 interactions = KMCInteractions(processes, implicit_wildcards=True)
