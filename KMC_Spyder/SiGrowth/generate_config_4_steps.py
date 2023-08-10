@@ -31,21 +31,21 @@ unit_cell = KMCUnitCell(
 
 lattice = KMCLattice(
     unit_cell=unit_cell,
-    repetitions=(30,30,1),
+    repetitions=(100,100,1),
     periodic=(True, True, False))
 
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A1']*225
+types = ['A1']*2500
 
-for i in range(225) :
+for i in range(2500) :
     types.append('B2')
     
-for j in range(225) :
+for j in range(2500) :
     types.append('A3')
 
-for k in range(225) :
+for k in range(2500) :
     types.append('B4')
 
 possible_types = ['A1','B2','A3','B4']
