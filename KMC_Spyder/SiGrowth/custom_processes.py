@@ -34,7 +34,10 @@ print list_of_possible_types
 
 # Get min and max height to respect types with the periodicity
 max_height = int(list_of_possible_types[0][1])
+type_of_highest_step = list_of_possible_types[0][0]
+
 min_height = int(list_of_possible_types[0][1])
+type_of_lowest_step = list_of_possible_types[0][0]
 
 for i in range(len(list_of_possible_types)):
     current_height = int(list_of_possible_types[i][1])
