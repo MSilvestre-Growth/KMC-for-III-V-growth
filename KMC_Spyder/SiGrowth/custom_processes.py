@@ -55,6 +55,7 @@ for i in range(len(list_of_possible_types)):
     
     current_step = list_of_possible_types[i]
     current_type_of_step = current_step[0]
+    print "current type of step = " + current_type_of_step
     current_height = int(current_step[1])
     
     if current_type_of_step == 'A':
@@ -82,6 +83,11 @@ for i in range(len(list_of_possible_types)):
                        rate_constant=1.0))
     
     # Remove a quasi-dimere on top of the current step
+    
+    if current_type_of_step == 'A':
+        next_step_type = 'B'
+    else:
+        next_step_type = 'A'
     
         # if statement to respect periodicity
     if current_height == min_height:
