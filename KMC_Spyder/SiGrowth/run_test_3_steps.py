@@ -28,7 +28,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 config = KMCConfigurationFromScript("config_3_steps.py")
 
 print "Types possibles venant de config "
-print config.types
+print config.possibleTypes()
+
+print "Nb types de sites différents"
+print len(config.possibleTypes()) - 1
 # #creation of the interaction oject
 # interactions = KMCInteractionsFromScript("custom_processes.py")
 # #setting of the CustomRateCalculator in the interaction object
