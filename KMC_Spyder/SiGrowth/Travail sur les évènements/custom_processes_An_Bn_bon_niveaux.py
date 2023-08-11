@@ -48,47 +48,77 @@ for i in range(NumberOfTypes):
 
 # sorted_list_of_possible_types --> list sorted from the lowest to the highest step
 
-#################################################
-#        Deposition of a quasi-dimere           #
-#################################################
-
-for a in range(len(list_of_possible_types)):
-    sites = list_of_possible_types[a]
-    
-    # A on B
-    coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
-    processes.append(KMCProcess(coordinates=coordinates,
-                                           elements_before=['B'],
-                                           elements_after=['A'],
-                                           basis_sites=[0],
-                                           rate_constant=1.0))
-    
-    # B on A
-    coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
-    processes.append(KMCProcess(coordinates=coordinates,
-                                           elements_before=['A'],
-                                           elements_after=['B'],
-                                           basis_sites=[0],
-                                           rate_constant=1.0))
-
-#################################################
-#         Diffusion of a quasi-dimere           #
-#################################################
-
 # List of all possible deplacement in 2 dimensions
-
-# From 'A' point of view : list_of_coordinates = [right, left, forward, backward]
-# From 'B' point of view : list_of_coordinates = [left, right, backward, forward]
+    
+# From elements_before point of view : list_of_coordinates = [right, left, forward, backward]
+# From elements_after point of view : list_of_coordinates = [left, right, backward, forward]
 list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
                        [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]]
                        ]
 
+for a in range(len(list_of_possible_types)-1):
+
+    #################################################
+    #        Deposition of a quasi-dimere           #
+    #################################################
+    
+    elements_before = sorted_list_of_possible_types[a]
+    print 'elements_before'
+    print elements_before
+    
+    elements_after = sorted_list_of_possible_types[a+1]
+    print 'elements_after'
+    print elements_after
+    
+    # All steps but the last one
+    coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
+    processes.append(KMCProcess(coordinates=coordinates,
+                                           elements_before,
+                                           elements_after,
+                                           basis_sites=[0],
+                                           rate_constant=1.0))
+
+    #################################################
+    #         Diffusion of a quasi-dimere           #
+    #################################################
+    
+    before_moving = [elements_before, elements_after]
+    print 'before_moving'
+    print before_moving
+    
+    after_moving = [elements_after, elements_before]
+    print 'after_moving'
+    print after_moving
+    
+    for i in range(len(list_of_coordinates)):
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               before_moving,
+                                               after_moving,
+                                               basis_sites=[0],
+                                               rate_constant=1.0))
+    
+
+
+# Last step lead to the first one (periodicity)
+elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)]
+elements_after = sorted_list_of_possible_types[0]
+
+coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
+processes.append(KMCProcess(coordinates=coordinates,
+                                       elements_before,
+                                       elements_after,
+                                       basis_sites=[0],
+                                       rate_constant=1.0))
+
+before_moving = [elements_before, elements_after]
+after_moving = [elements_after, elements_before]
+    
 for i in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                           elements_before=['A','B'],
-                                           elements_after=['B','A'],
+                                           before_moving,
+                                           after_moving,
                                            basis_sites=[0],
                                            rate_constant=1.0))
 
