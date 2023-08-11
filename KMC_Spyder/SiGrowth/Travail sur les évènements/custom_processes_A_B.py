@@ -41,9 +41,6 @@ processes.append(KMCProcess(coordinates=coordinates,
 #         Diffusion of a quasi-dimere           #
 #################################################
 
-elements_before = ['A', 'B']
-elements_after = ['B', 'A']
-
 # List of all possible deplacement in 2 dimensions
 
 # From 'A' point of view : list_of_coordinates = [right, left, forward, backward]
@@ -56,8 +53,8 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
 
 for i in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                           elements_before,
-                                           elements_after,
+                                           elements_before=['A','B'],
+                                           elements_after=['B','A'],
                                            basis_sites=[0],
                                            rate_constant=1.0))
 

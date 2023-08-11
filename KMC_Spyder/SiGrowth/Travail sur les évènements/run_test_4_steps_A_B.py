@@ -52,9 +52,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         return 1.0
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_4_steps.py")
+config = KMCConfigurationFromScript("config_4_steps_A_B.py")
 #creation of the interaction oject
-interactions = KMCInteractionsFromScript("custom_processes.py")    
+interactions = KMCInteractionsFromScript("custom_processes_A_B.py")    
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 
