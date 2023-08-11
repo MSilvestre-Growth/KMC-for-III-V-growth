@@ -114,8 +114,8 @@ processes.append(KMCProcess(coordinates=coordinates,
                                        basis_sites=[0],
                                        rate_constant=1.0))
 
-before_moving = [elements_before, elements_after]
-after_moving = [elements_after, elements_before]
+before_moving = [elements_after, elements_before]
+after_moving = [elements_before, elements_after]
     
 for i in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[i],
