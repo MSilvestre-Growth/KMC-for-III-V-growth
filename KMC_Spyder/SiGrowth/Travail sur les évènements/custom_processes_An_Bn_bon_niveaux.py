@@ -33,10 +33,11 @@ sorted_list_of_possible_types = []
 NumberOfTypes = len(list_of_possible_types)
 
 # Get min height to sort list_of_possible_types
-min_height = int(list_of_possible_types[0][1])
-index = 0
 
 for i in range(NumberOfTypes):
+    print list_of_possible_types 
+    min_height = int(list_of_possible_types[0][1])
+    index = 0
     for j in range(len(list_of_possible_types)):
         current_height = int(list_of_possible_types[j][1])
         if current_height < min_height:
@@ -46,7 +47,6 @@ for i in range(NumberOfTypes):
     del list_of_possible_types[index]
 
 # sorted_list_of_possible_types --> list sorted from the lowest to the highest step
-print sorted_list_of_possible_types
 
 #################################################
 #        Deposition of a quasi-dimere           #
