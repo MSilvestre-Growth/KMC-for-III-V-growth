@@ -3,7 +3,7 @@ import numpy as np
 from itertools import islice
 from PIL import Image
 
-possible_types = ['A','B']
+possible_types = ['A1','B2', 'A3', 'B4']
 
 for i in range(len(types)):
     KMC_Result_current = types[i]
