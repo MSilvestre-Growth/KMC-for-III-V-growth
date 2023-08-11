@@ -35,7 +35,7 @@ NumberOfTypes = len(list_of_possible_types)
 # Get min height to sort list_of_possible_types
 
 for i in range(NumberOfTypes):
-    print list_of_possible_types 
+    #print list_of_possible_types 
     min_height = int(list_of_possible_types[0][1])
     index = 0
     for j in range(len(list_of_possible_types)):
@@ -58,25 +58,25 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]]
                        ]
 
-for a in range(len(list_of_possible_types)-1):
+for a in range(len(sorted_list_of_possible_types)-1):
 
     #################################################
     #        Deposition of a quasi-dimere           #
     #################################################
     
     elements_before = sorted_list_of_possible_types[a]
-    print 'elements_before'
-    print elements_before
+    #print 'elements_before'
+    #print elements_before
     
     elements_after = sorted_list_of_possible_types[a+1]
-    print 'elements_after'
-    print elements_after
+    #print 'elements_after'
+    #print elements_after
     
     # All steps but the last one
     coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
     processes.append(KMCProcess(coordinates=coordinates,
-                                           elements_before,
-                                           elements_after,
+                                           elements_before=[elements_before],
+                                           elements_after=[elements_after],
                                            basis_sites=[0],
                                            rate_constant=1.0))
 
@@ -85,30 +85,32 @@ for a in range(len(list_of_possible_types)-1):
     #################################################
     
     before_moving = [elements_before, elements_after]
-    print 'before_moving'
-    print before_moving
+    #print 'before_moving'
+    #print before_moving
     
     after_moving = [elements_after, elements_before]
-    print 'after_moving'
-    print after_moving
+    #print 'after_moving'
+    #print after_moving
     
     for i in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               before_moving,
-                                               after_moving,
+                                               elements_before=before_moving,
+                                               elements_after=after_moving,
                                                basis_sites=[0],
                                                rate_constant=1.0))
     
 
 
 # Last step lead to the first one (periodicity)
-elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)]
+elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
 elements_after = sorted_list_of_possible_types[0]
+#print elements_before
+#print elements_after
 
 coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
 processes.append(KMCProcess(coordinates=coordinates,
-                                       elements_before,
-                                       elements_after,
+                                       elements_before=[elements_before],
+                                       elements_after=[elements_after],
                                        basis_sites=[0],
                                        rate_constant=1.0))
 
@@ -117,10 +119,11 @@ after_moving = [elements_after, elements_before]
     
 for i in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                           before_moving,
-                                           after_moving,
+                                           elements_before=before_moving,
+                                           elements_after=after_moving,
                                            basis_sites=[0],
                                            rate_constant=1.0))
 
+#print len(processes)
 # Create the interactions object.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
