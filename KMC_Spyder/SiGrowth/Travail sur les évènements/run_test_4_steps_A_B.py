@@ -24,7 +24,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     	E_parallel = 0.5
     	k0 = 10**13
     
-    	SendFlux = 1000
+    	SendFlux = 100
 
         n_parallel = 0
         n_normal = 0        
