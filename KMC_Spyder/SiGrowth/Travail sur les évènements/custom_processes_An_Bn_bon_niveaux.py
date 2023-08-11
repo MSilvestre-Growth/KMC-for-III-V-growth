@@ -84,11 +84,11 @@ for a in range(len(sorted_list_of_possible_types)-1):
     #         Diffusion of a quasi-dimere           #
     #################################################
     
-    before_moving = [elements_before, elements_after]
+    before_moving = [elements_after, elements_before]
     #print 'before_moving'
     #print before_moving
     
-    after_moving = [elements_after, elements_before]
+    after_moving = [elements_before, elements_after]
     #print 'after_moving'
     #print after_moving
     
