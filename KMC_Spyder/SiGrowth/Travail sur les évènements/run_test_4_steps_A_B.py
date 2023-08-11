@@ -20,8 +20,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     	kb = 1.38*10**(-23)
     	q = 1.6*10**(-19)
     	E_substrate = 1.3
-    	E_normal = 0.5
-    	E_parallel = 0.05
+    	E_normal = 0.05
+    	E_parallel = 0.5
     	k0 = 10**13
     
     	SendFlux = 0.01
