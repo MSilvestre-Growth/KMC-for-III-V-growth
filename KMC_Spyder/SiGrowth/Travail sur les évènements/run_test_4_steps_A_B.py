@@ -16,7 +16,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Overloaded base class API function """
         
     	# Physical values
-    	T = 850#temperature
+    	T = 850 #temperature
     	kb = 1.38*10**(-23)
     	q = 1.6*10**(-19)
     	E_substrate = 1.3
@@ -33,17 +33,46 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
         
-        for i in range(1, 4+1):
-            if dimere_type == elements_before[i]:
-                n_parallel += 1
-            else:
-                n_normal +=1
-        
+        # Processe's order = [add dimere, go right, go left, go forward, go backward]
+        # Repeat X times where X is the number of different steps
         
         # Add a dimere on top case
-        if process_number == 0 or process_number == 1:
+        if process_number % 5 == 0:
             return SendFlux
-        else:
+
+
+        Move_A = (process_number % 5 != 0) and (dimere_type == 'A')
+        Move_B = (process_number % 5 != 0) and (dimere_type == 'B')
+        
+        ###################################
+        # Anisotropy is implemented here !#
+        ###################################
+        
+        if Move_A:
+            
+            if dimere_type == elements_before[2]:
+                n_parallel +=1
+            if dimere_type == elements_before[3]:
+                n_parallel +=1
+            if dimere_type == elements_before[1]:
+                n_normal += 1
+            if dimere_type == elements_before[4]:
+                n_normal += 1
+            
+            E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+            return k0*np.exp( - E_tot * q / (kb * T) )
+        
+        if Move_B:
+            
+            if dimere_type == elements_before[2]:
+                n_normal +=1
+            if dimere_type == elements_before[3]:
+                n_normal +=1
+            if dimere_type == elements_before[1]:
+                n_parallel += 1
+            if dimere_type == elements_before[4]:
+                n_parallel += 1
+            
             E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
             return k0*np.exp( - E_tot * q / (kb * T) )
         
