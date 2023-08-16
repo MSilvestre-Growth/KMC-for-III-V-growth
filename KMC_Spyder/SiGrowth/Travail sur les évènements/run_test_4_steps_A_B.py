@@ -49,9 +49,12 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             else:
                 return 0
         
-        if is_in_bulk >= 3 and (process_number % 5 != 0):
-            return 0
+        #if is_in_bulk >= 3 and (process_number % 5 != 0):
+         #   return 0
         
+        if process_number % 5 != 0:
+            return 0
+  
         else:
             Move_A = (process_number % 5 != 0) and (dimere_type == 'A')
             Move_B = (process_number % 5 != 0) and (dimere_type == 'B')
