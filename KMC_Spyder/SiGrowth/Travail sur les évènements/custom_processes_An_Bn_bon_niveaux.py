@@ -78,7 +78,7 @@ for a in range(len(sorted_list_of_possible_types)-1):
                                            elements_before=[elements_before],
                                            elements_after=[elements_after],
                                            basis_sites=[0],
-                                           rate_constant=1.0))
+                                           rate_constant=0))
 
     #################################################
     #         Diffusion of a quasi-dimere           #
@@ -97,7 +97,7 @@ for a in range(len(sorted_list_of_possible_types)-1):
                                                elements_before=before_moving,
                                                elements_after=after_moving,
                                                basis_sites=[0],
-                                               rate_constant=1.0))
+                                               rate_constant=0))
     
 
 
@@ -112,7 +112,7 @@ processes.append(KMCProcess(coordinates=coordinates,
                                        elements_before=[elements_before],
                                        elements_after=[elements_after],
                                        basis_sites=[0],
-                                       rate_constant=1.0))
+                                       rate_constant=0))
 
 before_moving = [elements_after, elements_before]
 after_moving = [elements_before, elements_after]
@@ -122,7 +122,7 @@ for i in range(len(list_of_coordinates)):
                                            elements_before=before_moving,
                                            elements_after=after_moving,
                                            basis_sites=[0],
-                                           rate_constant=1.0))
+                                           rate_constant=0))
 
 #print len(processes)
 # Create the interactions object.
