@@ -42,7 +42,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             if int(elements_before[0][1]) <= int(elements_before[i][1]):
                 is_in_bulk += 1
             if int(elements_before[0][1]) == 1 and int(elements_before[i][1]) == 4:
-		is_in_bulk -= 1
+                is_in_bulk -= 1
         
         # Add a dimere on top case
         if process_number % 9 == 0:
