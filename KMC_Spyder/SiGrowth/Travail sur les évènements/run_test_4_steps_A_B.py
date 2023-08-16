@@ -36,15 +36,19 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # Processe's order = [add dimere, go right, go left, go forward, go backward]
         # Repeat X times where X is the number of different steps
         
-        # Add a dimere on top case
-        if process_number % 5 == 0:
-            return SendFlux
-        
-        #to avoid vacnacies diffusion in an higher step
+        #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
         for i in range(1, 4+1):
             if elements_before[0] == elements_before[i]:
                 is_in_bulk += 1
+        
+        # Add a dimere on top case
+        if process_number % 5 == 0:
+            if is_in_bulk == 4
+                return SendFlux
+            else:
+                return 0
+        
         if is_in_bulk >= 3 and (process_number % 5 != 0):
             return 0
         
@@ -59,9 +63,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             if Move_A:
                 
                 if dimere_type == elements_before[2]:
-                    n_parallel +=1
+                    n_parallel += 1
                 if dimere_type == elements_before[3]:
-                    n_parallel +=1
+                    n_parallel += 1
                 if dimere_type == elements_before[1]:
                     n_normal += 1
                 if dimere_type == elements_before[4]:
@@ -105,8 +109,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100000,
-                                          dump_interval=10000,
+control_parameters = KMCControlParameters(number_of_steps=10000,
+                                          dump_interval=1000,
                                           seed=120)
 
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")

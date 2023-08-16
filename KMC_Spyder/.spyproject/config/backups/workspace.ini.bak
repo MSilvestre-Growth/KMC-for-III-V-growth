@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['SiGrowth\\custom_processes.py', 'SiGrowth\\run_test_4_steps.py', 'SiGrowth\\generate_config_4_steps.py', 'APD-burrying\\Runs\\Steps_number_2\\GIFMaker.py', 'APD-burrying\\Runs\\custom_traj_2_steps.py', 'SiGrowth\\custom_traj_4_steps.py']
+recent_files = ['SiGrowth\\Travail sur les évènements\\ImageGeneration\\display_images.py', 'SiGrowth\\Travail sur les évènements\\custom_traj_4_steps.py', 'SiGrowth\\Travail sur les évènements\\run_test_4_steps_A_B.py', 'SiGrowth\\Travail sur les évènements\\custom_processes_An_Bn_bon_niveaux.py']
 
 [main]
 version = 0.2.0
