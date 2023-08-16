@@ -114,7 +114,7 @@ for a in range(len(sorted_list_of_possible_types)-2):
 for i in range(1,3):
     
     elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-(3-i)]
-    elements_after = sorted_list_of_possible_types[i]
+    elements_after = sorted_list_of_possible_types[i-1]
     #print elements_before
     #print elements_after
     
@@ -125,7 +125,7 @@ for i in range(1,3):
                                            basis_sites=[0],
                                            rate_constant=0.0))
     
-    step_jump = sorted_list_of_possible_types[i+1]
+    step_jump = sorted_list_of_possible_types[i]
     
     before_moving = [elements_after, elements_before]
     after_moving = [elements_before, elements_after]
