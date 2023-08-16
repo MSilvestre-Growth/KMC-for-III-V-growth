@@ -93,7 +93,7 @@ for a in range(len(sorted_list_of_possible_types)-2):
     #print 'after_moving'
     #print after_moving
     
-    step_jumping = [elements_before, step_jump]
+    step_jumping = [elements_after, step_jump]
     
     for i in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
@@ -129,7 +129,7 @@ for i in range(1,3):
     
     before_moving = [elements_after, elements_before]
     after_moving = [elements_before, elements_after]
-    step_jumping = [elements_before, step_jump]
+    step_jumping = [elements_after, step_jump]
         
     for j in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[j],
