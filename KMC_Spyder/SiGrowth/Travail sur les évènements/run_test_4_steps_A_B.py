@@ -39,7 +39,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
         for i in range(1, 4+1):
-            if int(elements_before[0][1]) <= int(elements_before[i][1]):
+            if ( int(elements_before[0][1]) <= int(elements_before[i][1]) ) or (int(elements_before[0][1]) == 1 and int(elements_before[0][1]) == 4):
                 is_in_bulk += 1
         
         # Add a dimere on top case
@@ -120,8 +120,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=1000000,
-                                          dump_interval=100000,
+control_parameters = KMCControlParameters(number_of_steps=100000,
+                                          dump_interval=10000,
                                           seed=120)
 
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
