@@ -44,7 +44,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         # Add a dimere on top case
         if process_number % 5 == 0:
-            if is_in_bulk == 4
+            if is_in_bulk == 4:
                 return SendFlux
             else:
                 return 0
