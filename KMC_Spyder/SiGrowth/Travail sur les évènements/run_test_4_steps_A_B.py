@@ -39,7 +39,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
         for i in range(1, 4+1):
-            if elements_before[0] == elements_before[i]:
+            if int(elements_before[0][1]) <= int(elements_before[i][1]):
                 is_in_bulk += 1
         
         # Add a dimere on top case
