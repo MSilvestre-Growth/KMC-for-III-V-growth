@@ -63,7 +63,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             # Jump step event only where there is a step #
             ##############################################
             for i in range(4):
-                if (process_number % 9 == i) and int(elements_before[i+1][1]) - int(elements_before[0][1]) != 2:
+                if (process_number % 9 == 5+i) and int(elements_before[i+1][1]) - int(elements_before[0][1]) != 2:
                     return 0
             
             ###################################
