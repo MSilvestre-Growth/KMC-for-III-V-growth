@@ -92,7 +92,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
      #            E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
      #            return k0*np.exp( - E_tot * q / (kb * T) )
      
-        return 0
+        return 0.0
 
         
     def cutoff(self):
