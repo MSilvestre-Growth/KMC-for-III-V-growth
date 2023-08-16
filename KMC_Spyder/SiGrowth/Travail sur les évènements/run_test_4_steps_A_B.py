@@ -58,6 +58,13 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         else:
             Move_A = (process_number % 9 != 0) and (dimere_type == 'A')
             Move_B = (process_number % 9 != 0) and (dimere_type == 'B')
+        
+            ##############################################
+            # Jump step event only where there is a step #
+            ##############################################
+            for i in range(4):
+                if (process_number % 9 == i) and abs(element_before[i+1][1] - element_before[0][0]) != 2:
+                    return 0
             
             ###################################
             # Anisotropy is implemented here !#
