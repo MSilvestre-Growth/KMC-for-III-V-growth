@@ -97,6 +97,14 @@ for a in range(len(sorted_list_of_possible_types)-2):
     before_jump = [elements_before, step_jump]
     step_jumping = [elements_after, elements_after]
     
+    print "elements_before"
+    print elements_before
+       
+    print "elements_after"
+    print elements_after
+
+    print "jump_step"
+    print step_jump
     for i in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=before_moving,
@@ -135,6 +143,14 @@ after_moving = [elements_before, elements_after]
 before_jump = [elements_before, step_jump]
 step_jumping = [elements_after, elements_after]
        
+print "elements_before"
+print elements_before
+       
+print "elements_after"
+print elements_after
+
+print "jump_step"
+print step_jump
 for j in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
                                            elements_before=before_moving,
@@ -168,7 +184,15 @@ before_moving = [elements_after, elements_before]
 after_moving = [elements_before, elements_after]
 before_jump = [elements_before, step_jump]
 step_jumping = [elements_after, elements_after]
+print "elements_before"
+print elements_before
        
+print "elements_after"
+print elements_after
+
+print "jump_step"
+print step_jump
+
 for j in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
                                            elements_before=before_moving,
