@@ -24,7 +24,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     	E_parallel = 0.5
     	k0 = 10**13
     
-    	SendFlux = 0
+    	SendFlux = 0.37
 
         n_parallel = 0
         n_normal = 0        
@@ -120,8 +120,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100,
-                                          dump_interval=10,
+control_parameters = KMCControlParameters(number_of_steps=10000,
+                                          dump_interval=1000,
                                           seed=120)
 
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
