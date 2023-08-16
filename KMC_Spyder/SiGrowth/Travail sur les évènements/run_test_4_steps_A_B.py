@@ -38,11 +38,13 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
+        in_the_last-step = 0
         for i in range(1, 4+1):
-            if int(elements_before[0][1]) <= int(elements_before[i][1]):
-                is_in_bulk += 1
+            in_the_last-step = 0
             if int(elements_before[0][1]) == 1 and int(elements_before[i][1]) == 4:
-                is_in_bulk -= 1
+                in_the_last-step = 1
+            if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (in_the_last-step == 0):
+                is_in_bulk += 1
         
         # Add a dimere on top case
         if process_number % 9 == 0:
