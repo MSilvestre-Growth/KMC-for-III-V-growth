@@ -24,7 +24,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     	E_parallel = 0.5
     	k0 = 10**13
     
-    	SendFlux = 0.37
+    	SendFlux = 0
 
         n_parallel = 0
         n_normal = 0        
@@ -65,33 +65,33 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             
             if Move_A:
                 
-                # if dimere_type == elements_before[2]:
-                #     n_parallel += 1
-                # if dimere_type == elements_before[3]:
-                #     n_parallel += 1
-                # if dimere_type == elements_before[1]:
-                #     n_normal += 1
-                # if dimere_type == elements_before[4]:
-                #     n_normal += 1
+                if dimere_type == elements_before[2]:
+                    n_parallel += 1
+                if dimere_type == elements_before[3]:
+                    n_parallel += 1
+                if dimere_type == elements_before[1]:
+                    n_normal += 1
+                if dimere_type == elements_before[4]:
+                    n_normal += 1
                 
-                # E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                # return k0*np.exp( - E_tot * q / (kb * T) )
-                return 0
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
+
             
             if Move_B:
                 
-                # if dimere_type == elements_before[2]:
-                #     n_normal +=1
-                # if dimere_type == elements_before[3]:
-                #     n_normal +=1
-                # if dimere_type == elements_before[1]:
-                #     n_parallel += 1
-                # if dimere_type == elements_before[4]:
-                #     n_parallel += 1
+                if dimere_type == elements_before[2]:
+                    n_normal +=1
+                if dimere_type == elements_before[3]:
+                    n_normal +=1
+                if dimere_type == elements_before[1]:
+                    n_parallel += 1
+                if dimere_type == elements_before[4]:
+                    n_parallel += 1
                 
-                # E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                # return k0*np.exp( - E_tot * q / (kb * T) )
-                return 0
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
+
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
