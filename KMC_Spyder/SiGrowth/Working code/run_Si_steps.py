@@ -4,9 +4,21 @@ Created on Fri Aug  4 17:18:14 2023
 
 @author: msilvestre
 
+This is where you implement physics. The rate function in the CustomRateCalculator
+allows you to set probabilities of each events defined in custom_processes.py
+- In first time you set physical constants such as energies, atomic flux and
+temperature.
+- In a second time, you take neigbors into acount, which affect event's 
+probabilities and allows you to avoid some events when the local configuration 
+does not allow them.
+- In a third time, you explicitly write the event probability (most often it is
+based on Boltzman's law)
+- The last thing you need to set up is the number of simulation steps and how
+often you save a configuration in custom_traj.py
 """
 from KMCLib import *
 import numpy as np
+
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
@@ -15,16 +27,16 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
         
-    	 # Physical value
-	T = 850 #temperature
-    	kb = 1.38*10**(-23)
-    	q = 1.6*10**(-19)
-    	E_substrate = 1.3
-    	E_normal = 0.05
-    	E_parallel = 0.5
-    	k0 = 10**13
+        # Physical value
+        T = 850 #temperature
+        kb = 1.38*10**(-23)
+        q = 1.6*10**(-19)
+        E_substrate = 1.3
+        E_normal = 0.05
+        E_parallel = 0.5
+        k0 = 10**13 #hopping constant for the Boltzman's law
     
-    	SendFlux = 0.37
+        SendFlux = 0.37
 
         n_parallel = 0
         n_normal = 0        
@@ -33,7 +45,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
         
-        # Processe's order = [add dimere, go right, go left, go forward, go backward]
+        # Processe's order = [add dimere, go right, go left, go forward, go backward,
+        # jump forward, jump left, jump right, jump backward]
         # Repeat X times where X is the number of different steps
         
         #to avoid vacancies diffusion in an higher step
@@ -52,9 +65,6 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         if is_in_bulk >= 3 and (process_number % 9 != 0):
             return 0
-        
-        # if process_number % 5 != 0:
-        #     return 0
   
         else:
             Move_A = (process_number % 9 != 0) and (dimere_type == 'A')
@@ -107,7 +117,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 # Load initial configuration
 config = KMCConfigurationFromScript("config_4_steps.py")
 #creation of the interaction oject
-interactions = KMCInteractionsFromScript("custom_processes_An_Bn_bon_niveaux.py")    
+interactions = KMCInteractionsFromScript("custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 

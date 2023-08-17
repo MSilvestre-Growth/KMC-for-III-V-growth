@@ -3,6 +3,11 @@
 Created on Fri Aug  4 14:36:22 2023
 
 @author: msilvestre
+
+The goal of this program is to generate a starting surface for the KMC simulation
+
+running command :
+python2 generate_config_4_steps.py > config_4_steps.py
 """
 
 # Copyright (c)  2014  Mikael Leetmaa
@@ -29,16 +34,41 @@ unit_cell = KMCUnitCell(
 # -----------------------------------------------------------------------------
 # Lattice
 
+################################################################################
+#    User zone : define the size and the periodicity of your simulated zone    #
+################################################################################
+
+# Precise the number of pixel in each direction (at least 1)
+X = 100
+Y = 100
+Z = 1
+
+# Precise if you want your structure to be periodic in different directions
+# (True or False)
+X_periodic = True
+Y_periodic = True
+Z_periodic = False
+
+# Setting of the lattice with previous informations
 lattice = KMCLattice(
     unit_cell=unit_cell,
-    repetitions=(100,100,1),
-    periodic=(True, True, False))
+    repetitions=(X,Y,Z),
+    periodic=(X_periodic, Y_periodic, Z_periodic))
 
 # -----------------------------------------------------------------------------
 # Configuration
 
-Number_of_supplementary_higher_steps = 2
+##################################################
+#    User Zone : define your starting surface    #
+##################################################
 
+# types is a SIMPLE list which must contain X * Y elements
+# the position in the XxY matrix can be deduce by the position p in types list
+# as following :
+# let (q,r) be the euclidian of p by X i.e. p = q*X+r
+# then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
+
+# writting of starting surface
 types = ['A1']*2500
 
 for i in range(2500) :
@@ -50,9 +80,17 @@ for j in range(2500) :
 for k in range(2500) :
     types.append('B4')
 
+# write all possibles types that you entered previously
 possible_types = ['A1','B2','A3','B4']
+
+# We want to define supplementary steps to be coherent with our step notation
+# and atomic processes describes in custom process
+Number_of_supplementary_higher_steps = 2
+
+# nothing more to write from there
 sorted_step = []
 
+# Automated addition of supplementary steps -> reseach of names for the steps 
 for i in range(len(possible_types)):
     #print possible_types 
     min_height = int(possible_types[0][1])
@@ -69,7 +107,7 @@ last_step =  sorted_step[len(sorted_step)-1]
 last_step_type = last_step[0]
 last_step_height = int(last_step[1])
 
-# Add two new virtual highest steps in the list
+# Automated addition of supplementary steps -> addition of the steps
 for i in range(1, Number_of_supplementary_higher_steps+1):
     if (last_step_type == "A" and i % 2 == 1) or (last_step_type == "B" and i % 2 == 0):
         new_high_step = "B" + str(last_step_height+i)
@@ -78,19 +116,20 @@ for i in range(1, Number_of_supplementary_higher_steps+1):
         new_high_step = "A" + str(last_step_height+i)
         sorted_step.append(new_high_step)
 
+# Setting parameters of the configuration with previous informations
 configuration = KMCConfiguration(
     lattice=lattice,
     types=types,
     possible_types=sorted_step)
 
-# print tests
-dictionnary_of_possible_types = configuration.possibleTypes()
-print dictionnary_of_possible_types
+# # print tests
+# dictionnary_of_possible_types = configuration.possibleTypes()
+# print dictionnary_of_possible_types
 
-list_of_possible_types = dictionnary_of_possible_types.keys()
-del dictionnary_of_possible_types['*']
-print list_of_possible_types
-# end print tests
+# list_of_possible_types = dictionnary_of_possible_types.keys()
+# del dictionnary_of_possible_types['*']
+# print list_of_possible_types
+# # end print tests
 
 # Use the _script() function to get a script that can generate the configuration.
 print "from KMCLib import *"
