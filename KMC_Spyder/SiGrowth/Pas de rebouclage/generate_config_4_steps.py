@@ -75,7 +75,7 @@ for i in range(1, Number_of_supplementary_higher_steps+1):
         new_high_step = "B" + str(last_step_height+i)
         sorted_step.append(new_high_step)
     if (last_step_type == "A" and i % 2 == 0) or (last_step_type == "B" and i % 2 == 1):
-        new_high_step = "B" + str(last_step_height+i)
+        new_high_step = "A" + str(last_step_height+i)
         sorted_step.append(new_high_step)
 
 configuration = KMCConfiguration(
