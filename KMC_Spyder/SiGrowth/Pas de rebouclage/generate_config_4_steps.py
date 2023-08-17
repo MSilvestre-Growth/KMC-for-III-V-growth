@@ -63,7 +63,7 @@ for i in range(len(possible_types)):
     sorted_step.append(possible_types[index])
     del possible_types[index]
 
-last_step =  sorted_step(len(sorted_step)-1)
+last_step =  sorted_step[len(sorted_step)-1]
 last_step_type = last_step[0]
 last_step_height = int(last_step[1])
 
@@ -81,7 +81,7 @@ configuration = KMCConfiguration(
     possible_types=sorted_step)
 
 # print tests
-dictionnary_of_possible_types = config.possibleTypes()
+dictionnary_of_possible_types = configuration.possibleTypes()
 print dictionnary_of_possible_types
 
 list_of_possible_types = dictionnary_of_possible_types.keys()
