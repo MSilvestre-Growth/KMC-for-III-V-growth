@@ -15,6 +15,9 @@ does not allow them.
 based on Boltzman's law)
 - The last thing you need to set up is the number of simulation steps and how
 often you save a configuration in custom_traj.py
+
+WARNING : the highest step is considered to be the highest on the wafer,
+there is no stepflow above it
 """
 from KMCLib import *
 import numpy as np

@@ -17891,14 +17891,23 @@ types.append(["A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","
               "B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4",
               "B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4",
               "B4","B4","B4","B4"])
+""" Copy this file to create images of your simulation in path + file name"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 from itertools import islice
 from PIL import Image
 
+path = "C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/"
+
 possible_types = ['A1','B2', 'A3', 'B4', 'A5', 'B6']
+#colors = [[0,0,125],[150,0,0],[0,0,175],[200,0,0],[0,0,225],[250,0,0]]
 
 for i in range(len(types)):
+    ###################
+    #    file name    #
+    ###################
+    file_name = "Imtest%d.png" % i
     KMC_Result_current = types[i]
     # Conversion of "U" in 1 and "D" in 0 for display purposes
     for j in range(len(KMC_Result_current)):
@@ -17917,4 +17926,4 @@ for i in range(len(types)):
     #plt.imshow(KMC_Result_current_matrix)
     
     #Image saving in other directory
-    plt.imsave("C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/Imtest%d.png" % i, KMC_Result_current_matrix)
+    plt.imsave(path+file_name, KMC_Result_current_matrix)
