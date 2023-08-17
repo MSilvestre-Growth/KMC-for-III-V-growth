@@ -37,6 +37,8 @@ lattice = KMCLattice(
 # -----------------------------------------------------------------------------
 # Configuration
 
+Number_of_supplementary_higher_steps = 2
+
 types = ['A1']*2500
 
 for i in range(2500) :
@@ -67,14 +69,15 @@ last_step =  sorted_step[len(sorted_step)-1]
 last_step_type = last_step[0]
 last_step_height = int(last_step[1])
 
-# Add a new virtual highest step in the list
-if last_step_type == "A":
-    new_high_step = "B" + str(last_step_height+1)
-    sorted_step.append(new_high_step)
-if last_step_type == "B":
-    new_high_step = "A" + str(last_step_height+1)
-    sorted_step.append(new_high_step)
-    
+# Add two new virtual highest steps in the list
+for i in range(1, Number_of_supplementary_higher_steps+1):
+    if (last_step_type == "A" and i % 2 == 1) or (last_step_type == "B" and i % 2 == 0):
+        new_high_step = "B" + str(last_step_height+i)
+        sorted_step.append(new_high_step)
+    if (last_step_type == "A" and i % 2 == 0) or (last_step_type == "B" and i % 2 == 1):
+        new_high_step = "B" + str(last_step_height+i)
+        sorted_step.append(new_high_step)
+
 configuration = KMCConfiguration(
     lattice=lattice,
     types=types,

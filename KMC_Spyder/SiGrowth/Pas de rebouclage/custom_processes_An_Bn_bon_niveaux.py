@@ -3,8 +3,6 @@
 Created on Fri Aug  4 16:52:10 2023
 
 @author: msilvestre
-
-We add a virtual step on top of the highest one to simulate the highest step burrying
 """
 
 # Copyright (c)  2014  Mikael Leetmaa
@@ -21,7 +19,6 @@ processes = []
 
 # store the configuration to get all possibles types
 config = KMCConfigurationFromScript("config_4_steps.py")
-
 
 # Get the possible types from config
 dictionnary_of_possible_types = config.possibleTypes()
@@ -121,6 +118,96 @@ for a in range(len(sorted_list_of_possible_types)-2):
                                                elements_after=step_jumping,
                                                basis_sites=[0],
                                                rate_constant=0.0))
+    
+
+
+# Last steps lead to the first ones (periodicity) (2 last steps linked to the 2 first)
+
+# before last step
+    
+elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2]
+elements_after = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
+#print elements_before
+#print elements_after
+    
+coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
+processes.append(KMCProcess(coordinates=coordinates,
+                                       elements_before=[elements_before],
+                                       elements_after=[elements_after],
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+    
+step_jump = sorted_list_of_possible_types[0]
+
+before_moving = [elements_after, elements_before]
+after_moving = [elements_before, elements_after]
+before_jump = [elements_before, step_jump]
+step_jumping = [elements_after, elements_after]
+       
+# print "elements_before"
+# print elements_before
+       
+# print "elements_after"
+# print elements_after
+
+# print "step_jump"
+# print step_jump
+
+for j in range(len(list_of_coordinates)):
+    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
+                                           elements_before=before_moving,
+                                           elements_after=after_moving,
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
+for j in range(len(list_of_coordinates)):
+    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
+                                           elements_before=before_jump,
+                                           elements_after=step_jumping,
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
+
+# last step
+    
+elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
+elements_after = sorted_list_of_possible_types[0]
+#print elements_before
+#print elements_after
+    
+coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
+processes.append(KMCProcess(coordinates=coordinates,
+                                       elements_before=[elements_before],
+                                       elements_after=[elements_after],
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+    
+step_jump = sorted_list_of_possible_types[1]
+
+before_moving = [elements_after, elements_before]
+after_moving = [elements_before, elements_after]
+before_jump = [elements_before, step_jump]
+step_jumping = [elements_after, elements_after]
+
+# print "elements_before"
+# print elements_before
+       
+# print "elements_after"
+# print elements_after
+
+# print "step_jump"
+# print step_jump
+
+for j in range(len(list_of_coordinates)):
+    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
+                                           elements_before=before_moving,
+                                           elements_after=after_moving,
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
+for j in range(len(list_of_coordinates)):
+    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
+                                           elements_before=before_jump,
+                                           elements_after=step_jumping,
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
 
 #print len(processes)
 # Create the interactions object.
