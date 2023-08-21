@@ -75,15 +75,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0
   
         else:
-            Move_A = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'A')
-            Move_B = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'B')
+            Move_A = ((process_number % 9 == 1) or (process_number % 9 == 9)) and (dimere_type == 'A')
+            Move_B = ((process_number % 9 == 1) or (process_number % 9 == 9)) and (dimere_type == 'B')
 
-            print "concerned_dimere"
-            print concerned_dimere
-            print "dimere forward"
-            print elements_before[1]
-
-            other = (process_number % 9 != 1) and (process_number % 9 != 5)
+            other = (process_number % 9 != 1) and (process_number % 9 != 9)
             if other :
                 return 0
             ##############################################
@@ -98,7 +93,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             ###################################
            
             if Move_A:
-               
+                print "concerned_dimere"
+                print concerned_dimere
+                print "dimere forward"
+                print elements_before[1]
                 if concerned_dimere == elements_before[2]:
                     n_parallel += 1
                 if concerned_dimere == elements_before[3]:
@@ -113,7 +111,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
             
             if Move_B:
-                
+                print "concerned_dimere"
+                print concerned_dimere
+                print "dimere forward"
+                print elements_before[1]
                 if concerned_dimere == elements_before[2]:
                     n_normal +=1
                 if concerned_dimere == elements_before[3]:
