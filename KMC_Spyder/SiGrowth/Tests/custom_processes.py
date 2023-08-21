@@ -231,11 +231,5 @@ for j in range(len(list_of_coordinates)):
                                            basis_sites=[0],
                                            rate_constant=0.0))
 
-#print len(processes)
-print "type de marches"
-print sorted_list_of_possible_types
-
-print "len(processes)"
-print len(processes)
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
