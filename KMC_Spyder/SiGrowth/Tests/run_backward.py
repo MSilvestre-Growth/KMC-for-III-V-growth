@@ -78,7 +78,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             Move_A = ((process_number % 9 == 4) or (process_number % 9 == 8)) and (dimere_type == 'A')
             Move_B = ((process_number % 9 == 4) or (process_number % 9 == 8)) and (dimere_type == 'B')
 
-            other = (process_number % 9 != 1) and (process_number % 9 != 8)
+            other = (process_number % 9 != 4) and (process_number % 9 != 8)
             if other :
                 return 0
             ##############################################
@@ -154,8 +154,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100,
-                                          dump_interval=10,
+control_parameters = KMCControlParameters(number_of_steps=10,
+                                          dump_interval=1,
                                           seed=120)
 
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
