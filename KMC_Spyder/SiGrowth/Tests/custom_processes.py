@@ -69,8 +69,8 @@ for i in range(NumberOfTypes):
 # From elements_after point of view : list_of_coordinates = [backward, right, left, forward]
 # This move order is due to elements_before order in the custom rate calculator in the run program
 list_of_coordinates = [[[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
+                       [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
                        ]
 
