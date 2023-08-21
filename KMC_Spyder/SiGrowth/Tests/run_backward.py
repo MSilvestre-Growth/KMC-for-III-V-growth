@@ -63,7 +63,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         for i in range(1, 4+1):
             if (int(elements_before[0][1]) <= int(elements_before[i][1])):
                 is_in_bulk += 1
-        
+
+
         # Add a dimere on top case
         if process_number % 9 == 0:
             if is_in_bulk == 4:
@@ -72,28 +73,33 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 return 0
         
         if is_in_bulk >= 3 and (process_number % 9 != 0):
-            return 0
-  
+            return 0	
+ 
         else:
+	    print "is_in_bulk"
+	    print is_in_bulk
             Move_A = ((process_number % 9 == 4) or (process_number % 9 == 8)) and (dimere_type == 'A')
             Move_B = ((process_number % 9 == 4) or (process_number % 9 == 8)) and (dimere_type == 'B')
 
             other = (process_number % 9 != 4) and (process_number % 9 != 8)
             if other :
+		print "process_number % 9"
+		print process_number % 9
                 return 0
             ##############################################
             # Jump step event only where there is a step #
             ##############################################
             for i in range(4):
-		print "elements_before[0]"
-		print elements_before[0]
-		print "elements_before[i+1][1]"
-		print elements_before[i+1]
-                if (process_number % 9 == 5+i) and int(elements_before[i+1][1]) - int(elements_before[0][1]) != -2:
-		    print "coucou"
-                    print int(elements_before[i+1][1]) - int(elements_before[0][1])
-                    return 0
-            
+		#print "elements_before[0]"
+		#print elements_before[0]
+		#print "elements_before[i+1][1]"
+		#print elements_before[i+1]
+                if (process_number % 9 == 5+i) and abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 2:
+			print "coucou"
+			print int(elements_before[i+1][1]) - int(elements_before[0][1])
+			return 0
+            if process_number % 9 == 8:
+		print "process_number % 9 == 8"
             ###################################
             # Anisotropy is implemented here !#
             ###################################
