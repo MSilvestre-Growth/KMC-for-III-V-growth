@@ -48,6 +48,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
         
+        print "concerned_dimere"
+        print concerned_dimere
+        print "dimere forward"
+        print element_before[1]
+        
         # Processe's order = [add dimere, go right, go left, go forward, go backward,
         # jump forward, jump left, jump right, jump backward]
         # Repeat X times where X is the number of different steps
@@ -137,8 +142,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100,
-                                          dump_interval=10,
+control_parameters = KMCControlParameters(number_of_steps=5,
+                                          dump_interval=1,
                                           seed=120)
 
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
