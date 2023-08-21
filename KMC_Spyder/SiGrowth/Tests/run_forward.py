@@ -48,10 +48,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
         
-        print "concerned_dimere"
-        print concerned_dimere
-        print "dimere forward"
-        print element_before[1]
+#        print "concerned_dimere"
+#        print concerned_dimere
+#        print "dimere forward"
+#        print elements_before[1]
         
         # Processe's order = [add dimere, go right, go left, go forward, go backward,
         # jump forward, jump left, jump right, jump backward]
@@ -77,6 +77,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         else:
             Move_A = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'A')
             Move_B = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'B')
+
+            print "concerned_dimere"
+            print concerned_dimere
+            print "dimere forward"
+            print elements_before[1]
 
             other = (process_number % 9 != 1) and (process_number % 9 != 5)
             if other :
