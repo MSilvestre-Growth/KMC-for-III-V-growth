@@ -75,10 +75,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0
   
         else:
-            Move_A = ((process_number % 9 == 2) or (process_number % 9 == 6)) and (dimere_type == 'A')
-            Move_B = ((process_number % 9 == 2) or (process_number % 9 == 6)) and (dimere_type == 'B')
+            Move_A = ((process_number % 9 == 3) or (process_number % 9 == 7)) and (dimere_type == 'A')
+            Move_B = ((process_number % 9 == 3) or (process_number % 9 == 7)) and (dimere_type == 'B')
 
-            other = (process_number % 9 != 2) and (process_number % 9 != 6)
+            other = (process_number % 9 != 3) and (process_number % 9 != 7)
             if other :
                 return 0
             ##############################################
