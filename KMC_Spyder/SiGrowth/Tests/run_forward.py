@@ -75,17 +75,23 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0
   
         else:
-            Move_A = ((process_number % 9 == 1) or (process_number % 9 == 9)) and (dimere_type == 'A')
-            Move_B = ((process_number % 9 == 1) or (process_number % 9 == 9)) and (dimere_type == 'B')
+            Move_A = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'A')
+            Move_B = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'B')
 
-            other = (process_number % 9 != 1) and (process_number % 9 != 9)
+            other = (process_number % 9 != 1) and (process_number % 9 != 5)
             if other :
                 return 0
             ##############################################
             # Jump step event only where there is a step #
             ##############################################
             for i in range(4):
-                if (process_number % 9 == 5+i) and int(elements_before[i+1][1]) - int(elements_before[0][1]) != 2:
+		print "elements_before[0]"
+		print elements_before[0]
+		print "elements_before[i+1][1]"
+		print elements_before[i+1]
+                if (process_number % 9 == 5+i) and int(elements_before[i+1][1]) - int(elements_before[0][1]) != -2:
+		    print "coucou"
+                    print int(elements_before[i+1][1]) - int(elements_before[0][1])
                     return 0
             
             ###################################

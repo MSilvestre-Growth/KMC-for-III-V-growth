@@ -120,7 +120,7 @@ for a in range(len(sorted_list_of_possible_types)-2):
         
     # Movement from a step to the one below it
     step_jump = sorted_list_of_possible_types[a+2]    
-    before_jump = [elements_before, step_jump]
+    before_jump = [step_jump, elements_before]
     step_jumping = [elements_after, elements_after]
     
     # print "elements_before"
