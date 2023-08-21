@@ -70,9 +70,12 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0
   
         else:
-            Move_A_forward = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'A')
+            Move_A = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'A')
             Move_B = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'B')
-        
+
+            other = (process_number % 9 != 1) and (process_number % 9 != 5)
+            if other :
+                return 0
             ##############################################
             # Jump step event only where there is a step #
             ##############################################
