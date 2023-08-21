@@ -138,7 +138,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         return 1.0
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_4_steps.py")
+config = KMCConfigurationFromScript("left_config.py")
 #creation of the interaction oject
 interactions = KMCInteractionsFromScript("custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
@@ -154,8 +154,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100,
-                                          dump_interval=10,
+control_parameters = KMCControlParameters(number_of_steps=10,
+                                          dump_interval=1,
                                           seed=120)
 
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")

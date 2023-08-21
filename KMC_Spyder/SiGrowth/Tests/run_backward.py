@@ -92,7 +92,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 print elements_before[0]
                 print "elements_before[i+1][1]"
                 print elements_before[i+1]
-                if (process_number % 9 == 5+i) and (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 2) or (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 0):
+                if (process_number % 9 == 5+i) :#and (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 2) and (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 0):
                     print "coucou"
                     print int(elements_before[i+1][1]) - int(elements_before[0][1])
                     return 0

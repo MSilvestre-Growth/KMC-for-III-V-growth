@@ -69,7 +69,8 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-for i in range(100000):
+types = []
+for i in range(X*Y):
     if i % 100 < 50:
         types.append('B2')
     else:
@@ -80,7 +81,7 @@ possible_types = ['A1','B2']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
-Number_of_supplementary_higher_steps = 0
+Number_of_supplementary_higher_steps =1 
 
 # nothing more to write from there
 sorted_step = []
