@@ -76,15 +76,13 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0	
  
         else:
-	    print "is_in_bulk"
-	    print is_in_bulk
+	    #print "is_in_bulk"
+	    #print is_in_bulk
             Move_A = ((process_number % 9 == 4) or (process_number % 9 == 8)) and (dimere_type == 'A')
             Move_B = ((process_number % 9 == 4) or (process_number % 9 == 8)) and (dimere_type == 'B')
 
             other = (process_number % 9 != 4) and (process_number % 9 != 8)
-            if other :
-		print "process_number % 9"
-		print process_number % 9
+            if other:
                 return 0
             ##############################################
             # Jump step event only where there is a step #
@@ -94,17 +92,19 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 		#print elements_before[0]
 		#print "elements_before[i+1][1]"
 		#print elements_before[i+1]
-                if (process_number % 9 == 5+i) and abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 2:
-			print "coucou"
-			print int(elements_before[i+1][1]) - int(elements_before[0][1])
-			return 0
+                if (process_number % 9 == 5+i) and (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 2) or (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 0):
+                    print "coucou"
+                    print int(elements_before[i+1][1]) - int(elements_before[0][1])
+                    return 0
             if process_number % 9 == 8:
-		print "process_number % 9 == 8"
+                print "process_number % 9 == 8"
             ###################################
             # Anisotropy is implemented here !#
             ###################################
            
             if Move_A:
+		print "process_number A"
+		print process_number
                 print "concerned_dimere"
                 print concerned_dimere
                 print "dimere forward"
@@ -123,6 +123,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
             
             if Move_B:
+		print "process_number B"
+		print process_number
                 print "concerned_dimere"
                 print concerned_dimere
                 print "dimere forward"
