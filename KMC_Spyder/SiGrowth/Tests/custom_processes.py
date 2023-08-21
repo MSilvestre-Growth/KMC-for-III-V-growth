@@ -163,7 +163,7 @@ step_jump = sorted_list_of_possible_types[0]
 
 before_moving = [elements_after, elements_before]
 after_moving = [elements_before, elements_after]
-before_jump = [elements_before, step_jump]
+before_jump = [step_jump, elements_before]
 step_jumping = [elements_after, elements_after]
        
 # print "elements_before"
@@ -206,7 +206,7 @@ step_jump = sorted_list_of_possible_types[1]
 
 before_moving = [elements_after, elements_before]
 after_moving = [elements_before, elements_after]
-before_jump = [elements_before, step_jump]
+before_jump = [step_jump, elements_before]
 step_jumping = [elements_after, elements_after]
 
 # print "elements_before"
