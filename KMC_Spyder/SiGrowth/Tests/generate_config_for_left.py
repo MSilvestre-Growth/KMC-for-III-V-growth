@@ -71,17 +71,21 @@ lattice = KMCLattice(
 # writting of starting surface
 types = []
 for i in range(X*Y):
-    if i % 100 < 50:
+    if i % 100 < 25:
+        types.append('B4')
+    if (i % 100 >= 25) and (i % 100 < 50):
+        types.append('A3')
+    if (i % 100 >= 50) and (i % 100 < 75) :
         types.append('B2')
-    else:
+    if (i % 100 >= 75):
         types.append('A1')
 
 # write all possibles types that you entered previously
-possible_types = ['A1','B2']
+possible_types = ['A1','B2','A3','B4']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
-Number_of_supplementary_higher_steps =1 
+Number_of_supplementary_higher_steps = 2 
 
 # nothing more to write from there
 sorted_step = []

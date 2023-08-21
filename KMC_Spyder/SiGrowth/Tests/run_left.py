@@ -132,6 +132,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
+	    else :
+		return 0
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
@@ -140,7 +142,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 # Load initial configuration
 config = KMCConfigurationFromScript("left_config.py")
 #creation of the interaction oject
-interactions = KMCInteractionsFromScript("custom_processes.py")    
+interactions = KMCInteractionsFromScript("left_custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 
