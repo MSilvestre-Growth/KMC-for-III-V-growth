@@ -68,10 +68,10 @@ for i in range(NumberOfTypes):
 # From elements_before point of view : list_of_coordinates = [forward, left, right, backward]
 # From elements_after point of view : list_of_coordinates = [left, right, backward, forward]
 # This move order is due to elements_before order in the custom rate calculator in the run program
-list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
+list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
+                       [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
+                       [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]]
                        ]
 
 # Jump from one step to the other requires 2 higher states from the lower
