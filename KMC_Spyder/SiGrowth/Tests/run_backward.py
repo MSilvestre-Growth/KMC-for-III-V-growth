@@ -88,10 +88,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             # Jump step event only where there is a step #
             ##############################################
             for i in range(4):
-		#print "elements_before[0]"
-		#print elements_before[0]
-		#print "elements_before[i+1][1]"
-		#print elements_before[i+1]
+                print "elements_before[0]"
+                print elements_before[0]
+                print "elements_before[i+1][1]"
+                print elements_before[i+1]
                 if (process_number % 9 == 5+i) and (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 2) or (abs(int(elements_before[i+1][1]) - int(elements_before[0][1])) != 0):
                     print "coucou"
                     print int(elements_before[i+1][1]) - int(elements_before[0][1])
@@ -103,8 +103,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             ###################################
            
             if Move_A:
-		print "process_number A"
-		print process_number
+                print "process_number A"
+                print process_number
                 print "concerned_dimere"
                 print concerned_dimere
                 print "dimere forward"
@@ -123,8 +123,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
             
             if Move_B:
-		print "process_number B"
-		print process_number
+                print "process_number B"
+                print process_number
                 print "concerned_dimere"
                 print concerned_dimere
                 print "dimere forward"
