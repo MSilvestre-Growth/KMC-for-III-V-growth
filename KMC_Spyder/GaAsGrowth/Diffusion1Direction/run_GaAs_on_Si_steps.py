@@ -67,7 +67,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0        
         
-        Nb_process_per_type = 5 + Nb_possible_overgrowth
+        Nb_process_per_type = 5 + (Nb_possible_overgrowth-1)
 
     	#print element_before[0]    
         concerned_dimere = elements_before[0]
@@ -185,3 +185,5 @@ control_parameters = KMCControlParameters(number_of_steps=10000,
                                           seed=120)
 
 model.run(control_parameters, trajectory_filename="custom_traj_GaAs_on_Si_4_steps.py")
+
+print Nb_sent_atoms
