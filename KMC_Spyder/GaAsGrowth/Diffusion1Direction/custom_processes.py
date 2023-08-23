@@ -144,22 +144,22 @@ for a in range(len(sorted_list_of_possible_types)-2):
     ####################
    
     for i in range(len(list_of_coordinates)):
-
-        overgrown_element = sorted_list_of_possible_types[i]
+        if i != a:
+            overgrown_element = sorted_list_of_possible_types[i]
         
-        before_moving = [overgrown_element, elements_before]
-        #print 'before_moving'
-        #print before_moving
+            before_moving = [overgrown_element, elements_before]
+            #print 'before_moving'
+            #print before_moving
         
-        after_moving = [elements_before, elements_before]
-        #print 'after_moving'
-        #print after_moving
+            after_moving = [elements_before, elements_before]
+            #print 'after_moving'
+            #print after_moving
         
-        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               elements_before=before_moving,
-                                               elements_after=after_moving,
-                                               basis_sites=[0],
-                                               rate_constant=0.0))
+            processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                                   elements_before=before_moving,
+                                                   elements_after=after_moving,
+                                                   basis_sites=[0],
+                                                   rate_constant=0.0))
 
 # Last steps lead to the first ones (periodicity) (2 last steps linked to the 2 first)
 # Rmq : this periodicity may lead to problem in conditions for events to happen
@@ -209,22 +209,22 @@ for j in range(len(list_of_coordinates)):
 #                                            rate_constant=0.0))
 
 for i in range(len(list_of_coordinates)):
-
-    overgrown_element = sorted_list_of_possible_types[i]
+    if i != len(sorted_list_of_possible_types)-2:
+        overgrown_element = sorted_list_of_possible_types[i]
     
-    before_moving = [overgrown_element, elements_before]
-    #print 'before_moving'
-    #print before_moving
+        before_moving = [overgrown_element, elements_before]
+        #print 'before_moving'
+        #print before_moving
     
-    after_moving = [elements_before, elements_before]
-    #print 'after_moving'
-    #print after_moving
+        after_moving = [elements_before, elements_before]
+        #print 'after_moving'
+        #print after_moving
     
-    processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                           elements_before=before_moving,
-                                           elements_after=after_moving,
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=before_moving,
+                                               elements_after=after_moving,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
 # last step
     
 elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
@@ -270,22 +270,22 @@ for j in range(len(list_of_coordinates)):
 
 
 for i in range(len(list_of_coordinates)):
-
-    overgrown_element = sorted_list_of_possible_types[i]
+    if i != len(sorted_list_of_possible_types)-1:
+        overgrown_element = sorted_list_of_possible_types[i]
     
-    before_moving = [overgrown_element, elements_before]
-    #print 'before_moving'
-    #print before_moving
+        before_moving = [overgrown_element, elements_before]
+        #print 'before_moving'
+        #print before_moving
     
-    after_moving = [elements_before, elements_before]
-    #print 'after_moving'
-    #print after_moving
+        after_moving = [elements_before, elements_before]
+        #print 'after_moving'
+        #print after_moving
     
-    processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                           elements_before=before_moving,
-                                           elements_after=after_moving,
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=before_moving,
+                                               elements_after=after_moving,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
 
 #print len(processes)
 # Create the interactions object with previous parameters.
