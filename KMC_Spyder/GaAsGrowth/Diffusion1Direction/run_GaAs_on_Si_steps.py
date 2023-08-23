@@ -26,6 +26,23 @@ import numpy as np
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
     
+    # store the configuration to get all possibles types
+    config = KMCConfigurationFromScript("config_4_steps.py")
+
+    # Get the possible types from config
+    dictionnary_of_possible_types = config.possibleTypes()
+    #print dictionnary_of_possible_types
+
+    # Removal of generic '*' type from the dictionnary
+    del dictionnary_of_possible_types['*']
+
+    # Conversion of a dictionnary in the list of all entries
+    list_of_possible_types = dictionnary_of_possible_types.keys()
+    
+    Nb_possible_overgrowth = len(list_of_possible_types)
+    
+    Nb_sent_atoms = 0
+    Nb_sent_atoms_previous = 0
     
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
@@ -44,7 +61,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0        
         
-        Nb_process_per_type = 5
+        Nb_process_per_type = 5 + Nb_possible_overgrowth
 
     	#print element_before[0]    
         concerned_dimere = elements_before[0]
@@ -64,7 +81,20 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # Add a dimere on top case
         if process_number % Nb_process_per_type == 0:
             if is_in_bulk == 4:
+                Nb_sent_atoms += 1
                 return SendFlux
+            # Overgrowth
+            if (is_in_bulk < 4) and (process_number % Nb_process_per_type > 4):
+                if dimere_type == 'A' and ((abs(int(elements_before[2][1])-int(elements_before[0][1])) == 1) or (abs(int(elements_before[3][1])-int(elements_before[0][1])) == 1)) and (process_number - (process_number % Nb_process_per_type)) / Nb_process_per_type >= int(elements_before[0][1]):
+                    print "overGrowth A"
+                    Nb_sent_atoms += 1
+                    return SendFlux
+            
+            if (is_in_bulk < 4) and (process_number % Nb_process_per_type > 4):
+                if dimere_type == 'B' and ((abs(int(elements_before[1][1])-int(elements_before[0][1])) == 1) or (abs(int(elements_before[4][1])-int(elements_before[0][1])) == 1)) and (process_number - (process_number % Nb_process_per_type)) / Nb_process_per_type >= int(elements_before[0][1]):
+                    print "OverGrowth B"
+                    Nb_sent_atoms += 1
+                    return SendFlux
             else:
                 return 0
         
@@ -118,6 +148,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 
                     E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                     return k0*np.exp( - E_tot * q / (kb * T) )
+                
+        if Nb_sent_atoms_previous < Nb_sent_atoms :
+            Nb_sent_atoms_previous = Nb_sent_atoms
+            print Nb_sent_atoms
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
