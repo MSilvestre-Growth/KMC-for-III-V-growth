@@ -22,30 +22,36 @@ there is no stepflow above it
 from KMCLib import *
 import numpy as np
 
+# store the configuration to get all possibles types
+config = KMCConfigurationFromScript("config_4_steps.py")
+
+# Get the possible types from config
+dictionnary_of_possible_types = config.possibleTypes()
+#print dictionnary_of_possible_types
+
+# Removal of generic '*' type from the dictionnary
+del dictionnary_of_possible_types['*']
+
+# Conversion of a dictionnary in the list of all entries
+list_of_possible_types = dictionnary_of_possible_types.keys()
+    
+Nb_possible_overgrowth = len(list_of_possible_types)
+    
+Nb_sent_atoms = 0
+Nb_sent_atoms_previous = 0
+
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
     
-    # store the configuration to get all possibles types
-    config = KMCConfigurationFromScript("config_4_steps.py")
 
-    # Get the possible types from config
-    dictionnary_of_possible_types = config.possibleTypes()
-    #print dictionnary_of_possible_types
-
-    # Removal of generic '*' type from the dictionnary
-    del dictionnary_of_possible_types['*']
-
-    # Conversion of a dictionnary in the list of all entries
-    list_of_possible_types = dictionnary_of_possible_types.keys()
-    
-    Nb_possible_overgrowth = len(list_of_possible_types)
-    
-    Nb_sent_atoms = 0
-    Nb_sent_atoms_previous = 0
     
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
+        
+        global Nb_possible_overgrowth
+        global Nb_sent_atoms
+        global Nb_sent_atoms_previous
         
         # Physical value
         T = 650 #temperature
