@@ -62,7 +62,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 0.37
+        SendFlux =10 
 
         n_parallel = 0
         n_normal = 0        
