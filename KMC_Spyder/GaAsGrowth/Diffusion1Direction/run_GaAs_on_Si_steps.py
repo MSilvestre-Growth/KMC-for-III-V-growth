@@ -91,13 +91,13 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 return SendFlux
             # Overgrowth
             if (is_in_bulk < 4) and (process_number % Nb_process_per_type > 4):
-                if dimere_type == 'A' and ((abs(int(elements_before[2][1])-int(elements_before[0][1])) == 1) or (abs(int(elements_before[3][1])-int(elements_before[0][1])) == 1)) and (process_number - (process_number % Nb_process_per_type)) / Nb_process_per_type >= int(elements_before[0][1]):
+                if dimere_type == 'A' and ((abs(int(elements_before[2][1])-int(elements_before[0][1])) == 1) or (abs(int(elements_before[3][1])-int(elements_before[0][1])) == 1)) and (process_number - (process_number % Nb_process_per_type)) / Nb_process_per_type <= int(elements_before[0][1]):
                     print "overGrowth A"
                     Nb_sent_atoms += 1
                     return SendFlux
             
             if (is_in_bulk < 4) and (process_number % Nb_process_per_type > 4):
-                if dimere_type == 'B' and ((abs(int(elements_before[1][1])-int(elements_before[0][1])) == 1) or (abs(int(elements_before[4][1])-int(elements_before[0][1])) == 1)) and (process_number - (process_number % Nb_process_per_type)) / Nb_process_per_type >= int(elements_before[0][1]):
+                if dimere_type == 'B' and ((abs(int(elements_before[1][1])-int(elements_before[0][1])) == 1) or (abs(int(elements_before[4][1])-int(elements_before[0][1])) == 1)) and (process_number - (process_number % Nb_process_per_type)) / Nb_process_per_type <= int(elements_before[0][1]):
                     print "OverGrowth B"
                     Nb_sent_atoms += 1
                     return SendFlux
