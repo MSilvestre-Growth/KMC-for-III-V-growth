@@ -31,7 +31,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Overloaded base class API function """
         
         # Physical value
-        T = 1000 #temperature
+        T = 650 #temperature
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
@@ -62,7 +62,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 is_in_bulk += 1
         
         # Add a dimere on top case
-        if process_number % 9 == 0:
+        if process_number % Nb_process_per_type == 0:
             if is_in_bulk == 4:
                 return SendFlux
             else:
