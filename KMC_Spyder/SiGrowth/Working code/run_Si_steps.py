@@ -21,6 +21,7 @@ there is no stepflow above it
 """
 from KMCLib import *
 import numpy as np
+import time
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -117,6 +118,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Determines the cutoff for this custom model """
         return 1.0
 
+def Truefunction(obj) :
+	return True
+
+# Cache mode to speedup execution
+#CustomRateCalculator.cacheRates = Truefunction
 # Load initial configuration
 config = KMCConfigurationFromScript("config_4_steps.py")
 #creation of the interaction oject
@@ -134,8 +140,14 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10000,
-                                          dump_interval=1000,
+control_parameters = KMCControlParameters(number_of_steps=1000000,
+                                          dump_interval=100000,
                                           seed=120)
+t1 = time.clock()
 
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
+
+t2 = time.clock()
+
+print "simu time ="
+print t2 - t1
