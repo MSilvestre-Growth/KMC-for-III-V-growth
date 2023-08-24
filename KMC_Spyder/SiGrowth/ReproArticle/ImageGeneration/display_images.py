@@ -10,6 +10,13 @@ path = "C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/"
 possible_types = ['A1','B2', 'A3', 'B4', 'A5', 'B6']
 #colors = [[0,0,125],[150,0,0],[0,0,175],[200,0,0],[0,0,225],[250,0,0]]
 
+Nb_atoms_deposited = 0
+
+for l in range(len(types[0])):
+    Nb_atoms_deposited += int(types[len(types)-1][l][1]) - int(types[0][l][1])
+print('Nb_atoms_deposited =')
+print(Nb_atoms_deposited)
+
 for i in range(len(types)):
     ###################
     #    file name    #

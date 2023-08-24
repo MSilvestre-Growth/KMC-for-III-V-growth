@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['GaAsGrowth\\Diffusion1Direction\\custom_traj_GaAs_on_Si_4_steps.py', 'GaAsGrowth\\Diffusion1Direction\\ImageGeneration\\display_images.py', 'GaAsGrowth\\Diffusion1Direction\\run_GaAs_on_Si_steps.py', 'GaAsGrowth\\Diffusion1Direction\\config_4_steps.py']
+recent_files = ['SiGrowth\\ReproArticle\\ImageGeneration\\display_images.py', 'SiGrowth\\ReproArticle\\custom_traj_4_steps.py', 'SiGrowth\\ReproArticle\\run_Si_steps.py']
 
 [main]
 version = 0.2.0
