@@ -21,6 +21,7 @@ there is no stepflow above it
 """
 from KMCLib import *
 import numpy as np
+import time
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -62,7 +63,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 is_in_bulk += 1
         
         # Add a dimere on top case
-        if process_number % 9 == 0:
+        if process_number % Nb_processes_per_type == 0:
             if is_in_bulk == 4:
                 return SendFlux
             else:
@@ -138,5 +139,9 @@ model = KMCLatticeModel(configuration=config,
 control_parameters = KMCControlParameters(number_of_steps=10000,
                                           dump_interval=1000,
                                           seed=120)
-
+t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
+t2 = time.clock()
+
+print "simu time = "
+print t2 - t1
