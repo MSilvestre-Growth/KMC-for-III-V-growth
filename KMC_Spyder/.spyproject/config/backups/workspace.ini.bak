@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['SiGrowth\\Tests\\custom_processes.py', 'SiGrowth\\Tests\\run_left.py', 'SiGrowth\\Tests\\generate_config_for_left.py', 'SiGrowth\\Tests\\custom_traj_4_steps.py', 'SiGrowth\\Working code\\ImageGeneration\\display_images.py', 'SiGrowth\\Tests\\left_config.py']
+recent_files = ['GaAsGrowth\\Diffusion1Direction\\custom_traj_GaAs_on_Si_4_steps.py', 'GaAsGrowth\\Diffusion1Direction\\ImageGeneration\\display_images.py', 'GaAsGrowth\\Diffusion1Direction\\run_GaAs_on_Si_steps.py', 'GaAsGrowth\\Diffusion1Direction\\config_4_steps.py']
 
 [main]
 version = 0.2.0
