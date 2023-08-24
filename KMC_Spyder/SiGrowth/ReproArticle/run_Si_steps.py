@@ -22,6 +22,7 @@ there is no stepflow above it
 from KMCLib import *
 import numpy as np
 import time
+from KMCLib.KMCAnalysisPlugin import KMCAnalysisPlugin
 
 Nb_sent_atoms = 0
 # Set the custom rate --> all the physics is here !!!
@@ -41,7 +42,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 0.37
+        SendFlux = 3.7
 
         n_parallel = 0
         n_normal = 0
@@ -117,6 +118,30 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Determines the cutoff for this custom model """
         return 1.0
 
+class CustomAnalysis(KMCAnalysisPlugin):
+	""" Custom analysis class """
+    def __init__(self, init_config, current_config):
+	self.init_config = init_config
+	self.curent_config = current_config
+	
+    def setup(self, step, time, configuration):
+	if step == 0:
+	    config0 = configuration.types()
+	config_now = configuration.types()
+	comp = CustomAnalysis(config0, config_now)
+	return comp
+    
+    def finalize(self):
+	comp = setup(step, time, configuration)
+	init_types = comp.init_config()
+	current_types = comp.current_config()
+	sent_atoms = 0
+	for i in range(len(init_types)):
+	    sent_atoms += int(current_types[i][1]) - int(init_types[i][1])
+	return sent_atoms/(len(init_types)*time)
+
+analysis = CustomAnalysis.finalize()
+
 # speedup process
 def TrueFuction(obj):
     return True
@@ -142,9 +167,10 @@ model = KMCLatticeModel(configuration=config,
 # we run this test.
 control_parameters = KMCControlParameters(number_of_steps=1000000,
                                           dump_interval=100000,
+					  analysis_interval = 100000,
                                           seed=120)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
+model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py", analysis = analysis)
 t2 = time.clock()
 
 print "simu time = "
