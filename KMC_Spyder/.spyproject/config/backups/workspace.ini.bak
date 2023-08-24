@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['SiGrowth\\Working code\\ImageGeneration\\display_images.py', 'SiGrowth\\Working code\\custom_traj_4_steps.py']
+recent_files = ['SiGrowth\\Tests\\custom_processes.py', 'SiGrowth\\Tests\\run_left.py', 'SiGrowth\\Tests\\generate_config_for_left.py', 'SiGrowth\\Tests\\custom_traj_4_steps.py', 'SiGrowth\\Working code\\ImageGeneration\\display_images.py', 'SiGrowth\\Tests\\left_config.py']
 
 [main]
 version = 0.2.0
