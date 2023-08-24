@@ -23,6 +23,7 @@ from KMCLib import *
 import numpy as np
 import time
 
+Nb_sent_atoms = 0
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
@@ -47,6 +48,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         Nb_processes_per_type = 5        
 
+	global Nb_sent_atoms
+
     	#print element_before[0]    
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
@@ -65,7 +68,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # Add a dimere on top case
         if process_number % Nb_processes_per_type == 0:
             if is_in_bulk == 4:
-                return SendFlux
+                Nb_sent_atoms += 1
+		return SendFlux
             else:
                 return 0
         
@@ -145,3 +149,6 @@ t2 = time.clock()
 
 print "simu time = "
 print t2 - t1
+
+print "Nb sent atoms"
+print Nb_sent_atoms
