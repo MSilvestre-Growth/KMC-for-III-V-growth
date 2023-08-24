@@ -49,7 +49,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         Nb_processes_per_type = 5        
 
-	global Nb_sent_atoms
+    	global Nb_sent_atoms
 
     	#print element_before[0]    
         concerned_dimere = elements_before[0]
@@ -119,26 +119,26 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         return 1.0
 
 class CustomAnalysis(KMCAnalysisPlugin):
-	""" Custom analysis class """
+    """ Custom analysis class """
     def __init__(self, init_config, current_config):
-	self.init_config = init_config
-	self.curent_config = current_config
+        self.init_config = init_config
+        self.curent_config = current_config
 	
     def setup(self, step, time, configuration):
-	if step == 0:
-	    config0 = configuration.types()
-	config_now = configuration.types()
-	comp = CustomAnalysis(config0, config_now)
-	return comp
+        if step == 0:
+            fig0 = configuration.types()
+        fig_now = configuration.types()
+        p = CustomAnalysis(config0, config_now)
+        return comp
     
     def finalize(self):
-	comp = setup(step, time, configuration)
-	init_types = comp.init_config()
-	current_types = comp.current_config()
-	sent_atoms = 0
-	for i in range(len(init_types)):
-	    sent_atoms += int(current_types[i][1]) - int(init_types[i][1])
-	return sent_atoms/(len(init_types)*time)
+        p = setup(step, time, configuration)
+        t_types = comp.init_config()
+        rent_types = comp.current_config()
+        t_atoms = 0
+        i in range(len(init_types)):
+             sent_atoms += int(current_types[i][1]) - int(init_types[i][1])
+        return sent_atoms/(len(init_types)*time)
 
 analysis = CustomAnalysis.finalize()
 
@@ -167,7 +167,7 @@ model = KMCLatticeModel(configuration=config,
 # we run this test.
 control_parameters = KMCControlParameters(number_of_steps=1000000,
                                           dump_interval=100000,
-					  analysis_interval = 100000,
+                                          analysis_interval = 100000,
                                           seed=120)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py", analysis = analysis)
