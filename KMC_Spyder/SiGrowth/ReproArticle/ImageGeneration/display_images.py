@@ -8,16 +8,27 @@ from PIL import Image
 path = "C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/"
 
 possible_types = ['A1','B2', 'A3', 'B4', 'A5', 'B6']
-#colors = [[0,0,125],[150,0,0],[0,0,175],[200,0,0],[0,0,225],[250,0,0]]
+#colors = [0, 0.4, 0.2, 0.8, 0.6, 1]
+colors = [(0,0,125),(125,0,0),(0,125,0),(0,0,250),(250,0,0),(0,250,0)]
+colors = np.array(colors, dtype=np.uint8)
 
-Nb_atoms_deposited = 0
+types_bis = types
 
-for l in range(len(types[0])):
-    Nb_atoms_deposited += int(types[len(types)-1][l][1]) - int(types[0][l][1])
-print('Nb_atoms_deposited =')
-print(Nb_atoms_deposited)
 
-for i in range(len(types)):
+for i in range(len(types_bis)-1):
+    #Flux measure not working 
+    Nb_atoms_deposited = 0
+
+
+    for l in range(len(types_bis[0])):
+        toto =  int(types_bis[i][l][1])
+        tata = int(types_bis[i+1][l][1])
+        titi = tata - toto
+        Nb_atoms_deposited += titi
+
+    print('Nb_atoms_deposited =')
+    print(Nb_atoms_deposited)
+    
     ###################
     #    file name    #
     ###################
@@ -27,7 +38,7 @@ for i in range(len(types)):
     for j in range(len(KMC_Result_current)):
         for k in range(len(possible_types)):
             if KMC_Result_current[j] == possible_types[k]:
-                KMC_Result_current[j] = k/len(possible_types)
+                KMC_Result_current[j] = colors[k]
     
     # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
     length_to_split = 100 * np.ones(100)
