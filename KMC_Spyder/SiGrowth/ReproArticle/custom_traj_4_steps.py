@@ -10720,7 +10720,7 @@ types.append(["A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","
               "B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4",
               "B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4",
               "B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4",
-              "B4","B4","B4","B4"])
+              "B4","B4","B4","A5"])
 times.append(  2.6063638375e-01)
 steps.append(25000000)
 types.append(["A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -16457,3 +16457,57 @@ types.append(["B6","B4","B6","B6","B6","B2","B6","B2","B6","B6","B6","B4","B6","
               "B6","B6","B6","B6","A5","B6","A5","B6","B2","B6","B6","B6","B6","B6",
               "B4","B6","A5","B6","A1","B6","A1","B6","A3","B6","B6","B6","B2","B6",
               "A3","B6","A3","B6"])
+
+""" Copy this file to create images of your simulation in path + file name"""
+
+import matplotlib.pyplot as plt
+import numpy as np
+from itertools import islice
+from PIL import Image
+
+path = "C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/"
+
+possible_types = ['A1','B2', 'A3', 'B4', 'A5', 'B6']
+#colors = [0, 0.4, 0.2, 0.8, 0.6, 1]
+colors = [(0,0,125),(125,0,0),(0,125,0),(0,0,250),(250,0,0),(0,250,0)]
+colors = np.array(colors, dtype=np.uint8)
+
+types_bis = types
+
+
+for i in range(len(types_bis)-1):
+    Nb_atoms_deposited = 0
+    
+    ###################
+    #    file name    #
+    ###################
+
+    for l in range(len(types_bis[0])):
+        toto =  int(types_bis[i][l][1])
+        tata = int(types_bis[i+1][l][1])
+        titi = tata - toto
+        Nb_atoms_deposited += titi
+        
+    print('Nb_atoms_deposited =')
+    print(Nb_atoms_deposited)
+
+    file_name = "Imtest%d.png" % i
+    KMC_Result_current = types[i]
+    # Conversion of "U" in 1 and "D" in 0 for display purposes
+    for j in range(len(KMC_Result_current)):
+        for k in range(len(possible_types)):
+            if KMC_Result_current[j] == possible_types[k]:
+                KMC_Result_current[j] = colors[k]
+    
+    # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
+    length_to_split = 100 * np.ones(100)
+    KMC_Result_current = iter(KMC_Result_current)
+    KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
+    KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
+    
+    #Image display
+    #plt.figure()
+    #plt.imshow(KMC_Result_current_matrix)
+    
+    #Image saving in other directory
+    plt.imsave(path+file_name, KMC_Result_current_matrix)
