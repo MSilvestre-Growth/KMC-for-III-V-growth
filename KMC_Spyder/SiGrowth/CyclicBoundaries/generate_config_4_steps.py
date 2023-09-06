@@ -69,23 +69,26 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = []
-for i in range(X*Y):
-    if i % 100 < 25:
-        types.append('B4')
-    if (i % 100 >= 25) and (i % 100 < 50):
-        types.append('A3')
-    if (i % 100 >= 50) and (i % 100 < 75) :
-        types.append('B2')
-    if (i % 100 >= 75):
-        types.append('A1')
+types = ['A1']*2500
+
+for i in range(2500) :
+    types.append('B2')
+    
+for j in range(2500) :
+    types.append('A3')
+
+for k in range(2500) :
+    types.append('B4')
+
+# interface line for cyclic boundaries
+types.append(['A1i']*100)
 
 # write all possibles types that you entered previously
 possible_types = ['A1','B2','A3','B4']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
-Number_of_supplementary_higher_steps = 2 
+Number_of_supplementary_higher_steps = 2
 
 # nothing more to write from there
 sorted_step = []
@@ -116,11 +119,19 @@ for i in range(1, Number_of_supplementary_higher_steps+1):
         new_high_step = "A" + str(last_step_height+i)
         sorted_step.append(new_high_step)
 
+# Add Interface states for cyclic connexions
+AllStates = []
+for i in range(len(sorted_step)):
+    AllStates.append(sorted_step[i])
+    AllStates.append(sorted_step[i]+"i")
+
+# print(AllStates)
+
 # Setting parameters of the configuration with previous informations
 configuration = KMCConfiguration(
     lattice=lattice,
     types=types,
-    possible_types=sorted_step)
+    possible_types = AllStates)
 
 # # print tests
 # dictionnary_of_possible_types = configuration.possibleTypes()

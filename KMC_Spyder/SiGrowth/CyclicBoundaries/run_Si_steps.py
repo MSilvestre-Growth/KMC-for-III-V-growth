@@ -21,6 +21,9 @@ there is no stepflow above it
 """
 from KMCLib import *
 import numpy as np
+import time
+#from KMCLib.KMCAnalysisPlugin import KMCAnalysisPlugin
+
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -31,7 +34,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Overloaded base class API function """
         
         # Physical value
-        T = 1000 #temperature
+        T = 950 #temperature
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
@@ -39,19 +42,18 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 0
+        SendFlux =4.68 
 
         n_parallel = 0
-        n_normal = 0        
+        n_normal = 0
+
+        Nb_processes_per_type = 5        
+
+    
 
     	#print element_before[0]    
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
-        
-#        print "concerned_dimere"
-#        print concerned_dimere
-#        print "dimere forward"
-#        print elements_before[1]
         
         # Processe's order = [add dimere, go right, go left, go forward, go backward,
         # jump forward, jump left, jump right, jump backward]
@@ -65,51 +67,32 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 is_in_bulk += 1
         
         # Add a dimere on top case
-        if process_number % 9 == 0:
-            if is_in_bulk == 4:
-                return SendFlux
+        if (process_number % Nb_processes_per_type <= 1) :
+            if is_in_bulk == 4:        
+                 SendFlux
             else:
                 return 0
         
-        if is_in_bulk >= 3 and (process_number % 9 != 0):
+        if is_in_bulk >= 3 and (process_number % Nb_processes_per_type <= 1):
             return 0
   
         else:
-            Move_A = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'A')
-            Move_B = ((process_number % 9 == 1) or (process_number % 9 == 5)) and (dimere_type == 'B')
-
-            other = (process_number % 9 != 1) and (process_number % 9 != 5)
-            if other :
-                return 0
-            ##############################################
-            # Jump step event only where there is a step #
-            ##############################################
-            for i in range(4):
-		print "elements_before[0]"
-		print elements_before[0]
-		print "elements_before[i+1][1]"
-		print elements_before[i+1]
-                if (process_number % 9 == 5+i) and int(elements_before[i+1][1]) - int(elements_before[0][1]) != -2:
-		    print "coucou"
-                    print int(elements_before[i+1][1]) - int(elements_before[0][1])
-                    return 0
-            
+            Move_A = (process_number % Nb_processes_per_type > 1) and (dimere_type == 'A')
+            Move_B = (process_number % Nb_processes_per_type > 1) and (dimere_type == 'B')
+       
             ###################################
             # Anisotropy is implemented here !#
             ###################################
            
             if Move_A:
-                print "concerned_dimere"
-                print concerned_dimere
-                print "dimere forward"
-                print elements_before[1]
+               
                 if concerned_dimere == elements_before[2]:
                     n_parallel += 1
                 if concerned_dimere == elements_before[3]:
                     n_parallel += 1
                 if concerned_dimere == elements_before[1]:
                     n_normal += 1
-                if concerned_dimere == elements_before[4]:
+                if (concerned_dimere == elements_before[4]) or ((len(elements_before[4]) == 3) and (dimere_type == elements_before[4][0])):
                     n_normal += 1
                
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
@@ -117,17 +100,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
             
             if Move_B:
-                print "concerned_dimere"
-                print concerned_dimere
-                print "dimere forward"
-                print elements_before[1]
+                
                 if concerned_dimere == elements_before[2]:
                     n_normal +=1
                 if concerned_dimere == elements_before[3]:
                     n_normal +=1
                 if concerned_dimere == elements_before[1]:
                     n_parallel += 1
-                if concerned_dimere == elements_before[4]:
+                if (concerned_dimere == elements_before[4]) or ((len(elements_before[4]) == 3) and (dimere_type == elements_before[4][0])):
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
@@ -136,6 +116,36 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     def cutoff(self):
         """ Determines the cutoff for this custom model """
         return 1.0
+
+#class CustomAnalysis(KMCAnalysisPlugin):
+#    """ Custom analysis class """
+#    def __init__(self, init_config, current_config):
+#        self.init_config = init_config
+#        self.curent_config = current_config
+	
+#    def setup(self, step, time, configuration):
+#        if step == 0:
+#            fig0 = configuration.types()
+#        fig_now = configuration.types()
+#        p = CustomAnalysis(config0, config_now)
+#        return comp
+    
+#    def finalize(self):
+#        p = setup(step, time, configuration)
+#        t_types = comp.init_config()
+#        rent_types = comp.current_config()
+#        t_atoms = 0
+#        i in range(len(init_types)):
+#             sent_atoms += int(current_types[i][1]) - int(init_types[i][1])
+#        return sent_atoms/(len(init_types)*time)
+
+#analysis = CustomAnalysis.finalize()
+
+# speedup process
+def TrueFuction(obj):
+    return True
+
+CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
 config = KMCConfigurationFromScript("config_4_steps.py")
@@ -154,8 +164,15 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100,
-                                          dump_interval=10,
+control_parameters = KMCControlParameters(number_of_steps=500000000,
+                                          dump_interval=25000000, 
                                           seed=120)
-
+t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
+t2 = time.clock()
+
+print "simu time = "
+print t2 - t1
+
+
+

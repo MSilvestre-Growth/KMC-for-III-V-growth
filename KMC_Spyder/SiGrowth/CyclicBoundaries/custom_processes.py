@@ -33,7 +33,7 @@ from KMCLib import *
 processes = []
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("left_config.py")
+config = KMCConfigurationFromScript("config_4_steps.py")
 
 # Get the possible types from config
 dictionnary_of_possible_types = config.possibleTypes()
@@ -51,32 +51,42 @@ sorted_list_of_possible_types = []
 NumberOfTypes = len(list_of_possible_types)
 
 # Get min height to sort list_of_possible_types
-for i in range(NumberOfTypes):
+for i in range(NumberOfTypes/2):
     #print list_of_possible_types 
     min_height = int(list_of_possible_types[0][1])
     index = 0
     for j in range(len(list_of_possible_types)):
         current_height = int(list_of_possible_types[j][1])
-        if current_height < min_height:
+        if current_height <= min_height and len(list_of_possible_types[j]) == 2:
             min_height = current_height
             index = j
+        if current_height <= min_height and len(list_of_possible_types[j]) == 2:
+            min_height = current_height
+            index_interface = j
     sorted_list_of_possible_types.append(list_of_possible_types[index])
+    sorted_list_of_possible_types.append(list_of_possible_types[index_interface])
     del list_of_possible_types[index]
+
+# Exemple of sorted_list_of_possible_types with interface states just after
+# corresponding states :
+# sorted_list_of_possible_types ==
+# ['A1', 'A1i', 'B2', 'B2i', 'A3', 'A3i', 'B4', 'B4i', 'A5', 'A5i', 'B6', 'B6i']
 
 # List of all possible deplacement in 2 dimensions
     
 # From elements_before point of view : list_of_coordinates = [forward, left, right, backward]
-# From elements_after point of view : list_of_coordinates = [backward, right, left, forward]
+# From elements_after point of view : list_of_coordinates = [left, right, backward, forward]
 # This move order is due to elements_before order in the custom rate calculator in the run program
-list_of_coordinates = [[[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
+list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
+                       [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
+                       [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]]
                        ]
 
-# Jump from one step to the other requires 2 higher states from the lower
-# step point of view, that explain the folowing chosen range
-for a in range(len(sorted_list_of_possible_types)-2):
+# Deposition requires to look at 1 step higher tha the current one
+# --> -2 = 1 for the higher one + 1 for the higher one in the interface case
+# we go 2 by 2 because we considers normal and interface ceses in the same loop
+for a in range(len(sorted_list_of_possible_types)-2, 2):
 
     #################################################
     #        Deposition of a quasi-dimere           #
@@ -86,9 +96,13 @@ for a in range(len(sorted_list_of_possible_types)-2):
     #print 'elements_before'
     #print elements_before
     
-    elements_after = sorted_list_of_possible_types[a+1]
+    elements_before_interface = sorted_list_of_possible_types[a+1]
+    
+    elements_after = sorted_list_of_possible_types[a+2]
     #print 'elements_after'
     #print elements_after
+    
+    elements_after_interface = sorted_list_of_possible_types[a+3]
     
     # All steps but the last one
     coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
@@ -97,7 +111,13 @@ for a in range(len(sorted_list_of_possible_types)-2):
                                            elements_after=[elements_after],
                                            basis_sites=[0],
                                            rate_constant=0.0))
-
+    # Interface states
+    processes.append(KMCProcess(coordinates=coordinates,
+                                           elements_before=[elements_before_interface],
+                                           elements_after=[elements_after_interface],
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
+    
     #################################################
     #         Diffusion of a quasi-dimere           #
     #################################################
@@ -107,9 +127,13 @@ for a in range(len(sorted_list_of_possible_types)-2):
     #print 'before_moving'
     #print before_moving
     
+    before_moving_interface = [elements_after, elements_before_interface]
+    
     after_moving = [elements_before, elements_after]
     #print 'after_moving'
     #print after_moving
+    
+    after_moving_interface = [elements_before, elements_after_interface]
     
     for i in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
@@ -117,83 +141,25 @@ for a in range(len(sorted_list_of_possible_types)-2):
                                                elements_after=after_moving,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-        
-    # Movement from a step to the one below it
-    step_jump = sorted_list_of_possible_types[a+2]    
-    before_jump = [step_jump, elements_before]
-    step_jumping = [elements_after, elements_after]
-    
-    # print "elements_before"
-    # print elements_before
-       
-    # print "elements_after"
-    # print elements_after
-
-    # print "step_jump"
-    # print step_jump
-
-    for i in range(len(list_of_coordinates)):   
-        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               elements_before=before_jump,
-                                               elements_after=step_jumping,
-                                               basis_sites=[0],
-                                               rate_constant=0.0))
-    
 
 
-# Last steps lead to the first ones (periodicity) (2 last steps linked to the 2 first)
+# Last steps lead to the first ones (periodicity)
 # Rmq : this periodicity may lead to problem in conditions for events to happen
 # that is why we have added supplementary steps in generate_config.py
 
-# before last step
-'''    
-elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2]
-elements_after = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
-#print elements_before
-#print elements_after
-    
-coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
-processes.append(KMCProcess(coordinates=coordinates,
-                                       elements_before=[elements_before],
-                                       elements_after=[elements_after],
-                                       basis_sites=[0],
-                                       rate_constant=0.0))
-    
-step_jump = sorted_list_of_possible_types[0]
-
-before_moving = [elements_after, elements_before]
-after_moving = [elements_before, elements_after]
-before_jump = [step_jump, elements_before]
-step_jumping = [elements_after, elements_after]
-       
-# print "elements_before"
-# print elements_before
-       
-# print "elements_after"
-# print elements_after
-
-# print "step_jump"
-# print step_jump
-
-for j in range(len(list_of_coordinates)):
-    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           elements_before=before_moving,
-                                           elements_after=after_moving,
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
-for j in range(len(list_of_coordinates)):
-    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           elements_before=before_jump,
-                                           elements_after=step_jumping,
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
-
 # last step
     
-elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
+elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2]
+elements_before_interface = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
+
 elements_after = sorted_list_of_possible_types[0]
+elements_after_interface = sorted_list_of_possible_types[1]
 #print elements_before
 #print elements_after
+
+before_moving_interface = [elements_after, elements_before_interface]
+after_moving_interface = [elements_before, elements_after_interface]
+
     
 coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
 processes.append(KMCProcess(coordinates=coordinates,
@@ -201,35 +167,27 @@ processes.append(KMCProcess(coordinates=coordinates,
                                        elements_after=[elements_after],
                                        basis_sites=[0],
                                        rate_constant=0.0))
+
+processes.append(KMCProcess(coordinates=coordinates,
+                                       elements_before=[elements_before_interface],
+                                       elements_after=[elements_after_interface],
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
     
-step_jump = sorted_list_of_possible_types[1]
-
-before_moving = [elements_after, elements_before]
-after_moving = [elements_before, elements_after]
-before_jump = [step_jump, elements_before]
-step_jumping = [elements_after, elements_after]
-
-# print "elements_before"
-# print elements_before
-       
-# print "elements_after"
-# print elements_after
-
-# print "step_jump"
-# print step_jump
-
 for j in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
                                            elements_before=before_moving,
                                            elements_after=after_moving,
                                            basis_sites=[0],
                                            rate_constant=0.0))
-for j in range(len(list_of_coordinates)):
+    
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           elements_before=before_jump,
-                                           elements_after=step_jumping,
+                                           elements_before=before_moving_interface,
+                                           elements_after=after_moving_interface,
                                            basis_sites=[0],
                                            rate_constant=0.0))
-'''
+
+#print len(processes)
+
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
