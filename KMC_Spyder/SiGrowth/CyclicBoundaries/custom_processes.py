@@ -97,7 +97,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 
 #for a in range(0, len(sorted_list_of_possible_types)-2, 2):
 
-a = 0
+a,b = 0,0
 
 while a < len(sorted_list_of_possible_types)-3:
  
@@ -119,11 +119,19 @@ while a < len(sorted_list_of_possible_types)-3:
     
     # All steps but the last one
     coordinates = [[   0.000000e+00,   0.000000e+00,   0.000000e+00]]
+    #print b
+    #b += 1
+    #print elements_before + ' --> ' + elements_after 
     processes.append(KMCProcess(coordinates=coordinates,
                                            elements_before=[elements_before],
                                            elements_after=[elements_after],
                                            basis_sites=[0],
                                            rate_constant=0.0))
+    
+    #print b
+    #b += 1
+    #print elements_before_interface + ' --> ' + elements_after_interface
+ 
     # Interface states
     processes.append(KMCProcess(coordinates=coordinates,
                                            elements_before=[elements_before_interface],
@@ -137,14 +145,14 @@ while a < len(sorted_list_of_possible_types)-3:
     
     # Movement on a step
     before_moving = [elements_after, elements_before]
-    print 'before_moving'
-    print before_moving
+    #print 'before_moving'
+    #print before_moving
     
     before_moving_interface = [elements_after, elements_before_interface]
     
     after_moving = [elements_before, elements_after]
-    print 'after_moving'
-    print after_moving
+    #print 'after_moving'
+    #print after_moving
     
     after_moving_interface = [elements_before, elements_after_interface]
     
@@ -160,6 +168,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                                elements_after=after_moving_interface,
                                                basis_sites=[0],
                                                rate_constant=0.0))
+
     a += 2
     print a
 
