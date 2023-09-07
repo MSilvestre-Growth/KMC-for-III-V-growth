@@ -71,9 +71,9 @@ lattice = KMCLattice(
 # writting of starting surface
 
 # interface line for cyclic boundaries
-types = ['A1i']*100
+types = ['A1i']*175
 
-for h in range(2400) :
+for h in range(2325) :
     types.append('A1')
 
 for i in range(2500) :
