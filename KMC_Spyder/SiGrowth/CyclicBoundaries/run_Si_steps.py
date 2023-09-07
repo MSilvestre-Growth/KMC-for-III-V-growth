@@ -67,18 +67,18 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 is_in_bulk += 1
         
         # Add a dimere on top case
-        if (process_number % Nb_processes_per_type == 0) :
+        if process_number % Nb_processes_per_type <= 1 :
             if is_in_bulk == 4:        
                  SendFlux
             else:
                 return 0
         
-        if (is_in_bulk >= 3 and (process_number % Nb_processes_per_type == 0)) or (len(elements_before[0]) == 3) :
+        if is_in_bulk >= 3 and process_number % Nb_processes_per_type > 1 :
             return 0
   
         else:
-            Move_A = (process_number % Nb_processes_per_type > 1) and (dimere_type == 'A')
-            Move_B = (process_number % Nb_processes_per_type > 1) and (dimere_type == 'B')
+            Move_A = (dimere_type == 'A')
+            Move_B = (dimere_type == 'B')
        
             ###################################
             # Anisotropy is implemented here !#
