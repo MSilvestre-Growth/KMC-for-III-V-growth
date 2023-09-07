@@ -7,9 +7,9 @@ from PIL import Image
 
 path = "C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/"
 
-possible_types = ['A1','B2', 'A3', 'B4', 'A5', 'B6']
+possible_types = ['A1', 'A1i','B2', 'B2i', 'A3', 'A3i', 'B4', 'B4i', 'A5', 'A5i', 'B6', 'B6i']
 #colors = [0, 0.4, 0.2, 0.8, 0.6, 1]
-colors = [(0,0,125),(125,0,0),(0,125,0),(0,0,250),(250,0,0),(0,250,0)]
+colors = [(0,0,125),(0,60,125),(125,0,0),(125,60,0),(0,125,0),(0,125,60),(0,0,250),(0,60,250),(250,0,0),(250,60,0),(0,250,0),(0,250,60)]
 colors = np.array(colors, dtype=np.uint8)
 
 types_bis = types
