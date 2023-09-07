@@ -80,7 +80,7 @@ for i in range(NumberOfTypes/2):
 
 # List of all possible deplacement in 2 dimensions
     
-# From elements_before point of view : list_of_coordinates = [forward, left, right, backward]
+#Atoms moves : [right,  
 # From elements_after point of view : list_of_coordinates = [left, right, backward, forward]
 # This move order is due to elements_before order in the custom rate calculator in the run program
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],

@@ -49,7 +49,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         Nb_processes_per_type = 10        
 
-        if process_number % Nb_processes_per_type == 2 :
+        if process_number % Nb_processes_per_type == 4 :
 	    return 1
 	else :
 	    return 0        
