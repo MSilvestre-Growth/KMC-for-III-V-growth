@@ -38,7 +38,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
-        E_normal = -5 #0.05
+        E_normal = 0.05
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
@@ -166,7 +166,7 @@ model = KMCLatticeModel(configuration=config,
 # we run this test.
 control_parameters = KMCControlParameters(number_of_steps=100000,
                                           dump_interval=10000, 
-                                          seed=120)
+                                          seed=1200)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
 t2 = time.clock()
