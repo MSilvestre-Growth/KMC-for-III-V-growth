@@ -95,7 +95,8 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 
 #print sorted_list_of_possible_types
 
-for a in range(0, len(sorted_list_of_possible_types)-2, 2):
+#for a in range(0, len(sorted_list_of_possible_types)-2, 2):
+for a in range(len(sorted_list_of_possible_types)-2):
  
     #################################################
     #        Deposition of a quasi-dimere           #
@@ -156,7 +157,7 @@ for a in range(0, len(sorted_list_of_possible_types)-2, 2):
                                                elements_after=after_moving_interface,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-
+    a += 1
 
 # Last steps lead to the first ones (periodicity)
 # Rmq : this periodicity may lead to problem in conditions for events to happen
