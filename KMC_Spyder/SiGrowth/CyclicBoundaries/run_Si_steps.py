@@ -47,7 +47,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0
 
-        Nb_processes_per_type = 5        
+        Nb_processes_per_type = 10        
 
     
 
@@ -90,9 +90,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 if concerned_dimere == elements_before[3]:
                     n_parallel += 1
-                if concerned_dimere == elements_before[1]:
+                if concerned_dimere == elements_before[4]:
                     n_normal += 1
-                if (concerned_dimere == elements_before[4]) or ((len(elements_before[4]) == 3) and (dimere_type == elements_before[4][0])):
+                if (concerned_dimere == elements_before[1]) or ((len(elements_before[1]) == 3) and (dimere_type == elements_before[1][0])):
                     n_normal += 1
                
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
@@ -105,9 +105,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_normal +=1
                 if concerned_dimere == elements_before[3]:
                     n_normal +=1
-                if concerned_dimere == elements_before[1]:
+                if concerned_dimere == elements_before[4]:
                     n_parallel += 1
-                if (concerned_dimere == elements_before[4]) or ((len(elements_before[4]) == 3) and (dimere_type == elements_before[4][0])):
+                if (concerned_dimere == elements_before[1]) or ((len(elements_before[1]) == 3) and (dimere_type == elements_before[1][0])):
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
