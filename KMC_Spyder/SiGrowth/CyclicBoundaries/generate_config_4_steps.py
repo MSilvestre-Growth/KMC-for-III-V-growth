@@ -40,7 +40,7 @@ unit_cell = KMCUnitCell(
 
 # Precise the number of pixel in each direction (at least 1)
 X = 100
-Y = 100
+Y = 175 
 Z = 1
 
 # Precise if you want your structure to be periodic in different directions
@@ -85,8 +85,17 @@ for j in range(2500) :
 for k in range(2500) :
     types.append('B4')
 
+for l in range(2500) :
+    types.append('A5')
+
+for m in range(2500) :
+    types.append('B6')
+
+for n in range(2500) :
+    types.append('A7')
+
 # write all possibles types that you entered previously
-possible_types = ['A1','B2','A3','B4']
+possible_types = ['A1','B2','A3','B4','A5','B6','A7']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
