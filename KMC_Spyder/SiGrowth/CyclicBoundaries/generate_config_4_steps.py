@@ -77,11 +77,12 @@ for i in range(2500) :
 for j in range(2500) :
     types.append('A3')
 
-for k in range(2500) :
+for k in range(2400) :
     types.append('B4')
 
 # interface line for cyclic boundaries
-types.append(['A1i']*100)
+for l in range(100) :
+	types.append('A1i')
 
 # write all possibles types that you entered previously
 possible_types = ['A1','B2','A3','B4']
@@ -125,7 +126,7 @@ for i in range(len(sorted_step)):
     AllStates.append(sorted_step[i])
     AllStates.append(sorted_step[i]+"i")
 
-# print(AllStates)
+print AllStates
 
 # Setting parameters of the configuration with previous informations
 configuration = KMCConfiguration(

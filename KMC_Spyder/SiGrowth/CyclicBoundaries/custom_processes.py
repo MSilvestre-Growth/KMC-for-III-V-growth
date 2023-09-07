@@ -33,7 +33,7 @@ from KMCLib import *
 processes = []
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("config_4_steps.py")
+config = KMCConfigurationFromScript("config_4_steps_interface.py")
 
 # Get the possible types from config
 dictionnary_of_possible_types = config.possibleTypes()
@@ -60,13 +60,19 @@ for i in range(NumberOfTypes/2):
         if current_height <= min_height and len(list_of_possible_types[j]) == 2:
             min_height = current_height
             index = j
-        if current_height <= min_height and len(list_of_possible_types[j]) == 2:
+        if current_height <= min_height and len(list_of_possible_types[j]) == 3:
             min_height = current_height
             index_interface = j
-    sorted_list_of_possible_types.append(list_of_possible_types[index])
-    sorted_list_of_possible_types.append(list_of_possible_types[index_interface])
-    del list_of_possible_types[index]
 
+    del1 = list_of_possible_types[index]
+    del2 = list_of_possible_types[index_interface]
+
+    sorted_list_of_possible_types.append(del1)
+    sorted_list_of_possible_types.append(del2)
+    
+    list_of_possible_types.remove(del1)
+    list_of_possible_types.remove(del2)
+    
 # Exemple of sorted_list_of_possible_types with interface states just after
 # corresponding states :
 # sorted_list_of_possible_types ==
@@ -86,8 +92,11 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 # Deposition requires to look at 1 step higher tha the current one
 # --> -2 = 1 for the higher one + 1 for the higher one in the interface case
 # we go 2 by 2 because we considers normal and interface ceses in the same loop
-for a in range(len(sorted_list_of_possible_types)-2, 2):
 
+#print sorted_list_of_possible_types
+
+for a in range(0, len(sorted_list_of_possible_types)-2, 2):
+ 
     #################################################
     #        Deposition of a quasi-dimere           #
     #################################################
@@ -141,6 +150,12 @@ for a in range(len(sorted_list_of_possible_types)-2, 2):
                                                elements_after=after_moving,
                                                basis_sites=[0],
                                                rate_constant=0.0))
+        
+	processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=before_moving_interface,
+                                               elements_after=after_moving_interface,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
 
 
 # Last steps lead to the first ones (periodicity)
@@ -156,6 +171,10 @@ elements_after = sorted_list_of_possible_types[0]
 elements_after_interface = sorted_list_of_possible_types[1]
 #print elements_before
 #print elements_after
+
+
+before_moving = [elements_after, elements_before]
+after_moving = [elements_before, elements_after]
 
 before_moving_interface = [elements_after, elements_before_interface]
 after_moving_interface = [elements_before, elements_after_interface]
