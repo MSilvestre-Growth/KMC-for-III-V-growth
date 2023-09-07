@@ -96,7 +96,10 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 #print sorted_list_of_possible_types
 
 #for a in range(0, len(sorted_list_of_possible_types)-2, 2):
-for a in range(len(sorted_list_of_possible_types)-2):
+
+a = 0
+
+while a < len(sorted_list_of_possible_types)-3:
  
     #################################################
     #        Deposition of a quasi-dimere           #
@@ -134,14 +137,14 @@ for a in range(len(sorted_list_of_possible_types)-2):
     
     # Movement on a step
     before_moving = [elements_after, elements_before]
-    #print 'before_moving'
-    #print before_moving
+    print 'before_moving'
+    print before_moving
     
     before_moving_interface = [elements_after, elements_before_interface]
     
     after_moving = [elements_before, elements_after]
-    #print 'after_moving'
-    #print after_moving
+    print 'after_moving'
+    print after_moving
     
     after_moving_interface = [elements_before, elements_after_interface]
     
@@ -157,7 +160,8 @@ for a in range(len(sorted_list_of_possible_types)-2):
                                                elements_after=after_moving_interface,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-    a += 1
+    a += 2
+    print a
 
 # Last steps lead to the first ones (periodicity)
 # Rmq : this periodicity may lead to problem in conditions for events to happen
@@ -170,8 +174,8 @@ elements_before_interface = sorted_list_of_possible_types[len(sorted_list_of_pos
 
 elements_after = sorted_list_of_possible_types[0]
 elements_after_interface = sorted_list_of_possible_types[1]
-#print elements_before
-#print elements_after
+print elements_before
+print elements_after
 
 
 before_moving = [elements_after, elements_before]
