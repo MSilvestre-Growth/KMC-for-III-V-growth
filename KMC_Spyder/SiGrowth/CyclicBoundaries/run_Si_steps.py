@@ -42,7 +42,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux =4.68 
+        SendFlux =0.47 
 
         n_parallel = 0
         n_normal = 0
@@ -63,7 +63,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         is_in_bulk = 0
         in_the_last_step = 0
         for i in range(1, 4+1):
-            if (int(elements_before[0][1]) <= int(elements_before[i][1])):
+            if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (len(concerned_dimere) == 2) :
                 is_in_bulk += 1
         
         # Add a dimere on top case
