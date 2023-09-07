@@ -16,18 +16,18 @@ types_bis = types
 
 
 for i in range(len(types_bis)-1):
-    #Flux measure not working 
-    Nb_atoms_deposited = 0
+    # #Flux measure not working 
+    # Nb_atoms_deposited = 0
 
 
-    for l in range(len(types_bis[0])):
-        toto =  int(types_bis[i][l][1])
-        tata = int(types_bis[i+1][l][1])
-        titi = tata - toto
-        Nb_atoms_deposited += titi
+    # for l in range(len(types_bis[0])):
+    #     toto =  int(types_bis[i][l][1])
+    #     tata = int(types_bis[i+1][l][1])
+    #     titi = tata - toto
+    #     Nb_atoms_deposited += titi
 
-    print('Nb_atoms_deposited =')
-    print(Nb_atoms_deposited)
+    # print('Nb_atoms_deposited =')
+    # print(Nb_atoms_deposited)
     
     ###################
     #    file name    #
