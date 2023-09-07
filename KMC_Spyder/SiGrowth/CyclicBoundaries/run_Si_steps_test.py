@@ -48,9 +48,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_normal = 0
 
         Nb_processes_per_type = 10        
-
+        is_in_bulk = 0
         for i in range(1, 4+1):
-            if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (len(concerned_dimere) == 2) :
+            if (int(elements_before[0][1]) <= int(elements_before[i][1])) :
                 is_in_bulk += 1
                 
             
