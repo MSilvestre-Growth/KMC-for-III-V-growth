@@ -67,7 +67,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 is_in_bulk += 1
         
         # Add a dimere on top case
-        if process_number % Nb_processes_per_type <= 1 :
+	if process_number % Nb_processes_per_type == 0 :
             if is_in_bulk == 4:        
                  SendFlux
             else:
@@ -164,8 +164,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=1000000,
-                                          dump_interval=100000, 
+control_parameters = KMCControlParameters(number_of_steps=100000,
+                                          dump_interval=10000, 
                                           seed=120)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
