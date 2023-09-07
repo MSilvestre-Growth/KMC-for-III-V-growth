@@ -34,7 +34,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Overloaded base class API function """
         
         # Physical value
-        T = 1000 #temperature
+        T = 800 #temperature
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
@@ -42,7 +42,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux =0.1 
+        SendFlux = 0.1 
 
         n_parallel = 0
         n_normal = 0
