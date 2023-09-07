@@ -151,7 +151,7 @@ for a in range(0, len(sorted_list_of_possible_types)-2, 2):
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
-	processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=before_moving_interface,
                                                elements_after=after_moving_interface,
                                                basis_sites=[0],
@@ -206,7 +206,7 @@ for j in range(len(list_of_coordinates)):
                                            basis_sites=[0],
                                            rate_constant=0.0))
 
-#print len(processes)
+print len(processes)
 
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
