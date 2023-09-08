@@ -94,7 +94,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         if is_in_bulk >= 3 and process_number % Nb_processes_per_type > 1 :
             return 0
- 
+        
+	if process_number % Nb_processes_per_type == 7 :
+	    return 0
+
         if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 8 :
             return 0
 
