@@ -1,7 +1,6 @@
 # KMCLib Trajectory
-inf = 0
 version="2013.1.0"
-creation_time="Fri Sep  8 11:02:40 2023"
+creation_time="Fri Sep  8 11:20:32 2023"
 sites=[[       0.000000,       0.000000,       0.000000],
        [       0.000000,       1.000000,       0.000000],
        [       0.000000,       2.000000,       0.000000],
@@ -5366,7 +5365,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  2.9505773972e-06)
+times.append(  1.4752886986e-06)
 steps.append(1)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -5727,7 +5726,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  8.9781441132e-06)
+times.append(  4.4890720566e-06)
 steps.append(2)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -5739,7 +5738,6 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","A1","A1","B2","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -5747,6 +5745,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","B2","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -6088,11 +6087,11 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  9.4728941396e-06)
+times.append(  4.7364470698e-06)
 steps.append(3)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -6107,7 +6106,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","B2",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -6449,17 +6448,17 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(               inf)
+times.append(  9.6492949516e-06)
 steps.append(4)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","B2","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -6476,7 +6475,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1","B2","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -6810,11 +6809,11 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(               inf)
+times.append(  9.9531992806e-06)
 steps.append(5)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -6827,7 +6826,6 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","B2","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -6838,6 +6836,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "B2","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -7171,17 +7170,17 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(               inf)
+times.append(  1.0457056562e-05)
 steps.append(6)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","B2","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -7190,7 +7189,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","B2","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -7532,11 +7531,11 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(               inf)
+times.append(  1.2480554908e-05)
 steps.append(7)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -7549,7 +7548,6 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","B2","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -7560,6 +7558,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "B2","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -7893,17 +7892,17 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(               inf)
+times.append(  1.5823044303e-05)
 steps.append(8)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","B2","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -7912,7 +7911,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","B2","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -8254,11 +8253,11 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(               inf)
+times.append(  1.6983286610e-05)
 steps.append(9)
-types.append(["B2i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
+types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -8266,7 +8265,7 @@ types.append(["B2i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
+              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","B2","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -8615,11 +8614,11 @@ types.append(["B2i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(               inf)
+times.append(  1.8459670216e-05)
 steps.append(10)
-types.append(["B2i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
+types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
-              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i","A1i",
+              "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","B2i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -8627,7 +8626,7 @@ types.append(["B2i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
-              "A1","A1","A1","A1","A1","A1","A1","A1","A1","B2","A1","A1","A1","A1",
+              "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
               "A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1","A1",
@@ -8976,58 +8975,3 @@ types.append(["B2i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-
-""" Copy this file to create images of your simulation in path + file name"""
-
-import matplotlib.pyplot as plt
-import numpy as np
-from itertools import islice
-from PIL import Image
-
-path = "C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/"
-
-possible_types = ['A1', 'A1i', 'B2', 'B2i', 'A3', 'A3i', 'B4', 'B4i', 'A5', 'A5i', 'B6', 'B6i', 'A7', 'A7i', 'B8', 'B8i', 'A9', 'A9i']
-#colors = [0, 0.4, 0.2, 0.8, 0.6, 1]
-colors = [(0,0,125),(0,60,125),(125,0,0),(125,60,0),(0,125,0),(0,125,60),(0,0,250),(0,60,250),(250,0,0),(250,60,0),(0,250,0),(0,250,60),(0,0,125),(0,60,125),(125,0,0),(125,60,0),(0,125,0),(0,125,60)]
-colors = np.array(colors, dtype=np.uint8)
-
-types_bis = types
-
-
-for i in range(len(types_bis)-1):
-    # #Flux measure not working 
-    # Nb_atoms_deposited = 0
-
-
-    # for l in range(len(types_bis[0])):
-    #     toto =  int(types_bis[i][l][1])
-    #     tata = int(types_bis[i+1][l][1])
-    #     titi = tata - toto
-    #     Nb_atoms_deposited += titi
-
-    # print('Nb_atoms_deposited =')
-    # print(Nb_atoms_deposited)
-    
-    ###################
-    #    file name    #
-    ###################
-    file_name = "Imtest%d.png" % i
-    KMC_Result_current = types[i]
-    # Conversion of "U" in 1 and "D" in 0 for display purposes
-    for j in range(len(KMC_Result_current)):
-        for k in range(len(possible_types)):
-            if KMC_Result_current[j] == possible_types[k]:
-                KMC_Result_current[j] = colors[k]
-    
-    # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
-    length_to_split = 100 * np.ones(50)
-    KMC_Result_current = iter(KMC_Result_current)
-    KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
-    KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
-    
-    #Image display
-    #plt.figure()
-    #plt.imshow(KMC_Result_current_matrix)
-    
-    #Image saving in other directory
-    plt.imsave(path+file_name, KMC_Result_current_matrix)
