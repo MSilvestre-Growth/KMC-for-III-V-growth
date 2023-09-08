@@ -33,7 +33,7 @@ from KMCLib import *
 processes = []
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("config_4_steps_interface.py")
+config = KMCConfigurationFromScript("min_config_2_steps_interface.py")
 
 # Get the possible types from config
 dictionnary_of_possible_types = config.possibleTypes()
@@ -148,7 +148,7 @@ while a < len(sorted_list_of_possible_types)-3:
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=[the_elements_before, the_elements_after_interface],
-                                               elements_after=[the_elements_after, the_elements_before_interface],
+                                               elements_after=[the_elements_after, the_elements_before],
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
@@ -179,14 +179,14 @@ after_moving_interface = [the_elements_before, the_elements_after_interface]
     
 for j in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           the_elements_before=before_moving,
-                                           the_elements_after=after_moving,
+                                           elements_before=before_moving,
+                                           elements_after=after_moving,
                                            basis_sites=[0],
                                            rate_constant=0.0))
     
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           the_elements_before=before_moving_interface,
-                                           the_elements_after=after_moving_interface,
+                                           elements_before=before_moving_interface,
+                                           elements_after=after_moving_interface,
                                            basis_sites=[0],
                                            rate_constant=0.0))
 
