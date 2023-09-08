@@ -98,6 +98,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 #for a in range(0, len(sorted_list_of_possible_types)-2, 2):
 
 a,b = 0,0
+processes_name_list = []
 
 while a < len(sorted_list_of_possible_types)-3:
  
@@ -127,7 +128,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                            elements_after=[elements_after],
                                            basis_sites=[0],
                                            rate_constant=0.0))
-    
+    processes_name_list.append("Add" + elements_after)
     #print b
     #b += 1
     #print elements_before_interface + ' --> ' + elements_after_interface
@@ -139,6 +140,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                            basis_sites=[0],
                                            rate_constant=0.0))
     
+    processes_name_list.append("Add" + elements_after_interface)
     #################################################
     #         Diffusion of a quasi-dimere           #
     #################################################
@@ -162,15 +164,18 @@ while a < len(sorted_list_of_possible_types)-3:
                                                elements_after=after_moving,
                                                basis_sites=[0],
                                                rate_constant=0.0))
+        processes_name_list.append("Move" + after_moving)
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=before_moving_interface,
                                                elements_after=after_moving_interface,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-
+        
+        processes_name_list.append("Move" + after_moving_interface)
     a += 2
 
+print processes_name_list
 # Last steps lead to the first ones (periodicity)
 # Rmq : this periodicity may lead to problem in conditions for events to happen
 # that is why we have added supplementary steps in generate_config.py
