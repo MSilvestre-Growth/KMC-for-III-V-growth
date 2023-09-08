@@ -140,15 +140,21 @@ while a < len(sorted_list_of_possible_types)-3:
                                                rate_constant=0.0))
         processes_name_list.append("Move " + the_elements_after + " --> " + the_elements_before)
         
+        #processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+        #                                       elements_before=before_moving_interface,
+        #                                       elements_after=after_moving_interface,
+        #                                       basis_sites=[0],
+        #                                       rate_constant=0.0))
+        
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               elements_before=before_moving_interface,
-                                               elements_after=after_moving_interface,
+                                               elements_before=[the_elements_before_interface,the_elements_after],
+                                               elements_after=[the_elements_after_interface,the_elements_before],
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
-        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               elements_before=[the_elements_before, the_elements_after_interface],
-                                               elements_after=[the_elements_after, the_elements_before],
+	processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=[the_elements_after_interface,the_elements_before],
+                                               elements_after=[the_elements_before_interface,the_elements_after],
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
