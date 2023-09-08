@@ -40,7 +40,7 @@ unit_cell = KMCUnitCell(
 
 # Precise the number of pixel in each direction (at least 1)
 X = 100
-Y = 175 
+Y = 100 
 Z = 1
 
 # Precise if you want your structure to be periodic in different directions
@@ -71,25 +71,22 @@ lattice = KMCLattice(
 # writting of starting surface
 
 # interface line for cyclic boundaries
-types = ['A1i']*175
+types = ['A1i']*100
 
-for h in range(3325) :
+for h in range(2400) :
     types.append('A1')
 
-for i in range(3500) :
+for i in range(2500) :
     types.append('B2')
     
-for j in range(3500) :
+for j in range(2500) :
     types.append('A3')
 
-for k in range(3500) :
+for k in range(2500) :
     types.append('B4')
 
-for l in range(3500) :
-    types.append('A5')
-
 # write all possibles types that you entered previously
-possible_types = ['A1','B2','A3','B4','A5']
+possible_types = ['A1','B2','A3','B4']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
