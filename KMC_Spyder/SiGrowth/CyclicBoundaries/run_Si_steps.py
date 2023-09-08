@@ -42,7 +42,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 0.1 
+        SendFlux = 0.0 
 
         n_parallel = 0
         n_normal = 0
@@ -68,6 +68,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         # Interface dimeres are not in bulk to be coherent with others processes
         if len(concerned_dimere) == 3 :
+	    #print 'a'
             is_in_bulk = 0
         
         # Add a dimere on top case
@@ -81,7 +82,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         if is_in_bulk >= 3 and process_number % Nb_processes_per_type > 1 :
             return 0
   
-        else:
+        if is_in_bulk < 3 and process_number % Nb_processes_per_type > 1 :
+	    print dimere_type
             Move_A = (dimere_type == 'A')
             Move_B = (dimere_type == 'B')
        
@@ -91,30 +93,33 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
            
             if Move_A:
                
-                if concerned_dimere == elements_before[2]:
+                if concerned_dimere[0:2] == elements_before[2][0:2]:
                     n_normal += 1
-                if concerned_dimere == elements_before[4]:
+                if concerned_dimere[0:2] == elements_before[4][0:2]:
                     n_parallel += 1
-                if concerned_dimere == elements_before[1]:
+                if concerned_dimere[0:2] == elements_before[1][0:2]:
                     n_parallel += 1
-                if (concerned_dimere == elements_before[3]) or ((len(elements_before[3]) == 3) and (dimere_type == elements_before[3][0])):
+                if (concerned_dimere[0:2] == elements_before[3][0:2]) or (len(elements_before[3]) == 3):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
 
             
             if Move_B:
-                if concerned_dimere == elements_before[2]:
+                if concerned_dimere[0:2] == elements_before[2][0:2]:
                     n_parallel += 1
-                if concerned_dimere == elements_before[4]:
+                if concerned_dimere[0:2] == elements_before[4][0:2]:
                     n_normal +=1
-                if concerned_dimere == elements_before[1]:
+                if concerned_dimere[0:2] == elements_before[1][0:2]:
                     n_normal +=1
-                if (concerned_dimere == elements_before[3]) or ((len(elements_before[3]) == 3) and (dimere_type == elements_before[3][0])):  
+                if (concerned_dimere[0:2] == elements_before[3][0:2]) or (len(elements_before[3]) == 3) :  
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                return k0*np.exp( - E_tot * q / (kb * T) )
+                #print E_tot
+		print process_number
+		print k0*np.exp( - E_tot * q / (kb * T) )
+		return k0*np.exp( - E_tot * q / (kb * T) )
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
