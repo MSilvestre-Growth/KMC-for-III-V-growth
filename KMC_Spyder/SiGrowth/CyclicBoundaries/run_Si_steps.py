@@ -48,7 +48,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0
 
-        Nb_processes_per_type = 10      
+        Nb_processes_per_type = 14      
 
     
 
@@ -98,8 +98,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 	#if (process_number % Nb_processes_per_type == 7 and concerned_dimere[1] <= elements_before[1][1]) :
 	#    return 0
 
-        #if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 9 :
-        #    return 0
+        if process_number % Nb_processes_per_type == 9 or process_number % Nb_processes_per_type == 10 :
+            return 0
 
         if is_in_bulk < 3 and process_number % Nb_processes_per_type > 1 :
             #print process_number
