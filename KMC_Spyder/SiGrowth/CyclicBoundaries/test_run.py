@@ -49,16 +49,20 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         Nb_processes_per_type = 10        
         is_in_bulk = 0
+	a = 0
+
         for i in range(1, 4+1):
             if (int(elements_before[0][1]) <= int(elements_before[i][1])) :
                 is_in_bulk += 1
                 
             
-        if process_number % Nb_processes_per_type == 4 and is_in_bulk < 3:
+        if process_number % Nb_processes_per_type == 0 and is_in_bulk >= 3:
+	    a += 1
+	    print a
 	    return 1
 	else :
-	    return 0        
-        
+	    return 0         
+
     def cutoff(self):
         """ Determines the cutoff for this custom model """
         return 1.0

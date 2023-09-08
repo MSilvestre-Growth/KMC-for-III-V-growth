@@ -170,7 +170,6 @@ while a < len(sorted_list_of_possible_types)-3:
                                                rate_constant=0.0))
 
     a += 2
-    print a
 
 # Last steps lead to the first ones (periodicity)
 # Rmq : this periodicity may lead to problem in conditions for events to happen
@@ -183,8 +182,8 @@ elements_before_interface = sorted_list_of_possible_types[len(sorted_list_of_pos
 
 elements_after = sorted_list_of_possible_types[0]
 elements_after_interface = sorted_list_of_possible_types[1]
-print elements_before
-print elements_after
+#print elements_before
+#print elements_after
 
 
 before_moving = [elements_after, elements_before]
@@ -220,7 +219,7 @@ for j in range(len(list_of_coordinates)):
                                            basis_sites=[0],
                                            rate_constant=0.0))
 
-print len(processes)
+#print len(processes)
 
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
