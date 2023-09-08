@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 25
+X = 50
 Y = 100 
 Z = 1
 
@@ -75,9 +75,11 @@ types = ['A1i']*100
 
 for h in range(2400) :
     types.append('A1')
+for i in range (2500) :
+    types.append('B2')
 
 # write all possibles types that you entered previously
-possible_types = ['A1']
+possible_types = ['A1','B2']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process

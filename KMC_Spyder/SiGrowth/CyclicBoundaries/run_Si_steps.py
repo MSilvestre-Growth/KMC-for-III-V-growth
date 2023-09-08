@@ -147,7 +147,7 @@ def TrueFuction(obj):
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_1_steps_interface.py")
+config = KMCConfigurationFromScript("config_2_steps_interface.py")
 #creation of the interaction oject
 interactions = KMCInteractionsFromScript("custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
@@ -167,7 +167,7 @@ control_parameters = KMCControlParameters(number_of_steps=1000,
                                           dump_interval=100, 
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="custom_traj_1_steps.py")
+model.run(control_parameters, trajectory_filename="custom_traj_2_steps.py")
 t2 = time.clock()
 
 print "simu time = "
