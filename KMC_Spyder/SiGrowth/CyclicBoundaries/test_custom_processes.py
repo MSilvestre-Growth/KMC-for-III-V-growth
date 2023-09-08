@@ -82,7 +82,7 @@ for i in range(NumberOfTypes/2):
     
 #Atoms moves : [FORWARD, BACKWARD]
 
-# This move order is due to elements_before order in the custom rate calculator in the run program
+# This move order is due to the_elements_before order in the custom rate calculator in the run program
 list_of_coordinates = [[[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]]]
 
@@ -99,38 +99,38 @@ processes_name_list = []
 
 while a < len(sorted_list_of_possible_types)-3:
     
-    elements_before = sorted_list_of_possible_types[a]
-    print 'elements_before'
-    print elements_before
+    the_elements_before = sorted_list_of_possible_types[a]
+    print 'the_elements_before'
+    print the_elements_before
     
-    elements_before_interface = sorted_list_of_possible_types[a+1]
-    print "elements_before_interface"
-    print elements_before_interface
+    the_elements_before_interface = sorted_list_of_possible_types[a+1]
+    print "the_elements_before_interface"
+    print the_elements_before_interface
 
-    elements_after = sorted_list_of_possible_types[a+2]
-    print 'elements_after'
-    print elements_after
+    the_elements_after = sorted_list_of_possible_types[a+2]
+    print 'the_elements_after'
+    print the_elements_after
     
-    elements_after_interface = sorted_list_of_possible_types[a+3]   
-    print 'elements_after_interface'
-    print elements_after_interface
+    the_elements_after_interface = sorted_list_of_possible_types[a+3]   
+    print 'the_elements_after_interface'
+    print the_elements_after_interface
 
     #################################################
     #         Diffusion of a quasi-dimere           #
     #################################################
     
     # Movement on a step
-    before_moving = [elements_after, elements_before]
+    before_moving = [the_elements_after, the_elements_before]
     #print 'before_moving'
     #print before_moving
     
-    before_moving_interface = [elements_after, elements_before_interface]
+    before_moving_interface = [the_elements_after, the_elements_before_interface]
     
-    after_moving = [elements_before, elements_after]
+    after_moving = [the_elements_before, the_elements_after]
     #print 'after_moving'
     #print after_moving
     
-    after_moving_interface = [elements_before, elements_after_interface]
+    after_moving_interface = [the_elements_before, the_elements_after_interface]
     
     for i in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
@@ -138,7 +138,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                                elements_after=after_moving,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-        processes_name_list.append("Move " + elements_after + " --> " + elements_before)
+        processes_name_list.append("Move " + the_elements_after + " --> " + the_elements_before)
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=before_moving_interface,
@@ -147,12 +147,12 @@ while a < len(sorted_list_of_possible_types)-3:
                                                rate_constant=0.0))
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               elements_before=[elements_before, elements_after_interface],
-                                               elements_after=[elements_after, elements_before_interface],
+                                               elements_before=[the_elements_before, the_elements_after_interface],
+                                               elements_after=[the_elements_after, the_elements_before_interface],
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-        processes_name_list.append("Interface process, before : " + elements_after +' --> '+ elements_before_interface + ' after : '+ elements_before +' --> '+ elements_after_interface)
+        processes_name_list.append("Interface process, before : " + the_elements_after +' --> '+ the_elements_before_interface + ' after : '+ the_elements_before +' --> '+ the_elements_after_interface)
     a += 2
 
 #print processes_name_list
@@ -162,31 +162,31 @@ while a < len(sorted_list_of_possible_types)-3:
 
 # last step
     
-elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2]
-elements_before_interface = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
+the_elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2]
+the_elements_before_interface = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
 
-elements_after = sorted_list_of_possible_types[0]
-elements_after_interface = sorted_list_of_possible_types[1]
-#print elements_before
-#print elements_after
+the_elements_after = sorted_list_of_possible_types[0]
+the_elements_after_interface = sorted_list_of_possible_types[1]
+#print the_elements_before
+#print the_elements_after
 
 
-before_moving = [elements_after, elements_before]
-after_moving = [elements_before, elements_after]
+before_moving = [the_elements_after, the_elements_before]
+after_moving = [the_elements_before, the_elements_after]
 
-before_moving_interface = [elements_after, elements_before_interface]
-after_moving_interface = [elements_before, elements_after_interface]
+before_moving_interface = [the_elements_after, the_elements_before_interface]
+after_moving_interface = [the_elements_before, the_elements_after_interface]
     
 for j in range(len(list_of_coordinates)):
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           elements_before=before_moving,
-                                           elements_after=after_moving,
+                                           the_elements_before=before_moving,
+                                           the_elements_after=after_moving,
                                            basis_sites=[0],
                                            rate_constant=0.0))
     
     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           elements_before=before_moving_interface,
-                                           elements_after=after_moving_interface,
+                                           the_elements_before=before_moving_interface,
+                                           the_elements_after=after_moving_interface,
                                            basis_sites=[0],
                                            rate_constant=0.0))
 
