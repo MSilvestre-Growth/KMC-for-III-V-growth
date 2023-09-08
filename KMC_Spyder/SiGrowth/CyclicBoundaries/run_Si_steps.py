@@ -97,18 +97,6 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
  
         if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 8 :
             return 0
-        
-        #if process_number % Nb_processes_per_type == 7 :
-            #print "process n°7"
-            #return 1
-        
-        #if process_number % Nb_processes_per_type == 4 :
-            #print "process n°4"
-            #return 1
-
-        #if process_number % Nb_processes_per_type == 6 :
-            #print "process n°6"
-            #return 1
 
         if is_in_bulk < 3 and process_number % Nb_processes_per_type > 1 and process_number % Nb_processes_per_type != 2 and process_number % Nb_processes_per_type != 8 :
             #print process_number
@@ -145,10 +133,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                #print E_tot
-		#print process_number
-		#print k0*np.exp( - E_tot * q / (kb * T) )
-		return k0*np.exp( - E_tot * q / (kb * T) )
+                return k0*np.exp( - E_tot * q / (kb * T) )
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
