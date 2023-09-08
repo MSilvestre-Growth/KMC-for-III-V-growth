@@ -34,15 +34,13 @@ unit_cell = KMCUnitCell(
 
 lattice = KMCLattice(
     unit_cell=unit_cell,
-    repetitions=(25,1,1),
+    repetitions=(3,1,1),
     periodic=(True, True, False))
 
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A1i','A1','B2','A1','A1','A1','A1','A1','A1','A1',
-         'A1','A1','A1','A1','A1','A1','A1','A1','A1','A1','A1',
-         'A1','A1','A1','A1']
+types = ['A1i','B2','A1']
 
 possible_types = ['B4','B2','A5i','B4i','B6','A1','A7i','A3','A5','B8',
                   'B2i','A7','B8i','A3i','A1i','B6i']
