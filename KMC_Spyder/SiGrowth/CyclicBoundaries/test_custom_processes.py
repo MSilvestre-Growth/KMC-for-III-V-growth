@@ -152,7 +152,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
-	processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=[the_elements_after_interface,the_elements_before],
                                                elements_after=[the_elements_before_interface,the_elements_after],
                                                basis_sites=[0],
