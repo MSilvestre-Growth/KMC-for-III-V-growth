@@ -34,7 +34,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Overloaded base class API function """
         
         # Physical value
-        T = 1 #temperature
+        T = 950 #temperature
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
@@ -96,7 +96,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if (concerned_dimere == elements_before[3]) or ((len(elements_before[3]) == 3) and (dimere_type == elements_before[3][0])):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                return 0#k0*np.exp( - E_tot * q / (kb * T) )
+                return k0*np.exp( - E_tot * q / (kb * T) )
 
             
             if Move_B:
@@ -110,7 +110,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                return 0#k0*np.exp( - E_tot * q / (kb * T) )
+                return k0*np.exp( - E_tot * q / (kb * T) )
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
