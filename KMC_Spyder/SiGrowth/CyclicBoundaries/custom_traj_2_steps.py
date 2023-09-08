@@ -1,6 +1,6 @@
 # KMCLib Trajectory
 version="2013.1.0"
-creation_time="Fri Sep  8 11:33:12 2023"
+creation_time="Fri Sep  8 12:01:51 2023"
 sites=[[       0.000000,       0.000000,       0.000000],
        [       0.000000,       1.000000,       0.000000],
        [       0.000000,       2.000000,       0.000000],
@@ -5365,7 +5365,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  1.3777265822e-06)
+times.append(  1.4752886986e-06)
 steps.append(1)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -5726,7 +5726,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  4.3706311831e-06)
+times.append(  4.4890720566e-06)
 steps.append(2)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -6087,7 +6087,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  4.6162924425e-06)
+times.append(  4.7364470698e-06)
 steps.append(3)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -6448,7 +6448,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  9.4951053107e-06)
+times.append(  9.6492949516e-06)
 steps.append(4)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -6809,7 +6809,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  9.7969042645e-06)
+times.append(  9.9531992806e-06)
 steps.append(5)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -7170,7 +7170,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  1.0297270945e-05)
+times.append(  1.0457056562e-05)
 steps.append(6)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -7531,7 +7531,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  1.2306750988e-05)
+times.append(  1.2480554908e-05)
 steps.append(7)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -7892,7 +7892,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  1.5626084430e-05)
+times.append(  1.5823044303e-05)
 steps.append(8)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -8253,7 +8253,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  1.6778288861e-05)
+times.append(  1.6983286610e-05)
 steps.append(9)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -8614,7 +8614,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2","B2",
               "B2","B2","B2","B2","B2"])
-times.append(  1.8157037943e-05)
+times.append(  1.8459670216e-05)
 steps.append(10)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
