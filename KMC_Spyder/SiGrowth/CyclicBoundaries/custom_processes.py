@@ -139,6 +139,12 @@ while a < len(sorted_list_of_possible_types)-3:
                                            elements_after=[elements_after_interface],
                                            basis_sites=[0],
                                            rate_constant=0.0))
+    processes.append(KMCProcess(coordinates=coordinates,
+                                           elements_before=[elements_before_interface],
+                                           elements_after=[elements_after_interface],
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
+    
     
     processes_name_list.append("Add " + elements_after_interface)
     #################################################
@@ -171,7 +177,11 @@ while a < len(sorted_list_of_possible_types)-3:
                                                elements_after=after_moving_interface,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-        
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=after_moving_interface,
+                                               elements_after=before_moving_interface,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
         processes_name_list.append("Interface process, before : " + elements_after +' --> '+ elements_before_interface + ' after : '+ elements_before +' --> '+ elements_after_interface)
     a += 2
 
