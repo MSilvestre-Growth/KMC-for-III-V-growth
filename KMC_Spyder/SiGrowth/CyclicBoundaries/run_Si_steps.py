@@ -63,7 +63,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         is_in_bulk = 0
         in_the_last_step = 0
         for i in range(1, 4+1):
-            if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (len(concerned_dimere) == 2) :	
+            if (int(elements_before[0][1]) <= int(elements_before[i][1])) :#and (len(concerned_dimere) == 2) :	
                 is_in_bulk += 1
         
         # Add a dimere on top case
