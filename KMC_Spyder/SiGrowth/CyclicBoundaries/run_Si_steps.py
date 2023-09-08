@@ -34,7 +34,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         """ Overloaded base class API function """
         
         # Physical value
-        T = 950 #temperature
+        T = 850 #temperature
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
@@ -163,8 +163,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100000,
-                                          dump_interval=10000, 
+control_parameters = KMCControlParameters(number_of_steps=10000000,
+                                          dump_interval=1000000, 
                                           seed=596312)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
