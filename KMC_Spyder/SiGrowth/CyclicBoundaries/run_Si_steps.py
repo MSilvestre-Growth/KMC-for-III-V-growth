@@ -83,7 +83,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0
   
         if is_in_bulk < 3 and process_number % Nb_processes_per_type > 1 :
-	    print dimere_type
+	    print concerned_dimere 
             Move_A = (dimere_type == 'A')
             Move_B = (dimere_type == 'B')
        

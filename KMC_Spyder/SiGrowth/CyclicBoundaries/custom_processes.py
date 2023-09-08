@@ -164,7 +164,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                                elements_after=after_moving,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-        processes_name_list.append("Move" + after_moving)
+        processes_name_list.append("Move" + elements_after)
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=before_moving_interface,
@@ -172,7 +172,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
-        processes_name_list.append("Move" + after_moving_interface)
+        processes_name_list.append("Move" + elements_after_interface)
     a += 2
 
 print processes_name_list
