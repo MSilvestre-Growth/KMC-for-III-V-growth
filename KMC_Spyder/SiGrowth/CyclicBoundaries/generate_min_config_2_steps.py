@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 50
+X = 25
 Y = 1 
 Z = 1
 
@@ -75,8 +75,6 @@ types = ['A1i']
 
 for h in range(24) :
     types.append('A1')
-for i in range (25) :
-    types.append('B2')
 
 # write all possibles types that you entered previously
 possible_types = ['A1','B2']
