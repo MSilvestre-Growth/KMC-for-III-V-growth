@@ -13,7 +13,7 @@
 # (GPLv3) along with this program. If not, see <http://www.gnu.org/licenses/>.
 # -----------------------------------------------------------------------------
 
-['A1', 'A1i', 'B2', 'B2i', 'A3', 'A3i']
+['A1', 'A1i', 'B2', 'B2i', 'A3', 'A3i', 'B4', 'B4i', 'A5', 'A5i', 'B6', 'B6i', 'A7', 'A7i']
 from KMCLib import *
 
 # -----------------------------------------------------------------------------
@@ -271,7 +271,8 @@ types = ['A1i','A1i','A1i','A1i','A1i','A1i','A1i','A1i','A1i',
          'A1','A1','A1','A1','A1','A1','A1','A1','A1','A1','A1',
          'A1','A1','A1','A1']
 
-possible_types = ['B2','A1','A3','B2i','A3i','A1i']
+possible_types = ['B4','B2','A5i','B4i','B6','A1','A7i','A3','A5','B2i',
+                  'A7','A3i','A1i','B6i']
 
 configuration = KMCConfiguration(
     lattice=lattice,

@@ -81,7 +81,7 @@ possible_types = ['A1']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
-Number_of_supplementary_higher_steps = 2
+Number_of_supplementary_higher_steps = 6 
 
 # nothing more to write from there
 sorted_step = []
