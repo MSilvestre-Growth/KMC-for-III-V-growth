@@ -138,13 +138,7 @@ while a < len(sorted_list_of_possible_types)-3:
                                            elements_before=[elements_before_interface],
                                            elements_after=[elements_after_interface],
                                            basis_sites=[0],
-                                           rate_constant=0.0))
-    processes.append(KMCProcess(coordinates=coordinates,
-                                           elements_before=[elements_before_interface],
-                                           elements_after=[elements_after_interface],
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
-    
+                                           rate_constant=0.0))    
     
     processes_name_list.append("Add " + elements_after_interface)
     #################################################
