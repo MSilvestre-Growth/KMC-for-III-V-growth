@@ -15,7 +15,7 @@ colors = np.array(colors, dtype=np.uint8)
 types_bis = types
 
 
-for i in range(len(types_bis)-1):
+for i in range(len(types_bis)):
     # #Flux measure not working 
     # Nb_atoms_deposited = 0
 
@@ -41,7 +41,7 @@ for i in range(len(types_bis)-1):
                 KMC_Result_current[j] = colors[k]
     
     # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
-    length_to_split = 100 * np.ones(50)
+    length_to_split = np.ones(25)
     KMC_Result_current = iter(KMC_Result_current)
     KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
     KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
