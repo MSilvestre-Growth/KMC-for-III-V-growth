@@ -59,6 +59,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # jump forward, jump left, jump right, jump backward]
         # Repeat X times where X is the number of different steps
         
+        ############################
+        #    Is in bulk section    #
+        ############################
+        
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
         in_the_last_step = 0
@@ -71,23 +75,35 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 	    #print 'a'
             is_in_bulk = 0
         
+        ##############################
+        #    Add a dimere section    #
+        ##############################
+        
         # Add a dimere on top case
-	if process_number % Nb_processes_per_type == 0 or process_number % Nb_processes_per_type == 1 :
+        if process_number % Nb_processes_per_type == 0 or process_number % Nb_processes_per_type == 1 :
 	    #print concerned_dimere
             if is_in_bulk == 4 :#and len(concerned_dimere) == 2:
                 return SendFlux
             else:
                 return 0
         
+        ###########################
+        #    Diffusion section    #
+        ###########################
+        
         if is_in_bulk >= 3 and process_number % Nb_processes_per_type > 1 :
             return 0
  
-	if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 8 :
-	    return 0
- 
+        if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 8 :
+            return 0
+        
+        if process_number % Nb_processes_per_type == 7 :
+            print "process n°7"
+            return 1
+        
         if is_in_bulk < 3 and process_number % Nb_processes_per_type > 1 and process_number % Nb_processes_per_type != 2 and process_number % Nb_processes_per_type != 8 :
-	    print process_number
-	    print concerned_dimere 
+            print process_number
+            print concerned_dimere 
             Move_A = (dimere_type == 'A')
             Move_B = (dimere_type == 'B')
        
