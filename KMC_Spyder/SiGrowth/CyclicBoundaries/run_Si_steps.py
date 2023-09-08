@@ -42,7 +42,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 40 
+        SendFlux = 0.1 
 
         n_parallel = 0
         n_normal = 0
@@ -63,13 +63,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         is_in_bulk = 0
         in_the_last_step = 0
         for i in range(1, 4+1):
-            if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (len(concerned_dimere) == 2) :
+            if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (len(concerned_dimere) == 2) :	
                 is_in_bulk += 1
         
         # Add a dimere on top case
 	if process_number % Nb_processes_per_type == 0 or process_number % Nb_processes_per_type == 1 :
-            if is_in_bulk == 4 and len(concerned_dimere) == 2:        
-                 SendFlux
+	    #print concerned_dimere
+            if is_in_bulk == 4 :#and len(concerned_dimere) == 2:
+                return SendFlux
             else:
                 return 0
         
@@ -95,7 +96,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if (concerned_dimere == elements_before[3]) or ((len(elements_before[3]) == 3) and (dimere_type == elements_before[3][0])):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                return k0*np.exp( - E_tot * q / (kb * T) )
+                return 0#k0*np.exp( - E_tot * q / (kb * T) )
 
             
             if Move_B:
@@ -109,7 +110,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                return k0*np.exp( - E_tot * q / (kb * T) )
+                return 0#k0*np.exp( - E_tot * q / (kb * T) )
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
