@@ -48,7 +48,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0
 
-        Nb_processes_per_type = 10        
+        Nb_processes_per_type = 6        
 
     
 
