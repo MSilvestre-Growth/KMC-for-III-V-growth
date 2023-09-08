@@ -32,9 +32,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
-        
+        print process_number
+
         # Physical value
-        T = 800 #temperature
+        T = 850 #temperature
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
@@ -42,27 +43,89 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 0.1 
+        SendFlux = 0.0 
 
         n_parallel = 0
         n_normal = 0
 
         Nb_processes_per_type = 10        
+
+    
+
+    	#print element_before[0]    
+        concerned_dimere = elements_before[0]
+        dimere_type = concerned_dimere[0]
+        
+        # Processe's order = [add dimere, go right, go left, go forward, go backward,
+        # jump forward, jump left, jump right, jump backward]
+        # Repeat X times where X is the number of different steps
+        
+        ############################
+        #    Is in bulk section    #
+        ############################
+        
+        #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
-	a = 0
-
+        in_the_last_step = 0
         for i in range(1, 4+1):
-            if (int(elements_before[0][1]) <= int(elements_before[i][1])) :
+            if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (len(concerned_dimere) == 2) :	
                 is_in_bulk += 1
-                
-            
-        if process_number % Nb_processes_per_type == 0 and is_in_bulk >= 3:
-	    a += 1
-	    print a
-	    return 1
-	else :
-	    return 0         
+        
+        # Interface dimeres are not in bulk to be coherent with others processes
+        if len(concerned_dimere) == 3 :
+	    #print 'a'
+            is_in_bulk = 0
+        
+        ###########################
+        #    Diffusion section    #
+        ###########################
+        
+        if is_in_bulk >= 3 and process_number % Nb_processes_per_type > 1 :
+            return 0
+ 
+        if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 8 :
+            return 0
 
+        if is_in_bulk < 3 :
+            #print process_number
+            #print concerned_dimere 
+            Move_A = (dimere_type == 'A')
+            Move_B = (dimere_type == 'B')
+       
+            ###################################
+            # Anisotropy is implemented here !#
+            ###################################
+           
+            if Move_A:
+               
+                if concerned_dimere[0:2] == elements_before[2][0:2]:
+                    n_normal += 1
+                if concerned_dimere[0:2] == elements_before[4][0:2]:
+                    n_parallel += 1
+                if concerned_dimere[0:2] == elements_before[1][0:2]:
+                    n_parallel += 1
+                if (concerned_dimere[0:2] == elements_before[3][0:2]) or (len(elements_before[3]) == 3):
+                    n_normal += 1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
+
+            
+            if Move_B:
+                if concerned_dimere[0:2] == elements_before[2][0:2]:
+                    n_parallel += 1
+                if concerned_dimere[0:2] == elements_before[4][0:2]:
+                    n_normal +=1
+                if concerned_dimere[0:2] == elements_before[1][0:2]:
+                    n_normal +=1
+                if (concerned_dimere[0:2] == elements_before[3][0:2]) or (len(elements_before[3]) == 3) :  
+                    n_parallel += 1
+                
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                #print E_tot
+		#print process_number
+		#print k0*np.exp( - E_tot * q / (kb * T) )
+		return k0*np.exp( - E_tot * q / (kb * T) )
+        
     def cutoff(self):
         """ Determines the cutoff for this custom model """
         return 1.0
@@ -98,9 +161,9 @@ def TrueFuction(obj):
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_4_steps_interface.py")
+config = KMCConfigurationFromScript("min_config_2_steps_interface.py")
 #creation of the interaction oject
-interactions = KMCInteractionsFromScript("custom_processes.py")    
+interactions = KMCInteractionsFromScript("test_custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 
@@ -118,7 +181,7 @@ control_parameters = KMCControlParameters(number_of_steps=10,
                                           dump_interval=1, 
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
+model.run(control_parameters, trajectory_filename="custom_min_traj_2_steps.py")
 t2 = time.clock()
 
 print "simu time = "

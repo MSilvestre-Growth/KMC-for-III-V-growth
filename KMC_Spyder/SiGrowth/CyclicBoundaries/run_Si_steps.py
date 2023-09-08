@@ -32,7 +32,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
-        
+        print process_number
+
         # Physical value
         T = 850 #temperature
         kb = 1.38*10**(-23)
@@ -97,13 +98,21 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 8 :
             return 0
         
-        if process_number % Nb_processes_per_type == 7 :
-            print "process n°7"
-            return 1
+        #if process_number % Nb_processes_per_type == 7 :
+            #print "process n°7"
+            #return 1
         
+        #if process_number % Nb_processes_per_type == 4 :
+            #print "process n°4"
+            #return 1
+
+        #if process_number % Nb_processes_per_type == 6 :
+            #print "process n°6"
+            #return 1
+
         if is_in_bulk < 3 and process_number % Nb_processes_per_type > 1 and process_number % Nb_processes_per_type != 2 and process_number % Nb_processes_per_type != 8 :
-            print process_number
-            print concerned_dimere 
+            #print process_number
+            #print concerned_dimere 
             Move_A = (dimere_type == 'A')
             Move_B = (dimere_type == 'B')
        
