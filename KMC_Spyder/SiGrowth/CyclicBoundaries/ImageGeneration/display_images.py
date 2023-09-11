@@ -52,3 +52,12 @@ for i in range(len(types_bis)):
     
     #Image saving in other directory
     plt.imsave(path+file_name, KMC_Result_current_matrix)
+    
+a=0
+for i in range(len(types[0])):
+    if types[0][i] != types[10][i]:
+        a += 1
+ML_s = (a/5000) * (1/times[10]) 
+print(" 2 steps ML/s = ")
+print(ML_s)
+
