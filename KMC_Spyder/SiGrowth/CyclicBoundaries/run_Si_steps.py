@@ -189,7 +189,7 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10,
+control_parameters = KMCControlParameters(number_of_steps=20,
                                           dump_interval=1, 
                                           seed=596312)
 t1 = time.clock()
