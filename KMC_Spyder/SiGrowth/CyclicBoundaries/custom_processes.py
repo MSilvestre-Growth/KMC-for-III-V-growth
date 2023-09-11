@@ -167,15 +167,15 @@ while a < len(sorted_list_of_possible_types)-3:
         processes_name_list.append("Move " + elements_after + " --> " + elements_before)
         
                      
-    processes.append(KMCProcess(coordinates=list_of_coordinates[0],
-                                elements_before=[the_elements_before_interface,the_elements_after],
-                                elements_after=[the_elements_after_interface,the_elements_before],
+    processes.append(KMCProcess(coordinates=list_of_coordinates[2],
+                                elements_before=[elements_before_interface,elements_after],
+                                elements_after=[elements_after_interface,elements_before],
                                 basis_sites=[0],
                                 rate_constant=0.0))
         
-    processes.append(KMCProcess(coordinates=list_of_coordinates[0],
-                                elements_before=[the_elements_after_interface,the_elements_before],
-                                elements_after=[the_elements_before_interface,the_elements_after],
+    processes.append(KMCProcess(coordinates=list_of_coordinates[2],
+                                elements_before=[elements_after_interface,elements_before],
+                                elements_after=[elements_before_interface,elements_after],
                                  basis_sites=[0],
                                  rate_constant=0.0))
     #processes_name_list.append("Interface process, before : " + elements_after +' --> '+ elements_before_interface + ' after : '+ elements_before +' --> '+ elements_after_interface)
@@ -224,15 +224,15 @@ for j in range(len(list_of_coordinates)):
                                            basis_sites=[0],
                                            rate_constant=0.0))
     
-processes.append(KMCProcess(coordinates=list_of_coordinates[0],
-                            elements_before=[the_elements_before_interface,the_elements_after],
-                            elements_after=[the_elements_after_interface,the_elements_before],
+processes.append(KMCProcess(coordinates=list_of_coordinates[2],
+                            elements_before=[elements_before_interface,elements_after],
+                            elements_after=[elements_after_interface,elements_before],
                             basis_sites=[0],
                             rate_constant=0.0))
         
-processes.append(KMCProcess(coordinates=list_of_coordinates[0],
-                            elements_before=[the_elements_after_interface,the_elements_before],
-                            elements_after=[the_elements_before_interface,the_elements_after],
+processes.append(KMCProcess(coordinates=list_of_coordinates[2],
+                            elements_before=[elements_after_interface,elements_before],
+                            elements_after=[elements_before_interface,elements_after],
                             basis_sites=[0],
                             rate_constant=0.0))
 
