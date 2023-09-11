@@ -167,21 +167,21 @@ while a < len(sorted_list_of_possible_types)-3:
         processes_name_list.append("Move " + elements_after + " --> " + elements_before)
         
                      
-        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               elements_before=[elements_after,elements_before_interface],
-                                               elements_after=[elements_before,elements_after_interface],
-                                               basis_sites=[0],
-                                               rate_constant=0.0))
+    processes.append(KMCProcess(coordinates=list_of_coordinates[0],
+                                elements_before=[the_elements_before_interface,the_elements_after],
+                                elements_after=[the_elements_after_interface,the_elements_before],
+                                basis_sites=[0],
+                                rate_constant=0.0))
         
-        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-                                               elements_before=[elements_after_interface,elements_before],
-                                               elements_after=[elements_before_interface,elements_after],
-                                               basis_sites=[0],
-                                               rate_constant=0.0))
-        processes_name_list.append("Interface process, before : " + elements_after +' --> '+ elements_before_interface + ' after : '+ elements_before +' --> '+ elements_after_interface)
+    processes.append(KMCProcess(coordinates=list_of_coordinates[0],
+                                elements_before=[the_elements_after_interface,the_elements_before],
+                                elements_after=[the_elements_before_interface,the_elements_after],
+                                 basis_sites=[0],
+                                 rate_constant=0.0))
+    #processes_name_list.append("Interface process, before : " + elements_after +' --> '+ elements_before_interface + ' after : '+ elements_before +' --> '+ elements_after_interface)
     a += 2
 
-print processes_name_list
+#print processes_name_list
 # Last steps lead to the first ones (periodicity)
 # Rmq : this periodicity may lead to problem in conditions for events to happen
 # that is why we have added supplementary steps in generate_config.py
@@ -224,11 +224,17 @@ for j in range(len(list_of_coordinates)):
                                            basis_sites=[0],
                                            rate_constant=0.0))
     
-    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           elements_before=before_moving_interface,
-                                           elements_after=after_moving_interface,
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
+processes.append(KMCProcess(coordinates=list_of_coordinates[0],
+                            elements_before=[the_elements_before_interface,the_elements_after],
+                            elements_after=[the_elements_after_interface,the_elements_before],
+                            basis_sites=[0],
+                            rate_constant=0.0))
+        
+processes.append(KMCProcess(coordinates=list_of_coordinates[0],
+                            elements_before=[the_elements_after_interface,the_elements_before],
+                            elements_after=[the_elements_before_interface,the_elements_after],
+                            basis_sites=[0],
+                            rate_constant=0.0))
 
 #print len(processes)
 
