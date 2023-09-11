@@ -8992,50 +8992,56 @@ colors = np.array(colors, dtype=np.uint8)
 
 types_bis = types
 
-
-for i in range(len(types_bis)):
-    # #Flux measure not working 
-    # Nb_atoms_deposited = 0
-
-
-    # for l in range(len(types_bis[0])):
-    #     toto =  int(types_bis[i][l][1])
-    #     tata = int(types_bis[i+1][l][1])
-    #     titi = tata - toto
-    #     Nb_atoms_deposited += titi
-
-    # print('Nb_atoms_deposited =')
-    # print(Nb_atoms_deposited)
-    
-    ###################
-    #    file name    #
-    ###################
-    file_name = "Imtest%d.png" % i
-    KMC_Result_current = types[i]
-    # Conversion of "U" in 1 and "D" in 0 for display purposes
-    for j in range(len(KMC_Result_current)):
-        for k in range(len(possible_types)):
-            if KMC_Result_current[j] == possible_types[k]:
-                KMC_Result_current[j] = colors[k]
-    
-    # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
-    length_to_split = 100 * np.ones(50)
-    KMC_Result_current = iter(KMC_Result_current)
-    KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
-    KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
-    
-    #Image display
-    #plt.figure()
-    #plt.imshow(KMC_Result_current_matrix)
-    
-    #Image saving in other directory
-    plt.imsave(path+file_name, KMC_Result_current_matrix)
-    
 a=0
-for i in range(len(types[0])):
-    if types[0][i] != types[10][i]:
-        a += 1
-ML_s = (a/5000) * (1/times[10]) 
-print(" 2 steps ML/s = ")
-print(ML_s)
+ML_s = 0
+growth_list = []
 
+for j in range(len(types)):
+    a = 0
+    for i in range(len(types[0])):
+        if types[j][i] != types[0][i]:
+            a += int(types[j][i][1]) - int(types[0][i][1])
+            ML_s = (a/5000) * (1/times[j])
+    growth_list.append(ML_s)
+
+plt.plot(times, growth_list)
+
+
+# for i in range(len(types_bis)):
+#     # #Flux measure not working 
+#     # Nb_atoms_deposited = 0
+
+
+#     # for l in range(len(types_bis[0])):
+#     #     toto =  int(types_bis[i][l][1])
+#     #     tata = int(types_bis[i+1][l][1])
+#     #     titi = tata - toto
+#     #     Nb_atoms_deposited += titi
+
+#     # print('Nb_atoms_deposited =')
+#     # print(Nb_atoms_deposited)
+    
+#     ###################
+#     #    file name    #
+#     ###################
+#     file_name = "Imtest%d.png" % i
+#     KMC_Result_current = types[i]
+#     # Conversion of "U" in 1 and "D" in 0 for display purposes
+#     for j in range(len(KMC_Result_current)):
+#         for k in range(len(possible_types)):
+#             if KMC_Result_current[j] == possible_types[k]:
+#                 KMC_Result_current[j] = colors[k]
+    
+#     # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
+#     length_to_split = 100 * np.ones(50)
+#     KMC_Result_current = iter(KMC_Result_current)
+#     KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
+#     KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
+    
+#     #Image display
+#     #plt.figure()
+#     #plt.imshow(KMC_Result_current_matrix)
+    
+#     #Image saving in other directory
+#     plt.imsave(path+file_name, KMC_Result_current_matrix)
+    

@@ -14,14 +14,20 @@ colors = np.array(colors, dtype=np.uint8)
 
 types_bis = types
 
-# Final growth rate tracking
+# Growth rate tracking
 a=0
-for i in range(len(types[0])):
-    if types[0][i] != types[10][i]:
-        a += 1
-ML_s = (a/5000) * (1/times[10]) 
-print(" 2 steps ML/s = ")
-print(ML_s)
+ML_s = 0
+growth_list = []
+
+for j in range(len(types)):
+    a = 0
+    for i in range(len(types[0])):
+        if types[j][i] != types[0][i]:
+            a += int(types[j][i][1]) - int(types[0][i][1])
+            ML_s = (a/5000) * (1/times[j])
+    growth_list.append(ML_s)
+
+plt.plot(times, growth_list)
 
 
 for i in range(len(types_bis)):
