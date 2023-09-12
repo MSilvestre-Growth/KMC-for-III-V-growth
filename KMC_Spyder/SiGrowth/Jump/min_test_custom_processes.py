@@ -105,8 +105,8 @@ while a < len(sorted_list_of_possible_types)-5:
     elements_after = sorted_list_of_possible_types[a+2]    
     elements_after_interface = sorted_list_of_possible_types[a+3]   
 
-    jumping_element = sorted_list_of_possible_types[a+4]
-    jumping_element_interface = sorted_list_of_possible_types[a+5]
+    jumping_elements = sorted_list_of_possible_types[a+4]
+    jumping_elements_interface = sorted_list_of_possible_types[a+5]
     #################################################
     #         Diffusion of a quasi-dimere           #
     #################################################
@@ -118,8 +118,12 @@ while a < len(sorted_list_of_possible_types)-5:
     after_moving = [elements_before, elements_after]
     after_moving_interface = [elements_before, elements_after_interface]
     
-    before_jump = [jumping_element, elements_before]
+    before_jump = [jumping_elements, elements_before]
     after_jump = [elements_after, elements_after]
+    
+    before_jump_interface = [jumping_elements_interface, elements_before]
+    after_jump_interface = [elements_after_interface, elements_after]
+    
     
     for i in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
@@ -127,14 +131,14 @@ while a < len(sorted_list_of_possible_types)-5:
                                                elements_after=after_moving,
                                                basis_sites=[0],
                                                rate_constant=0.0))
-        processes_name_list.append("Move " + elements_after + " --> " + elements_before)
         
-        #processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-        #                                       elements_before=before_moving_interface,
-        #                                       elements_after=after_moving_interface,
-        #                                       basis_sites=[0],
-        #                                       rate_constant=0.0))
-        
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=before_jump,
+                                               elements_after=after_jump,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
+    
+    # Interface gestion
     processes.append(KMCProcess(coordinates=list_of_coordinates[1],
                                 elements_before=[elements_before_interface,elements_after],
                                 elements_after=[elements_after_interface,elements_before],
@@ -146,6 +150,14 @@ while a < len(sorted_list_of_possible_types)-5:
                                 elements_after=[elements_before_interface,elements_after],
                                 basis_sites=[0],
                                 rate_constant=0.0))
+    
+    # Interface gestion for jump
+    processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+                                elements_before=before_jump_interface,
+                                elements_after=after_jump_interface,
+                                basis_sites=[0],
+                                rate_constant=0.0))
+    
 
     processes_name_list.append("Interface process, before : " + elements_after +' --> '+ elements_before_interface + ' after : '+ elements_before +' --> '+ elements_after_interface)
     a += 2
