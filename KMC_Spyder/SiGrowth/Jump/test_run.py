@@ -48,7 +48,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0
 
-        Nb_processes_per_type = 8        
+        Nb_processes_per_type = 9        
 
     
 
@@ -161,9 +161,9 @@ def TrueFuction(obj):
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_2_steps_interface.py")
+config = KMCConfigurationFromScript("min_config_2_steps_interface.py")
 #creation of the interaction oject
-interactions = KMCInteractionsFromScript("test_custom_processes.py")    
+interactions = KMCInteractionsFromScript("min_test_custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 

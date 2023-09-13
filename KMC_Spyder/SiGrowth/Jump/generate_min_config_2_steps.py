@@ -71,13 +71,10 @@ lattice = KMCLattice(
 # writting of starting surface
 
 # interface line for cyclic boundaries
-types = ['A1i']
-
-for h in range(2) :
-    types.append('A1')
+types = ['A1i','A3i','A1i']
 
 # write all possibles types that you entered previously
-possible_types = ['A1','B2']
+possible_types = ['A1','B2','A3']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
