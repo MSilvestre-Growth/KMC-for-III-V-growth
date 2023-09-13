@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['SiGrowth\\CyclicBoundaries\\custom_processes.py', 'SiGrowth\\CyclicBoundaries\\custom_traj_2_steps.py', 'SiGrowth\\CyclicBoundaries\\ImageGeneration\\display_images.py', 'SiGrowth\\CyclicBoundaries\\run_Si_steps.py']
+recent_files = ['SiGrowth\\CyclicBoundaries\\custom_processes.py', 'SiGrowth\\CyclicBoundaries\\ImageGeneration\\display_images.py', 'SiGrowth\\CyclicBoundaries\\run_Si_steps.py', 'SiGrowth\\Jump\\min_test_custom_processes.py', 'SiGrowth\\Jump\\min_config_2_steps_interface.py', 'SiGrowth\\CyclicBoundaries\\custom_traj_3_steps.py']
 
 [main]
 version = 0.2.0

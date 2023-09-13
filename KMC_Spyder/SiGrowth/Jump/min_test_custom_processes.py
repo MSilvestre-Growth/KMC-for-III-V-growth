@@ -124,6 +124,8 @@ while a < len(sorted_list_of_possible_types)-5:
     before_jump_interface = [jumping_elements_interface, elements_before]
     after_jump_interface = [elements_after_interface, elements_after]
     
+    before_lateral_jump_interface = [jumping_elements_interface, elements_before_interface]
+    after_lateral_jump_interface = [elements_after_interface, elements_after_interface]
     
     for i in range(len(list_of_coordinates)):
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
@@ -155,6 +157,12 @@ while a < len(sorted_list_of_possible_types)-5:
     processes.append(KMCProcess(coordinates=list_of_coordinates[1],
                                 elements_before=before_jump_interface,
                                 elements_after=after_jump_interface,
+                                basis_sites=[0],
+                                rate_constant=0.0))
+    
+    processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+                                elements_before=before_lateral_jump_interface,
+                                elements_after=after_lateral_jump_interface,
                                 basis_sites=[0],
                                 rate_constant=0.0))
     
