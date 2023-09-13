@@ -94,7 +94,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
 
 #for a in range(0, len(sorted_list_of_possible_types)-2, 2):
 
-a,b = 0,0
+a,b = -4,0
 processes_name_list = []
 
 while a < len(sorted_list_of_possible_types)-5:
@@ -175,43 +175,43 @@ while a < len(sorted_list_of_possible_types)-5:
 # Rmq : this periodicity may lead to problem in conditions for events to happen
 # that is why we have added supplementary steps in generate_config.py
 
-# last step
+# # last step
     
-the_elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2]
-the_elements_before_interface = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
+# the_elements_before = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2]
+# the_elements_before_interface = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-1]
 
-the_elements_after = sorted_list_of_possible_types[0]
-the_elements_after_interface = sorted_list_of_possible_types[1]
-#print the_elements_before
-#print the_elements_after
+# the_elements_after = sorted_list_of_possible_types[0]
+# the_elements_after_interface = sorted_list_of_possible_types[1]
+# #print the_elements_before
+# #print the_elements_after
 
 
-before_moving = [elements_after, elements_before]
-after_moving = [elements_before, elements_after]
+# before_moving = [elements_after, elements_before]
+# after_moving = [elements_before, elements_after]
 
-before_moving_interface = [elements_after, elements_before_interface]
-after_moving_interface = [elements_before, elements_after_interface]
+# before_moving_interface = [elements_after, elements_before_interface]
+# after_moving_interface = [elements_before, elements_after_interface]
     
-for j in range(len(list_of_coordinates)):
-    processes.append(KMCProcess(coordinates=list_of_coordinates[j],
-                                           elements_before=before_moving,
-                                           elements_after=after_moving,
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
+# for j in range(len(list_of_coordinates)):
+#     processes.append(KMCProcess(coordinates=list_of_coordinates[j],
+#                                            elements_before=before_moving,
+#                                            elements_after=after_moving,
+#                                            basis_sites=[0],
+#                                            rate_constant=0.0))
 
-processes.append(KMCProcess(coordinates=list_of_coordinates[1],
-                            elements_before=[elements_before_interface,elements_after],
-                            elements_after=[elements_after_interface,elements_before],
-                            basis_sites=[0],
-                            rate_constant=0.0))
+# processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+#                             elements_before=[elements_before_interface,elements_after],
+#                             elements_after=[elements_after_interface,elements_before],
+#                             basis_sites=[0],
+#                             rate_constant=0.0))
         
-processes.append(KMCProcess(coordinates=list_of_coordinates[1],
-                            elements_before=[elements_after_interface,elements_before],
-                            elements_after=[elements_before_interface,elements_after],
-                            basis_sites=[0],
-                            rate_constant=0.0))
+# processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+#                             elements_before=[elements_after_interface,elements_before],
+#                             elements_after=[elements_before_interface,elements_after],
+#                             basis_sites=[0],
+#                             rate_constant=0.0))
 
-#print len(processes)
+# #print len(processes)
 
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
