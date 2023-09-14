@@ -48,7 +48,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0
 
-        Nb_processes_per_type = 8      
+        Nb_processes_per_type = 18  
 
     
 
@@ -66,14 +66,12 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
-        in_the_last_step = 0
         for i in range(1, 4+1):
             if (int(elements_before[0][1]) <= int(elements_before[i][1])) and (len(concerned_dimere) == 2) :	
                 is_in_bulk += 1
         
         # Interface dimeres are not in bulk to be coherent with others processes
         if len(concerned_dimere) == 3 :
-	    #print 'a'
             is_in_bulk = 0
         
         ##############################
@@ -82,26 +80,20 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         # Add a dimere on top case
         if process_number % Nb_processes_per_type == 0 or process_number % Nb_processes_per_type == 1 :
-	    #print concerned_dimere
-            if is_in_bulk == 4 :#and len(concerned_dimere) == 2:
-                return SendFlux
-            else:
-                return 0
+            return SendFlux
         
         ###########################
         #    Diffusion section    #
         ###########################
         
-        if is_in_bulk >= 3 and process_number % Nb_processes_per_type > 1 :
+        diffusion = process_number % Nb_processes_per_type >= 2 and process_number % Nb_processes_per_type <= 5
+        diffusion_interface= process_number % Nb_processes_per_type >= 10 and process_number % Nb_processes_per_type <= 13
+        all_diffusion = diffusion or diffusion_interface
+        
+        if is_in_bulk >= 3 and all_diffusion :
             return 0
         
-	#if (process_number % Nb_processes_per_type == 7 and concerned_dimere[1] <= elements_before[1][1]) :
-	#    return 0
-
-        #if process_number % Nb_processes_per_type == 2 or process_number % Nb_processes_per_type == 5 or process_number % Nb_processes_per_type == 4:
-        #    return 0
-
-        if is_in_bulk < 3 and process_number % Nb_processes_per_type > 1 :
+        if is_in_bulk < 3 and all_diffusion :
             #print process_number
             #print concerned_dimere 
             Move_A = (dimere_type == 'A')
@@ -113,13 +105,13 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
            
             if Move_A:
                
-                if concerned_dimere[0:2] == elements_before[1][0:2]:
+                if concerned_dimere[1] <= elements_before[1][1]:
                     n_normal += 1
-                if concerned_dimere[0:2] == elements_before[2][0:2]:
+                if concerned_dimere[1] <= elements_before[2][1]:
                     n_parallel += 1
-                if concerned_dimere[0:2] == elements_before[3][0:2]:
+                if concerned_dimere[1] <= elements_before[3][1]:
                     n_parallel += 1
-                if (concerned_dimere[0:2] == elements_before[4][0:2]) or (
+                if (concerned_dimere[1] <= elements_before[4][1]) or (
                         (elements_before[4] == "B" + str(int(elements_before[0][1])-3)+"i")):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
@@ -127,46 +119,36 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
             
             if Move_B:
-                if concerned_dimere[0:2] == elements_before[1][0:2]:
+                if concerned_dimere[1] <= elements_before[1][1]:
                     n_parallel += 1
-                if concerned_dimere[0:2] == elements_before[2][0:2]:
+                if concerned_dimere[1] <= elements_before[2][1]:
                     n_normal +=1
-                if concerned_dimere[0:2] == elements_before[3][0:2]:
+                if concerned_dimere[1] <= elements_before[3][1]:
                     n_normal +=1
-                if (concerned_dimere[0:2] == elements_before[4][0:2]) or (
+                if (concerned_dimere[1] <= elements_before[4][1]) or (
                         (elements_before[4] == "A" + str(int(elements_before[0][1])-3)+"i")):
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
+            
+        #########################
+        #    Jumping section    #
+        #########################
+        
+        jump = process_number % Nb_processes_per_type >= 6 and process_number % Nb_processes_per_type <= 9
+        jump_interface= process_number % Nb_processes_per_type >= 14 and process_number % Nb_processes_per_type <= 17
+        all_jump = jump or jump_interface
+        
+        if is_in_bulk <= 2 and all_jump :
+            return k0
+        
+        if is_in_bulk > 2 and all_jump :
+            return 0
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
         return 1.0
-
-#class CustomAnalysis(KMCAnalysisPlugin):
-#    """ Custom analysis class """
-#    def __init__(self, init_config, current_config):
-#        self.init_config = init_config
-#        self.curent_config = current_config
-	
-#    def setup(self, step, time, configuration):
-#        if step == 0:
-#            fig0 = configuration.types()
-#        fig_now = configuration.types()
-#        p = CustomAnalysis(config0, config_now)
-#        return comp
-    
-#    def finalize(self):
-#        p = setup(step, time, configuration)
-#        t_types = comp.init_config()
-#        rent_types = comp.current_config()
-#        t_atoms = 0
-#        i in range(len(init_types)):
-#             sent_atoms += int(current_types[i][1]) - int(init_types[i][1])
-#        return sent_atoms/(len(init_types)*time)
-
-#analysis = CustomAnalysis.finalize()
 
 # speedup process
 def TrueFuction(obj):
