@@ -140,10 +140,16 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         jump_interface= process_number % Nb_processes_per_type >= 14 and process_number % Nb_processes_per_type <= 17
         all_jump = jump or jump_interface
         
-        if is_in_bulk <= 2 and all_jump :
+        is_alone = 0
+        
+        for i in range(1,4+1):
+            if (int(elements_before[0][1]) >= int(elements_before[i][1])+1) :	
+                is_alone += 1
+        
+        if is_alone == 4 and all_jump :
             return k0
         
-        if is_in_bulk > 2 and all_jump :
+        if is_alone != 4 and all_jump :
             return 0
         
     def cutoff(self):
@@ -173,8 +179,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10000000,
-                                          dump_interval=1000000, 
+control_parameters = KMCControlParameters(number_of_steps=5000000,
+                                          dump_interval=500000, 
                                           seed=596312)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_3_steps.py")
