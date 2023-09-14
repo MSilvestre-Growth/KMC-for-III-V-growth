@@ -179,9 +179,10 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=5000000,
-                                          dump_interval=500000, 
-                                          seed=596312)
+control_parameters = KMCControlParameters(number_of_steps=2500000,
+                                          dump_interval=250000,
+					  seed=12)
+                                          #seed=596312)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_3_steps.py")
 t2 = time.clock()
