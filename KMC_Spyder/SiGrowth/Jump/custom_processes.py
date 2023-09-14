@@ -33,7 +33,7 @@ from KMCLib import *
 processes = []
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("config_4_steps_interface.py")
+config = KMCConfigurationFromScript("config_3_steps.py")
 
 # Get the possible types from config
 dictionnary_of_possible_types = config.possibleTypes()
