@@ -143,7 +143,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         is_alone = 0
         
         for i in range(1,4+1):
-            if (int(elements_before[0][1]) >= int(elements_before[i][1])+1) :	
+            if (int(elements_before[0][1]) == (int(elements_before[i][1])+1)) :	
                 is_alone += 1
         
         if is_alone == 4 and all_jump :
@@ -181,8 +181,7 @@ model = KMCLatticeModel(configuration=config,
 # we run this test.
 control_parameters = KMCControlParameters(number_of_steps=2500000,
                                           dump_interval=250000,
-					  seed=12)
-                                          #seed=596312)
+                                          seed=596312)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_3_steps.py")
 t2 = time.clock()
