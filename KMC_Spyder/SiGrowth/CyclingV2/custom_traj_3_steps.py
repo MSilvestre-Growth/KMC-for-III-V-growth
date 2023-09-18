@@ -1,6 +1,6 @@
 # KMCLib Trajectory
 version="2013.1.0"
-creation_time="Mon Sep 18 14:16:55 2023"
+creation_time="Mon Sep 18 14:51:13 2023"
 sites=[[       0.000000,       0.000000,       0.000000],
        [       0.000000,       1.000000,       0.000000],
        [       0.000000,       2.000000,       0.000000],
@@ -8043,7 +8043,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3",
               "A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3",
               "A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3"])
-times.append(  4.2678175265e-02)
+times.append(  4.2678177520e-02)
 steps.append(100000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","B2i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -8582,7 +8582,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A3","A3","A3","B4","A3","A3","A3","B4","A3","A3","A3","A3","A3","A3",
               "A3","B4","A5","A3","A3","A3","B4","A3","A3","A3","A3","A3","A3","A3",
               "A3","A3","A3","A3","B4","A3","B4","A3","A3","A3","A3","A3","A3"])
-times.append(  7.5611760530e-02)
+times.append(  7.5611762785e-02)
 steps.append(200000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -9121,7 +9121,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B4","A3","A3","A3","A3","A3","A3","B4","B4","B4","A3","A3","A3","A3",
               "A3","B4","A5","A3","A3","A3","A3","A3","A3","A3","A3","B4","A3","A3",
               "A3","A3","A3","B4","A3","A3","B4","B4","B4","B4","A3","B4","B4"])
-times.append(  1.0939152440e-01)
+times.append(  1.0939152665e-01)
 steps.append(300000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -9660,7 +9660,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","A3","B4","A3","A3",
               "A3","B4","A5","B4","B4","A3","A3","A3","A3","A3","A3","B4","A3","A3",
               "A3","B4","A3","A3","B4","B4","A3","B4","B4","B4","A3","A3","A3"])
-times.append(  1.3779690084e-01)
+times.append(  1.3779690309e-01)
 steps.append(400000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -10199,7 +10199,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A3","B4","A3","A3","A3","A3","A3","A3","A3","A3","A3","B4","B4","B4",
               "A3","B4","A3","A5","A3","A3","A3","B4","A3","A3","A3","A3","A3","A3",
               "B4","B4","A3","B4","B4","B4","B4","B4","B4","B4","A3","A3","B4"])
-times.append(  1.6428667111e-01)
+times.append(  1.6428667336e-01)
 steps.append(500000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -10738,7 +10738,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A3","A3","A3","A3","A3","A3","B4","A3","B4","A3","A3","A3","B4","B4",
               "A3","A3","A5","B4","A3","A3","A3","B4","A3","A3","B4","A3","A3","A3",
               "B4","A3","B4","B4","B4","B4","B4","B4","A3","A3","B4","B4","A3"])
-times.append(  1.8632647566e-01)
+times.append(  1.8632647791e-01)
 steps.append(600000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -11277,7 +11277,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B4","A3","B4","A3","A3","A3","A3","A3","A3","B4","B4","A3","A3","B4",
               "B4","A3","A5","A3","B4","A3","A3","B4","B4","A3","B4","A3","B4","B4",
               "A3","B4","B4","A3","B4","B4","B4","A3","B4","B4","A3","B4","B4"])
-times.append(  2.1050418049e-01)
+times.append(  2.1050418275e-01)
 steps.append(700000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -11816,7 +11816,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A3","A3","A3","A3","B4","A3","A3","A3","B4","A3","A3","A3","B4","B4",
               "A3","A5","B4","B4","A3","B4","B4","B4","A3","B4","B4","B4","B4","B4",
               "B4","B4","A3","B4","B4","B4","A3","A3","B4","B4","B4","A3","B4"])
-times.append(  2.3114377033e-01)
+times.append(  2.3114377259e-01)
 steps.append(800000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -12355,7 +12355,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B4","A3","A3","A3","B4","A3","A3","A3","A3","A3","B4","B4","A3","A3",
               "A3","B4","A5","A3","A3","B4","B4","B4","A3","A3","A3","B4","B4","B4",
               "B4","B4","B4","A3","B4","B4","B4","A3","B4","B4","B4","A3","B4"])
-times.append(  2.5469621996e-01)
+times.append(  2.5469622222e-01)
 steps.append(900000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -12894,7 +12894,7 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B4","B4","B4","B4","A3","A3","A3","A3","A3","B4","B4","A3","A3","B4",
               "A3","A3","A3","A5","A3","B4","B4","B4","B4","B4","B4","A3","B4","A3",
               "A3","B4","B4","A3","B4","B4","B4","B4","B4","B4","A3","A3","B4"])
-times.append(  2.7856556876e-01)
+times.append(  2.7856557102e-01)
 steps.append(1000000)
 types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
@@ -13433,73 +13433,3 @@ types.append(["A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i","A1i",
               "B4","B4","A3","A3","A3","A3","A3","B4","A3","B4","A3","A3","B4","A3",
               "A3","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","A3","B4",
               "A3","B4","A3","B4","B4","B4","B4","B4","B4","A3","B4","B4","B4"])
-
-""" Copy this file to create images of your simulation in path + file name"""
-
-import matplotlib.pyplot as plt
-import numpy as np
-from itertools import islice
-from PIL import Image
-
-path = "C:/Users/msilvestre/Documents/GitHub/Images/SiGrowth/steps_4_test/"
-
-possible_types = ['A1', 'A1i', 'B2', 'B2i', 'A3', 'A3i', 'B4', 'B4i', 'A5', 'A5i', 'B6', 'B6i', 'A7', 'A7i', 'B8', 'B8i', 'A9', 'A9i']
-#colors = [0, 0.4, 0.2, 0.8, 0.6, 1]
-colors = [(0,0,125),(0,60,125),(125,0,0),(125,60,0),(0,125,0),(0,125,60),(0,0,250),(0,60,250),(250,0,0),(250,60,0),(0,250,0),(0,250,60),(0,0,125),(0,60,125),(125,0,0),(125,60,0),(0,125,0),(0,125,60)]
-colors = np.array(colors, dtype=np.uint8)
-
-types_bis = types
-
-# Growth rate tracking
-a=0
-ML_s = 0
-growth_list = []
-
-for j in range(len(types)):
-    a = 0
-    for i in range(len(types[0])):
-        if types[j][i] != types[0][i]:
-            a += int(types[j][i][1]) - int(types[0][i][1])
-            ML_s = (a/5000) * (1/times[j])
-    growth_list.append(ML_s)
-
-plt.plot(times, growth_list)
-
-
-for i in range(len(types_bis)):
-    # #Flux measure not working 
-    # Nb_atoms_deposited = 0
-
-
-    # for l in range(len(types_bis[0])):
-    #     toto =  int(types_bis[i][l][1])
-    #     tata = int(types_bis[i+1][l][1])
-    #     titi = tata - toto
-    #     Nb_atoms_deposited += titi
-
-    # print('Nb_atoms_deposited =')
-    # print(Nb_atoms_deposited)
-    
-    ###################
-    #    file name    #
-    ###################
-    file_name = "Imtest%d.png" % i
-    KMC_Result_current = types[i]
-    # Conversion of "U" in 1 and "D" in 0 for display purposes
-    for j in range(len(KMC_Result_current)):
-        for k in range(len(possible_types)):
-            if KMC_Result_current[j] == possible_types[k]:
-                KMC_Result_current[j] = colors[k]
-    
-    # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
-    length_to_split = 100 * np.ones(75)
-    KMC_Result_current = iter(KMC_Result_current)
-    KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
-    KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
-    
-    #Image display
-    #plt.figure()
-    #plt.imshow(KMC_Result_current_matrix)
-    
-    #Image saving in other directory
-    plt.imsave(path+file_name, KMC_Result_current_matrix)
