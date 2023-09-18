@@ -225,11 +225,8 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     
     
     elements_of_current_step_interface = sorted_list_of_possible_types[a+1] 
-    #print elements_of_current_step
     element_of_cycling_step = sorted_list_of_possible_types[a+offset_cycling_step]
-    #print element_of_cycling_step
     upper_step_moving_dimere = sorted_list_of_possible_types[a+offset_moving_dimere]  
-    #print upper_step_moving_dimere
  
     processes.append(KMCProcess(coordinates=list_of_coordinates[1],
                                 elements_before=[elements_after_interface, element_of_cycling_step],

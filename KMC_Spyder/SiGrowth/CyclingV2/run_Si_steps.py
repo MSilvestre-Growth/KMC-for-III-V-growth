@@ -85,11 +85,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ###########################
         #    Diffusion section    #
         ###########################
-        
         diffusion = process_number % Nb_processes_per_type >= 2 and process_number % Nb_processes_per_type <= 5
         diffusion_interface= process_number % Nb_processes_per_type >= 10 and process_number % Nb_processes_per_type <= 13
-	diffusion_for_cycling = process_number % Nb_processes_per_type == 18 or process_number % Nb_processes_per_type == 19
-	all_diffusion = diffusion or diffusion_interface or diffusion_for_cycling
+        diffusion_for_cycling = process_number % Nb_processes_per_type == 18 or process_number % Nb_processes_per_type == 19
+        
+        if diffusion_for_cycling and int(concerned_dimere[1]) >= 6 :
+            return 0
+        
+        all_diffusion = diffusion or diffusion_interface or diffusion_for_cycling
         
         if is_in_bulk >= 3 and all_diffusion :
             return 0
