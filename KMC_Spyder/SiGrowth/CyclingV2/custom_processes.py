@@ -102,7 +102,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 a,b = -4,0
 processes_name_list = []
 
-sorted_list_of_possible_types.append(sorted_list_of_possible_types)
+sorted_list_of_possible_types= sorted_list_of_possible_types*2
 while a < (len(sorted_list_of_possible_types)/2)-5:
  
     #################################################
@@ -128,6 +128,8 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
                                            rate_constant=0.0))
  
     # Interface states
+    #print elements_before_interface
+    #print elements_after_interface
     processes.append(KMCProcess(coordinates=coordinates,
                                            elements_before=[elements_before_interface],
                                            elements_after=[elements_after_interface],
@@ -221,10 +223,14 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     offset_cycling_step = Number_of_step_on_starting_surface * 2
     offset_moving_dimere = offset_cycling_step + 2
     
-    elements_of_current_step_interface = sorted_list_of_possible_types[a+1] 
-    element_of_cycling_step = sorted_list_of_possible_types[a+offset_cycling_step]
-    upper_step_moving_dimere = sorted_list_of_possible_types[a+offset_moving_dimere]  
     
+    elements_of_current_step_interface = sorted_list_of_possible_types[a+1] 
+    #print elements_of_current_step
+    element_of_cycling_step = sorted_list_of_possible_types[a+offset_cycling_step]
+    #print element_of_cycling_step
+    upper_step_moving_dimere = sorted_list_of_possible_types[a+offset_moving_dimere]  
+    #print upper_step_moving_dimere
+ 
     processes.append(KMCProcess(coordinates=list_of_coordinates[1],
                                 elements_before=[elements_after_interface, element_of_cycling_step],
                                 elements_after=[elements_of_current_step_interface, upper_step_moving_dimere],

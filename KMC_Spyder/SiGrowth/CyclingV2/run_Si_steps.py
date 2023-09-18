@@ -88,7 +88,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         diffusion = process_number % Nb_processes_per_type >= 2 and process_number % Nb_processes_per_type <= 5
         diffusion_interface= process_number % Nb_processes_per_type >= 10 and process_number % Nb_processes_per_type <= 13
-        all_diffusion = diffusion or diffusion_interface
+	diffusion_for_cycling = process_number % Nb_processes_per_type == 18 or process_number % Nb_processes_per_type == 19
+	all_diffusion = diffusion or diffusion_interface or diffusion_for_cycling
         
         if is_in_bulk >= 3 and all_diffusion :
             return 0
@@ -179,8 +180,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100000000,
-                                          dump_interval=1000000,
+control_parameters = KMCControlParameters(number_of_steps=1000,
+                                          dump_interval=100,
                                           seed=596312)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_3_steps.py")
