@@ -48,7 +48,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         n_parallel = 0
         n_normal = 0
 
-        Nb_processes_per_type = 9        
+        Nb_processes_per_type = 10     
 
     
 
@@ -177,7 +177,7 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10,
+control_parameters = KMCControlParameters(number_of_steps=1,
                                           dump_interval=1, 
                                           seed=596312)
 t1 = time.clock()
