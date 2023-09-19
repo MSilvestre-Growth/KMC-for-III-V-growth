@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 5
+X = 6
 Y = 1 
 Z = 1
 
@@ -71,7 +71,7 @@ lattice = KMCLattice(
 # writting of starting surface
 
 # interface line for cyclic boundaries
-types = ['A1i','A1','B2','B4']
+types = ['A1i','A1','B2','A3','B4','A5']
 
 # write all possibles types that you entered previously
 possible_types = ['A1','B2','A3']

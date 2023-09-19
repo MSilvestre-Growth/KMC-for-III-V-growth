@@ -97,7 +97,9 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
 a,b = -4,0
 processes_name_list = []
 
-while a < len(sorted_list_of_possible_types)-5:
+sorted_list_of_possible_types = sorted_list_of_possible_types * 2
+print sorted_list_of_possible_types
+while a < (len(sorted_list_of_possible_types)/2)-5:
     
     elements_before = sorted_list_of_possible_types[a]    
     elements_before_interface = sorted_list_of_possible_types[a+1]
