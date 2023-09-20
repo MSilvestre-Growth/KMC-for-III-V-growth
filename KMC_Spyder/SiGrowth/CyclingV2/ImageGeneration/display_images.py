@@ -67,3 +67,5 @@ for i in range(len(types_bis)):
     
     #Image saving in other directory
     plt.imsave(path+file_name, KMC_Result_current_matrix)
+    
+    

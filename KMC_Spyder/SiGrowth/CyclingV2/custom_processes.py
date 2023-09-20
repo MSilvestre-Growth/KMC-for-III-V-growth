@@ -227,13 +227,20 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     elements_of_current_step_interface = sorted_list_of_possible_types[a+1] 
     element_of_cycling_step = sorted_list_of_possible_types[a+offset_cycling_step]
     upper_step_moving_dimere = sorted_list_of_possible_types[a+offset_moving_dimere]  
- 
+    
+    print [elements_after_interface, element_of_cycling_step]
+    print "up"
+    print [elements_of_current_step_interface, upper_step_moving_dimere]
+    
     processes.append(KMCProcess(coordinates=list_of_coordinates[1],
                                 elements_before=[elements_after_interface, element_of_cycling_step],
                                 elements_after=[elements_of_current_step_interface, upper_step_moving_dimere],
                                 basis_sites=[0],
                                 rate_constant=0.0))
-
+    
+    print [upper_step_moving_dimere, elements_of_current_step_interface]
+    print "down"
+    print [element_of_cycling_step, elements_after_interface]
     processes.append(KMCProcess(coordinates=list_of_coordinates[2],
                                 elements_before=[upper_step_moving_dimere, elements_of_current_step_interface],
                                 elements_after=[element_of_cycling_step, elements_after_interface],
