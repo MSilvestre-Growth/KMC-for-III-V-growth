@@ -186,8 +186,8 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     # print "<--"
     # print [elements_after_interface, element_of_cycling_step]
     processes.append(KMCProcess(coordinates=list_of_coordinates[0],
-                                elements_before=[elements_of_current_step_interface, upper_step_moving_dimere],
-                                elements_after=[elements_after_interface, element_of_cycling_step],
+                                elements_before=[elements_after_interface, element_of_cycling_step],
+                                elements_after=[elements_of_current_step_interface, upper_step_moving_dimere],
                                 basis_sites=[0],
                                 rate_constant=0.0))
     
@@ -195,8 +195,8 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     # print "-->"
     # print [elements_after_interface, element_of_cycling_step]
     processes.append(KMCProcess(coordinates=list_of_coordinates[1],
-                                elements_before=[elements_of_current_step_interface, upper_step_moving_dimere],
-                                elements_after=[elements_after_interface, element_of_cycling_step],
+                                elements_before=[upper_step_moving_dimere, elements_of_current_step_interface],
+                                elements_after=[element_of_cycling_step, elements_after_interface],
                                 basis_sites=[0],
                                 rate_constant=0.0))
     
