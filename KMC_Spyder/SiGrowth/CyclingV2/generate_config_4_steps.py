@@ -69,14 +69,14 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ['A1']*2500
+types = ['A1i']*100
 
-for i in range(2500) :
+for h in range(2400) :
+    types.append('A1')
+for i in range (2500) :
     types.append('B2')
-    
 for j in range(2500) :
     types.append('A3')
-
 for k in range(2500) :
     types.append('B4')
 
@@ -116,11 +116,19 @@ for i in range(1, Number_of_supplementary_higher_steps+1):
         new_high_step = "A" + str(last_step_height+i)
         sorted_step.append(new_high_step)
 
+# Add Interface states for cyclic connexions
+AllStates = []
+for i in range(len(sorted_step)):
+    AllStates.append(sorted_step[i])
+    AllStates.append(sorted_step[i]+"i")
+
+print AllStates
+
 # Setting parameters of the configuration with previous informations
 configuration = KMCConfiguration(
     lattice=lattice,
     types=types,
-    possible_types=sorted_step)
+    possible_types = AllStates)
 
 # # print tests
 # dictionnary_of_possible_types = configuration.possibleTypes()
