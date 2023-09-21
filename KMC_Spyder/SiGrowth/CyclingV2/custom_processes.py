@@ -102,7 +102,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 a,b = -4,0
 processes_name_list = []
 
-max_height = sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2][1]
+max_height = int(sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2][1])
 
 sorted_list_of_possible_types = sorted_list_of_possible_types*2
 while a < (len(sorted_list_of_possible_types)/2)-5:
@@ -227,7 +227,7 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     # in the run programm and doesn't provoc weird things. But that means that 
     # the simulatdd growth is restreined to max_height - 4 monolayers
     
-    if elements_before[1] > max_height - 4 :
+    if int(elements_before[1]) > max_height - 4 :
         # Moving RIGHT at the interface
         processes.append(KMCProcess(coordinates=list_of_coordinates[0],
                                     elements_before=[elements_after_interface,elements_before_interface],
