@@ -33,7 +33,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
         #print process_number
-
+        
         # Physical value
         T = 850 #temperature
         kb = 1.38*10**(-23)
@@ -44,14 +44,26 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         k0 = 10**13 #hopping constant for the Boltzman's law
     
         SendFlux = 0.16666667 
-
+        
+        
+        
+        # Utilities for the custom rate
+        
+        Nb_processes_per_type = 20
+        
+        Number_of_step_on_starting_surface = 4
+        
+        if Number_of_step_on_starting_surface % 2 == 1 :
+            Cycling_letter_moving_A = "B"
+            Cycling_letter_moving_B = "A"
+            
+        else :
+            Cycling_letter_moving_A = "A"
+            Cycling_letter_moving_B = "B"
+        
         n_parallel = 0
         n_normal = 0
-
-        Nb_processes_per_type = 20
-    
-
-    	#print element_before[0]    
+       
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
         
@@ -115,7 +127,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if concerned_dimere[1] <= elements_before[3][1]:
                     n_parallel += 1
                 if (concerned_dimere[1] <= elements_before[4][1]) or (
-                        (elements_before[4] == "B" + str(int(elements_before[0][1])-3)+"i")):
+                        (elements_before[4] == Cycling_letter_move_A + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+"i")):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
@@ -129,7 +141,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if concerned_dimere[1] <= elements_before[3][1]:
                     n_normal +=1
                 if (concerned_dimere[1] <= elements_before[4][1]) or (
-                        (elements_before[4] == "A" + str(int(elements_before[0][1])-3)+"i")):
+                        (elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+"i")):
                     n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
@@ -166,7 +178,7 @@ def TrueFuction(obj):
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_3_steps.py")
+config = KMCConfigurationFromScript("config_4_steps.py")
 #creation of the interaction oject
 interactions = KMCInteractionsFromScript("custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
@@ -186,7 +198,7 @@ control_parameters = KMCControlParameters(number_of_steps=10000000,
                                           dump_interval=1000000,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="custom_traj_3_steps.py")
+model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
 t2 = time.clock()
 
 print "simu time = "

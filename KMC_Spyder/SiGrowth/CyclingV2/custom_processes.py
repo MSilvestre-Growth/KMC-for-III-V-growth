@@ -23,6 +23,11 @@ use % 9 to know which process happen
 # GNU General Public License version 3, see <http://www.gnu.org/licenses/>.
 #
 
+
+Number_of_step_on_starting_surface = 4
+
+
+
 ############################################################################
 #    WARNING : don't modify anything unless you know what you are doing    #
 ############################################################################
@@ -242,7 +247,6 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
                                     basis_sites=[0],
                                     rate_constant=0.0))   
     else :
-        Number_of_step_on_starting_surface = 3
     
         offset_cycling_step = (Number_of_step_on_starting_surface + 1) * 2
         offset_moving_dimere = offset_cycling_step + 2
