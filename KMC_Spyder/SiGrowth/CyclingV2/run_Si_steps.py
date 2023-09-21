@@ -146,34 +146,34 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
-         if is_in_bulk < 3 and diffusion_for_cycling :   
+        if is_in_bulk < 3 and diffusion_for_cycling :   
              Move_A = (dimere_type == 'A')
              Move_B = (dimere_type == 'B')
              
              if Move_A:
-                 if concerned_dimere[1] <= elements_before[1][1]:
-                     n_normal += 1
-                 if concerned_dimere[1] <= elements_before[2][1]:
-                     n_parallel += 1
-                 if concerned_dimere[1] <= elements_before[3][1]:
-                     n_parallel += 1
-                 if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+1+"i")):
-                     n_normal += 1
-                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                 return k0*np.exp( - E_tot * q / (kb * T) )
+                if concerned_dimere[1] <= elements_before[1][1]:
+                    n_normal += 1
+                if concerned_dimere[1] <= elements_before[2][1]:
+                    n_parallel += 1
+                if concerned_dimere[1] <= elements_before[3][1]:
+                    n_parallel += 1
+                if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+1+"i")):
+                    n_normal += 1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
              
-              if Move_B:
-                  if concerned_dimere[1] <= elements_before[1][1]:
-                      n_parallel += 1
-                  if concerned_dimere[1] <= elements_before[2][1]:
-                      n_normal +=1
-                  if concerned_dimere[1] <= elements_before[3][1]:
-                      n_normal +=1
-                  if (concerned_dimere[1] <= elements_before[4][1]) or (
-                          (elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1])-Number_of_step_on_starting_surface+1)+"i")):
-                      n_parallel += 1
-                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                  return k0*np.exp( - E_tot * q / (kb * T) )  
+             if Move_B:
+                 if concerned_dimere[1] <= elements_before[1][1]:
+                     n_parallel += 1
+                 if concerned_dimere[1] <= elements_before[2][1]:
+                     n_normal +=1
+                 if concerned_dimere[1] <= elements_before[3][1]:
+                     n_normal +=1
+                 if (concerned_dimere[1] <= elements_before[4][1]) or (
+                         (elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1])-Number_of_step_on_starting_surface+1)+"i")):
+                     n_parallel += 1
+                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                 return k0*np.exp( - E_tot * q / (kb * T) )  
                 
         #########################
         #    Jumping section    #
