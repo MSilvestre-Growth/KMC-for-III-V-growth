@@ -248,7 +248,7 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
                                     rate_constant=0.0))   
     else :
     
-        offset_cycling_step = (Number_of_step_on_starting_surface + 1) * 2
+        offset_cycling_step = Number_of_step_on_starting_surface * 2
         offset_moving_dimere = offset_cycling_step + 2
     
     
