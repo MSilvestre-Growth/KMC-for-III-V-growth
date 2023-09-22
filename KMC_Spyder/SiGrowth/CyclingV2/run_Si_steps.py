@@ -157,7 +157,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 if concerned_dimere[1] <= elements_before[3][1]:
                     n_parallel += 1
-                if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1])-Number_of_step_on_starting_surface+1)+"i":
+                if elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+"i":
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
@@ -169,7 +169,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                      n_normal +=1
                  if concerned_dimere[1] <= elements_before[3][1]:
                      n_normal +=1
-                 if elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1])-Number_of_step_on_starting_surface+1)+"i":
+                 if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+"i":
                      n_parallel += 1
                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                  return k0*np.exp( - E_tot * q / (kb * T) )  
@@ -221,8 +221,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10000000,
-                                          dump_interval=1000000,
+control_parameters = KMCControlParameters(number_of_steps=1000000,
+                                          dump_interval=100000,
                                           seed=596312)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
