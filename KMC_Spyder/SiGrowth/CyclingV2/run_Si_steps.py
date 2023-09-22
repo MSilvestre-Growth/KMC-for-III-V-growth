@@ -100,8 +100,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         diffusion_interface= process_number % Nb_processes_per_type >= 10 and process_number % Nb_processes_per_type <= 13
         diffusion_for_cycling = process_number % Nb_processes_per_type == 18 or process_number % Nb_processes_per_type == 19
         
-        if diffusion_for_cycling and int(concerned_dimere[1]) >= 6 :
-            return 0
+        # if diffusion_for_cycling and int(concerned_dimere[1]) >= 6 :
+        #     return 0
         
         normal_diffusion = diffusion or diffusion_interface
         all_diffusion = normal_diffusion or diffusion_for_cycling
@@ -175,9 +175,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                  return k0*np.exp( - E_tot * q / (kb * T) )
         
                 
-        ####################
-        #    Cycling Up    #
-        ####################
+        ######################
+        #    Cycling Down    #
+        ######################
         
         if is_in_bulk < 3 and process_number % Nb_processes_per_type == 19 :   
             Move_A = (dimere_type == 'A')
