@@ -173,28 +173,28 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             print "bottom dimere = "
             print elements_before[4]
             
-             Move_A = (dimere_type == 'A')
-             Move_B = (dimere_type == 'B')
+            Move_A = (dimere_type == 'A')
+            Move_B = (dimere_type == 'B')
              
-             if Move_A:
+            if Move_A:
+               if concerned_dimere[1] <= elements_before[2][1]:
+                   n_parallel += 1
+               if concerned_dimere[1] <= elements_before[3][1]:
+                   n_parallel += 1
+               if concerned_dimere[1] <= elements_before[4][1]:
+                   n_normal += 1
+               E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+               return k0*np.exp( - E_tot * q / (kb * T) )
+             
+            if Move_B:
                 if concerned_dimere[1] <= elements_before[2][1]:
-                    n_parallel += 1
+                    n_normal +=1
                 if concerned_dimere[1] <= elements_before[3][1]:
-                    n_parallel += 1
+                    n_normal +=1
                 if concerned_dimere[1] <= elements_before[4][1]:
-                    n_normal += 1
+                    n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
-             
-             if Move_B:
-                 if concerned_dimere[1] <= elements_before[2][1]:
-                     n_normal +=1
-                 if concerned_dimere[1] <= elements_before[3][1]:
-                     n_normal +=1
-                 if concerned_dimere[1] <= elements_before[4][1]:
-                     n_parallel += 1
-                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                 return k0*np.exp( - E_tot * q / (kb * T) )
         
                 
         ####################
