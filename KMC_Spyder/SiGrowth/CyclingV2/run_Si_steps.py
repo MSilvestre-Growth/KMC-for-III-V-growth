@@ -163,7 +163,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 return k0*np.exp( - E_tot * q / (kb * T) )
              
              if Move_B:
-                 if concerned_dimere[1] <= elements_before[1][1]:
+                 if elements_before[1] == Cycling_letter_moving_B + str(int(elements_before[0][1])+Number_of_step_on_starting_surface):
                      n_parallel += 1
                  if concerned_dimere[1] <= elements_before[2][1]:
                      n_normal +=1
