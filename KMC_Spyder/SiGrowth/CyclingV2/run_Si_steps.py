@@ -145,34 +145,64 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
-            
-        if is_in_bulk < 3 and diffusion_for_cycling :   
+        
+        ####################
+        #    Cycling Up    #
+        ####################
+        
+        if is_in_bulk < 3 and process_number % Nb_processes_per_type == 18 :   
              Move_A = (dimere_type == 'A')
              Move_B = (dimere_type == 'B')
              
              if Move_A:
-                if concerned_dimere[1] <= elements_before[1][1]:
-                    n_normal += 1
                 if concerned_dimere[1] <= elements_before[2][1]:
                     n_parallel += 1
                 if concerned_dimere[1] <= elements_before[3][1]:
                     n_parallel += 1
-                if elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+"i":
+                if concerned_dimere[1] <= elements_before[4][1]:
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
              
              if Move_B:
-                 if elements_before[1] == Cycling_letter_moving_B + str(int(elements_before[0][1])+Number_of_step_on_starting_surface):
-                     n_parallel += 1
                  if concerned_dimere[1] <= elements_before[2][1]:
                      n_normal +=1
                  if concerned_dimere[1] <= elements_before[3][1]:
                      n_normal +=1
-                 if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1])-Number_of_step_on_starting_surface)+"i":
-                     n_parallel += 1
+                  if concerned_dimere[1] <= elements_before[4][1]:
+                      n_parallel += 1
                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                 return k0*np.exp( - E_tot * q / (kb * T) )  
+                 return k0*np.exp( - E_tot * q / (kb * T) )
+        
+                
+        ####################
+        #    Cycling Up    #
+        ####################
+        
+        if is_in_bulk < 3 and process_number % Nb_processes_per_type == 19 :   
+            Move_A = (dimere_type == 'A')
+            Move_B = (dimere_type == 'B')
+                  
+            if Move_A:
+                if elements_before[1] <= elements_before[1][1]:
+                    n_normal += 1
+                if concerned_dimere[1] <= elements_before[2][1]:
+                    n_parallel += 1
+                if concerned_dimere[1] <= elements_before[3][1]:
+                    n_parallel += 1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
+                  
+            if Move_B:
+                if elements_before[1] <= elements_before[1][1]:
+                    n_parallel += 1
+                if concerned_dimere[1] <= elements_before[2][1]:
+                    n_normal +=1
+                if concerned_dimere[1] <= elements_before[3][1]:
+                    n_normal +=1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) ) 
+            
                 
         #########################
         #    Jumping section    #
