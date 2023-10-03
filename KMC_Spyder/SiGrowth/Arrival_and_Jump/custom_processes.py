@@ -184,9 +184,9 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
                                 rate_constant=0.0))
     
     # Moving FORWARD to the interface
-    processes.append(KMCProcess(coordinates=list_of_coordinates[2],
-                                elements_before=[elements_before_interface,elements_after],
-                                elements_after=[elements_after_interface,elements_before],
+    processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+                                elements_before=[elements_after, elements_before_interface],
+                                elements_after=[elements_before, elements_after_interface],
                                 basis_sites=[0],
                                 rate_constant=0.0))
     
