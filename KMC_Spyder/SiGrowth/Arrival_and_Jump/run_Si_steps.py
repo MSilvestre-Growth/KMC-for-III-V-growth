@@ -76,6 +76,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ############################
         
         if process_number % Nb_processes_per_type != 3 or process_number % Nb_processes_per_type != 7 or process_number % Nb_processes_per_type != 15 or process_number % Nb_processes_per_type != 25 or process_number % Nb_processes_per_type != 26 :
+            pass
+        else:
             return 0
         
         #to avoid vacancies diffusion in an higher step
