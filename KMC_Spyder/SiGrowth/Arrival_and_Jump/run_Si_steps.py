@@ -75,7 +75,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #    Is in bulk section    #
         ############################
         
-        if process_number % Nb_processes_per_type == 3 or process_number % Nb_processes_per_type == 7 or process_number % Nb_processes_per_type == 11 or process_number % Nb_processes_per_type == 15 or process_number % Nb_processes_per_type == 25 or process_number % Nb_processes_per_type == 26 :
+        if process_number % Nb_processes_per_type == 3 or process_number % Nb_processes_per_type == 7 or process_number % Nb_processes_per_type == 11 or process_number % Nb_processes_per_type == 15 or process_number % Nb_processes_per_type == 26 or process_number % Nb_processes_per_type == 27 :
             pass
         else:
             return 0
