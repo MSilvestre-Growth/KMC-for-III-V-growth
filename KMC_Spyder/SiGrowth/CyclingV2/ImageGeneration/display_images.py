@@ -24,7 +24,7 @@ for j in range(len(types)):
     for i in range(len(types[0])):
         if types[j][i] != types[0][i]:
             a += int(types[j][i][1]) - int(types[0][i][1])
-            ML_s = (a/5000) * (1/times[j])
+            ML_s = (a/10000) * (1/times[j])
     growth_list.append(ML_s)
 
 plt.plot(times, growth_list)
