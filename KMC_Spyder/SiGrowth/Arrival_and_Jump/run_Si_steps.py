@@ -75,6 +75,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #    Is in bulk section    #
         ############################
         
+        if process_number % Nb_processes_per_type != 3 or process_number % Nb_processes_per_type != 7 or process_number % Nb_processes_per_type != 15 or process_number % Nb_processes_per_type != 25 or process_number % Nb_processes_per_type != 26 :
+            return 0
+        
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
         for i in range(1, 4+1):
