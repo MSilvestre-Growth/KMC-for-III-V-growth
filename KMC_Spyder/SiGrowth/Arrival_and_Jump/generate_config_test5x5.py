@@ -69,19 +69,25 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
+# L1
 types = ["A1"]*5
 
-for i in range (5) :
-    types.append('B2')
-    
-for j in range (5) :
-    types.append('A3')
-    
-for k in range (5) :
-    types.append('B4')
-    
-for l in range (5) :
-    types.append('A5')
+#
+types.append("A1")
+for i in range(3):
+    types.append("B2")
+types.append("A1")
+types.append("A1")
+types.append("B2")
+types.append("A3")
+types.apppend("B2")
+types.append("A1")
+for j in range(3):
+    types.append("B2")
+types.append("A1")
+for k in range(5):
+    types.append("A1")
+
 
 # write all possibles types that you entered previously
 possible_types = ['A1','B2','A3','B4']

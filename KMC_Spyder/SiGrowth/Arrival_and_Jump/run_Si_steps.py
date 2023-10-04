@@ -219,7 +219,7 @@ def TrueFuction(obj):
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_4_steps.py")
+config = KMCConfigurationFromScript("config_test5x5.py")
 #creation of the interaction oject
 interactions = KMCInteractionsFromScript("custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
