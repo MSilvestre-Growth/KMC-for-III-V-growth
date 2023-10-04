@@ -74,6 +74,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ############################
         #    Is in bulk section    #
         ############################
+        print "elements_before"
+        print elements_before
         
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
@@ -233,8 +235,8 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=100,
-                                          dump_interval=10,
+control_parameters = KMCControlParameters(number_of_steps=1,
+                                          dump_interval=1,
                                           seed=596312)
 t1 = time.clock()
 model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
