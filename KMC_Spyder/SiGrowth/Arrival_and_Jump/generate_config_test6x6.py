@@ -39,8 +39,8 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 6
-Y = 6
+X = 7
+Y = 7
 Z = 1
 
 # Precise if you want your structure to be periodic in different directions
@@ -79,7 +79,7 @@ types = []
 
 types = []
 possible_types = []
-for i in range(36):
+for i in range(49):
     current_type = "%d" % i
     print current_type
     types.append(current_type)

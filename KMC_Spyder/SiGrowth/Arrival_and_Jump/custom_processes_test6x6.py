@@ -30,12 +30,15 @@ use % 9 to know which process happen
 from KMCLib import *
 
 # List to store all processes
+coordinates = [[0.0e+00, 0.0e+00, 0.0e+00]]
+
 processes = []
 
 processes.append(KMCProcess(coordinates=coordinates,
-                                       elements_before=["0"],
+                                       elements_before=["24"],
                                        elements_after=["1"],
+				       basis_sites=[0],
+				       rate_constant=1.0))
  
-
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)

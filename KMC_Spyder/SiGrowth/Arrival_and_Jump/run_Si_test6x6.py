@@ -48,14 +48,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ############################
         #    Is in bulk section    #
         ############################
-        if elements_before == "17:"
-    	    print "elements_before"
-                print elements_before
-            
+        
+        print elements_before
+        
+	return 1    
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
-        return 4.25 
+        return 3.0 
 
 # speedup process
 def TrueFuction(obj):
