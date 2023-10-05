@@ -212,7 +212,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
-        return 2.83
+        return 4.25 
 
 # speedup process
 def TrueFuction(obj):
