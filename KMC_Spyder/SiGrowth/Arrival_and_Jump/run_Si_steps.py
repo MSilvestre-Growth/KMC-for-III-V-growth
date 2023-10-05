@@ -74,8 +74,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ############################
         #    Is in bulk section    #
         ############################
-        print "elements_before"
-        print elements_before
+        if process_number % Nb_processes_per_type == 0 and concerned_dimere == "A1":
+	    #print process_number
+	    print "elements_before"
+            print elements_before
         
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
@@ -210,7 +212,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
-        return 1.0
+        return 2.83
 
 # speedup process
 def TrueFuction(obj):
@@ -235,11 +237,11 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=1,
+control_parameters = KMCControlParameters(number_of_steps=0,
                                           dump_interval=1,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="custom_traj_4_steps.py")
+model.run(control_parameters, trajectory_filename="custom_traj_test5x5.py")
 t2 = time.clock()
 
 print "simu time = "

@@ -68,25 +68,32 @@ lattice = KMCLattice(
 # let (q,r) be the euclidian of p by X i.e. p = q*X+r
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
+def add_line(list_types, L):
+    for i in range(len(L)):
+        list_types.append(L[i])
+    return 1
+
+types = []
+
 # writting of starting surface
 # L1
-types = ["A1"]*5
+L1 = ["B6","A5","B4","A5","B6"]
+add_line(types, L1)
 
-#
-types.append("A1")
-for i in range(3):
-    types.append("B2")
-types.append("A1")
-types.append("A1")
-types.append("B2")
-types.append("A3")
-types.apppend("B2")
-types.append("A1")
-for j in range(3):
-    types.append("B2")
-types.append("A1")
-for k in range(5):
-    types.append("A1")
+# L2
+L2 = ["A5", "A3", "B2", "A3", "A5"]
+add_line(types, L2)
+
+# L3
+L3 = ["B4", "B2", "A1", "B2", "B4"]
+add_line(types, L3)
+
+# L4
+add_line(types, L2)
+
+# L5
+add_line(types, L1)
+
 
 
 # write all possibles types that you entered previously
