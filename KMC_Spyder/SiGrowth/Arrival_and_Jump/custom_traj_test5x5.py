@@ -1,6 +1,6 @@
 # KMCLib Trajectory
 version="2013.1.0"
-creation_time="Thu Oct  5 11:53:42 2023"
+creation_time="Fri Oct  6 17:19:20 2023"
 sites=[[       0.000000,       0.000000,       0.000000],
        [       0.000000,       1.000000,       0.000000],
        [       0.000000,       2.000000,       0.000000],
@@ -33,3 +33,43 @@ times.append(  0.0000000000e+00)
 steps.append(0)
 types.append(["B6","A5","B4","A5","B6","A5","A3","B2","A3","A5","B4","B2","A1","B2",
               "B4","A5","A3","B2","A3","A5","B6","A5","B4","A5","B6"])
+times.append(  2.7922640547e-03)
+steps.append(100)
+types.append(["A5","A5","A5","A5","B6","A5","A3","B2","A3","A5","A5","B2","B2","A1",
+              "A5","A5","A3","A3","A3","A5","A5","A5","B4","B4","A5"])
+times.append(  4.3447609525e-03)
+steps.append(200)
+types.append(["A5","A5","A5","A5","A5","A5","A3","B2","A3","B6","A5","B2","B2","B2",
+              "A5","A5","A3","B2","B2","B4","A5","A5","A5","A5","A5"])
+times.append(  5.5798526429e-03)
+steps.append(300)
+types.append(["A5","A5","A5","A5","A5","B6","A3","B2","A3","A5","A5","B2","B2","B2",
+              "A5","A5","A3","B2","B2","B4","A5","A5","A5","A5","A5"])
+times.append(  7.6623560144e-03)
+steps.append(400)
+types.append(["A5","A5","B4","B4","A5","B6","A3","A3","B4","B4","A5","B2","B2","B2",
+              "A5","A5","B6","A3","B2","B4","A5","A5","A5","B4","B4"])
+times.append(  8.5402339308e-03)
+steps.append(500)
+types.append(["A5","A5","A5","A5","A5","B6","A3","A3","A5","B4","A5","B2","B2","B2",
+              "B4","A5","B4","A3","B4","B4","B4","B4","A5","B4","B4"])
+times.append(  9.2435229233e-03)
+steps.append(600)
+types.append(["A5","A5","A5","A5","A5","A5","A3","A3","A5","B6","A5","B2","B2","A3",
+              "B4","A5","B4","A3","A3","B4","A5","A5","A3","A3","B4"])
+times.append(  1.0506997306e-02)
+steps.append(700)
+types.append(["A5","A5","B4","B4","B4","A5","B4","A3","B4","B4","A5","A3","B2","B4",
+              "B4","A5","A3","B4","A3","B4","A5","A5","A5","B4","B4"])
+times.append(  1.2168644772e-02)
+steps.append(800)
+types.append(["A5","B4","A5","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4",
+              "B4","B4","B4","B4","B4","B4","B4","B4","B4","B4","B4"])
+times.append(  1.2240898858e-02)
+steps.append(900)
+types.append(["B4","B4","B4","B4","B4","A5","B4","B4","B4","B4","B4","B4","B4","B4",
+              "B4","B4","B4","B4","B4","B4","A5","B4","B4","B4","B4"])
+times.append(  1.2323551720e-02)
+steps.append(1000)
+types.append(["B4","B4","B4","B4","B4","B4","B4","B4","B4","A5","B4","B4","B4","B4",
+              "B4","A5","B4","B4","B4","B4","B4","B4","B4","B4","B4"])
