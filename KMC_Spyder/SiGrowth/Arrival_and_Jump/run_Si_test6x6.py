@@ -45,17 +45,39 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     
         SendFlux = 0.16666667 
         
+        list_of_neighbourg_of_neighbourg = [[0, 1, 2, 3, 4],
+                                            [1, 9, 5, 6, 0],
+                                            [2, 5, 10, 0, 7],
+                                            [3, 6, 0, 11, 8],
+                                            [4, 0, 7, 8, 12],
+                                            [5, 13, 15, 1, 2],
+                                            [6, 14, 1, 16, 3],
+                                            [7, 2, 17, 4, 19],
+                                            [8, 3, 4, 18, 20],
+                                            [9, 25, 13, 14, 1],
+                                            [10, 15, 26, 2, 17],
+                                            [11, 16, 3, 27, 18],
+                                            [12, 4, 19, 20, 28],
+                                            [13, 29, 21, 9, 5],
+                                            [14, 30, 9, 22, 6],
+                                            [15, 21, 31, 5, 10],
+                                            [16, 22, 6, 32, 11],
+                                            [17, 10, 33, 7, 23],
+                                            [18, 11, 8, 34, 24],
+                                            [19, 7, 23, 12, 35],
+                                            [20, 8, 12, 24, 36]]
         ############################
         #    Is in bulk section    #
         ############################
         
-        print elements_before
+        for i in range(len(list_of_neighbourg_of_neighbourg)):
+            print [list_of_neighbourg_of_neighbourg[i][0], list_of_neighbourg_of_neighbourg[i][1], list_of_neighbourg_of_neighbourg[i][2], list_of_neighbourg_of_neighbourg[i][3], list_of_neighbourg_of_neighbourg[i][4]]
         
 	return 1    
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
-        return 3.0 
+        return 3.17
 
 # speedup process
 def TrueFuction(obj):
