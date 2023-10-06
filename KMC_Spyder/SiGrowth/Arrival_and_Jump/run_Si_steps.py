@@ -45,8 +45,6 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     
         SendFlux = 0.16666667 
         
-        
-        
         # Utilities for the custom rate
         
         Nb_processes_per_type = 28
@@ -67,6 +65,30 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
         
+        # PLEASE DON'T TOUCH THIS: this is the list of the 1st nearest neighbourg
+        # of the nearest neigbourg up to rank 4 (this iis linked with the cutoff value)
+        list_of_neighbourg_of_neighbourg = [[0, 1, 2, 3, 4],
+                                            [1, 9, 5, 6, 0],
+                                            [2, 5, 10, 0, 7],
+                                            [3, 6, 0, 11, 8],
+                                            [4, 0, 7, 8, 12],
+                                            [5, 13, 15, 1, 2],
+                                            [6, 14, 1, 16, 3],
+                                            [7, 2, 17, 4, 19],
+                                            [8, 3, 4, 18, 20],
+                                            [9, 25, 13, 14, 1],
+                                            [10, 15, 26, 2, 17],
+                                            [11, 16, 3, 27, 18],
+                                            [12, 4, 19, 20, 28],
+                                            [13, 29, 21, 9, 5],
+                                            [14, 30, 9, 22, 6],
+                                            [15, 21, 31, 5, 10],
+                                            [16, 22, 6, 32, 11],
+                                            [17, 10, 33, 7, 23],
+                                            [18, 11, 8, 34, 24],
+                                            [19, 7, 23, 12, 35],
+                                            [20, 8, 12, 24, 36]]
+        
         # Processe's order = [add dimere, go right, go left, go forward, go backward,
         # jump forward, jump left, jump right, jump backward]
         # Repeat X times where X is the number of different steps
@@ -74,10 +96,6 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ############################
         #    Is in bulk section    #
         ############################
-        if process_number % Nb_processes_per_type == 0 and concerned_dimere == "A1":
-	    #print process_number
-	    print "elements_before"
-            print elements_before
         
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
@@ -95,8 +113,54 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         # Add a dimere on top case
         if process_number % Nb_processes_per_type == 0 or process_number % Nb_processes_per_type == 1 :
-            return SendFlux
+            # Calculation of coordinance of each nearest neighbourg :
+            list_of_coordinance_4 = []
+            list_of_coordinance_3 = []
+            list_of_coordinance_2 = []
+            list_of_coordinance_1 = []
+            list_of_coordinance_0 = []
+            
+            coordinance_of_current_element = 0
+            
+            for i in range(len(list_of_neighbourg_of_neighbourg)):
+                coordinance = 0
+                for j in range(4):
+                    if list_of_neighbourg_of_neighbourg[i][j+1] > list_of_neighbourg_of_neighbourg[i][0]:
+                        coordinance += 1
+                        
+                if i == 0:
+                    coordinance_of_current_element = coordinance
+            
+                if coordinance == 0:
+                    list_of_coordinance_0.append(list_of_neighbourg_of_neighbourg[i][0])
+                if coordinance == 1:
+                    list_of_coordinance_1.append(list_of_neighbourg_of_neighbourg[i][0])
+                if coordinance == 2:
+                    list_of_coordinance_2.append(list_of_neighbourg_of_neighbourg[i][0])
+                if coordinance == 3:
+                    list_of_coordinance_3.append(list_of_neighbourg_of_neighbourg[i][0])
+                if coordinance == 4:
+                    list_of_coordinance_4.append(list_of_neighbourg_of_neighbourg[i][0])
+            
+            if coordinance_of_current_element == 4:
+                return 15 * SendFlux / len(list_of_coordinance_4)
+            
+            if coordinance_of_current_element == 3 and len(list_of_coordinance_4) == 0:
+                return 15 * SendFlux / len(list_of_coordinance_3)
+            
+            if coordinance_of_current_element == 2 and len(list_of_coordinance_4) == 0 and len(list_of_coordinance_3) == 0:
+                return 15 * SendFlux / len(list_of_coordinance_2)
         
+            if coordinance_of_current_element == 1 and len(list_of_coordinance_4) == 0 and len(list_of_coordinance_3) == 0 and len(list_of_coordinance_2) == 0:
+                return 15 * SendFlux / len(list_of_coordinance_1)
+            
+            if coordinance_of_current_element == 0 and len(list_of_coordinance_4) == 0 and len(list_of_coordinance_3) == 0 and len(list_of_coordinance_2) == 0 and len(list_of_coordinance_1) == 0:
+                return 15 * SendFlux / len(list_of_coordinance_0)
+
+            else:
+                return 0
+
+
         ###########################
         #    Diffusion section    #
         ###########################

@@ -45,6 +45,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     
         SendFlux = 0.16666667 
         
+        # PLEASE DON'T TOUCH THIS: this is the list of the 1st nearest neighbourg
+        # of the nearest neigbourg up to rank 4 (this iis linked with the cutoff value)
         list_of_neighbourg_of_neighbourg = [[0, 1, 2, 3, 4],
                                             [1, 9, 5, 6, 0],
                                             [2, 5, 10, 0, 7],
