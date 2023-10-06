@@ -77,10 +77,8 @@ for i in range (2500) :
     types.append('B2')
 for j in range(2500) :
     types.append('A3')
-for k in range(2300) :
+for k in range(2500) :
     types.append('B4')
-for l in range(200):
-    types.append('A5')
 
 # write all possibles types that you entered previously
 possible_types = ['A1','B2','A3','B4']
