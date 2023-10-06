@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 100
+X = 101
 Y = 100
 Z = 1
 
@@ -79,13 +79,15 @@ for j in range(2500) :
     types.append('A3')
 for k in range(2500) :
     types.append('B4')
+for l in range(100) :
+    types.append('A5')
 
 # write all possibles types that you entered previously
 possible_types = ['A1','B2','A3','B4']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
-Number_of_supplementary_higher_steps = 5
+Number_of_supplementary_higher_steps = 4
 
 # nothing more to write from there
 sorted_step = []
