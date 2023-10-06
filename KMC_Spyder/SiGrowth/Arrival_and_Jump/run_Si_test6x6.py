@@ -71,7 +71,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ############################
         
         for i in range(len(list_of_neighbourg_of_neighbourg)):
-            print [list_of_neighbourg_of_neighbourg[i][0], list_of_neighbourg_of_neighbourg[i][1], list_of_neighbourg_of_neighbourg[i][2], list_of_neighbourg_of_neighbourg[i][3], list_of_neighbourg_of_neighbourg[i][4]]
+            print [elements_before(list_of_neighbourg_of_neighbourg[i][0]), elements_before(list_of_neighbourg_of_neighbourg[i][1]), elements_before(list_of_neighbourg_of_neighbourg[i][2]), elements_before(list_of_neighbourg_of_neighbourg[i][3]), elements_before(list_of_neighbourg_of_neighbourg[i][4])]
         
 	return 1    
         
