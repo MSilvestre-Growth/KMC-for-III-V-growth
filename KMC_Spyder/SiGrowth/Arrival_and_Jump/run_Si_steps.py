@@ -168,7 +168,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         if  process_number % Nb_processes_per_type == 6 or  process_number % Nb_processes_per_type == 7 or  process_number % Nb_processes_per_type == 8 or  process_number % Nb_processes_per_type == 9:
             is_alone = 0
             for i in range(4):
-                if concerned_dimere[1] == elements_before[i+1] + 1:
+                if int(concerned_dimere[1]) == int(elements_before[i+1][1]) + 1:
                     is_alone +=1
                 if is_alone == 4:
                     return k0
@@ -317,7 +317,7 @@ control_parameters = KMCControlParameters(number_of_steps=2700000,
                                           dump_interval=27000,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="result_950_01667.py")
+model.run(control_parameters, trajectory_filename="test_2700000_950°C.py")
 t2 = time.clock()
 
 print "simu time = "
