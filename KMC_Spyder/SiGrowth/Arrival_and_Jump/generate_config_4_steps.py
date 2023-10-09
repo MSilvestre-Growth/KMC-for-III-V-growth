@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 101
+X = 100
 Y = 100
 Z = 1
 
@@ -71,7 +71,7 @@ lattice = KMCLattice(
 # writting of starting surface
 types = ['A1i']*100
 
-for h in range(2400) :
+for h in range(2300) :
     types.append('A1')
 for i in range (2500) :
     types.append('B2')
@@ -79,7 +79,7 @@ for j in range(2500) :
     types.append('A3')
 for k in range(2500) :
     types.append('B4')
-for l in range(100) :
+for l in range(200) :
     types.append('A5')
 
 # write all possibles types that you entered previously
