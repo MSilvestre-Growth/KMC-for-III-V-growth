@@ -39,7 +39,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         kb = 1.38*10**(-23)
         q = 1.6*10**(-19)
         E_substrate = 1.3
-        E_normal = 0.1
+        E_normal = 0.2
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
@@ -317,7 +317,7 @@ control_parameters = KMCControlParameters(number_of_steps=2700000,
                                           dump_interval=27000,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="test_2700000_950°C_01_05.py")
+model.run(control_parameters, trajectory_filename="test_2700000_950°C_02_05.py")
 t2 = time.clock()
 
 print "simu time = "
