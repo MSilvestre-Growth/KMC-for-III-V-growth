@@ -188,6 +188,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         normal_diffusion = diffusion or diffusion_interface or jump or jump_interface
         all_diffusion = normal_diffusion or diffusion_for_cycling
         
+        # Avoid B8 apparition on A1 step
+        max_height = 9
+        if int(elements_before[0][1]) > max_height - 4 :
+            return 0
+        
         if is_in_bulk >= 3 and all_diffusion :
             return 0
         
@@ -232,7 +237,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #    Cycling Up    #
         ####################
         
-        if is_in_bulk < 3 and process_number % Nb_processes_per_type == 26 :   
+        if is_in_bulk < 3 and process_number % Nb_processes_per_type == 26 :
+            
              Move_A = (dimere_type == 'A')
              Move_B = (dimere_type == 'B')
              
