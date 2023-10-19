@@ -190,7 +190,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         # Avoid B8 apparition on A1 step
         max_height = 9
-        if (int(elements_before[0][1]) > max_height - 4) and diffusion_for_cycling :
+        if (int(elements_before[0][1]) > max_height - 4) and (diffusion_for_cycling or jump or jump_interface):
             return 0
         
         if is_in_bulk >= 3 and all_diffusion :

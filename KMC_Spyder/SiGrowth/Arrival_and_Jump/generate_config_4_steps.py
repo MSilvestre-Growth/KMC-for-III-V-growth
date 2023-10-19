@@ -71,7 +71,7 @@ lattice = KMCLattice(
 # writting of starting surface
 types = ['A1i']*100
 
-for h in range(2300) :
+for h in range(2100) :
     types.append('A1')
 for i in range (2500) :
     types.append('B2')
@@ -79,7 +79,7 @@ for j in range(2500) :
     types.append('A3')
 for k in range(2500) :
     types.append('B4')
-for l in range(200) :
+for l in range(300) :
     types.append('A5')
 
 # write all possibles types that you entered previously
