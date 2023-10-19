@@ -43,7 +43,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 1 
+        SendFlux = 0 
         
         # Utilities for the custom rate
         
@@ -323,7 +323,7 @@ control_parameters = KMCControlParameters(number_of_steps=2700000,
                                           dump_interval=270000,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="test_2700000_950°C_005_05_F_1.py")
+model.run(control_parameters, trajectory_filename="test_2700000_950°C_005_05_F_0.py")
 t2 = time.clock()
 
 print "simu time = "
