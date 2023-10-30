@@ -43,12 +43,12 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 0 
+        SendFlux = 1 
         
         # Utilities for the custom rate
-        if process_number<=55:
-            return 0
-        Nb_processes_per_type = 28
+        #if process_number<=55:
+        #    return 0
+        Nb_processes_per_type =28 
         
         Number_of_step_on_starting_surface = 4
         
@@ -161,137 +161,134 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             # else:
             #     return 0
             return SendFlux
-        else :
-            return 0
-        # ###########################################
-        # #    Jumping down from a single dimere    #
-        # ###########################################
+	
+        ###########################################
+        #    Jumping down from a single dimere    #
+        ###########################################
         
-        # if  process_number % Nb_processes_per_type == 6 or  process_number % Nb_processes_per_type == 7 or  process_number % Nb_processes_per_type == 8 or  process_number % Nb_processes_per_type == 9:
-        #     is_alone = 0
-        #     for i in range(4):
-        #         if int(concerned_dimere[1:3]) == int(elements_before[i+1][1:3]) + 1:
-        #             is_alone +=1
-        #         if is_alone == 4:
-        #             return k0
-                
-        # ###########################
-        # #    Diffusion section    #
-        # ###########################
-        # diffusion = process_number % Nb_processes_per_type >= 2 and process_number % Nb_processes_per_type <= 5
-        # jump = process_number % Nb_processes_per_type >= 6 and process_number % Nb_processes_per_type <= 13
-        # diffusion_interface= process_number % Nb_processes_per_type >= 14 and process_number % Nb_processes_per_type <= 17
-        # jump_interface = process_number % Nb_processes_per_type >= 18 and process_number % Nb_processes_per_type <= 25
-        # diffusion_for_cycling = process_number % Nb_processes_per_type == 26 or process_number % Nb_processes_per_type == 27
+        if  process_number % Nb_processes_per_type == 6 or  process_number % Nb_processes_per_type == 7 or  process_number % Nb_processes_per_type == 8 or  process_number % Nb_processes_per_type == 9:
+            is_alone = 0
+            for i in range(4):
+                if int(concerned_dimere[1:3]) == int(elements_before[i+1][1:3]) + 1:
+                    is_alone +=1
+                if is_alone == 4:
+                    return k0
+           
+        ###########################
+        #    Diffusion section    #
+        ###########################
+        diffusion = process_number % Nb_processes_per_type >= 2 and process_number % Nb_processes_per_type <= 5
+        jump = process_number % Nb_processes_per_type >= 6 and process_number % Nb_processes_per_type <= 13
+        diffusion_interface= process_number % Nb_processes_per_type >= 14 and process_number % Nb_processes_per_type <= 17
+        jump_interface = process_number % Nb_processes_per_type >= 18 and process_number % Nb_processes_per_type <= 25
+        diffusion_for_cycling = process_number % Nb_processes_per_type == 26 or process_number % Nb_processes_per_type == 27
         
-        # # if diffusion_for_cycling and int(concerned_dimere[1]) >= 6 :
-        # #     return 0
+        # if diffusion_for_cycling and int(concerned_dimere[1]) >= 6 :
+        #     return 0
         
-        # normal_diffusion = diffusion or diffusion_interface or jump or jump_interface
-        # all_diffusion = normal_diffusion or diffusion_for_cycling
+        normal_diffusion = diffusion or diffusion_interface or jump or jump_interface
+        all_diffusion = normal_diffusion or diffusion_for_cycling
         
-        # # Avoid B8 apparition on A1 step
+        # Avoid B8 apparition on A1 step
         # max_height = 9
         # if (int(elements_before[0][1:3]) > max_height - 4) and (diffusion_for_cycling or jump or jump_interface):
         #     return 0
         
-        # if is_in_bulk >= 3 and all_diffusion :
-        #     return 0
+        if is_in_bulk >= 3 and all_diffusion :
+            return 0
         
-        # if is_in_bulk < 3 and normal_diffusion :
-        #     #print process_number
-        #     #print concerned_dimere 
-        #     Move_A = (dimere_type == 'A')
-        #     Move_B = (dimere_type == 'B')
+        if is_in_bulk < 3 and normal_diffusion :
+            #print process_number
+            #print concerned_dimere 
+            Move_A = (dimere_type == 'A')
+            Move_B = (dimere_type == 'B')
        
-        #     ###################################
-        #     # Anisotropy is implemented here !#
-        #     ###################################
+            ###################################
+            # Anisotropy is implemented here !#
+            ###################################
            
-        #     if Move_A:
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
-        #             n_normal += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
-        #             n_parallel += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
-        #             n_parallel += 1
-        #         if (int(concerned_dimere[1:3]) <= int(elements_before[4][1:3])) or (
-        #                 (elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface)+"i")):
-        #             n_normal += 1
-        #         E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-        #         return k0*np.exp( - E_tot * q / (kb * T) )
+            if Move_A:
+                if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
+                    n_normal += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
+                    n_parallel += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
+                    n_parallel += 1
+                if (int(concerned_dimere[1:3]) <= int(elements_before[4][1:3])) or (
+                        (elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface)+"i")):
+                    n_normal += 1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
+            
+            if Move_B:
+                if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
+                    n_parallel += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
+                    n_normal +=1
+                if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
+                    n_normal +=1
+                if (int(concerned_dimere[1:3]) <= int(elements_before[4][1:3])) or (
+                        (elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface)+"i")):
+                    n_parallel += 1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )     
 
+        ####################
+        #    Cycling Up    #
+        ####################
+        
+        if is_in_bulk < 3 and process_number % Nb_processes_per_type == 26 :
             
-        #     if Move_B:
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
-        #             n_parallel += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
-        #             n_normal +=1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
-        #             n_normal +=1
-        #         if (int(concerned_dimere[1:3]) <= int(elements_before[4][1:3])) or (
-        #                 (elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface)+"i")):
-        #             n_parallel += 1
-        #         E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-        #         return k0*np.exp( - E_tot * q / (kb * T) )
-        
-        # ####################
-        # #    Cycling Up    #
-        # ####################
-        
-        # if is_in_bulk < 3 and process_number % Nb_processes_per_type == 26 :
-            
-        #      Move_A = (dimere_type == 'A')
-        #      Move_B = (dimere_type == 'B')
+             Move_A = (dimere_type == 'A')
+             Move_B = (dimere_type == 'B')
              
-        #      if Move_A:
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
-        #             n_parallel += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
-        #             n_parallel += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
-        #             n_normal += 1
-        #         E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-        #         return k0*np.exp( - E_tot * q / (kb * T) )
+             if Move_A:
+                if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
+                    n_parallel += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
+                    n_parallel += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
+                    n_normal += 1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
              
-        #      if Move_B:
-        #          if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
-        #              n_normal +=1
-        #          if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
-        #              n_normal +=1
-        #          if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
-        #              n_parallel += 1
-        #          E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-        #          return k0*np.exp( - E_tot * q / (kb * T) )
-        
+             if Move_B:
+                 if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
+                     n_normal +=1
+                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
+                     n_normal +=1
+                 if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
+                     n_parallel += 1
+                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                 return k0*np.exp( - E_tot * q / (kb * T) )
                 
-        # ######################
-        # #    Cycling Down    #
-        # ######################
+        ######################
+        #    Cycling Down    #
+        ######################
         
-        # if is_in_bulk < 3 and process_number % Nb_processes_per_type == 27 :   
-        #     Move_A = (dimere_type == 'A')
-        #     Move_B = (dimere_type == 'B')
+        if is_in_bulk < 3 and process_number % Nb_processes_per_type == 27 :   
+            Move_A = (dimere_type == 'A')
+            Move_B = (dimere_type == 'B')
                   
-        #     if Move_A:
-        #         if int(elements_before[1:3]) <= int(elements_before[1][1:3]):
-        #             n_normal += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
-        #             n_parallel += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
-        #             n_parallel += 1
-        #         E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-        #         return k0*np.exp( - E_tot * q / (kb * T) )
+            if Move_A:
+                if int(elements_before[1:3]) <= int(elements_before[1][1:3]):
+                    n_normal += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
+                    n_parallel += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
+                    n_parallel += 1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) )
                   
-        #     if Move_B:
-        #         if int(elements_before[1:3]) <= int(elements_before[1][1:3]):
-        #             n_parallel += 1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
-        #             n_normal +=1
-        #         if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
-        #             n_normal +=1
-        #         E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-        #         return k0*np.exp( - E_tot * q / (kb * T) ) 
+            if Move_B:
+                if int(elements_before[1:3]) <= int(elements_before[1][1:3]):
+                    n_parallel += 1
+                if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
+                    n_normal +=1
+                if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
+                    n_normal +=1
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                return k0*np.exp( - E_tot * q / (kb * T) ) 
             
         
     def cutoff(self):
@@ -301,7 +298,6 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 # speedup process
 def TrueFuction(obj):
     return True
-
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
@@ -311,21 +307,19 @@ interactions = KMCInteractionsFromScript("custom_processes.py")
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 
-
 # Generate the KMC model to run.
 model = KMCLatticeModel(configuration=config,
                          interactions=interactions)
-
 
 #Setup the control parameters, note that not specifting
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=2700000,
-                                          dump_interval=270000,
+control_parameters = KMCControlParameters(number_of_steps=10,
+                                          dump_interval=1,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="test_2700000_950°C_005_05_F_0.py")
+model.run(control_parameters, trajectory_filename="test_segfault.py")
 t2 = time.clock()
 
 print "simu time = "
