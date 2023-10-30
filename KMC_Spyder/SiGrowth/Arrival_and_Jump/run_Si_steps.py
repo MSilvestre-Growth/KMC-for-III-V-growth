@@ -315,11 +315,11 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10,
-                                          dump_interval=1,
+control_parameters = KMCControlParameters(number_of_steps=10000,
+                                          dump_interval=1000,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="test_segfault.py")
+model.run(control_parameters, trajectory_filename="test_10000.py")
 t2 = time.clock()
 
 print "simu time = "

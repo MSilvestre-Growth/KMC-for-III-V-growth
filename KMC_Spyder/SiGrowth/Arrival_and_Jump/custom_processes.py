@@ -104,13 +104,12 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
 
 # a is starting at -4 to allow cycling definition of processes in the loops
 # (otherwise we would need 2 other single loops to define diffusion and jumps)
-a,b = -4,0
+a = 0
 processes_name_list = []
 
 max_height = int(sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2][1:3])
 
-sorted_list_of_possible_types = sorted_list_of_possible_types*2
-while a < (len(sorted_list_of_possible_types)/2)-5:
+while a < len(sorted_list_of_possible_types)-5:
  
     #################################################
     #        Deposition of a quasi-dimere           #
@@ -312,64 +311,34 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     
     # Cycling process
     
-    # Cycling is difficult for the 4 last elements of the sorted list
-    # to avoid problems, I decided to return 2 processes at the interface
-    # which are already existing. It allows to keep things running with % 
-    # in the run programm and doesn't provoc weird things. But that means that 
-    # the simulatdd growth is restreined to max_height - 4 monolayers
-    
-    if int(elements_before[1:3]) > max_height - 4 :
-        # Moving RIGHT at the interface
-        # process_number = 
-        print "process number = 26"
-        print [elements_after_interface,elements_before_interface] ," to ",[elements_before_interface,elements_after_interface]
-
-        processes.append(KMCProcess(coordinates=list_of_coordinates[0],
-                                    elements_before=[elements_after_interface,elements_before_interface],
-                                    elements_after=[elements_before_interface,elements_after_interface],
-                                    basis_sites=[0],
-                                    rate_constant=0.0))
-        
-        # Moving FORWARD to the interface
-        # process_number = 27
-        print "process number = 27"
-        print [elements_before_interface,elements_after] ," to ",[elements_after_interface,elements_before]
-
-        processes.append(KMCProcess(coordinates=list_of_coordinates[2],
-                                    elements_before=[elements_before_interface,elements_after],
-                                    elements_after=[elements_after_interface,elements_before],
-                                    basis_sites=[0],
-                                    rate_constant=0.0))   
-    else :
-    
-        offset_cycling_step = Number_of_step_on_starting_surface * 2
-        offset_moving_dimere = offset_cycling_step + 2
+    offset_cycling_step = Number_of_step_on_starting_surface * 2
+    offset_moving_dimere = offset_cycling_step + 2
    
     
-        elements_of_current_step_interface = sorted_list_of_possible_types[a+1] 
-        element_of_cycling_step = sorted_list_of_possible_types[a+offset_cycling_step]
-        upper_step_moving_dimere = sorted_list_of_possible_types[a+offset_moving_dimere]  
+    elements_of_current_step_interface = sorted_list_of_possible_types[a+1] 
+    element_of_cycling_step = sorted_list_of_possible_types[a+offset_cycling_step]
+    upper_step_moving_dimere = sorted_list_of_possible_types[a+offset_moving_dimere]  
    
-        print "process number = 26"
-        print [elements_after_interface, element_of_cycling_step] ," to ",[elements_of_current_step_interface, upper_step_moving_dimere]
+    print "process number = 26"
+    print [elements_after_interface, element_of_cycling_step] ," to ",[elements_of_current_step_interface, upper_step_moving_dimere]
 
 
-        # process_number = 26    
-        processes.append(KMCProcess(coordinates=list_of_coordinates[1],
-                                    elements_before=[elements_after_interface, element_of_cycling_step],
-                                    elements_after=[elements_of_current_step_interface, upper_step_moving_dimere],
-                                    basis_sites=[0],
-                                    rate_constant=0.0))
+    # process_number = 26    
+    processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+                                elements_before=[elements_after_interface, element_of_cycling_step],
+                                elements_after=[elements_of_current_step_interface, upper_step_moving_dimere],
+                                basis_sites=[0],
+                                rate_constant=0.0))
         
-        print "process number = 27"
-        print [upper_step_moving_dimere, elements_of_current_step_interface] ," to ",[element_of_cycling_step, elements_after_interface]
+    print "process number = 27"
+    print [upper_step_moving_dimere, elements_of_current_step_interface] ," to ",[element_of_cycling_step, elements_after_interface]
         
-        # process_number = 27
-        processes.append(KMCProcess(coordinates=list_of_coordinates[2],
-                                    elements_before=[upper_step_moving_dimere, elements_of_current_step_interface],
-                                    elements_after=[element_of_cycling_step, elements_after_interface],
-                                    basis_sites=[0],
-                                    rate_constant=0.0))
+    # process_number = 27
+    processes.append(KMCProcess(coordinates=list_of_coordinates[2],
+                                elements_before=[upper_step_moving_dimere, elements_of_current_step_interface],
+                                elements_after=[element_of_cycling_step, elements_after_interface],
+                                basis_sites=[0],
+                                rate_constant=0.0))
     
     
     a += 2
