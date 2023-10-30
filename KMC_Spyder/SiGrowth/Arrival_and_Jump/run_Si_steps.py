@@ -271,7 +271,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             Move_B = (dimere_type == 'B')
                   
             if Move_A:
-                if int(elements_before[1:3]) <= int(elements_before[1][1:3]):
+                if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
                     n_normal += 1
                 if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
                     n_parallel += 1
@@ -281,7 +281,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 return k0*np.exp( - E_tot * q / (kb * T) )
                   
             if Move_B:
-                if int(elements_before[1:3]) <= int(elements_before[1][1:3]):
+                if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
                     n_parallel += 1
                 if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
                     n_normal +=1

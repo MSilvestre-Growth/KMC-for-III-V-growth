@@ -109,7 +109,7 @@ processes_name_list = []
 
 max_height = int(sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2][1:3])
 
-while a < len(sorted_list_of_possible_types)-5:
+while a < len(sorted_list_of_possible_types)-10:
  
     #################################################
     #        Deposition of a quasi-dimere           #
