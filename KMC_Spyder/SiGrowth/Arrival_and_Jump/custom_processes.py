@@ -58,10 +58,10 @@ NumberOfTypes = len(list_of_possible_types)
 # Get min height to sort list_of_possible_types
 for i in range(NumberOfTypes/2):
     #print list_of_possible_types 
-    min_height = int(list_of_possible_types[0][1])
+    min_height = int(list_of_possible_types[0][1:3])
     index = 0
     for j in range(len(list_of_possible_types)):
-        current_height = int(list_of_possible_types[j][1])
+        current_height = int(list_of_possible_types[j][1:3])
         if current_height <= min_height and len(list_of_possible_types[j]) == 2:
             min_height = current_height
             index = j

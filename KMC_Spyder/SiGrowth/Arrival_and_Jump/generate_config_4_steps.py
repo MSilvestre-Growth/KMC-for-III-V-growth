@@ -69,21 +69,21 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ['A1i']*100
+types = ['A01i']*100
 
 for h in range(2100) :
-    types.append('A1')
+    types.append('A01')
 for i in range (2500) :
-    types.append('B2')
+    types.append('B02')
 for j in range(2500) :
-    types.append('A3')
+    types.append('A03')
 for k in range(2500) :
-    types.append('B4')
+    types.append('B04')
 for l in range(300) :
-    types.append('A5')
+    types.append('A05')
 
 # write all possibles types that you entered previously
-possible_types = ['A1','B2','A3','B4']
+possible_types = ['A01','B02','A03','B04']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
@@ -95,10 +95,10 @@ sorted_step = []
 # Automated addition of supplementary steps -> reseach of names for the steps 
 for i in range(len(possible_types)):
     #print possible_types 
-    min_height = int(possible_types[0][1])
+    min_height = int(possible_types[0][1:3])
     index = 0
     for j in range(len(possible_types)):
-        current_height = int(possible_types[j][1])
+        current_height = int(possible_types[j][1:3])
         if current_height < min_height:
             min_height = current_height
             index = j
@@ -107,15 +107,21 @@ for i in range(len(possible_types)):
 
 last_step =  sorted_step[len(sorted_step)-1]
 last_step_type = last_step[0]
-last_step_height = int(last_step[1])
+last_step_height = int(last_step[1:3])
 
 # Automated addition of supplementary steps -> addition of the steps
 for i in range(1, Number_of_supplementary_higher_steps+1):
     if (last_step_type == "A" and i % 2 == 1) or (last_step_type == "B" and i % 2 == 0):
-        new_high_step = "B" + str(last_step_height+i)
+        if last_step_height+i < 10:
+            new_high_step = "B0" + str(last_step_height+i)
+        else:
+            new_high_step = "B" + str(last_step_height+i)
         sorted_step.append(new_high_step)
     if (last_step_type == "A" and i % 2 == 0) or (last_step_type == "B" and i % 2 == 1):
-        new_high_step = "A" + str(last_step_height+i)
+        if last_step_height+i < 10:
+            new_high_step = "A0" + str(last_step_height+i)
+        else:
+            new_high_step = "A" + str(last_step_height+i)
         sorted_step.append(new_high_step)
 
 # Add Interface states for cyclic connexions
