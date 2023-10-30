@@ -219,20 +219,19 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_parallel += 1
-                if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"):
+                if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
                     print concerned_dimere
                     print Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
                     n_normal +=0
                 else:
-                    if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):                       
-                    n_normal += 1
+                    if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):                       		    n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
             if Move_B:
                 if elements_before[1] == Cycling_letter_moving_A + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1):
                     print concerned_dimere
-                    print Cycling_letter_moving_A + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1
+                    print Cycling_letter_moving_A + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1)
                     n_parallel += 0
                 else:
                     if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
@@ -241,13 +240,12 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_normal +=1
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_normal +=1
-                if elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"):
+                if elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
                     print concerned_dimere
                     print Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
                     n_parallel +=0
                 else:
-                    if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):                       
-                    n_parallel += 1
+                    if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):                       		    n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 return k0*np.exp( - E_tot * q / (kb * T) )     
 
