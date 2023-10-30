@@ -62,10 +62,10 @@ for i in range(NumberOfTypes/2):
     index = 0
     for j in range(len(list_of_possible_types)):
         current_height = int(list_of_possible_types[j][1:3])
-        if current_height <= min_height and len(list_of_possible_types[j]) == 2:
+        if current_height <= min_height and len(list_of_possible_types[j]) == 3:
             min_height = current_height
             index = j
-        if current_height <= min_height and len(list_of_possible_types[j]) == 3:
+        if current_height <= min_height and len(list_of_possible_types[j]) == 4:
             min_height = current_height
             index_interface = j
 
