@@ -43,7 +43,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 0 
+        SendFlux = 1
         
         # Utilities for the custom rate
         #if process_number<=55:
@@ -230,8 +230,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             
             if Move_B:
                 if elements_before[1] == Cycling_letter_moving_A + '0' + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1):
-                    print concerned_dimere
-                    print Cycling_letter_moving_A + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1)
+                    #print concerned_dimere
+                    #print Cycling_letter_moving_A + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1)
                     n_parallel += 0
                 else:
                     if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
@@ -241,14 +241,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_normal +=1
                 if elements_before[4] == Cycling_letter_moving_A + '0' + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
-                    print concerned_dimere
-                    print Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
+                    #print concerned_dimere
+                    #print Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
                     n_parallel +=0
                 else:
                     if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
                         n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                print "Etot moving", E_tot
+                #print "Etot moving", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )     
 
         ####################
@@ -259,7 +259,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             
              Move_A = (dimere_type == 'A')
              Move_B = (dimere_type == 'B')
-             print "cycling up" 
+             #print "cycling up" 
              
              #no elements_before 1 because this process only happend if there is no upper atoms
              if Move_A:
@@ -290,7 +290,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         if is_in_bulk < 3 and process_number % Nb_processes_per_type == 27 :   
             Move_A = (dimere_type == 'A')
             Move_B = (dimere_type == 'B')
-            print "cycling down"
+            #print "cycling down"
             
             #no elements_before 4 because this process only happend if there is no lower atoms
             if Move_A:
@@ -339,11 +339,11 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10000,
-                                          dump_interval=1000,
+control_parameters = KMCControlParameters(number_of_steps=10000000,
+                                          dump_interval=100000,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="test_10000.py")
+model.run(control_parameters, trajectory_filename="test_10000000.py")
 t2 = time.clock()
 
 print "simu time = "

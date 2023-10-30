@@ -69,7 +69,7 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ['B02i']*100
+types = ['A01i']*100
 
 for h in range(2100) :
     types.append('A01')
