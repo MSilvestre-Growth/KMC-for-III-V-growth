@@ -247,6 +247,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 else:
                     if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):                       		    n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                print "Etot moving", Etot
                 return k0*np.exp( - E_tot * q / (kb * T) )     
 
         ####################
@@ -278,6 +279,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                  if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
                      n_parallel += 1
                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                 print "Etot cycling up", Etot
                  return k0*np.exp( - E_tot * q / (kb * T) )
                 
         ######################
@@ -308,6 +310,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_normal +=1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                print "Etot cycling down, Etot
                 return k0*np.exp( - E_tot * q / (kb * T) ) 
             
         
