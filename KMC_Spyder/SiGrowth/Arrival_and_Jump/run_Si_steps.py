@@ -43,7 +43,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 1 
+        SendFlux = 0 
         
         # Utilities for the custom rate
         #if process_number<=55:
@@ -241,7 +241,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             
              Move_A = (dimere_type == 'A')
              Move_B = (dimere_type == 'B')
-             
+             print "cycling up" 
              if Move_A:
                 if int(concerned_dimere[1:3]) <= int(elements_before[2][1:3]):
                     n_parallel += 1
@@ -269,6 +269,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         if is_in_bulk < 3 and process_number % Nb_processes_per_type == 27 :   
             Move_A = (dimere_type == 'A')
             Move_B = (dimere_type == 'B')
+	    print "cycling down"
                   
             if Move_A:
                 if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
