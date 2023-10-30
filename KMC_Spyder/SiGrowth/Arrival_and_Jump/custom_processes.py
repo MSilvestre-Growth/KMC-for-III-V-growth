@@ -318,7 +318,7 @@ while a < (len(sorted_list_of_possible_types)/2)-5:
     # in the run programm and doesn't provoc weird things. But that means that 
     # the simulatdd growth is restreined to max_height - 4 monolayers
     
-    if int(elements_before[1]) > max_height - 4 :
+    if int(elements_before[1:3]) > max_height - 4 :
         # Moving RIGHT at the interface
         # process_number = 
         print "process number = 26"
