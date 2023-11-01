@@ -69,25 +69,25 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ['A01i']*100
+types = ['A10i']*100
 
 for h in range(2100) :
-    types.append('A01')
+    types.append('A10')
 for i in range (2500) :
-    types.append('B02')
+    types.append('B11')
 for j in range(2500) :
-    types.append('A03')
+    types.append('A12')
 for k in range(2500) :
-    types.append('B04')
+    types.append('B13')
 for l in range(300) :
-    types.append('A05')
+    types.append('A14')
 
 # write all possibles types that you entered previously
 possible_types = ['A01','B02','A03','B04']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
-Number_of_supplementary_higher_steps =20 
+Number_of_supplementary_higher_steps =30
 
 # nothing more to write from there
 sorted_step = []

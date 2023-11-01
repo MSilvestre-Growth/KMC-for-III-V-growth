@@ -45,20 +45,20 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #print process_number
         
         # Physical value
-        T = 950 #temperature
-        kb = 1.38*10**(-23)
-        q = 1.6*10**(-19)
-        E_substrate = 1.3
-        E_normal = 0.05
-        E_parallel = 0.5
-        k0 = 10**13 #hopping constant for the Boltzman's law
+        global T
+        global kb
+        global q
+        global E_substrate
+        global E_normal
+        global E_parallel
+        global k0
 
-        SendFlux = 1
+        global SendFlux
         
         # Utilities for the custom rate
         #if process_number<=55:
         #    return 0
-        Nb_processes_per_type =28 
+        Nb_processes_per_type =28
         
         Number_of_step_on_starting_surface = 4
         
@@ -359,7 +359,7 @@ control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
                                           dump_interval=100000,
                                           seed=596312)
 t1 = time.clock()
-name = "Results_steps_%lf" %number_of_steps1 + "_Flux_%lf" %SendFlux + "_T°C_%lf" %T + "_En_%lf" %E_normal + "_Ep_%lf.py" %E_parallel
+name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°C_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel
 model.run(control_parameters, trajectory_filename=name)
 t2 = time.clock()
 

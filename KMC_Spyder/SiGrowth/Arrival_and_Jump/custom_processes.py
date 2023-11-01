@@ -339,8 +339,7 @@ while a < len(sorted_list_of_possible_types)-10:
                                 elements_after=[element_of_cycling_step, elements_after_interface],
                                 basis_sites=[0],
                                 rate_constant=0.0))
-    
-    
+        
     a += 2
 
 # Create the interactions object with previous parameters.
