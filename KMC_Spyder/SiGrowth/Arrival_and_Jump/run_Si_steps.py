@@ -43,7 +43,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         E_parallel = 0.5
         k0 = 10**13 #hopping constant for the Boltzman's law
     
-        SendFlux = 1
+        SendFlux = 2
         
         # Utilities for the custom rate
         #if process_number<=55:
@@ -101,13 +101,18 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #to avoid vacancies diffusion in an higher step
         is_in_bulk = 0
         for i in range(1, 4+1):
-            if (int(elements_before[0][1:3]) <= int(elements_before[i][1:3])) and (len(concerned_dimere) == 3) :	
-                is_in_bulk += 1
-        
-        # Interface dimeres are not in bulk to be coherent with others processes
-        if len(concerned_dimere) == 4 :
-            is_in_bulk = 0
-        
+            if int(elements_before[0][1:3]) <= int(elements_before[i][1:3]):	
+                a = 1
+                # ex: if A05 is top and A01i is bottom, A05 is_in_bulk + 1
+                # but if B06 is top and A01i is bottom, B06 is_in_bulk + 0 (thanks to the following line)
+                if (i == 4) and (len(elements_before[4] == 4) and (int(elements_before[4][1:3]<int(concerned_dimere[1:3])-4))):
+                    a = 0
+                is_in_bulk += a
+                
+        # ex: if A05 is top and A01i is bottom, A01i is_in_bulk + 1
+        if len(concerned_dimere == 4) and (int(elements_before[1][1:3]>=int(concerned_dimere[1:3])+4)):
+            is_in_bulk += 1
+                
         ##############################
         #    Add a dimere section    #
         ##############################
@@ -339,11 +344,13 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-control_parameters = KMCControlParameters(number_of_steps=10000000,
+number_of_steps1=10000000
+control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
                                           dump_interval=100000,
                                           seed=596312)
 t1 = time.clock()
-model.run(control_parameters, trajectory_filename="test_10000000.py")
+name = "Results_steps_%lf_Flux_%lf_T°C_%lf_En_%lf_Ep_%lf.py" %number_of_steps1 %SendFlux %T %E_normal %E_parallel
+model.run(control_parameters, trajectory_filename=name)
 t2 = time.clock()
 
 print "simu time = "

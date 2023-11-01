@@ -23,7 +23,7 @@ for j in range(len(types)):
     a = 0
     for i in range(len(types[0])):
         if types[j][i] != types[0][i]:
-            a += int(types[j][i][1]) - int(types[0][i][1])
+            a += int(types[j][i][1:3]) - int(types[0][i][1:3])
             ML_s = (a/10000) * (1/times[j])
     growth_list.append(ML_s)
 
