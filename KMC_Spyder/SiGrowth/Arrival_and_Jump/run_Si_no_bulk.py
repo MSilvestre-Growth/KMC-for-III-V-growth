@@ -24,6 +24,16 @@ import numpy as np
 import time
 #from KMCLib.KMCAnalysisPlugin import KMCAnalysisPlugin
 
+# Physical value
+T = 950 #temperature
+kb = 1.38*10**(-23)
+q = 1.6*10**(-19)
+E_substrate = 1.3
+E_normal = 0.05
+E_parallel = 0.5
+k0 = 10**13 #hopping constant for the Boltzman's law
+
+SendFlux = 1
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -33,17 +43,13 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
         #print process_number
-        
-        # Physical value
-        T = 950 #temperature
-        kb = 1.38*10**(-23)
-        q = 1.6*10**(-19)
-        E_substrate = 1.3
-        E_normal = 0.05
-        E_parallel = 0.5
-        k0 = 10**13 #hopping constant for the Boltzman's law
-    
-        SendFlux = 1
+        global T
+        global kb
+        global q
+        global E_substrate
+        global E_normal
+        global E_parallel
+        global k0
         
         # Utilities for the custom rate
         #if process_number<=55:
