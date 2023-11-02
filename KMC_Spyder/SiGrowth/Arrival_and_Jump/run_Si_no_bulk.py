@@ -117,6 +117,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 # but if B06 is top and A01i is bottom, B06 is_in_bulk + 0 (thanks to the following line)
                 if (i == 4) and (len(elements_before[4]) == 4) and (int(elements_before[4][1:3]<int(concerned_dimere[1:3])-4)):
                     a = 0
+                # ex : if B22 is top and B20i is bottom, B20i is_in_bulk + 0
+                if (i == 1) and (len(concerned_dimere == 4)) and (int(elements_before[1][1:3]<int(concerned_dimere[1:3]+4))):
+                    a = 0
                 is_in_bulk += a
                 
         # ex: if A05 is top and A01i is bottom, A01i is_in_bulk + 1
@@ -354,7 +357,7 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-number_of_steps1=10000000
+number_of_steps1=1000000
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
                                           dump_interval=100000,
                                           seed=596312)
