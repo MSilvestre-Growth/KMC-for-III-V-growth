@@ -224,8 +224,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
            
             if Move_A:
                 if elements_before[1] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1):
-                    print concerned_dimere
-                    print Cycling_letter_moving_B + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1)
+                    #print concerned_dimere
+                    #print Cycling_letter_moving_B + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1)
                     n_normal += 0
                 else:
                     if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):
@@ -235,8 +235,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_parallel += 1
                 if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
-                    print concerned_dimere
-                    print Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
+                    #print concerned_dimere
+                    #print Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
                     n_normal +=0
                 else:
                     if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):                       		    n_normal += 1

@@ -331,7 +331,7 @@ while a < len(sorted_list_of_possible_types)-10:
                                 rate_constant=0.0))
         
     #print "process number = 27"
-    #print [upper_step_moving_dimere, elements_of_current_step_interface] ," to ",[element_of_cycling_step, elements_after_interface]
+    print [upper_step_moving_dimere, elements_of_current_step_interface] ," to ",[element_of_cycling_step, elements_after_interface]
         
     # process_number = 27
     processes.append(KMCProcess(coordinates=list_of_coordinates[2],
