@@ -69,9 +69,6 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         else :
             Cycling_letter_moving_A = "A"
             Cycling_letter_moving_B = "B"
-        
-        n_parallel = 0
-        n_normal = 0
        
         concerned_dimere = elements_before[0]
         dimere_type = concerned_dimere[0]
@@ -109,22 +106,44 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         ############################
         
         #to avoid vacancies diffusion in an higher step
+        # is_in_bulk = 0
+        # for i in range(1, 4+1):
+        #     if int(elements_before[0][1:3]) <= int(elements_before[i][1:3]):	
+        #         a = 1
+        #         # ex: if A05 is top and A01i is bottom, A05 is_in_bulk + 1
+        #         # but if B06 is top and A01i is bottom, B06 is_in_bulk + 0 (thanks to the following line)
+        #         if (i == 4) and (len(elements_before[4]) == 4) and (int(elements_before[4][1:3]<int(concerned_dimere[1:3])-4)):
+        #             a = 0
+        #         # ex : if B22 is top and B20i is bottom, B20i is_in_bulk + 0
+        #         if (i == 1) and (len(concerned_dimere) == 4) and (int(elements_before[1][1:3])<int(concerned_dimere[1:3])+4):
+        #             a = 0
+        #         is_in_bulk += a
+                
+        # # ex: if A05 is top and A01i is bottom, A01i is_in_bulk + 1
+        # if (len(concerned_dimere) == 4) and (int(elements_before[1][1:3]>=int(concerned_dimere[1:3])+4)):
+        #     is_in_bulk += 1
+        
         is_in_bulk = 0
         for i in range(1, 4+1):
-            if int(elements_before[0][1:3]) <= int(elements_before[i][1:3]):	
-                a = 1
-                # ex: if A05 is top and A01i is bottom, A05 is_in_bulk + 1
-                # but if B06 is top and A01i is bottom, B06 is_in_bulk + 0 (thanks to the following line)
-                if (i == 4) and (len(elements_before[4]) == 4) and (int(elements_before[4][1:3]<int(concerned_dimere[1:3])-4)):
-                    a = 0
-                # ex : if B22 is top and B20i is bottom, B20i is_in_bulk + 0
-                if (i == 1) and (len(concerned_dimere) == 4) and (int(elements_before[1][1:3])<int(concerned_dimere[1:3])+4):
-                    a = 0
-                is_in_bulk += a
-                
-        # ex: if A05 is top and A01i is bottom, A01i is_in_bulk + 1
-        if (len(concerned_dimere) == 4) and (int(elements_before[1][1:3]>=int(concerned_dimere[1:3])+4)):
-            is_in_bulk += 1
+            if (i == 2) or (i == 3) :
+                if int(concerned_dimere[1:3]) <= int(elements_before[i][1:3]):	
+                is_in_bulk += 1
+            
+            if i == 1:
+                if len(concerned_dimere == 3):
+                    if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):	
+                    is_in_bulk += 1
+                if len(concerned_dimere == 4):
+                    if int(elements_before[1][1:3])>=int(concerned_dimere[1:3])+4:
+                        is_in_bulk += 1
+            
+            if i == 4:
+                if len(elements_before[4] == 3):
+                    if int(concerned_dimere[0][1:3]) <= int(elements_before[4][1:3]):	
+                    is_in_bulk += 1
+                if len(elements_before[4] == 4):
+                    if int(elements_before[4][1:3])>=int(concerned_dimere[1:3])-4:
+                        is_in_bulk += 1
         
         ##############################
         #    Add a dimere section    #
@@ -216,6 +235,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0
         
         if is_in_bulk < 4 and normal_diffusion :
+            
+            n_parallel = 0
+            n_normal = 0
+            
             #print process_number
             #print concerned_dimere 
             Move_A = (dimere_type == 'A')
@@ -275,6 +298,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         if is_in_bulk < 4 and process_number % Nb_processes_per_type == 26 :
             
+             n_parallel = 0
+             n_normal = 0
+             
              Move_A = (dimere_type == 'A')
              Move_B = (dimere_type == 'B')
              #print "cycling up" 
@@ -300,12 +326,18 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                  # print "Etot cycling up", E_tot
                  return k0*np.exp( - E_tot * q / (kb * T) )
-                
+        
+        if is_in_bulk >= 4 and process_number % Nb_processes_per_type == 26 :
+            return 0
         ######################
         #    Cycling Down    #
         ######################
         
-        if is_in_bulk < 4 and process_number % Nb_processes_per_type == 27 :   
+        if is_in_bulk < 4 and process_number % Nb_processes_per_type == 27 : 
+            
+            n_parallel = 0
+            n_normal = 0
+            
             Move_A = (dimere_type == 'A')
             Move_B = (dimere_type == 'B')
             #print "cycling down"
@@ -330,7 +362,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_normal +=1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
                 # print "Etot cycling down", E_tot
-                return k0*np.exp( - E_tot * q / (kb * T) ) 
+                return k0*np.exp( - E_tot * q / (kb * T) )
+            
+        if is_in_bulk >= 4 and process_number % Nb_processes_per_type == 27 :
+            return 0
             
         
     def cutoff(self):
@@ -357,9 +392,9 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-number_of_steps1=10000000
+number_of_steps1=2000000
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
-                                          dump_interval=100000,
+                                          dump_interval=200000,
                                           seed=596312)
 t1 = time.clock()
 name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°C_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel
