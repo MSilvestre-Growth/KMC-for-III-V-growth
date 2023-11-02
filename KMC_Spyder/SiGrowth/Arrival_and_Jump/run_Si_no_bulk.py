@@ -223,7 +223,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             ###################################
            
             if Move_A:
-                if elements_before[1] == Cycling_letter_moving_B + '0' + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1):
+                if elements_before[1] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1):
                     print concerned_dimere
                     print Cycling_letter_moving_B + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1)
                     n_normal += 0
@@ -234,7 +234,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_parallel += 1
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_parallel += 1
-                if elements_before[4] == Cycling_letter_moving_B + '0' + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
+                if elements_before[4] == Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
                     print concerned_dimere
                     print Cycling_letter_moving_B + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
                     n_normal +=0
@@ -244,7 +244,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
             if Move_B:
-                if elements_before[1] == Cycling_letter_moving_A + '0' + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1):
+                if elements_before[1] == Cycling_letter_moving_A + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1):
                     #print concerned_dimere
                     #print Cycling_letter_moving_A + str(int(elements_before[0][1:3])+Number_of_step_on_starting_surface-1)
                     n_parallel += 0
@@ -255,7 +255,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_normal +=1
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_normal +=1
-                if elements_before[4] == Cycling_letter_moving_A + '0' + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
+                if elements_before[4] == Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i":
                     #print concerned_dimere
                     #print Cycling_letter_moving_A + str(int(elements_before[0][1:3])-Number_of_step_on_starting_surface-1)+"i"
                     n_parallel +=0
@@ -354,7 +354,7 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-number_of_steps1=1000000
+number_of_steps1=10000000
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
                                           dump_interval=100000,
                                           seed=596312)
