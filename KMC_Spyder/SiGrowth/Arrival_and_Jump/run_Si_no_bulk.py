@@ -118,7 +118,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if (i == 4) and (len(elements_before[4]) == 4) and (int(elements_before[4][1:3]<int(concerned_dimere[1:3])-4)):
                     a = 0
                 # ex : if B22 is top and B20i is bottom, B20i is_in_bulk + 0
-                if (i == 1) and (len(concerned_dimere == 4)) and (int(elements_before[1][1:3]<int(concerned_dimere[1:3]+4))):
+                if (i == 1) and (len(concerned_dimere) == 4) and (int(elements_before[1][1:3])<int(concerned_dimere[1:3])+4):
                     a = 0
                 is_in_bulk += a
                 
