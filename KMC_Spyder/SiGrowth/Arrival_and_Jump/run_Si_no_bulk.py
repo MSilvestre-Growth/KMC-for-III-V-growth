@@ -25,7 +25,7 @@ import time
 #from KMCLib.KMCAnalysisPlugin import KMCAnalysisPlugin
 
 # Physical value
-T = 1050 #temperature
+T = 950 #temperature
 kb = 1.38*10**(-23)
 q = 1.6*10**(-19)
 E_substrate = 1.3
@@ -127,21 +127,21 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         for i in range(1, 4+1):
             if (i == 2) or (i == 3) :
                 if int(concerned_dimere[1:3]) <= int(elements_before[i][1:3]):	
-                is_in_bulk += 1
+                    is_in_bulk += 1
             
             if i == 1:
-                if len(concerned_dimere == 3):
+                if len(concerned_dimere) == 3:
                     if int(concerned_dimere[1:3]) <= int(elements_before[1][1:3]):	
-                    is_in_bulk += 1
-                if len(concerned_dimere == 4):
+                        is_in_bulk += 1
+                if len(concerned_dimere) == 4:
                     if int(elements_before[1][1:3])>=int(concerned_dimere[1:3])+4:
                         is_in_bulk += 1
             
             if i == 4:
-                if len(elements_before[4] == 3):
-                    if int(concerned_dimere[0][1:3]) <= int(elements_before[4][1:3]):	
-                    is_in_bulk += 1
-                if len(elements_before[4] == 4):
+                if len(elements_before[4]) == 3:
+                    if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):	
+                        is_in_bulk += 1
+                if len(elements_before[4]) == 4:
                     if int(elements_before[4][1:3])>=int(concerned_dimere[1:3])-4:
                         is_in_bulk += 1
         
