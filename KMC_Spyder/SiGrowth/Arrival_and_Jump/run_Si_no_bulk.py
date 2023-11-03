@@ -315,7 +315,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                print "Etot cycling up", E_tot
+                if concerned_dimere == "A21i":
+                    print "Etot cycling up", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
              
              if Move_B:
@@ -326,7 +327,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                  if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
                      n_parallel += 1
                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                 print "Etot cycling up", E_tot
+                 if concerned_dimere == "A21i":
+                     print "Etot cycling up", E_tot
                  return k0*np.exp( - E_tot * q / (kb * T) )
         
         if is_in_bulk >= 4 and process_number % Nb_processes_per_type == 26 :
@@ -353,7 +355,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                print "Etot cycling down", E_tot
+                if concerned_dimere == "A21i":
+                    print "Etot cycling down", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
                   
             if Move_B:
@@ -364,7 +367,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_normal +=1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                print "Etot cycling down", E_tot
+                if concerned_dimere == "A21i":
+                    print "Etot cycling down", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
         if is_in_bulk >= 4 and process_number % Nb_processes_per_type == 27 :
