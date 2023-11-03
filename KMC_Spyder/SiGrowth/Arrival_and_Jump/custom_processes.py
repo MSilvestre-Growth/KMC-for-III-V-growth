@@ -24,7 +24,7 @@ use % 9 to know which process happen
 #
 
 
-Number_of_step_on_starting_surface = 4
+Number_of_step_on_starting_surface =4 
 
 
 

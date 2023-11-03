@@ -33,7 +33,7 @@ E_normal = 0.05
 E_parallel = 0.5
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 1
+SendFlux = 2 
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -392,9 +392,9 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-number_of_steps1=2000000
+number_of_steps1=10000000
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
-                                          dump_interval=200000,
+                                          dump_interval=100000,
                                           seed=596312)
 t1 = time.clock()
 name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°C_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel
