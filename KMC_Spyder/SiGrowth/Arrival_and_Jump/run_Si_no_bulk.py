@@ -33,7 +33,7 @@ E_normal = 0.05
 E_parallel = 0.5
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 2 
+SendFlux = 0 
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -60,7 +60,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #    return 0
         Nb_processes_per_type =30
         
-        element_to_test = "B24"
+        element_to_test = "A21i"
         
         Number_of_step_on_starting_surface = 4
         
@@ -125,7 +125,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # if (len(concerned_dimere) == 4) and (int(elements_before[1][1:3]>=int(concerned_dimere[1:3])+4)):
         #     is_in_bulk += 1
         
-        ban_list = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]
+        ban_list = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,29]
         for i in range(len(ban_list)):
             if process_number % Nb_processes_per_type == ban_list[i]:
                 return 0
