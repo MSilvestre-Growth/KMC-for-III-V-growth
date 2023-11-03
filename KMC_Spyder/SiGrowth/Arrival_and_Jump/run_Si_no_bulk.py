@@ -267,6 +267,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 else:
                     if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):                       		    n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                print "Etot moving", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
             if Move_B:
@@ -289,7 +290,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
                         n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                #print "Etot moving", E_tot
+                print "Etot moving", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )     
 
         #######################################
@@ -314,6 +315,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                print "Etot cycling up", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
              
              if Move_B:
@@ -324,7 +326,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                  if int(concerned_dimere[1:3]) <= int(elements_before[4][1:3]):
                      n_parallel += 1
                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                 # print "Etot cycling up", E_tot
+                 print "Etot cycling up", E_tot
                  return k0*np.exp( - E_tot * q / (kb * T) )
         
         if is_in_bulk >= 4 and process_number % Nb_processes_per_type == 26 :
@@ -393,9 +395,9 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-number_of_steps1=10000000
+number_of_steps1=1
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
-                                          dump_interval=100000,
+                                          dump_interval=1,
                                           seed=596312)
 t1 = time.clock()
 name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°C_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel
