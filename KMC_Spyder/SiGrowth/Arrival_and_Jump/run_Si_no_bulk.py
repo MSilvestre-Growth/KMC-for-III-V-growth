@@ -58,7 +58,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # Utilities for the custom rate
         #if process_number<=55:
         #    return 0
-        Nb_processes_per_type =28
+        Nb_processes_per_type =30
         
         Number_of_step_on_starting_surface = 4
         
@@ -292,11 +292,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 #print "Etot moving", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )     
 
-        ####################
-        #    Cycling Up    #
-        ####################
+        #######################################
+        #    Cycling Up and Cycling Jump Up   #
+        #######################################
         
-        if is_in_bulk < 4 and process_number % Nb_processes_per_type == 26 :
+        if is_in_bulk < 4 and (process_number % Nb_processes_per_type == 26 or process_number % Nb_processes_per_type == 28) :
             
              n_parallel = 0
              n_normal = 0
@@ -329,11 +329,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         if is_in_bulk >= 4 and process_number % Nb_processes_per_type == 26 :
             return 0
-        ######################
-        #    Cycling Down    #
-        ######################
+        ###########################################
+        #    Cycling Down and Cycling Jump Down   #
+        ###########################################
         
-        if is_in_bulk < 4 and process_number % Nb_processes_per_type == 27 : 
+        if is_in_bulk < 4 and (process_number % Nb_processes_per_type == 27 or process_number % Nb_processes_per_type == 29) : 
             
             n_parallel = 0
             n_normal = 0
@@ -351,6 +351,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_parallel += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                print "Etot cycling down", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
                   
             if Move_B:
@@ -361,7 +362,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_normal +=1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                # print "Etot cycling down", E_tot
+                print "Etot cycling down", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
         if is_in_bulk >= 4 and process_number % Nb_processes_per_type == 27 :

@@ -109,7 +109,7 @@ processes_name_list = []
 
 max_height = int(sorted_list_of_possible_types[len(sorted_list_of_possible_types)-2][1:3])
 
-while a < len(sorted_list_of_possible_types)-10:
+while a < len(sorted_list_of_possible_types)-12:
  
     #################################################
     #        Deposition of a quasi-dimere           #
@@ -313,12 +313,15 @@ while a < len(sorted_list_of_possible_types)-10:
     
     offset_cycling_step = Number_of_step_on_starting_surface * 2
     offset_moving_dimere = offset_cycling_step + 2
-   
+    
+    offset_jumping_element_to_cycling_step = 2*2
+    offset_jumping_element_to_interface = offset_moving_dimere + 2
     
     elements_of_current_step_interface = sorted_list_of_possible_types[a+1] 
     element_of_cycling_step = sorted_list_of_possible_types[a+offset_cycling_step]
     upper_step_moving_dimere = sorted_list_of_possible_types[a+offset_moving_dimere]  
-   
+    jumping_interface_element_to_cycling_step = sorted_list_of_possible_types[a+1+offset_jumping_element_to_cycling_step]
+    jumping_element_to_interface = sorted_list_of_possible_types[a + offset_jumping_element_to_interface]
     #print "process number = 26"
     #print [elements_after_interface, element_of_cycling_step] ," to ",[elements_of_current_step_interface, upper_step_moving_dimere]
 
@@ -339,7 +342,20 @@ while a < len(sorted_list_of_possible_types)-10:
                                 elements_after=[element_of_cycling_step, elements_after_interface],
                                 basis_sites=[0],
                                 rate_constant=0.0))
-        
+    
+    # process_number = 28
+    processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+                                elements_before=[jumping_interface_element_to_cycling_step, element_of_cycling_step],
+                                elements_after=[elements_after_interface, upper_step_moving_dimere],
+                                basis_sites=[0],
+                                rate_constant=0.0))
+    
+    # process_number = 29
+    processes.append(KMCProcess(coordinates=list_of_coordinates[2],
+                                elements_before=[jumping_element_to_interface, elements_of_current_step_interface],
+                                elements_after=[upper_step_moving_dimere, elements_after_interface],
+                                basis_sites=[0],
+                                rate_constant=0.0))
     a += 2
 
 # Create the interactions object with previous parameters.
