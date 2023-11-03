@@ -125,6 +125,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # if (len(concerned_dimere) == 4) and (int(elements_before[1][1:3]>=int(concerned_dimere[1:3])+4)):
         #     is_in_bulk += 1
         
+        ban_list = [0,1,2,4,5,6,8,9,10,12,13,14,16,17,18,20,21,22,24,25,26,27,28]
+        for in range(len(ban_list)):
+            if process_number % Nb_processes_per_type == ban_list[i]:
+                return 0
+        
         is_in_bulk = 0
         for i in range(1, 4+1):
             if (i == 2) or (i == 3) :
