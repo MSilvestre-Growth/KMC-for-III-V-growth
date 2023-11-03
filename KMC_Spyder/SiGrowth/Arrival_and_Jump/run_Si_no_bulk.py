@@ -60,6 +60,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #    return 0
         Nb_processes_per_type =30
         
+        element_to_test = "B24"
+        
         Number_of_step_on_starting_surface = 4
         
         if Number_of_step_on_starting_surface % 2 == 1 :
@@ -145,7 +147,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     if int(elements_before[4][1:3])>=int(concerned_dimere[1:3])-4:
                         is_in_bulk += 1
         
-        if concerned_dimere == "A21i":
+        if concerned_dimere == element_to_test:
             print "is_in_bulk ", is_in_bulk
         
         ##############################
@@ -206,7 +208,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #    Jumping down from a single dimere    #
         ###########################################
         
-        if  process_number % Nb_processes_per_type == 6 or  process_number % Nb_processes_per_type == 7 or  process_number % Nb_processes_per_type == 8 or  process_number % Nb_processes_per_type == 9 process_number % Nb_processes_per_type == 28 or  process_number % Nb_processes_per_type == 29:
+        if  process_number % Nb_processes_per_type == 6 or  process_number % Nb_processes_per_type == 7 or  process_number % Nb_processes_per_type == 8 or  process_number % Nb_processes_per_type == 9 or process_number % Nb_processes_per_type == 28 or  process_number % Nb_processes_per_type == 29:
             is_alone = 0
             for i in range(4):
                 if int(concerned_dimere[1:3]) == int(elements_before[i+1][1:3]) + 1:
@@ -278,7 +280,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                         n_normal += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                if concerned_dimere == "A21i":
+                if concerned_dimere == element_to_test:
                     print "Etot moving", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
@@ -309,7 +311,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                         n_parallel += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                if concerned_dimere == "A21i":
+                if concerned_dimere == element_to_test:
                     print "Etot moving", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )   
 
@@ -346,8 +348,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                         n_normal += 1
                 
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                if concerned_dimere == "A21i":
-                    print "Etot moving", E_tot
+                if concerned_dimere == element_to_test:
+                    print "Etot cycling up", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
              
              if Move_B:
@@ -369,8 +371,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                          n_parallel += 1
                  
                  E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                 if concerned_dimere == "A21i":
-                     print "Etot moving", E_tot
+                 if concerned_dimere == element_to_test:
+                     print "Etot cycling up", E_tot
                  return k0*np.exp( - E_tot * q / (kb * T) )
         
         if is_in_bulk >= 4 and (process_number % Nb_processes_per_type == 26 or process_number % Nb_processes_per_type == 28):
@@ -405,10 +407,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 # elements_before[3]
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_parallel += 1
-                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                 if concerned_dimere == "A21i":
-                     print "Etot cycling down", E_tot
-                 return k0*np.exp( - E_tot * q / (kb * T) )
+                E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
+                if concerned_dimere == element_to_test:
+                    print "Etot cycling down", E_tot
+                return k0*np.exp( - E_tot * q / (kb * T) )
                   
             if Move_B:
                 # elements_before[1]
@@ -427,7 +429,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if int(concerned_dimere[1:3]) <= int(elements_before[3][1:3]):
                     n_normal += 1
                 E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel
-                if concerned_dimere == "A21i":
+                if concerned_dimere == element_to_test:
                     print "Etot cycling down", E_tot
                 return k0*np.exp( - E_tot * q / (kb * T) )
             
