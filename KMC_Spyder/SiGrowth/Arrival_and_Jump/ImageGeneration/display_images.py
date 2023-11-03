@@ -71,27 +71,27 @@ plt.plot(times, B22_list, label="B22")
 plt.title("coverage")
 plt.legend()
     
-# ###################
-# #    file name    #
-# ###################
-# for i in range(len(types)):
-#     file_name = "Imtest%d.png" % i
-#     KMC_Result_current = types[i]
-#     # Conversion of "U" in 1 and "D" in 0 for display purposes
-#     for j in range(len(KMC_Result_current)):
-#         for k in range(len(possible_types)):
-#             if KMC_Result_current[j] == possible_types[k]:
-#                 KMC_Result_current[j] = colors[k]
+###################
+#    file name    #
+###################
+for i in range(len(types)):
+    file_name = "Imtest%d.png" % i
+    KMC_Result_current = types[i]
+    # Conversion of "U" in 1 and "D" in 0 for display purposes
+    for j in range(len(KMC_Result_current)):
+        for k in range(len(possible_types)):
+            if KMC_Result_current[j] == possible_types[k]:
+                KMC_Result_current[j] = colors[k]
     
-#     # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
-#     length_to_split = 100 * np.ones(100)
-#     KMC_Result_current = iter(KMC_Result_current)
-#     KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
-#     KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
+    # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
+    length_to_split = 100 * np.ones(100)
+    KMC_Result_current = iter(KMC_Result_current)
+    KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
+    KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
     
-#     #Image display
-#     #plt.figure()
-#     #plt.imshow(KMC_Result_current_matrix)
+    #Image display
+    #plt.figure()
+    #plt.imshow(KMC_Result_current_matrix)
         
-#     #Image saving in other directory
-#     plt.imsave(path+file_name, KMC_Result_current_matrix)   
+    #Image saving in other directory
+    plt.imsave(path+file_name, KMC_Result_current_matrix)   
