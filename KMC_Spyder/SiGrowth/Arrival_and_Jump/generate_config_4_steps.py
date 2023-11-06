@@ -40,7 +40,7 @@ unit_cell = KMCUnitCell(
 
 # Precise the number of pixel in each direction (at least 1)
 X = 100
-Y = 100
+Y = 250
 Z = 1
 
 # Precise if you want your structure to be periodic in different directions
@@ -69,17 +69,17 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ['A19i']*100
+types = ['A19i']*250
 
-for h in range(2100) :
+for h in range(5250) :
     types.append('A19')
-for i in range (2500) :
+for i in range (6250) :
     types.append('B20')
-for j in range(2500) :
+for j in range(6250) :
     types.append('A21')
-for k in range(2500) :
+for k in range(6250) :
     types.append('B22')
-for l in range(300) :
+for l in range(750) :
     types.append('A23')
 
 # write all possibles types that you entered previously
@@ -87,7 +87,7 @@ possible_types = ['A01','B02','A03','B04']
 
 # We want to define supplementary steps to be coherent with our step notation
 # and atomic processes describes in custom process
-Number_of_supplementary_higher_steps =30
+Number_of_supplementary_higher_steps =40
 
 # nothing more to write from there
 sorted_step = []

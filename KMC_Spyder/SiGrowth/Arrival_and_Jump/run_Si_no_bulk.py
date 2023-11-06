@@ -476,7 +476,7 @@ control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
                                           dump_interval=800000,
                                           seed=596312)
 t1 = time.clock()
-name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°C_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel
+name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel
 model.run(control_parameters, trajectory_filename=name)
 t2 = time.clock()
 
