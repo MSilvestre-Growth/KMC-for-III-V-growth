@@ -157,8 +157,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     if int(elements_before[4][1:3])>=int(concerned_dimere[1:3])-4:
                         is_in_bulk += 1
         
-        if concerned_dimere == element_to_test:
-            print "is_in_bulk ", is_in_bulk
+        #if concerned_dimere == element_to_test:
+        #    print "is_in_bulk ", is_in_bulk
         
         ##############################
         #    Add a dimere section    #
@@ -471,9 +471,9 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-number_of_steps1=200000000
+number_of_steps1=80000000
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
-                                          dump_interval=20000000,
+                                          dump_interval=800000,
                                           seed=596312)
 t1 = time.clock()
 name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°C_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel
