@@ -38,7 +38,7 @@ from KMCLib import *
 processes = []
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("config_4_steps.py")
+config = KMCConfigurationFromScript("illustration_config.py")
 
 # Get the possible types from config
 dictionnary_of_possible_types = config.possibleTypes()

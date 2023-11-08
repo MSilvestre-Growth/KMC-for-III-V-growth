@@ -457,7 +457,7 @@ def TrueFuction(obj):
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config_4_steps.py")
+config = KMCConfigurationFromScript("illustration_config.py")
 #creation of the interaction oject
 interactions = KMCInteractionsFromScript("custom_processes.py")    
 #setting of the CustomRateCalculator in the interaction object
@@ -473,7 +473,7 @@ model = KMCLatticeModel(configuration=config,
 # we run this test.
 number_of_steps1=100
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
-                                          dump_interval=800000,
+                                          dump_interval=1,
                                           seed=596312)
 t1 = time.clock()
 name = "Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_En_%lg" %E_normal + "_Ep_%lg.py" %E_parallel

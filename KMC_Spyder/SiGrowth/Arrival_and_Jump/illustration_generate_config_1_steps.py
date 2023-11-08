@@ -69,7 +69,7 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ['A23']*250
+types = ['A23']*100
 
 # write all possibles types that you entered previously
 possible_types = ['A01','B02','A03','B04']
