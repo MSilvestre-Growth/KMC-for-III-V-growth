@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['SiGrowth\\Arrival_and_Jump\\run_Si_no_bulk.py', 'SiGrowth\\Arrival_and_Jump\\ImageGeneration\\display_images.py']
+recent_files = ['SiGrowth\\Arrival_and_Jump\\run_Si_no_bulk.py', 'SiGrowth\\Arrival_and_Jump\\ImageGeneration\\display_images.py', 'SiGrowth\\Arrival_and_Jump\\custom_processes.py', 'SiGrowth\\Arrival_and_Jump\\generate_config_4_steps.py', 'SiGrowth\\Arrival_and_Jump\\config_4_steps_100x250.py', 'SiGrowth\\Arrival_and_Jump\\ImageGeneration\\GIFMaker.py', '..\\..\\Images\\SiGrowth\\steps_4_test\\Results_steps_1.2e+08_Flux_1_T°C_950_En_0.05_Ep_0.5\\Results_steps_1.2e+08_Flux_1_T°C_950_En_0.05_Ep_0.5.py', '..\\..\\Images\\SiGrowth\\steps_4_test\\Results_steps_1e+07_Flux_1_T°C_850_En_0.05_Ep_0.5\\Results_steps_1e+07_Flux_1_T°C_850_En_0.05_Ep_0.5.py']
 
 [main]
 version = 0.2.0
