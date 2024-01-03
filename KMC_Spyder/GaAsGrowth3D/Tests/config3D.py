@@ -33,15 +33,22 @@ unit_cell = KMCUnitCell(
 
 lattice = KMCLattice(
     unit_cell=unit_cell,
-    repetitions=(3,3,3),
+    repetitions=(5,5,5),
     periodic=(True, True, False))
 
 # -----------------------------------------------------------------------------
 # Configuration
 
 types = ['V','V','V','V','V','V','V','V','V','V','V','V','V',
-         'Si','V','V','V','V','V','V','V','V','V','V','V','V',
-         'V']
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','Si','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V']
 
 possible_types = ['Si','V']
 
