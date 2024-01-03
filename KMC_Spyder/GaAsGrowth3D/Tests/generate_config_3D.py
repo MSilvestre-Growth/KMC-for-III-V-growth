@@ -39,9 +39,9 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 5
-Y = 5
-Z = 5
+X = 3
+Y = 3
+Z = 3
 
 # Precise if you want your structure to be periodic in different directions
 # (True or False)
@@ -69,12 +69,13 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ["V"] * 62
-types.append("Si")
-for i in range(62):
-    types.append("V")
+types = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
+         "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
+         "W", "X", "Y", "Z", "AA"]
 
-possible_types = ["Si", "V"]
+possible_types = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
+         "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
+         "W", "X", "Y", "Z", "AA"]
 
 
 # Setting parameters of the configuration with previous informations

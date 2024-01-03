@@ -41,7 +41,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [0.0, 0.0, 2.0]],
+                       [[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0]]
                        ]
 
@@ -50,8 +50,8 @@ for i in range(len(list_of_coordinates)):
     
     coordinates = list_of_coordinates[i]
     
-    elements_before = ["Si", "V"]
-    elements_after = ["V", "Si"]
+    elements_before = ["N", "O"]
+    elements_after = ["O", "N"]
     
     processes.append(KMCProcess(coordinates=coordinates,
                                            elements_before=elements_before,
