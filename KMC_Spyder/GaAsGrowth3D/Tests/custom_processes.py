@@ -34,8 +34,51 @@ config = KMCConfigurationFromScript("config3D.py")
 # -----------------------------------------------------------------------
 # List of all possible deplacement in 2 dimensions
     
-#Atoms moves : [RIGHT, FORWARD, BACKWARD, LEFT, UPWARD, DOWNWARD]
 
+# Atom arrival on Si and GaAs
+
+# process 0 =  arrival of A type on Si
+elements_before_A_Si = ["A_Si", "V"]
+elements_after_A_Si = ["A_Si", "A_GaAs"]
+
+processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+                                       elements_before=elements_before_A_Si,
+                                       elements_after=elements_after_A_Si,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
+# process 1 = arrival of B type on Si
+elements_before_B_Si = ["B_Si", "V"]
+elements_after_B_Si = ["B_Si", "B_GaAs"]
+
+processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+                                       elements_before=elements_before_B_Si,
+                                       elements_after=elements_after_B_Si,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
+
+# process 2 = arrival of A type on GaAs
+elements_before_A_GaAs = ["A_GaAs", "V"]
+elements_after_A_GaAs = ["A_GaAs", "A_GaAs"]
+
+processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+                                       elements_before=elements_before_A_GaAs,
+                                       elements_after=elements_after_A_GaAs,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
+# process 3 = arrival of B type on GaAs
+elements_before_B_GaAs = ["B_GaAs", "V"]
+elements_after_B_GaAs = ["B_GaAs", "B_GaAs"]
+
+processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+                                       elements_before=elements_before_B_GaAs,
+                                       elements_after=elements_after_B_GaAs,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
+# Atoms moves : [RIGHT, FORWARD, BACKWARD, LEFT, UPWARD, DOWNWARD]
 # This move order is due to elements_before order in the custom rate calculator in the run program
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
@@ -44,6 +87,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
                        [[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0]]
                        ]
+
 
 # Processes for GaAs-GaAs interactions
 for i in range(len(list_of_coordinates)):

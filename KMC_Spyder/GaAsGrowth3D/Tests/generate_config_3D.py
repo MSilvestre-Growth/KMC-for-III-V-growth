@@ -39,9 +39,9 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 3
-Y = 3
-Z = 3
+X = 40
+Y = 10
+Z = 10
 
 # Precise if you want your structure to be periodic in different directions
 # (True or False)
@@ -61,21 +61,56 @@ lattice = KMCLattice(
 ##################################################
 #    User Zone : define your starting surface    #
 ##################################################
+types = []
 
-# types is a SIMPLE list which must contain X * Y elements
-# the position in the XxY matrix can be deduce by the position p in types list
-# as following :
-# let (q,r) be the euclidian of p by X i.e. p = q*X+r
-# then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
+def add_Si_column(column_height, Dimere_list=types, max_height=Z):
+    if height > max_height:
+        print "You entered height higher than Z !"
+        return 0
+    for i in range(max_height):
+        if i < column_height:
+            if i % 2 == 0
+                Dimere_list.append("A_Si")
+            else:
+                Dimere_list.append("B_Si")
+        else:
+            Dimere_list.append("V")
+            
+def add_Y_row_of_Si_column(column_height, Y_row_length=Y, Dimere_list=types, max_height=Z):
+    for i in range(Y_row_length):
+        add_Si_column(column_height, Dimere_list, max_height)
+        
 
+def add_a_Si_steps(step_width, column_height, Y_row_length=Y, Dimere_list=types, max_height=Z):
+    for i in range(step_width):
+        add_Y_row_of_Si_column(column_height, Y_row_length, Dimere_list, max_height)
+
+    
 # writting of starting surface
-types = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
-         "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
-         "W", "X", "Y", "Z", "AA"]
 
-possible_types = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
-         "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
-         "W", "X", "Y", "Z", "AA"]
+# first step
+step_width = X/4
+Si_height = 4
+add_a_Si_steps(step_width, Si_height)
+
+# second step
+step_width = X/4
+Si_height = 3
+add_a_Si_steps(step_width, Si_height)
+
+# third step
+step_width = X/4
+Si_height = 2
+add_a_Si_steps(step_width, Si_height)
+
+# fourth step
+step_width = X/4
+Si_height = 1
+add_a_Si_steps(step_width, Si_height)
+
+
+
+possible_types = ["A_Si", "B_Si", "A_GaAs", "B_GaAs"]
 
 
 # Setting parameters of the configuration with previous informations
