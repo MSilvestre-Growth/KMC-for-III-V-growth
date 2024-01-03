@@ -29,7 +29,7 @@ from KMCLib import *
 processes = []
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("illustration_config.py")
+config = KMCConfigurationFromScript("config3D.py")
 
 # -----------------------------------------------------------------------
 # List of all possible deplacement in 2 dimensions

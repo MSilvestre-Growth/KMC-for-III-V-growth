@@ -69,9 +69,9 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ["V"] * 4
+types = ["V"] * 13
 types.append("Si")
-for i in range(4):
+for i in range(13):
     types.append("V")
 
 possible_types = ["Si", "V"]
