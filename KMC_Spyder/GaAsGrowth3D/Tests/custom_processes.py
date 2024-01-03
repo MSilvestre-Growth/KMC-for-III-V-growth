@@ -41,7 +41,7 @@ config = KMCConfigurationFromScript("config3D.py")
 elements_before_A_Si = ["A_Si", "V"]
 elements_after_A_Si = ["A_Si", "A_GaAs"]
 
-processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        elements_before=elements_before_A_Si,
                                        elements_after=elements_after_A_Si,
                                        basis_sites=[0],
@@ -51,7 +51,7 @@ processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 
 elements_before_B_Si = ["B_Si", "V"]
 elements_after_B_Si = ["B_Si", "B_GaAs"]
 
-processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        elements_before=elements_before_B_Si,
                                        elements_after=elements_after_B_Si,
                                        basis_sites=[0],
@@ -62,7 +62,7 @@ processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 
 elements_before_A_GaAs = ["A_GaAs", "V"]
 elements_after_A_GaAs = ["A_GaAs", "A_GaAs"]
 
-processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        elements_before=elements_before_A_GaAs,
                                        elements_after=elements_after_A_GaAs,
                                        basis_sites=[0],
@@ -72,7 +72,7 @@ processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 
 elements_before_B_GaAs = ["B_GaAs", "V"]
 elements_after_B_GaAs = ["B_GaAs", "B_GaAs"]
 
-processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        elements_before=elements_before_B_GaAs,
                                        elements_after=elements_after_B_GaAs,
                                        basis_sites=[0],
