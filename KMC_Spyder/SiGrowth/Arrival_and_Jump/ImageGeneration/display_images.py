@@ -26,6 +26,9 @@ B22_list = []
 A23_list = []
 B24_list = []
 
+A_coverage = []
+B_coverage = []
+
 for j in range(len(types)):
     a = 0
     A19 = 0
@@ -60,15 +63,28 @@ for j in range(len(types)):
     B20_list.append((B20 + B24) * 100 / 10000)
     A21_list.append(A21 * 100 / 10000)
     B22_list.append(B22 * 100 / 10000)
-
+    
+    A_coverage.append((A19 + A23 + A21) * 100 / 10000)
+    B_coverage.append((B20 + B24 + B22) * 100 / 10000)
+    
+plt.figure()
 plt.plot(times, growth_list)
 plt.title("Flux")
+
 plt.figure()
 plt.plot(times, A19_list, label="A19")
 plt.plot(times, B20_list, label="B20")
 plt.plot(times, A21_list, label="A21")
 plt.plot(times, B22_list, label="B22")
 plt.title("coverage")
+plt.legend()
+
+plt.figure()
+plt.plot(times, A_coverage, label="A steps")
+plt.plot(times, B_coverage, label="B steps")
+plt.title("Relative step coverage")
+plt.xlabel("time (s)")
+plt.ylabel("Relative step coverage (%)")
 plt.legend()
     
 ###################
@@ -84,7 +100,7 @@ for i in range(len(types)):
                 KMC_Result_current[j] = colors[k]
     
     # Using islice to turn KMC_Result_current (list) in KMC_Result_current_matrix (100x100 matrix)
-    length_to_split = 100 * np.ones(100)
+    length_to_split = 10 * np.ones(10)
     KMC_Result_current = iter(KMC_Result_current)
     KMC_Result_current_matrix = [list(islice(KMC_Result_current, int(elem))) for elem in length_to_split]
     KMC_Result_current_matrix = np.array(KMC_Result_current_matrix)
