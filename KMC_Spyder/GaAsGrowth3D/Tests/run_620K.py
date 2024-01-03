@@ -60,14 +60,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         global SendFlux
         
-        if process_number == 4:
-	    print elements_before
-            for i in range(27):
-                print i
-                print elements_before[i]
-            return 1
-        else:
-            return 0
+        if process_number < 4:
+            return SendFlux
             
         
     def cutoff(self):
@@ -94,8 +88,10 @@ model = KMCLatticeModel(configuration=config,
 # a seed value will result in the wall clock time seeding,
 # so we would expect slightly different results each time
 # we run this test.
-number_of_steps1=1
-control_parameters = KMCControlParameters(number_of_steps=number_of_steps1,
+
+number_of_steps=10
+
+control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           dump_interval=1,
                                           seed=596312)
 name = "trajectory_test.py"

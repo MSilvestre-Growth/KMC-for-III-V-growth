@@ -78,30 +78,30 @@ processes.append(KMCProcess(coordinates=coordinates[[0.0, 0.0, 0.0], [0.0, 0.0, 
                                        basis_sites=[0],
                                        rate_constant=0.0))
 
-# Atoms moves : [RIGHT, FORWARD, BACKWARD, LEFT, UPWARD, DOWNWARD]
-# This move order is due to elements_before order in the custom rate calculator in the run program
-list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
-                       [[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
-                       [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0]]
-                       ]
+# # Atoms moves : [RIGHT, FORWARD, BACKWARD, LEFT, UPWARD, DOWNWARD]
+# # This move order is due to elements_before order in the custom rate calculator in the run program
+# list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
+#                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
+#                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
+#                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
+#                        [[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+#                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0]]
+#                        ]
 
 
-# Processes for GaAs-GaAs interactions
-for i in range(len(list_of_coordinates)):
+# # Processes for GaAs-GaAs interactions
+# for i in range(len(list_of_coordinates)):
     
-    coordinates = list_of_coordinates[i]
+#     coordinates = list_of_coordinates[i]
     
-    elements_before = ["N", "O"]
-    elements_after = ["O", "N"]
+#     elements_before = ["N", "O"]
+#     elements_after = ["O", "N"]
     
-    processes.append(KMCProcess(coordinates=coordinates,
-                                           elements_before=elements_before,
-                                           elements_after=elements_after,
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
+#     processes.append(KMCProcess(coordinates=coordinates,
+#                                            elements_before=elements_before,
+#                                            elements_after=elements_after,
+#                                            basis_sites=[0],
+#                                            rate_constant=0.0))
  
 
 # Create the interactions object with previous parameters.
