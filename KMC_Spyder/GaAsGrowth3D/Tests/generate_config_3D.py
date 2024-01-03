@@ -64,12 +64,12 @@ lattice = KMCLattice(
 types = []
 
 def add_Si_column(column_height, Dimere_list=types, max_height=Z):
-    if height > max_height:
+    if column_height > max_height:
         print "You entered height higher than Z !"
         return 0
     for i in range(max_height):
         if i < column_height:
-            if i % 2 == 0
+            if i % 2 == 0:
                 Dimere_list.append("A_Si")
             else:
                 Dimere_list.append("B_Si")
@@ -110,7 +110,7 @@ add_a_Si_steps(step_width, Si_height)
 
 
 
-possible_types = ["A_Si", "B_Si", "A_GaAs", "B_GaAs"]
+possible_types = ["V", "A_Si", "B_Si", "A_GaAs", "B_GaAs"]
 
 
 # Setting parameters of the configuration with previous informations
