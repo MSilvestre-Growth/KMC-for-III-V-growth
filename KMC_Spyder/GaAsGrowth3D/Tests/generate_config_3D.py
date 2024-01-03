@@ -39,9 +39,9 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 2
-Y = 2
-Z = 2
+X = 3
+Y = 3
+Z = 3
 
 # Precise if you want your structure to be periodic in different directions
 # (True or False)
@@ -69,7 +69,8 @@ lattice = KMCLattice(
 # then position in the XxY mattrix is (x,y) = (q, r) rmq : matrix index begin at 0
 
 # writting of starting surface
-types = ["Si"] * 4
+types = ["V"] * 4
+types.append("Si")
 for i in range(4):
     types.append("V")
 
@@ -80,7 +81,7 @@ possible_types = ["Si", "V"]
 configuration = KMCConfiguration(
     lattice=lattice,
     types=types,
-    possible_types = AllStates)
+    possible_types = possible_types)
 
 # Use the _script() function to get a script that can generate the configuration.
 print "from KMCLib import *"
