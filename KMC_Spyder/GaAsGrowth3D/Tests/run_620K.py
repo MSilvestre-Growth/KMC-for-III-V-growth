@@ -61,7 +61,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global SendFlux
         
         if process_number == 4:
-            for i in range(28):
+	    print elements_before
+            for i in range(27):
                 print i
                 print elements_before[i]
             return 1
@@ -71,7 +72,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
-        return 1.0
+        return 1.42
 
 # speedup process
 def TrueFuction(obj):
