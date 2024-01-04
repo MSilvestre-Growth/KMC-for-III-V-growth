@@ -59,10 +59,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global k0
 
         global SendFlux
-        
+        print elements_before
         link_number = 0
         for i in range(2,6):
-            if elements_before != "V":
+            if elements_before[i] != "V":
                 link_number += 1
         
         if link_number > 2:
@@ -96,7 +96,7 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps=15
+number_of_steps=30
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           dump_interval=1,
