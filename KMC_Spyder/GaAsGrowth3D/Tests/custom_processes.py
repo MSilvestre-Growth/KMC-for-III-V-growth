@@ -99,9 +99,9 @@ for i in range(len(list_of_coordinates)):
         elements_before = [GaAs_type[j], "V", Si_type[j]]
         elements_after = ["V", GaAs_type[j], Si_type[j]]
         
-        processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
-                                               elements_before=elements_before_B_GaAs,
-                                               elements_after=elements_after_B_GaAs,
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=elements_before,
+                                               elements_after=elements_after,
                                                basis_sites=[0],
                                                rate_constant=0.0))
  

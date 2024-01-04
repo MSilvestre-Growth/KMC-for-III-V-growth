@@ -63,6 +63,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         if process_number < 4:
             return 0
         else:
+	    print process_number
             return 1
         
     def cutoff(self):
