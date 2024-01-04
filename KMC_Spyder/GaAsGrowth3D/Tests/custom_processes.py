@@ -38,10 +38,10 @@ config = KMCConfigurationFromScript("config3D.py")
 # Atom arrival on Si and GaAs
 
 # process 0 =  arrival of A type on Si
-elements_before_A_Si = ["A_Si", "V", "V"]
-elements_after_A_Si = ["A_Si", "V", "A_GaAs"]
+elements_before_A_Si = ["A_Si", "V"]
+elements_after_A_Si = ["A_Si", "A_GaAs"]
 
-processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, 2.0]],
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        elements_before=elements_before_A_Si,
                                        elements_after=elements_after_A_Si,
                                        basis_sites=[0],
@@ -78,30 +78,32 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        basis_sites=[0],
                                        rate_constant=0.0))
 
-# # Atoms moves : [RIGHT, FORWARD, BACKWARD, LEFT, UPWARD, DOWNWARD]
-# # This move order is due to elements_before order in the custom rate calculator in the run program
-# list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
-#                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0]],
-#                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
-#                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
-#                        [[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
-#                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0]]
-#                        ]
+# GaAs diffusion on Si
+
+list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0]],
+                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0]],
+                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, -1.0]],
+                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, -1.0]]
+                        ]
 
 
-# # Processes for GaAs-GaAs interactions
-# for i in range(len(list_of_coordinates)):
-    
-#     coordinates = list_of_coordinates[i]
-    
-#     elements_before = ["N", "O"]
-#     elements_after = ["O", "N"]
-    
-#     processes.append(KMCProcess(coordinates=coordinates,
-#                                            elements_before=elements_before,
-#                                            elements_after=elements_after,
-#                                            basis_sites=[0],
-#                                            rate_constant=0.0))
+Si_type = ["A_Si", "B_Si"]
+GaAs_type = ["A_GaAs", "B_GaAs"]
+
+# GaAs diffusion : number process in [4, 11] (12 processes)
+# Jumps are not allowed --> no change in the GaAs type
+
+for i in range(len(list_of_coordinates)):
+    for j in range(len(Si_type)):
+        
+        elements_before = [GaAs_type[j], "V", Si_type[j]]
+        elements_after = ["V", GaAs_type[j], Si_type[j]]
+        
+        processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+                                               elements_before=elements_before_B_GaAs,
+                                               elements_after=elements_after_B_GaAs,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
  
 
 # Create the interactions object with previous parameters.
