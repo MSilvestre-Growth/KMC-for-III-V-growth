@@ -38,10 +38,10 @@ config = KMCConfigurationFromScript("config3D.py")
 # Atom arrival on Si and GaAs
 
 # process 0 =  arrival of A type on Si
-elements_before_A_Si = ["A_Si", "V"]
-elements_after_A_Si = ["A_Si", "A_GaAs"]
+elements_before_A_Si = ["A_Si", "V", "V"]
+elements_after_A_Si = ["A_Si", "V", "A_GaAs"]
 
-processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, 2.0]],
                                        elements_before=elements_before_A_Si,
                                        elements_after=elements_after_A_Si,
                                        basis_sites=[0],

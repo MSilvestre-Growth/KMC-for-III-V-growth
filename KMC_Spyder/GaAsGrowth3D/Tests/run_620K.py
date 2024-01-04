@@ -60,9 +60,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         global SendFlux
         
-        if process_number < 4:
-            return SendFlux
-            
+        #if process_number < 4:
+        #    return SendFlux
+        if process_number == 0:
+            return 1
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
@@ -89,7 +90,7 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps=10
+number_of_steps=2
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           dump_interval=1,
