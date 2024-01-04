@@ -64,6 +64,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         #    return SendFlux
         if process_number == 0:
             return 1
+        else:
+            return 0
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
