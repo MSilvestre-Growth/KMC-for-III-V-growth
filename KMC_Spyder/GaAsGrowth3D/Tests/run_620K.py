@@ -67,12 +67,12 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         if link_number > 2:
             return 0
-        if process_number == 27 or preocess_number == 31:
+        if process_number == 28 or process_number == 32:
             return 1
         if process_number < 35:
-            return 1
-        else:
             return 0
+        else:
+            return 1
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """

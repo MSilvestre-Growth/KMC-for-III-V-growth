@@ -147,7 +147,7 @@ for i in range(len(list_of_coordinates)):
 
 # GaAs diffusion on GaAs
 
-# X_GaAs diffusion on X_GaAs : number process in [27, 34] (8 processes)
+# X_GaAs diffusion on X_GaAs : number process in [28, 35] (8 processes)
 # Same GaAs species and no jumps --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0]],
@@ -172,7 +172,7 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# Y_GaAs diffusion on X_GaAs : number process in [35, 42] (8 processes)
+# Y_GaAs diffusion on X_GaAs : number process in [36, 43] (8 processes)
 # Change in GaAs phase A --> B
 
 elements_before = ["A_GaAs", "V", "B_GaAs"]
@@ -200,7 +200,7 @@ for i in range(len(list_of_coordinates)):
                                            rate_constant=0.0))
     
 # X_GaAs jumps to a X_GaAs simple step (no phase change)
-# process_number in [43, 58] (16 processes)
+# process_number in [44, 59] (16 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0]],
@@ -236,7 +236,7 @@ for i in range(len(list_of_coordinates)):
                                                rate_constant=0.0))
 
 # Y_GaAs jumps to a X_GaAs simple step (NO PHASE CHANGE)
-# process_number in [59, 75] (16 processes)
+# process_number in [60, 75] (16 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0]],
