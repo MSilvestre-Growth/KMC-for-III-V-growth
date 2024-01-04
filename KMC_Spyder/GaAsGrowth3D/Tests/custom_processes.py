@@ -135,8 +135,8 @@ for i in range(len(list_of_coordinates)):
         
         # Jump up
         
-        elements_before = ["V", Si_type[j], GaAs_type[j]]
-        elements_after = [GaAs_type_inverted[j], Si_type[j], "V"]
+        elements_before = ["V", Si_type[j], GaAs_type_inverted[j], Si_type_inverted[j]]
+        elements_after = [GaAs_type[j], Si_type[j], "V", Si_type_inverted[j]]
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=elements_before,
