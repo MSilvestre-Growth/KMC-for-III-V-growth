@@ -69,7 +69,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return 0
         if process_number == 28 or process_number == 32:
             return 1
-        if process_number < 35:
+        if process_number < 36:
             return 0
         else:
             return 1
