@@ -69,10 +69,14 @@ def add_Si_column(column_height, Dimere_list=types, max_height=Z):
         return 0
     for i in range(max_height):
         if i < column_height:
+            # if i % 2 == 0:
+            #     Dimere_list.append("A_Si")
+            # else:
+            #     Dimere_list.append("B_Si")
             if i % 2 == 0:
-                Dimere_list.append("A_Si")
+                Dimere_list.append("A_GaAs")
             else:
-                Dimere_list.append("B_Si")
+                Dimere_list.append("B_GaAs")
         else:
             Dimere_list.append("V")
             
