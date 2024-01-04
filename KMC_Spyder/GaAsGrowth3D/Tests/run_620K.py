@@ -67,7 +67,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         if link_number > 2:
             return 0
-        
+        if process_number < 4:
+	    return 0
         else:
             return 1
         
