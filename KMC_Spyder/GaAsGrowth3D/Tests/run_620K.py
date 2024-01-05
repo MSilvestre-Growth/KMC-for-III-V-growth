@@ -67,10 +67,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         # if link_number > 2:
         #     return 0
+        print "geometry"
+        print geometry
         
+        print "coordinate"
+        print coordinate
         if (process_number > 79) and (process_number <= 80):
- 	    print process_number
-            print elements_before
+            #print process_number
+            #print elements_before
             return 1
         else:
             return 0

@@ -330,19 +330,19 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
 # Jumps are not allowed --> no change in the GaAs type
 number_of_steps_in_config3D_f = float(number_of_steps_in_config3D)
 
-# list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, number_of_steps_in_config3D_f-1.0], [1.0, 0.0, number_of_steps_in_config3D_f-2.0], [0.0, 0.0, 1.0]],
-#                         [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
-#                         [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
-#                         [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]]
-#                         ]
-
-list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, 2.0]],
+list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, number_of_steps_in_config3D_f-1.0], [1.0, 0.0, number_of_steps_in_config3D_f-2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]]
                         ]
 
-print list_of_coordinates
+# list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+#                         [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
+#                         [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
+#                         [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]]
+#                         ]
+
+#print list_of_coordinates
 i_Si_type = ["Ai_Si", "Bi_Si"]
 Si_type = ["A_Si", "B_Si"]
 
@@ -363,20 +363,20 @@ for j in range(len(i_Si_type)):
     elements_before = []
     elements_after = []
     
-    # # move forward = cycling step
-    # elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
-    # elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
+    # move forward = cycling step
+    elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
+    elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
     
     # move forward = cycling step
     elements_before.append([i_GaAs_type[j]])
     elements_after.append([cycling_step_GaAs_type[j]])
     
-    processes.append(KMCProcess(coordinates=[0.0, 0.0, 0.0],
-                                           elements_before=elements_before[1],
-                                           elements_after=elements_after[1],
-                                           move_vectors = (0, [0.0, 0.0, 1.0])
-                                           basis_sites=[0],
-                                           rate_constant=0.0))
+    # processes.append(KMCProcess(coordinates=[0.0, 0.0, 0.0],
+    #                                        elements_before=elements_before[1],
+    #                                        elements_after=elements_after[1],
+    #                                        move_vectors = (0, [0.0, 0.0, 1.0])
+    #                                        basis_sites=[0],
+    #                                        rate_constant=0.0))
     
     # move backward = i_GaAs transforms into GaAs
     elements_before.append([i_GaAs_type[j], "V", Si_type[j], "V"])
@@ -397,8 +397,8 @@ for j in range(len(i_Si_type)):
                                                    elements_after=elements_after[i],
                                                    basis_sites=[0],
                                                    rate_constant=0.0))
-    print elements_before
-    print elements_after
+    #print elements_before
+    #print elements_after
             
 # Arrival from the surface on the interface (type change to interface)
 list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
