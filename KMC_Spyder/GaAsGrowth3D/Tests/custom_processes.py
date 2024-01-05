@@ -383,8 +383,8 @@ for j in range(len(i_Si_type)):
                                                    rate_constant=0.0))
             
 # Arrival from the surface on the interface (type change to interface)
-list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
-                        [[0.0, 0.0, 0.0], [0.0, 0.0, -number_of_steps_in_config3D_f+1.0], [0.0, -1.0, -number_of_steps_in_config3D_f], [0.0, 0.0, 1.0]],
+list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [-1.0, 0.0, -number_of_steps_in_config3D_f+1.0], [-1.0, 0.0, -number_of_steps_in_config3D_f], [0.0, 0.0, 1.0]],
                         ]
 
 i_Si_type = ["Ai_Si", "Bi_Si"]
