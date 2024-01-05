@@ -59,18 +59,19 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global k0
 
         global SendFlux
-        print elements_before
-        link_number = 0
-        for i in range(2,6):
-            if elements_before[i] != "V":
-                link_number += 1
+
+        # link_number = 0
+        # for i in range(2,6):
+        #     if elements_before[i] != "V":
+        #         link_number += 1
         
-        if link_number > 2:
-            return 0
-        if process_number < 4:
-	    return 0
-        else:
+        # if link_number > 2:
+        #     return 0
+        
+        if (process_number >= 80) and (process_number <= 89):
             return 1
+        else:
+            return 0
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
