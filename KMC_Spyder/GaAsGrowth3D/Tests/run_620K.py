@@ -68,7 +68,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # if link_number > 2:
         #     return 0
         
-        if (process_number >= 80) and (process_number <= 89):
+        if (process_number >= 81) and (process_number <= 81):	
             return 1
         else:
             return 0
@@ -98,7 +98,7 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps=30
+number_of_steps=1
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           dump_interval=1,
