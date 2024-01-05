@@ -115,10 +115,9 @@ Si_height = 1
 add_a_Si_steps(step_width, Si_height)
 
 # fourth step interface
-step_width = X/4 - 1
+step_width = 1
 Si_height = 1
-interface = "Y"
-add_a_Si_steps(step_width, Si_height, interface)
+add_a_Si_steps(step_width, Si_height, interface="Y")
 
 # # To distord the final image on plt
 # Y_row_length, Y_virtual_row_length = 10, 30
