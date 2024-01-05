@@ -360,7 +360,7 @@ for j in range(len(i_Si_type)):
         
         # move forward = cycling step
         elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
-        elements_after.append(["V", GaAs_type[j], cycling_step_Si_type[j], "V"])
+        elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
         
         # move backward = i_GaAs transforms into GaAs
         elements_before.append([i_GaAs_type[j], "V", Si_type[j], "V"])
@@ -381,6 +381,8 @@ for j in range(len(i_Si_type)):
                                                    elements_after=elements_after[i],
                                                    basis_sites=[0],
                                                    rate_constant=0.0))
+    print elements_before
+    print elements_after
             
 # Arrival from the surface on the interface (type change to interface)
 list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
