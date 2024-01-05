@@ -368,8 +368,8 @@ for j in range(len(i_Si_type)):
     # elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
     
     # move forward = cycling step
-    elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
-    elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])    
+    elements_before.append([i_GaAs_type[j], "V", "V", "V"])
+    elements_after.append(["V", cycling_step_GaAs_type[j], "V", "V"])    
     
     # move backward = i_GaAs transforms into GaAs
     elements_before.append([i_GaAs_type[j], "V", Si_type[j], "V"])
