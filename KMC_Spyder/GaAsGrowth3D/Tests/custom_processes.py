@@ -336,7 +336,7 @@ number_of_steps_in_config3D_f = float(number_of_steps_in_config3D)
 #                         [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]]
 #                         ]
 
-list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, number_of_steps_in_config3D_f-1.0], [0.0, 0.0, number_of_steps_in_config3D_f-2.0], [0.0, 0.0, 1.0]],
+list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, 3.0], [0.0, 0.0, 2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]]
@@ -363,9 +363,13 @@ for j in range(len(i_Si_type)):
     elements_before = []
     elements_after = []
     
+    # # move forward = cycling step
+    # elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
+    # elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
+    
     # move forward = cycling step
-    elements_before.append([i_GaAs_type[j], "V", "V", "V"])
-    elements_after.append(["V", cycling_step_GaAs_type[j], "V", "V"])
+    elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
+    elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])    
     
     # move backward = i_GaAs transforms into GaAs
     elements_before.append([i_GaAs_type[j], "V", Si_type[j], "V"])
