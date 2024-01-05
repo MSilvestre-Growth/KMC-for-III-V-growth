@@ -330,7 +330,7 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
 # Jumps are not allowed --> no change in the GaAs type
 number_of_steps_in_config3D_f = float(number_of_steps_in_config3D)
 
-list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, number_of_steps_in_config3D_f], [1.0, 0.0, number_of_steps_in_config3D_f-1.0], [0.0, 0.0, 1.0]],
+list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, number_of_steps_in_config3D_f+1.0], [1.0, 0.0, number_of_steps_in_config3D_f], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]]
