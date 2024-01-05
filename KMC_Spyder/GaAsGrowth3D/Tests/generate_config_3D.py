@@ -94,6 +94,11 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
     
 # writting of starting surface
 
+# fourth step interface
+step_width = 1
+Si_height = 1
+add_a_Si_steps(step_width, Si_height, interface="Y")
+
 # first step
 step_width = X/4
 Si_height = 4
@@ -113,11 +118,6 @@ add_a_Si_steps(step_width, Si_height)
 step_width = X/4 - 1
 Si_height = 1
 add_a_Si_steps(step_width, Si_height)
-
-# fourth step interface
-step_width = 1
-Si_height = 1
-add_a_Si_steps(step_width, Si_height, interface="Y")
 
 # # To distord the final image on plt
 # Y_row_length, Y_virtual_row_length = 10, 30
