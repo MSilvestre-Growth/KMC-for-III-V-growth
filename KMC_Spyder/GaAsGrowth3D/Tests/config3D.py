@@ -397,12 +397,12 @@ types = ['A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'Ai_Si','V','V','V','V','V','V','V','V','V','Ai_Si',
          'V','V','V','V','V','V','V','V','V','Ai_Si','V','V',
          'V','V','V','V','V','V','V','Ai_Si','V','V','V','V',
-         'V','V','V','V','V','Ai_Si','V','V','V','V','V','V',
-         'V','V','V','Ai_Si','Ai_GaAs','V','V','V','V','V','V','V',
+         'V','V','V','V','V','Ai_Si','Ai_GaAs','V','V','V','V','V',
+         'V','V','V','Ai_Si','V','V','V','V','V','V','V','V',
          'V']
 
 possible_types = ['Bi_Si','B_Si','Ai_GaAs','A_GaAs','Bi_GaAs','V','A_Si',
-                  'Ai_Si','B_GaAs']
+                  'Ai_Si','B_GaAs',"V"]
 
 configuration = KMCConfiguration(
     lattice=lattice,

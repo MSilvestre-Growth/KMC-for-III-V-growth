@@ -335,7 +335,7 @@ list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, number_of_steps_in_config3D_
                         [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]]
                         ]
-
+print list_of_coordinates
 i_Si_type = ["Ai_Si", "Bi_Si"]
 Si_type = ["A_Si", "B_Si"]
 
@@ -379,8 +379,8 @@ for j in range(len(i_Si_type)):
                                                    elements_after=elements_after[i],
                                                    basis_sites=[0],
                                                    rate_constant=0.0))
-    # print elements_before
-    # print elements_after
+    print elements_before
+    print elements_after
             
 # Arrival from the surface on the interface (type change to interface)
 list_of_coordinates = [[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],

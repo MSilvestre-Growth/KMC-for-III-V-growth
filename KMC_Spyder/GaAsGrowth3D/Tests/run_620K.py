@@ -68,7 +68,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         # if link_number > 2:
         #     return 0
         
-        if (process_number >= 81) and (process_number <= 81):
+        if (process_number >= 80) and (process_number <= 80):
             print elements_before
             return 1
         else:
@@ -76,7 +76,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
-        return 1.0
+        return 1.0 
 
 # speedup process
 def TrueFuction(obj):
