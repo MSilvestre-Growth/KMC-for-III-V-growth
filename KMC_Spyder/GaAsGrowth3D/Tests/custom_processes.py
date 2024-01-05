@@ -167,9 +167,9 @@ for i in range(len(list_of_coordinates)):
         
         elements_before = [GaAs_diffusion_dimere_type[j], "V", GaAs_underlayer_type[j], "V"]
         elements_after = ["V", GaAs_diffusion_dimere_type[j], GaAs_underlayer_type[j], "V"]
-	print "liste coordinates ", len(list_of_coordinates[i])
-	print "elements_before", len(elements_before)
-	print "elements_after", len(elements_after)        
+# 	print "liste coordinates ", len(list_of_coordinates[i])
+# 	print "elements_before", len(elements_before)
+# 	print "elements_after", len(elements_after)        
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=elements_before,
                                                elements_after=elements_after,
@@ -409,12 +409,12 @@ for j in range(len(i_Si_type)):
     for i in range(len(list_of_coordinates)):
         
         # moving forward from a surface with the same height
-        elements_before.append([GaAs_type[j], "V", i_Si_type, "V"])
-        elements_after.append(["V", i_GaAs_type[j], i_Si_type, "V"])
+        elements_before.append([GaAs_type[j], "V", i_Si_type[j], "V"])
+        elements_after.append(["V", i_GaAs_type[j], i_Si_type[j], "V"])
         
         # moving from the cycling step
-        elements_before.append([cycling_step_GaAs_type[j], "V", i_Si_type, "V"])
-        elements_after.append(["V", i_GaAs_type[j], i_Si_type, "V"])
+        elements_before.append([cycling_step_GaAs_type[j], "V", i_Si_type[j], "V"])
+        elements_after.append(["V", i_GaAs_type[j], i_Si_type[j], "V"])
     
     for i in range(len(list_of_coordinates)):
             
