@@ -367,9 +367,9 @@ for j in range(len(i_Si_type)):
     elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
     elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
     
-    # move forward = cycling step
-    elements_before.append([i_GaAs_type[j]])
-    elements_after.append([cycling_step_GaAs_type[j]])
+    # # move forward = cycling step
+    # elements_before.append([i_GaAs_type[j]])
+    # elements_after.append([cycling_step_GaAs_type[j]])
     
     # processes.append(KMCProcess(coordinates=[0.0, 0.0, 0.0],
     #                                        elements_before=elements_before[1],
