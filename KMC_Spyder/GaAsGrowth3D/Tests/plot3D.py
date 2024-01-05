@@ -22,11 +22,17 @@ for i in range(len(types)):
     file_name = "Imtest%d.png" % i
     KMC_Result_current = types[i]
     
-    void = np.full((X, Y, Z), False)
+    Voids = np.full((X, Y, Z), False)
     A_Si = np.full((max_dimension, max_dimension, max_dimension), False)
     B_Si = np.full((max_dimension, max_dimension, max_dimension), False)
     A_GaAs = np.full((max_dimension, max_dimension, max_dimension), False)
     B_GaAs = np.full((max_dimension, max_dimension, max_dimension), False)
+    
+    # Interface states
+    Ai_Si = np.full((max_dimension, max_dimension, max_dimension), False)
+    Bi_Si = np.full((max_dimension, max_dimension, max_dimension), False)
+    Ai_GaAs = np.full((max_dimension, max_dimension, max_dimension), False)
+    Bi_GaAs = np.full((max_dimension, max_dimension, max_dimension), False)
     
     for x in range(X):
         for y in range(Y):
@@ -39,16 +45,32 @@ for i in range(len(types)):
                     A_GaAs[x][y][z] = True
                 if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "B_GaAs":
                     B_GaAs[x][y][z] = True
+                
+                # Interface states
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Ai_Si":
+                    Ai_Si[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Bi_Si":
+                    Bi_Si[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Ai_GaAs":
+                    Ai_GaAs[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Bi_GaAs":
+                    Bi_GaAs[x][y][z] = True
     
     #combine the objects into a single boolean array
-    voxelarray = A_Si | B_Si | A_GaAs | B_GaAs 
+    voxelarray = A_Si | B_Si | A_GaAs | B_GaAs | Ai_Si | Bi_Si | Ai_GaAs | Bi_GaAs
     
     colors = np.empty(voxelarray.shape, dtype=object)
     #colors[void] = '#FF000000' # == transparent
-    colors[A_Si] = 'k'
-    colors[B_Si] = 'k'
+    colors[A_Si] = 'grey'
+    colors[B_Si] = 'grey'
     colors[A_GaAs] = 'blue'
     colors[B_GaAs] = 'yellow'
+    
+    # Interface states
+    colors[Ai_Si] = 'k'
+    colors[Bi_Si] = 'k'
+    colors[Ai_GaAs] = 'purple'
+    colors[Bi_GaAs] = 'orange'
     
     ax = plt.axes(projection='3d')
     

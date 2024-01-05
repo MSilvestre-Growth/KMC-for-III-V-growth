@@ -63,31 +63,33 @@ lattice = KMCLattice(
 ##################################################
 types = []
 
-def add_Si_column(column_height, Dimere_list=types, max_height=Z):
+def add_Si_column(column_height, interface="N", Dimere_list=types, max_height=Z):
     if column_height > max_height:
         print "You entered height higher than Z !"
         return 0
     for i in range(max_height):
         if i < column_height:
-            # if i % 2 == 0:
-            #     Dimere_list.append("A_Si")
-            # else:
-            #     Dimere_list.append("B_Si")
             if i % 2 == 0:
-                Dimere_list.append("A_GaAs")
+                if interface == "N":
+                    Dimere_list.append("A_Si")
+                if interface == "Y":
+                    Dimere_list.append("Ai_Si")
             else:
-                Dimere_list.append("B_GaAs")
+                if interface == "N":
+                    Dimere_list.append("B_Si")
+                if interface == "Y":
+                    Dimere_list.append("Bi_Si")
         else:
             Dimere_list.append("V")
             
-def add_Y_row_of_Si_column(column_height, Y_row_length=Y, Dimere_list=types, max_height=Z):
+def add_Y_row_of_Si_column(column_height, Y_row_length=Y, interface="N", Dimere_list=types, max_height=Z):
     for i in range(Y_row_length):
-        add_Si_column(column_height, Dimere_list, max_height)
+        add_Si_column(column_height, interface, Dimere_list, max_height)
         
 
-def add_a_Si_steps(step_width, column_height, Y_row_length=Y, Dimere_list=types, max_height=Z):
+def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dimere_list=types, max_height=Z):
     for i in range(step_width):
-        add_Y_row_of_Si_column(column_height, Y_row_length, Dimere_list, max_height)
+        add_Y_row_of_Si_column(column_height, Y_row_length, interface, Dimere_list, max_height)
 
     
 # writting of starting surface
@@ -108,9 +110,15 @@ Si_height = 2
 add_a_Si_steps(step_width, Si_height)
 
 # fourth step
-step_width = X/4
+step_width = X/4 - 1
 Si_height = 1
 add_a_Si_steps(step_width, Si_height)
+
+# fourth step interface
+step_width = X/4 - 1
+Si_height = 1
+interface = "Y"
+add_a_Si_steps(step_width, Si_height, interface)
 
 # # To distord the final image on plt
 # Y_row_length, Y_virtual_row_length = 10, 30
@@ -132,7 +140,7 @@ add_a_Si_steps(step_width, Si_height)
 #     add_Y_row_of_Si_column(1, Y_row_length)
 #     add_Y_row_of_Si_column(0, Y_virtual_row_length)
 
-possible_types = ["V", "A_Si", "B_Si", "A_GaAs", "B_GaAs"]
+possible_types = ["V", "A_Si", "B_Si", "A_GaAs", "B_GaAs", "Ai_Si", "Bi_Si", "Ai_GaAs", "Bi_GaAs"]
 
 
 # Setting parameters of the configuration with previous informations
