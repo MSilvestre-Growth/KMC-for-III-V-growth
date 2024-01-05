@@ -356,23 +356,22 @@ for j in range(len(i_Si_type)):
     elements_before = []
     elements_after = []
     
-    for i in range(len(list_of_coordinates)):
         
-        # move forward = cycling step
-        elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
-        elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
+    # move forward = cycling step
+    elements_before.append([i_GaAs_type[j], "V", cycling_step_Si_type[j], "V"])
+    elements_after.append(["V", cycling_step_GaAs_type[j], cycling_step_Si_type[j], "V"])
+    
+    # move backward = i_GaAs transforms into GaAs
+    elements_before.append([i_GaAs_type[j], "V", Si_type[j], "V"])
+    elements_after.append(["V", GaAs_type[j], Si_type[j], "V"])
+    
+    # move right = no type changes
+    elements_before.append([i_GaAs_type[j], "V", i_Si_type[j], "V"])
+    elements_after.append(["V", i_GaAs_type[j], i_Si_type[j], "V"])
         
-        # move backward = i_GaAs transforms into GaAs
-        elements_before.append([i_GaAs_type[j], "V", Si_type[j], "V"])
-        elements_after.append(["V", GaAs_type[j], Si_type[j], "V"])
-        
-        # move right = no type changes
-        elements_before.append([i_GaAs_type[j], "V", i_Si_type[j], "V"])
-        elements_after.append(["V", i_GaAs_type[j], i_Si_type[j], "V"])
-        
-        # move left = no type changes
-        elements_before.append([i_GaAs_type[j], "V", i_Si_type[j], "V"])
-        elements_after.append(["V", i_GaAs_type[j], i_Si_type[j], "V"])
+    # move left = no type changes
+    elements_before.append([i_GaAs_type[j], "V", i_Si_type[j], "V"])
+    elements_after.append(["V", i_GaAs_type[j], i_Si_type[j], "V"])
         
     for i in range(len(list_of_coordinates)):
             
