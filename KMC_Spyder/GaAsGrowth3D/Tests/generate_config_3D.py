@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 42
+X = 40
 Y = 10
 Z = 10
 
@@ -128,8 +128,8 @@ step_width = 10
 Si_height = 1
 add_a_Si_steps(step_width, Si_height)
 
-# interface buffer
-add_an_interface_buffer(Si_steps_max_height=4)
+# # interface buffer
+# add_an_interface_buffer(Si_steps_max_height=4)
 
 
 possible_types = ["V", "A_GaAs", "A_Up_GaAs", "A_Down_GaAs", "B_GaAs", "B_Up_GaAs", "B_Down_GaAs", "A_Si", "B_Si", "V00", "V0A", "V0B", "VA0", "VAA", "VAB", "VB0", "VBA", "VBB"]

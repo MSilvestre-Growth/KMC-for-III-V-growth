@@ -277,24 +277,44 @@ for i in range(len(list_of_coordinates)):
                                                rate_constant=0.0))
         
         
-##########################
-#    Interface states    #
-##########################
+#########################
+#    Interface jumps    #
+#########################
 
-# test
+list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0]]
 
-list_of_coordinates = [[0.0, 0.0, 0.0], [0.0, 1.0, 2.0]]
+Si_type = ["A_Si", "B_Si"]
+GaAs_type = ["A_GaAs", "B_GaAs"]
+GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
 
-     
-elements_before = ["B_GaAs", "V"]
-elements_after = ["V", "B_GaAs"]
-        
-processes.append(KMCProcess(coordinates=list_of_coordinates,
-                            elements_before=elements_before,
-                            elements_after=elements_after,
-                            basis_sites=[0],
-                            rate_constant=0.0))
-        
+element_before = []
+element_after = []
+
+# interface diffusion on Si steps (un even number of step is required)
+# process_number [76, 79]
+
+for i in range(len(Si_type)):
+    
+    # jump up on Si
+    elements_before.append(["V", Si_type[i], "V", GaAs_type_inverted[i], "V", "V"])
+    elements_after.append(["V", Si_type[i], "V", "V", GaAs_type[i], "V"])
+            
+    processes.append(KMCProcess(coordinates=list_of_coordinates,
+                                elements_before=elements_before[i],
+                                elements_after=elements_after[i],
+                                basis_sites=[0],
+                                rate_constant=0.0))
+    
+    # jump down
+    elements_before.append(["V", Si_type[i], "V", "V", GaAs_type[i], "V"])
+    elements_after.append(["V", Si_type[i], "V", GaAs_type_inverted[i], "V", "V"])
+            
+    processes.append(KMCProcess(coordinates=list_of_coordinates,
+                                elements_before=elements_before[i],
+                                elements_after=elements_after[I],
+                                basis_sites=[0],
+                                rate_constant=0.0))
+            
         
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
