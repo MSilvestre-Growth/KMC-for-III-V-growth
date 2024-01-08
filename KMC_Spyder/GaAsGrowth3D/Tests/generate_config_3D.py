@@ -91,8 +91,22 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
     for i in range(step_width):
         add_Y_row_of_Si_column(column_height, Y_row_length, interface, Dimere_list, max_height)
 
+# interface creation
+def add_interface_column(max_height=Z, Dimere_list=types):
+    for i in range(max_height):
+        Dimere_list.append("V00")
     
-# writting of starting surface
+def add_Y_row_of_interface_column(max_height=Z, Y_row_length=Y, Dimere_list=types):
+    for i in range(Y_row_length):
+        add_interface_column(max_height, Dimere_list)
+
+def add_an_interface_buffer(max_height=Z, Y_row_length=Y, Dimere_list=types):
+    for i in range(max_height-2):
+        add_Y_row_of_interface_column(max_height, Y_row_length, Dimere_list)
+
+#######################################
+#     writting of starting surface    #
+#######################################
 
 # first step
 step_width = X/4
@@ -110,37 +124,15 @@ Si_height = 2
 add_a_Si_steps(step_width, Si_height)
 
 # fourth step
-step_width = X/4 - 1
+step_width = X/4
 Si_height = 1
 add_a_Si_steps(step_width, Si_height)
 
-# fourth step interface
-step_width = 1
-Si_height = 1
-add_a_Si_steps(step_width, Si_height, interface="Y")
+# interface buffer
+add_an_interface_buffer()
 
 
-# # To distord the final image on plt
-# Y_row_length, Y_virtual_row_length = 10, 30
-
-
-# for i in range(X/4):
-#     add_Y_row_of_Si_column(4, Y_row_length)
-#     add_Y_row_of_Si_column(0, Y_virtual_row_length)
-    
-# for i in range(X/4):
-#     add_Y_row_of_Si_column(3, Y_row_length)
-#     add_Y_row_of_Si_column(0, Y_virtual_row_length)
-
-# for i in range(X/4):
-#     add_Y_row_of_Si_column(2, Y_row_length)
-#     add_Y_row_of_Si_column(0, Y_virtual_row_length)
-
-# for i in range(X/4):
-#     add_Y_row_of_Si_column(1, Y_row_length)
-#     add_Y_row_of_Si_column(0, Y_virtual_row_length)
-
-possible_types = ["V", "A_Si", "B_Si", "A_GaAs", "B_GaAs", "Ai_Si", "Bi_Si", "Ai_GaAs", "Bi_GaAs"]
+possible_types = ["V", "A_GaAs", "B_GaAs", "A_Si", "B_Si", "V00", "V0A", "V0B", "VA0", "VAA", "VAB", "VB0", "VBA", "VBB"]
 
 
 # Setting parameters of the configuration with previous informations

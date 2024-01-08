@@ -29,10 +29,15 @@ for i in range(len(types)):
     B_GaAs = np.full((max_dimension, max_dimension, max_dimension), False)
     
     # Interface states
-    Ai_Si = np.full((max_dimension, max_dimension, max_dimension), False)
-    Bi_Si = np.full((max_dimension, max_dimension, max_dimension), False)
-    Ai_GaAs = np.full((max_dimension, max_dimension, max_dimension), False)
-    Bi_GaAs = np.full((max_dimension, max_dimension, max_dimension), False)
+    V00 = np.full((max_dimension, max_dimension, max_dimension), False)
+    V0A = np.full((max_dimension, max_dimension, max_dimension), False)
+    V0B = np.full((max_dimension, max_dimension, max_dimension), False)
+    VA0 = np.full((max_dimension, max_dimension, max_dimension), False)
+    VAA = np.full((max_dimension, max_dimension, max_dimension), False)
+    VAB = np.full((max_dimension, max_dimension, max_dimension), False)
+    VB0 = np.full((max_dimension, max_dimension, max_dimension), False)
+    VBA = np.full((max_dimension, max_dimension, max_dimension), False)
+    VBB = np.full((max_dimension, max_dimension, max_dimension), False)
     
     for x in range(X):
         for y in range(Y):
@@ -47,17 +52,29 @@ for i in range(len(types)):
                     B_GaAs[x][y][z] = True
                 
                 # Interface states
-                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Ai_Si":
-                    Ai_Si[x][y][z] = True
-                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Bi_Si":
-                    Bi_Si[x][y][z] = True
-                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Ai_GaAs":
-                    Ai_GaAs[x][y][z] = True
-                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "Bi_GaAs":
-                    Bi_GaAs[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "V00":
+                    V00[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "V0A":
+                    V0A[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "V0B":
+                    V0B[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "VA0":
+                    VA0[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "VAA":
+                    VAA[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "VAB":
+                    VAB[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "VB0":
+                    VB0[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "VBA":
+                    VBA[x][y][z] = True
+                if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "VBB":
+                    VBB[x][y][z] = True
+
+                    
     
     #combine the objects into a single boolean array
-    voxelarray = A_Si | B_Si | A_GaAs | B_GaAs | Ai_Si | Bi_Si | Ai_GaAs | Bi_GaAs
+    voxelarray = A_Si | B_Si | A_GaAs | B_GaAs | V00 | V0A | V0B | VA0 | VAA | VAB | VB0 | VBA | VBB
     
     colors = np.empty(voxelarray.shape, dtype=object)
     #colors[void] = '#FF000000' # == transparent
@@ -67,10 +84,15 @@ for i in range(len(types)):
     colors[B_GaAs] = 'yellow'
     
     # Interface states
-    colors[Ai_Si] = 'k'
-    colors[Bi_Si] = 'k'
-    colors[Ai_GaAs] = 'purple'
-    colors[Bi_GaAs] = 'orange'
+    colors[V00] = 'green'
+    colors[V0A] = 'green'
+    colors[V0B] = 'green'
+    colors[VA0] = 'green'
+    colors[VAA] = 'green'
+    colors[VAB] = 'green'
+    colors[VB0] = 'green'
+    colors[VBA] = 'green'
+    colors[VBB] = 'green'
     
     ax = plt.axes(projection='3d')
     
