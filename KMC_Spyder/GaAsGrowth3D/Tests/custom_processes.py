@@ -452,7 +452,7 @@ for i in range(len(GaAs_type)):
         
     list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0]]
     
-    elements_before = ["V", GaAs_type[j], "V", "V", "Vt"]
+    elements_before = ["V", GaAs_type[i], "V", "V", "Vt"]
     elements_after = ["V", "V", "V", "Vt", GaAs_type[i]]
                 
     processes.append(KMCProcess(coordinates=list_of_coordinates,
