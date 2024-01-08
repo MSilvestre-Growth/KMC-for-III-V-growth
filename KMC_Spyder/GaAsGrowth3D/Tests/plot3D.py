@@ -9,7 +9,7 @@ path = "C:/Users/msilvestre/Documents/GitHub/Images/GaAsGrowth/Arrival_test/"
 #    Image size    #
 ####################
 
-X = 40
+X = 42
 Y = 10
 Z = 10
 

@@ -132,7 +132,7 @@ add_a_Si_steps(step_width, Si_height)
 add_an_interface_buffer(Si_steps_max_height=4)
 
 
-possible_types = ["V", "A_GaAs", "B_GaAs", "A_Si", "B_Si", "V00", "V0A", "V0B", "VA0", "VAA", "VAB", "VB0", "VBA", "VBB"]
+possible_types = ["V", "A_GaAs", "A_Up_GaAs", "A_Down_GaAs", "B_GaAs", "B_Up_GaAs", "B_Down_GaAs", "A_Si", "B_Si", "V00", "V0A", "V0B", "VA0", "VAA", "VAB", "VB0", "VBA", "VBB"]
 
 
 # Setting parameters of the configuration with previous informations
