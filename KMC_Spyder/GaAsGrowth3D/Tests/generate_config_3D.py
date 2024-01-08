@@ -92,17 +92,17 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
         add_Y_row_of_Si_column(column_height, Y_row_length, interface, Dimere_list, max_height)
 
 # interface creation
-def add_interface_column(max_height=Z, Dimere_list=types):
-    for i in range(max_height):
+def add_interface_column(column_height=Z, Dimere_list=types):
+    for i in range(column_height):
         Dimere_list.append("V00")
     
-def add_Y_row_of_interface_column(max_height=Z, Y_row_length=Y, Dimere_list=types):
+def add_Y_row_of_interface_column(column_height=Z, Y_row_length=Y, Dimere_list=types):
     for i in range(Y_row_length):
-        add_interface_column(max_height, Dimere_list)
+        add_interface_column(column_height, Dimere_list)
 
-def add_an_interface_buffer(max_height=Z, Y_row_length=Y, Dimere_list=types):
-    for i in range(max_height-2):
-        add_Y_row_of_interface_column(max_height, Y_row_length, Dimere_list)
+def add_an_interface_buffer(Si_steps_max_height, column_height=Z, Y_row_length=Y, Dimere_list=types):
+    for i in range(Si_steps_max_height-2):
+        add_Y_row_of_interface_column(column_height, Y_row_length, Dimere_list)
 
 #######################################
 #     writting of starting surface    #
