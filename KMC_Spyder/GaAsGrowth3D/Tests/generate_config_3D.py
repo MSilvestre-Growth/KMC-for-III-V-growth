@@ -75,13 +75,15 @@ def add_Si_column(column_height, interface="N", Dimere_list=types, max_height=Z)
 
             else:
                 Dimere_list.append("B_Si")
-                    
-        if (interface == "Y") and (marker == 0):
-            marker = 1
-            Dimere_list.append("Vt")
             
         else:
-            Dimere_list.append("V")
+            
+            if (interface == "Y") and (marker == 0):
+                marker = 1
+                Dimere_list.append("Vt")
+                
+            else :
+                Dimere_list.append("V")
             
 def add_Y_row_of_Si_column(column_height, Y_row_length=Y, interface="N", Dimere_list=types, max_height=Z):
     for i in range(Y_row_length):
