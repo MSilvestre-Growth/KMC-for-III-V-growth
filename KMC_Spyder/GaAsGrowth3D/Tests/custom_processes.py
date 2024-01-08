@@ -396,8 +396,6 @@ for i in range(len(list_of_coordinates)):
 # interface diffusion on Si steps (un even number of step is required)
 # process_number [135, 138]
 
-list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0]]
-
 Si_type = ["A_Si", "B_Si"]
 GaAs_type = ["A_GaAs", "B_GaAs"]
 GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
@@ -458,10 +456,10 @@ for i in range(len(GaAs_type)):
     
     for j in range(len(GaAs_type_inverted)):    
         
-        list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 2.0], [0.0, 0.0, -1.0]]
+        list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0], [0.0, 0.0, -1.0]]
         
-        elements_before = ["V", GaAs_type[i], "Vt"]
-        elements_after = ["Vt", "V", GaAs_type[i]]
+        elements_before = ["V", GaAs_type_inverted[j], GaAs_type[i], "Vt"]
+        elements_after = ["Vt", GaAs_type_inverted[j], "V", GaAs_type[i]]
                     
         processes.append(KMCProcess(coordinates=list_of_coordinates,
                                     elements_before=elements_before,
