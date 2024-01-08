@@ -49,7 +49,17 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        basis_sites=[0],
                                        rate_constant=0.0))
 
-# process 1 = arrival of B type on Si
+# process 1 =  arrival of A type on an edge Si
+elements_before_A_Si = ["A_Si", "Vt", "V"]
+elements_after_A_Si = ["A_Si", "A_GaAs", "Vt"]
+
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, 2.0]],
+                                       elements_before=elements_before_A_Si,
+                                       elements_after=elements_after_A_Si,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
+# process 2 = arrival of B type on Si
 elements_before_B_Si = ["B_Si", "V"]
 elements_after_B_Si = ["B_Si", "B_GaAs"]
 
@@ -59,8 +69,18 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        basis_sites=[0],
                                        rate_constant=0.0))
 
+# process 3 =  arrival of B type on an edge Si
+elements_before_B_Si = ["B_Si", "Vt", "V"]
+elements_after_B_Si = ["B_Si", "B_GaAs", "Vt"]
 
-# process 2 = arrival of A type on GaAs
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, 2.0]],
+                                       elements_before=elements_before_B_Si,
+                                       elements_after=elements_after_B_Si,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
+
+# process 4 = arrival of A type on GaAs
 elements_before_A_GaAs = ["A_GaAs", "V"]
 elements_after_A_GaAs = ["A_GaAs", "A_GaAs"]
 
@@ -70,7 +90,18 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        basis_sites=[0],
                                        rate_constant=0.0))
 
-# process 3 = arrival of B type on GaAs
+# process 5 =  arrival of A type on  an edge GaAs
+elements_before_A_GaAs = ["A_GaAs", "Vt", "V"]
+elements_after_A_GaAs = ["A_GaAs", "A_GaAs", "Vt"]
+
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, 2.0]],
+                                       elements_before=elements_before_A_GaAs,
+                                       elements_after=elements_after_A_GaAs,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
+
+# process 6 = arrival of B type on GaAs
 elements_before_B_GaAs = ["B_GaAs", "V"]
 elements_after_B_GaAs = ["B_GaAs", "B_GaAs"]
 
@@ -80,9 +111,19 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
                                        basis_sites=[0],
                                        rate_constant=0.0))
 
+# process 7 =  arrival of A type on  an edge GaAs
+elements_before_B_GaAs = ["B_GaAs", "Vt", "V"]
+elements_after_B_GaAs = ["B_GaAs", "B_GaAs", "Vt"]
+
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, 2.0]],
+                                       elements_before=elements_before_B_GaAs,
+                                       elements_after=elements_after_B_GaAs,
+                                       basis_sites=[0],
+                                       rate_constant=0.0))
+
 # GaAs diffusion on Si
 
-# GaAs diffusion on Si : number process in [4, 11] (8 processes)
+# GaAs diffusion on Si : number process in [8, 23] (16 processes)
 # Jumps are not allowed --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -107,8 +148,18 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
+        elements_before = [GaAs_type[j], "V", Si_type[j], "Vt"]
+        elements_after = ["Vt", GaAs_type[j], Si_type[j], "V"]
+        
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=elements_before,
+                                               elements_after=elements_after,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
+        
 # GaAs jumps from one monoatomic Si step to another (change of phase)
-# process_number in [12, 27]
+# No "Vt" states because jumps at the interfaces are already taking into account
+# process_number in [24, 39]
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -149,7 +200,7 @@ for i in range(len(list_of_coordinates)):
 
 # GaAs diffusion on GaAs
 
-# X_GaAs diffusion on X_GaAs : number process in [28, 35] (8 processes)
+# X_GaAs diffusion on X_GaAs : number process in [40, 55] (16 processes)
 # Same GaAs species and no jumps --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -167,22 +218,38 @@ for i in range(len(list_of_coordinates)):
         
         elements_before = [GaAs_diffusion_dimere_type[j], "V", GaAs_underlayer_type[j], "V"]
         elements_after = ["V", GaAs_diffusion_dimere_type[j], GaAs_underlayer_type[j], "V"]
-# 	print "liste coordinates ", len(list_of_coordinates[i])
-# 	print "elements_before", len(elements_before)
-# 	print "elements_after", len(elements_after)        
+     
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=elements_before,
+                                               elements_after=elements_after,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
+        
+        elements_before = [GaAs_diffusion_dimere_type[j], "V", GaAs_underlayer_type[j], "Vt"]
+        elements_after = ["Vt", GaAs_diffusion_dimere_type[j], GaAs_underlayer_type[j], "V"]
+     
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=elements_before,
                                                elements_after=elements_after,
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# Y_GaAs diffusion on X_GaAs : number process in [36, 43] (8 processes)
+# Y_GaAs diffusion on X_GaAs : number process in [55, 70] (16 processes)
 # Change in GaAs phase A --> B
 
-elements_before = ["A_GaAs", "V", "B_GaAs", "V"]
-elements_after = ["V", "B_GaAs", "B_GaAs", "V"]
-
 for i in range(len(list_of_coordinates)):
+    
+    elements_before = ["A_GaAs", "V", "B_GaAs", "V"]
+    elements_after = ["V", "B_GaAs", "B_GaAs", "V"]
+    
+    processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                           elements_before=elements_before,
+                                           elements_after=elements_after,
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
+    
+    elements_before = ["A_GaAs", "V", "B_GaAs", "Vt"]
+    elements_after = ["Vt", "B_GaAs", "B_GaAs", "V"]
     
     processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                            elements_before=elements_before,
@@ -192,10 +259,19 @@ for i in range(len(list_of_coordinates)):
 
 # Change in GaAs phase B --> A
 
-elements_before = ["B_GaAs", "V", "A_GaAs", "V"]
-elements_after = ["V", "A_GaAs", "A_GaAs", "V"]
-
 for i in range(len(list_of_coordinates)):
+    
+    elements_before = ["B_GaAs", "V", "A_GaAs", "V"]
+    elements_after = ["V", "A_GaAs", "A_GaAs", "V"]
+    
+    processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                           elements_before=elements_before,
+                                           elements_after=elements_after,
+                                           basis_sites=[0],
+                                           rate_constant=0.0))
+    
+    elements_before = ["B_GaAs", "V", "A_GaAs", "Vt"]
+    elements_after = ["Vt", "A_GaAs", "A_GaAs", "V"]
     
     processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                            elements_before=elements_before,
@@ -204,7 +280,7 @@ for i in range(len(list_of_coordinates)):
                                            rate_constant=0.0))
     
 # X_GaAs jumps to a X_GaAs simple step (no phase change)
-# process_number in [44, 59] (16 processes)
+# process_number in [71, 102] (32 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -228,6 +304,15 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
+        elements_before = [GaAs_type[j], GaAs_type[j], "V", GaAs_type[j], "Vt"]
+        elements_after = ["Vt", GaAs_type[j], GaAs_type[j], GaAs_type[j], "V"]
+        
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=elements_before,
+                                               elements_after=elements_after,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
+        
         # Jump up
         
         elements_before = ["V", GaAs_type[j], GaAs_type[j], GaAs_type[j], "V"]
@@ -238,9 +323,18 @@ for i in range(len(list_of_coordinates)):
                                                elements_after=elements_after,
                                                basis_sites=[0],
                                                rate_constant=0.0))
+        
+        elements_before = ["Vt", GaAs_type[j], GaAs_type[j], GaAs_type[j], "V"]
+        elements_after = [GaAs_type[j], GaAs_type[j], "V", GaAs_type[j], "Vt"]
+        
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=elements_before,
+                                               elements_after=elements_after,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
 
 # Y_GaAs jumps to a X_GaAs simple step (NO PHASE CHANGE)
-# process_number in [60, 75] (16 processes)
+# process_number in [103, 134] (32 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -265,6 +359,15 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
+        elements_before = [GaAs_type[j], GaAs_type[j], "V", GaAs_type_inverted[j], "Vt"]
+        elements_after = ["Vt", GaAs_type[j], GaAs_type[j], GaAs_type_inverted[j], "V"]
+        
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=elements_before,
+                                               elements_after=elements_after,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
+        
         # Jump up
         
         elements_before = ["V", GaAs_type_inverted[j], GaAs_type[j], GaAs_type[j], "V"]
@@ -276,10 +379,22 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
+        elements_before = ["Vt", GaAs_type_inverted[j], GaAs_type[j], GaAs_type[j], "V"]
+        elements_after = [GaAs_type[j], GaAs_type_inverted[j], "V", GaAs_type[j], "Vt"]
+        
+        processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                               elements_before=elements_before,
+                                               elements_after=elements_after,
+                                               basis_sites=[0],
+                                               rate_constant=0.0))
+        
         
 #########################
-#    Interface jumps    #
+#    Interface moves    #
 #########################
+
+# interface diffusion on Si steps (un even number of step is required)
+# process_number [135, 138]
 
 list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0]]
 
@@ -287,17 +402,11 @@ Si_type = ["A_Si", "B_Si"]
 GaAs_type = ["A_GaAs", "B_GaAs"]
 GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
 
-element_before = []
-element_after = []
-
-# interface diffusion on Si steps (un even number of step is required)
-# process_number [76, 79]
-
 for i in range(len(Si_type)):
     
     # jump up on Si
-    elements_before = ["V", Si_type[i], "V", GaAs_type_inverted[i], "V", "V"]
-    elements_after = ["V", Si_type[i], "V", "V", GaAs_type[i], "V"]
+    elements_before = ["V", Si_type[i], "Vt", GaAs_type_inverted[i], "V", "V"]
+    elements_after = ["V", Si_type[i], "V", "Vt", GaAs_type[i], "V"]
             
     processes.append(KMCProcess(coordinates=list_of_coordinates,
                                 elements_before=elements_before,
@@ -307,8 +416,8 @@ for i in range(len(Si_type)):
 #[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0]]
     
     # jump down
-    elements_before = ["V", Si_type[i], "V", "V", GaAs_type[i], "V"]
-    elements_after = ["V", Si_type[i], "V", GaAs_type_inverted[i], "V", "V"]
+    elements_before = ["V", Si_type[i], "V", "Vt", GaAs_type[i], "V"]
+    elements_after = ["V", Si_type[i], "Vt", GaAs_type_inverted[i], "V", "V"]
             
     processes.append(KMCProcess(coordinates=list_of_coordinates,
                                 elements_before=elements_before,
@@ -316,6 +425,34 @@ for i in range(len(Si_type)):
                                 basis_sites=[0],
                                 rate_constant=0.0))
 
+# Jump at the interface
+# process_number [139, 142]
+
+list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0]]
+
+GaAs_type = ["A_GaAs", "B_GaAs"]
+
+for i in range(len(GaAs_type)):
+    
+    # jump up on GaAs
+    elements_before = ["V", "V", "Vt", GaAs_type[i]]
+    elements_after = ["V", GaAs_type[i], "V", "Vt"]
+            
+    processes.append(KMCProcess(coordinates=list_of_coordinates,
+                                elements_before=elements_before,
+                                elements_after=elements_after,
+                                basis_sites=[0],
+                                rate_constant=0.0))
+    
+    # jump down on GaAs
+    elements_before = ["V", GaAs_type[i], "V", "Vt"]
+    elements_after = ["V", "V", "Vt", GaAs_type[i]]
+            
+    processes.append(KMCProcess(coordinates=list_of_coordinates,
+                                elements_before=elements_before,
+                                elements_after=elements_after,
+                                basis_sites=[0],
+                                rate_constant=0.0))
         
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)

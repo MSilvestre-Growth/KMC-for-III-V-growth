@@ -67,18 +67,19 @@ def add_Si_column(column_height, interface="N", Dimere_list=types, max_height=Z)
     if column_height > max_height:
         print "You entered height higher than Z !"
         return 0
+    marker = 0
     for i in range(max_height):
         if i < column_height:
             if i % 2 == 0:
-                if interface == "N":
-                    Dimere_list.append("A_Si")
-                if interface == "Y":
-                    Dimere_list.append("Ai_Si")
+                Dimere_list.append("A_Si")
+
             else:
-                if interface == "N":
-                    Dimere_list.append("B_Si")
-                if interface == "Y":
-                    Dimere_list.append("Bi_Si")
+                Dimere_list.append("B_Si")
+                    
+        if (interface == "Y") and (marker == 0):
+            marker = 1
+            Dimere_list.append("Vt")
+            
         else:
             Dimere_list.append("V")
             
@@ -91,18 +92,18 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
     for i in range(step_width):
         add_Y_row_of_Si_column(column_height, Y_row_length, interface, Dimere_list, max_height)
 
-# interface creation
-def add_interface_column(column_height=Z, Dimere_list=types):
-    for i in range(column_height):
-        Dimere_list.append("V00")
+# # interface creation
+# def add_interface_column(column_height=Z, Dimere_list=types):
+#     for i in range(column_height):
+#         Dimere_list.append("V00")
     
-def add_Y_row_of_interface_column(column_height=Z, Y_row_length=Y, Dimere_list=types):
-    for i in range(Y_row_length):
-        add_interface_column(column_height, Dimere_list)
+# def add_Y_row_of_interface_column(column_height=Z, Y_row_length=Y, Dimere_list=types):
+#     for i in range(Y_row_length):
+#         add_interface_column(column_height, Dimere_list)
 
-def add_an_interface_buffer(Si_steps_max_height, column_height=Z, Y_row_length=Y, Dimere_list=types):
-    for i in range(Si_steps_max_height-2):
-        add_Y_row_of_interface_column(column_height, Y_row_length, Dimere_list)
+# def add_an_interface_buffer(Si_steps_max_height, column_height=Z, Y_row_length=Y, Dimere_list=types):
+#     for i in range(Si_steps_max_height-2):
+#         add_Y_row_of_interface_column(column_height, Y_row_length, Dimere_list)
 
 #######################################
 #     writting of starting surface    #
@@ -124,15 +125,22 @@ Si_height = 2
 add_a_Si_steps(step_width, Si_height)
 
 # fourth step
-step_width = 10
+step_width = 9
 Si_height = 1
 add_a_Si_steps(step_width, Si_height)
+
+# fourth step
+step_width = 1
+Si_height = 1
+add_a_Si_steps(step_width, Si_height, interface="Y")
 
 # # interface buffer
 # add_an_interface_buffer(Si_steps_max_height=4)
 
+possible_types = ["V", "Vt", "A_GaAs", "B_GaAs", "A_Si", "B_Si",]
 
-possible_types = ["V", "A_GaAs", "A_Up_GaAs", "A_Down_GaAs", "B_GaAs", "B_Up_GaAs", "B_Down_GaAs", "A_Si", "B_Si", "V00", "V0A", "V0B", "VA0", "VAA", "VAB", "VB0", "VBA", "VBB"]
+
+#possible_types = ["V", "A_GaAs", "A_Up_GaAs", "A_Down_GaAs", "B_GaAs", "B_Up_GaAs", "B_Down_GaAs", "A_Si", "B_Si", "V00", "V0A", "V0B", "VA0", "VAA", "VAB", "VB0", "VBA", "VBB"]
 
 
 # Setting parameters of the configuration with previous informations
