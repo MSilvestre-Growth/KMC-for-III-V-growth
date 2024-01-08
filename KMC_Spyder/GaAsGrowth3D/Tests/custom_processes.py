@@ -295,6 +295,9 @@ element_after = []
 
 for i in range(len(Si_type)):
     
+    element_before = []
+    element_after = []
+    
     # jump up on Si
     elements_before.append(["V", Si_type[i], "V", GaAs_type_inverted[i], "V", "V"])
     elements_after.append(["V", Si_type[i], "V", "V", GaAs_type[i], "V"])
@@ -310,8 +313,8 @@ for i in range(len(Si_type)):
     elements_after.append(["V", Si_type[i], "V", GaAs_type_inverted[i], "V", "V"])
             
     processes.append(KMCProcess(coordinates=list_of_coordinates,
-                                elements_before=elements_before[i],
-                                elements_after=elements_after[I],
+                                elements_before=elements_before[i+1],
+                                elements_after=elements_after[i+1],
                                 basis_sites=[0],
                                 rate_constant=0.0))
             
