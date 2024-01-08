@@ -472,10 +472,10 @@ for i in range(len(Si_type)):
     
     # jump up on Si
     
-    list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0]]
+    list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [1.0, 0.0, 1.0]]
 
-    elements_before = ["V", Si_type[i], "Vt", GaAs_type_inverted[i], GaAs_type[i], "V"]
-    elements_after = ["V", Si_type[i], "V", "Vt", GaAs_type[i], GaAs_type_inverted[i]]
+    elements_before = ["Vt", Si_type[i], GaAs_type_inverted[i], "V"]
+    elements_after = ["V", Si_type[i], "Vt", GaAs_type[i]]
                 
     processes.append(KMCProcess(coordinates=list_of_coordinates,
                                 elements_before=elements_before,
