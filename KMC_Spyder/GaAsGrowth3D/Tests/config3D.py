@@ -39,7 +39,7 @@ lattice = KMCLattice(
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A_Si','B_Si','A_Si','B_Si','B_GaAs','V','V','V','V','V',
+types = ['A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
@@ -398,7 +398,7 @@ types = ['A_Si','B_Si','A_Si','B_Si','B_GaAs','V','V','V','V','V',
          'V','V','V','V','V','V','V','V','A_Si','V','V','V',
          'V','V','V','V','V','V','A_Si','V','V','V','V','V',
          'V','V','V','V','A_Si','V','V','V','V','V','V','V',
-         'V','V','A_Si','V','V','V','V','V','V','V','V','V']
+         'V','V','A_Si','A_GaAs','V','V','V','V','V','V','V','V']
 
 possible_types = ['VBB','VBA','B_Si','V0B','B_Down_GaAs','B_Up_GaAs',
                   'V00','A_Up_GaAs','A_Down_GaAs','A_GaAs','VAB','VAA',
