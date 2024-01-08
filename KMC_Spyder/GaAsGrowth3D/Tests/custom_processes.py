@@ -281,7 +281,20 @@ for i in range(len(list_of_coordinates)):
 #    Interface states    #
 ##########################
 
+# test
 
+list_of_coordinates = [[0.0, 0.0, 0.0], [0.0, 0.0, 2.0]]
+
+     
+elements_before = ["B_GaAs", "V"]
+elements_after = ["V", "B_GaAs"]
+        
+processes.append(KMCProcess(coordinates=list_of_coordinates,
+                            elements_before=elements_before,
+                            elements_after=elements_after,
+                            basis_sites=[0],
+                            rate_constant=0.0))
+        
         
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
