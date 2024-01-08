@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 40
+X = 42
 Y = 10
 Z = 10
 
@@ -109,22 +109,22 @@ def add_an_interface_buffer(max_height=Z, Y_row_length=Y, Dimere_list=types):
 #######################################
 
 # first step
-step_width = X/4
+step_width = 10
 Si_height = 4
 add_a_Si_steps(step_width, Si_height)
 
 # second step
-step_width = X/4
+step_width = 10
 Si_height = 3
 add_a_Si_steps(step_width, Si_height)
 
 # third step
-step_width = X/4
+step_width = 10
 Si_height = 2
 add_a_Si_steps(step_width, Si_height)
 
 # fourth step
-step_width = X/4
+step_width = 10
 Si_height = 1
 add_a_Si_steps(step_width, Si_height)
 
