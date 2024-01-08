@@ -390,19 +390,18 @@ types = ['A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'V','V','V','V','A_Si','V','V','V','V','V','V','V',
          'V','V','A_Si','V','V','V','V','V','V','V','V','V',
          'A_Si','V','V','V','V','V','V','V','V','V','A_Si','V',
-         'V','V','V','V','V','V','V','V','A_Si','V','V','V',
-         'V','V','V','V','V','V','A_Si','V','V','V','V','V',
-         'V','V','V','V','A_Si','V','V','V','V','V','V','V',
-         'V','V','A_Si','V','V','V','V','V','V','V','V','V',
-         'A_Si','V','V','V','V','V','V','V','V','V','A_Si','V',
-         'V','V','V','V','V','V','V','V','A_Si','V','V','V',
-         'V','V','V','V','V','V','A_Si','V','V','V','V','V',
-         'V','V','V','V','A_Si','V','V','V','V','V','V','V',
-         'V','V','A_Si','A_GaAs','V','V','V','V','V','V','V','V']
+         'V','V','V','V','V','V','V','V','A_Si','Vt','V','V',
+         'V','V','V','V','V','V','A_Si','Vt','V','V','V','V',
+         'V','V','V','V','A_Si','Vt','V','V','V','V','V','V',
+         'V','V','A_Si','Vt','V','V','V','V','V','V','V','V',
+         'A_Si','Vt','V','V','V','V','V','V','V','V','A_Si',
+         'Vt','V','V','V','V','V','V','V','V','A_Si','Vt','V',
+         'V','V','V','V','V','V','V','A_Si','Vt','V','V','V',
+         'V','V','V','V','V','A_Si','Vt','V','V','V','V','V',
+         'V','V','V','A_Si','Vt','V','V','V','V','V','V','V',
+         'V']
 
-possible_types = ['VBB','VBA','B_Si','V0B','B_Down_GaAs','B_Up_GaAs',
-                  'V00','A_Up_GaAs','A_Down_GaAs','A_GaAs','VAB','VAA',
-                  'VB0','V0A','V','A_Si','VA0','B_GaAs']
+possible_types = ['B_Si','A_GaAs','Vt','V','A_Si','B_GaAs']
 
 configuration = KMCConfiguration(
     lattice=lattice,
