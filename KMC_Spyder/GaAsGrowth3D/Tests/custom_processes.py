@@ -283,7 +283,7 @@ for i in range(len(list_of_coordinates)):
 
 # test
 
-list_of_coordinates = [[0.0, 0.0, 0.0], [0.0, 1.0, 3.0]]
+list_of_coordinates = [[0.0, 0.0, 0.0], [0.0, 1.0, 2.0]]
 
      
 elements_before = ["B_GaAs", "V"]
