@@ -138,7 +138,7 @@ types = ['A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
-         'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
+         'A_Si','B_Si','A_Si','B_Si','B_GaAs','V','V','V','V','V',
          'A_Si','B_Si','A_Si','V','V','V','V','V','V','V','A_Si',
          'B_Si','A_Si','V','V','V','V','V','V','V','A_Si','B_Si',
          'A_Si','V','V','V','V','V','V','V','A_Si','B_Si','A_Si',
@@ -398,7 +398,7 @@ types = ['A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'Vt','V','V','V','V','V','V','V','V','A_Si','Vt','V',
          'V','V','V','V','V','V','V','A_Si','Vt','V','V','V',
          'V','V','V','V','V','A_Si','Vt','V','V','V','V','V',
-         'V','V','V','A_Si','A_GaAs','Vt','V','V','V','V','V','V',
+         'V','V','V','A_Si','A_GaAs','A_GaAs','Vt','V','V','V','V','V',
          'V']
 
 possible_types = ['B_Si','A_GaAs','Vt','V','A_Si','B_GaAs']

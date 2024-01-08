@@ -48,7 +48,7 @@ for i in range(len(types)):
                     Vt[x][y][z] = True                  
     
     #combine the objects into a single boolean array
-    voxelarray = A_Si | B_Si | A_GaAs | B_GaAs | Vt
+    voxelarray = A_Si | B_Si | A_GaAs | B_GaAs #| Vt
     
     colors = np.empty(voxelarray.shape, dtype=object)
     #colors[void] = '#FF000000' # == transparent
@@ -57,8 +57,8 @@ for i in range(len(types)):
     colors[A_GaAs] = 'blue'
     colors[B_GaAs] = 'yellow'
     
-    # Interface states
-    colors[Vt] = 'green'
+    # # Interface states
+    # colors[Vt] = 'green'
     
     ax = plt.axes(projection='3d')
     
