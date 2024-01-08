@@ -39,7 +39,7 @@ lattice = KMCLattice(
 # -----------------------------------------------------------------------------
 # Configuration
 
-types = ['A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
+types = ['A_Si','B_Si','A_Si','B_Si','B_GaAs','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
          'A_Si','B_Si','A_Si','B_Si','V','V','V','V','V','V',
