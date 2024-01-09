@@ -234,7 +234,7 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# Y_GaAs diffusion on X_GaAs : number process in [55, 70] (16 processes)
+# Y_GaAs diffusion on X_GaAs : number process in [56, 71] (16 processes)
 # Change in GaAs phase A --> B
 
 for i in range(len(list_of_coordinates)):
@@ -280,7 +280,7 @@ for i in range(len(list_of_coordinates)):
                                            rate_constant=0.0))
     
 # X_GaAs jumps to a X_GaAs simple step (no phase change)
-# process_number in [71, 102] (32 processes)
+# process_number in [72, 103] (32 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -334,7 +334,7 @@ for i in range(len(list_of_coordinates)):
                                                rate_constant=0.0))
 
 # Y_GaAs jumps to a X_GaAs simple step (NO PHASE CHANGE)
-# process_number in [103, 134] (32 processes)
+# process_number in [104, 135] (32 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -394,7 +394,7 @@ for i in range(len(list_of_coordinates)):
 #########################
 
 # interface diffusion on Si steps (un even number of step is required)
-# process_number [135, 138]
+# process_number [136, 139]
 
 Si_type = ["A_Si", "B_Si"]
 GaAs_type = ["A_GaAs", "B_GaAs"]
@@ -416,7 +416,7 @@ for i in range(len(Si_type)):
                                 rate_constant=0.0))
 #[[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0]]
     
-    # go down
+    # go down on Si
     
     list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0]]
 
@@ -430,7 +430,7 @@ for i in range(len(Si_type)):
                                 rate_constant=0.0))
 
 # diffuse at the interface on GaAs
-# process_number [139, 144]
+# process_number [140, 147]
 
 GaAs_type = ["A_GaAs", "B_GaAs"]
 GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
@@ -456,10 +456,10 @@ for i in range(len(GaAs_type)):
     
     for j in range(len(GaAs_type_inverted)):    
         
-        list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0], [0.0, 0.0, -1.0]]
+        list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, 1.0], [1.0, 0.0, 2.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0]]
         
-        elements_before = ["V", GaAs_type_inverted[j], "V", "Vt"]
-        elements_after = ["Vt", "V", "V", GaAs_type[i]]
+        elements_before = ["V", GaAs_type_inverted[j], GaAs_type[i], "V", "V", "Vt"]
+        elements_after = ["V", GaAs_type_inverted[j], "V", "V", "Vt", GaAs_type[i]]
                     
         processes.append(KMCProcess(coordinates=list_of_coordinates,
                                     elements_before=elements_before,
@@ -468,7 +468,7 @@ for i in range(len(GaAs_type)):
                                     rate_constant=0.0))
     
 # interface diffusion on Si steps (un even number of step is required)
-# process_number [145, 148]
+# process_number [148, 151]
 
 Si_type = ["A_Si", "B_Si"]
 GaAs_type = ["A_GaAs", "B_GaAs"]
@@ -489,7 +489,7 @@ for i in range(len(Si_type)):
                                 basis_sites=[0],
                                 rate_constant=0.0))
     
-    # jump down
+    # jump down on Si
     
     list_of_coordinates = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, 2.0], [0.0, 0.0, -1.0], [0.0, 0.0, -2.0]]
 
@@ -503,7 +503,7 @@ for i in range(len(Si_type)):
                                 rate_constant=0.0))
     
 # Jump at the interface on GaAs
-# process_number [149, 164]
+# process_number [152, 157]
 
 GaAs_type = ["A_GaAs", "B_GaAs"]
 GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
