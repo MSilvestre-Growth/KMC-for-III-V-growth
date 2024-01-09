@@ -280,7 +280,7 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# X_GaAs diffusion on X_GaAs at the interface [58, 59] (16 processes)
+# X_GaAs diffusion on X_GaAs at the interface [58, 59]
 list_of_coordinates = [[origin002, P000, P001, P10_1, P100],
                        [origin003, PJU001, PJU002, PJU100, PJU101]
                        ]
