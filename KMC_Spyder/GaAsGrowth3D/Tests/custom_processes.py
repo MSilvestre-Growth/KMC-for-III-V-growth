@@ -314,6 +314,12 @@ for i in range(len(GaAs_type)):
 # Y_GaAs diffusion on X_GaAs : number process in [56, 71] (16 processes)
 # Change in GaAs phase A --> B
 
+list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, -1.0, -1.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [1.0, 0.0, -1.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [0.0, 0.0, 1.0]]
+                        ]
+
 for i in range(len(list_of_coordinates)):
     
     elements_before = ["A_GaAs", "V", "B_GaAs", "V"]
