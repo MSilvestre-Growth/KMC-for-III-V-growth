@@ -210,7 +210,7 @@ for i in range(len(list_of_coordinates)):
 
 # Idem at the edges [39, 40]
 
-list_of_coordinates = [[P00, P001, P10_2, P10_1, P100]]
+list_of_coordinates = [[[0.0, 0.0, 0.0], P000, P001, P10_2, P10_1, P100]]
 
 Si_type = ["A_Si", "B_Si"]
 Si_type_inverted = ["B_Si", "A_Si"]
@@ -222,8 +222,8 @@ for i in range(len(list_of_coordinates)):
         
         # go down
         
-        elements_before = [GaAs_type[j], "Vt", Si_type_inverted[j], "V", "V"]
-        elements_after = ["Vt", "V", Si_type_inverted[j], GaAs_type_inverted[j], "V"]
+        elements_before = ["V", GaAs_type[j], "Vt", Si_type_inverted[j], "V", "V"]
+        elements_after = ["V", "Vt", "V", Si_type_inverted[j], GaAs_type_inverted[j], "V"]
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=elements_before,
@@ -233,8 +233,8 @@ for i in range(len(list_of_coordinates)):
         
         # go up
         
-        elements_before = ["Vt", "V", Si_type_inverted[j], GaAs_type_inverted[j], "V"]
-        elements_after = [GaAs_type[j], "Vt", Si_type_inverted[j], "V", "V"]
+        elements_before = ["V", "Vt", "V", Si_type_inverted[j], GaAs_type_inverted[j], "V"]
+        elements_after = ["V", GaAs_type[j], "Vt", Si_type_inverted[j], "V", "V"]
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=elements_before,
