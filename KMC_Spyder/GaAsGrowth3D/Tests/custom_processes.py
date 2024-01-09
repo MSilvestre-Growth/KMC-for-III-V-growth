@@ -246,7 +246,7 @@ for i in range(len(list_of_coordinates)):
         
 # GaAs diffusion on GaAs
 
-# X_GaAs diffusion on X_GaAs : number process in [42, 49]
+# X_GaAs diffusion on X_GaAs : number process in [42, 57]
 # Same GaAs species and no jumps --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -280,7 +280,7 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# X_GaAs diffusion on X_GaAs at the interface [50, 51]
+# X_GaAs diffusion on X_GaAs at the interface [58, 59]
 list_of_coordinates = [[origin002, P000, P001, P10_1, P100],
                        [origin003, PJU001, PJU002, PJU100, PJU101]
                        ]
