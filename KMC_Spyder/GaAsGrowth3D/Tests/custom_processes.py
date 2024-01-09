@@ -39,13 +39,14 @@ config = KMCConfigurationFromScript("config3D.py")
 # Change of coordinates for the interface case
 P000 = [0.0, 0.0, -2.0]
 P001 = [0.0, 0.0, -1.0]
-P002 = [0.0, 0.0, 0.0]
+origin002 = [0.0, 0.0, 0.0]
 P10_2= [1.0, 0.0, 0.0]
 P10_1= [1.0, 0.0, 1.0]
 P100 = [1.0, 0.0, 2.0]
 
 PJU001 = [0.0, 0.0, -2.0]
 PJU002 = [0.0, 0.0, -1.0]
+origin003 = [0.0, 0.0, 0.0]
 PJU10_1= [1.0, 0.0, 0.0]
 PJU100 = [1.0, 0.0, 1.0]
 PJU101 = [1.0, 0.0, 2.0]
@@ -211,7 +212,7 @@ for i in range(len(list_of_coordinates)):
 
 # Idem at the edges [40, 41]
 
-list_of_coordinates = [[P002, P000, P001, P10_2, P10_1, P100]]
+list_of_coordinates = [[origin002, P000, P001, P10_2, P10_1, P100]]
 
 Si_type = ["A_Si", "B_Si"]
 Si_type_inverted = ["B_Si", "A_Si"]
@@ -245,7 +246,7 @@ for i in range(len(list_of_coordinates)):
         
 # GaAs diffusion on GaAs
 
-# X_GaAs diffusion on X_GaAs : number process in [,] (16 processes)
+# X_GaAs diffusion on X_GaAs : number process in [42, 57] (16 processes)
 # Same GaAs species and no jumps --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -278,6 +279,37 @@ for i in range(len(list_of_coordinates)):
                                                elements_after=elements_after,
                                                basis_sites=[0],
                                                rate_constant=0.0))
+
+# X_GaAs diffusion on X_GaAs at the interface [58, 59] (16 processes)
+list_of_coordinates = [[origin002, P000, P001, P10_1, P100],
+                       [origin003, PJU001, PJU002, PJU100, PJU101]
+                       ]
+
+GaAs_type = ["A_GaAs", "B_GaAs"]
+
+for i in range(len(GaAs_type)):
+        
+    # diffuse forward on GaAs at the interface
+        
+    elements_before = ["V", GaAs_type[i], "Vt", GaAs_type[i], "V"]
+    elements_after = ["V", "Vt", "V", GaAs_type[i], GaAs_type[i]]
+        
+    processes.append(KMCProcess(coordinates=list_of_coordinates[0],
+                                elements_before=elements_before,
+                                elements_after=elements_after,
+                                basis_sites=[0],
+                                rate_constant=0.0))
+        
+    # diffuse backward on GaAs at the interface
+        
+    elements_before = ["V", "Vt", "V", GaAs_type[i], GaAs_type[i]]
+    elements_after = ["V", GaAs_type[i], "Vt", GaAs_type[i], "V"]
+        
+    processes.append(KMCProcess(coordinates=list_of_coordinates[1],
+                                elements_before=elements_before,
+                                elements_after=elements_after,
+                                basis_sites=[0],
+                                rate_constant=0.0))
 
 # Y_GaAs diffusion on X_GaAs : number process in [56, 71] (16 processes)
 # Change in GaAs phase A --> B
