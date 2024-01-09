@@ -344,7 +344,7 @@ for i in range(len(GaAs_type)):
         # diffuse forward on GaAs at the interface
             
         elements_before = ["V", GaAs_type[i], "Vt", GaAs_type_inverted[j], "V"]
-        elements_after = ["V", "Vt", "V", GaAs_type[i], GaAs_type_inverted[j]]
+        elements_after = ["V", "Vt", "V", GaAs_type_inverted[j], GaAs_type[i]]
             
         processes.append(KMCProcess(coordinates=list_of_coordinates,
                                     elements_before=elements_before,
@@ -355,7 +355,7 @@ for i in range(len(GaAs_type)):
         # diffuse backward on GaAs at the interface
             
         elements_before = ["V", "Vt", "V", GaAs_type[i], GaAs_type_inverted[j]]
-        elements_after = ["V", GaAs_type[i], "Vt", GaAs_type_inverted[j], "V"]
+        elements_after = ["V", GaAs_type_inverted[j], "Vt", GaAs_type[i], "V"]
             
         processes.append(KMCProcess(coordinates=list_of_coordinates,
                                     elements_before=elements_before,
