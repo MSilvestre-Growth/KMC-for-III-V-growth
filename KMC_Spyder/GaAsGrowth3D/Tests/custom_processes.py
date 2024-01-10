@@ -210,42 +210,6 @@ for i in range(len(list_of_coordinates)):
                                                 basis_sites=[0],
                                                 rate_constant=0.0))
 
-# list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
-#                         [[0.0, 0.0, 0.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
-#                         [[0.0, 0.0, 0.0], [1.0, 0.0, -1.0], [1.0, 0.0, -2.0], [0.0, 0.0, 1.0]],
-#                         [[0.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [-1.0, 0.0, -2.0], [0.0, 0.0, 1.0]]
-#                         ]
-
-# Si_type = ["A_Si", "B_Si"]
-# Si_type_inverted = ["B_Si", "A_Si"]
-# GaAs_type = ["A_GaAs", "B_GaAs"]
-# GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
-
-# for i in range(len(list_of_coordinates)):
-#     for j in range(len(Si_type)):
-        
-#         # go down
-        
-#         elements_before = [GaAs_type[j], "V", Si_type_inverted[j], "V"]
-#         elements_after = ["V", GaAs_type_inverted[j], Si_type_inverted[j], "V"]
-        
-#         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-#                                                elements_before=elements_before,
-#                                                elements_after=elements_after,
-#                                                basis_sites=[0],
-#                                                rate_constant=0.0))
-        
-#         # go up
-        
-#         elements_before = ["V", GaAs_type_inverted[j], Si_type_inverted[j], "V"]
-#         elements_after = [GaAs_type[j], "V", Si_type_inverted[j], "V"]
-        
-#         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
-#                                                elements_before=elements_before,
-#                                                elements_after=elements_after,
-#                                                basis_sites=[0],
-#                                                rate_constant=0.0))
-
 # Idem at the edges [40, 41]
 
 list_of_coordinates = [[origin002, P000, P001, P10_2, P10_1, P100]]
@@ -280,9 +244,49 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
+
+# GaAs jumps from GaAs on Si
+# process_number in [42, 57]
+
+list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [1.0, 0.0, -1.0], [1.0, 0.0, -2.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [-1.0, 0.0, -1.0], [-1.0, 0.0, -2.0], [0.0, 0.0, 1.0]]
+                        ]
+
+Si_type = ["A_Si", "B_Si"]
+GaAs_type = ["A_GaAs", "B_GaAs"]
+GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
+
+for i in range(len(list_of_coordinates)):
+    for j in range(len(GaAs_type)):
+        for k in range(GaAs_type_inverted):
+        
+            # Jump down
+            
+            elements_before = [GaAs_type[j], GaAs_type_inverted[k], "V", Si_type[j], "V"]
+            elements_after = ["V", GaAs_type_inverted[k], GaAs_type[j], Si_type[j], "V"]
+            
+            processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                                    elements_before=elements_before,
+                                                    elements_after=elements_after,
+                                                    basis_sites=[0],
+                                                    rate_constant=0.0))
+            
+            # Jump up
+            
+            elements_before = ["V", GaAs_type_inverted[k], GaAs_type[j], Si_type[j], "V"]
+            elements_after = [GaAs_type_inverted[k], GaAs_type_inverted[k], "V", Si_type[j], "V"]
+            
+            processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+                                                    elements_before=elements_before,
+                                                    elements_after=elements_after,
+                                                    basis_sites=[0],
+                                                    rate_constant=0.0))
+
 # GaAs diffusion on GaAs
 
-# X_GaAs diffusion on X_GaAs : number process in [42, 57]
+# X_GaAs diffusion on X_GaAs : number process in [58, 73]
 # Same GaAs species and no jumps --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -316,7 +320,7 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# Y_GaAs diffusion on X_GaAs : number process in [58, 73] (16 processes)
+# Y_GaAs diffusion on X_GaAs : number process in [74, 89] (16 processes)
 # Change in GaAs phase A --> B
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -367,7 +371,7 @@ for i in range(len(list_of_coordinates)):
                                            basis_sites=[0],
                                            rate_constant=0.0))
     
-# X_GaAs diffusion on X_GaAs and Y_GaAs at the interface [74, 81]
+# X_GaAs diffusion on X_GaAs and Y_GaAs at the interface [90, 97]
 # /!\ bien mettre les bonne proba pour éliminer les cas impossibles !!!
 list_of_coordinates = [origin002, P000, P001, P10_1, P100]
 
@@ -400,7 +404,7 @@ for i in range(len(GaAs_type)):
                                     rate_constant=0.0))
     
 # X_GaAs jumps to a X_GaAs simple step (no phase change)
-# process_number in [81, 112] (32 processes)
+# process_number in [98, 129] (32 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -454,7 +458,7 @@ for i in range(len(list_of_coordinates)):
                                                rate_constant=0.0))
 
 # Y_GaAs jumps to a X_GaAs simple step (NO PHASE CHANGE)
-# process_number in [113, 144] (32 processes)
+# process_number in [130, 161] (32 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -509,7 +513,7 @@ for i in range(len(list_of_coordinates)):
                                                rate_constant=0.0))
 
 
-# Jumps X_GaAs on Y_GaAs and X_GaAs on a single GaAs step at the interface [145, 170]
+# Jumps X_GaAs on Y_GaAs and X_GaAs on a single GaAs step at the interface [162, 177]
 # /!\ Attention à bien restreidre les mouvement avec des probas à 0 si les plus proches voisins ne sont pas cohérents
 GaAs_type = ["A_GaAs", "B_GaAs"]
 GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
