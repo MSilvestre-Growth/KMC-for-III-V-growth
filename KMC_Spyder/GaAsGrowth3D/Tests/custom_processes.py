@@ -174,10 +174,46 @@ for i in range(len(list_of_coordinates)):
 # No "Vt" states because jumps at the interfaces are already taking into account
 # process_number in [24, 39]
 
-list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
-                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
-                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [1.0, 0.0, -1.0], [1.0, 0.0, -2.0], [0.0, 0.0, 1.0]],
-                        [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [-1.0, 0.0, -1.0], [-1.0, 0.0, -2.0], [0.0, 0.0, 1.0]]
+# list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
+#                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
+#                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [1.0, 0.0, -1.0], [1.0, 0.0, -2.0], [0.0, 0.0, 1.0]],
+#                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [-1.0, 0.0, -1.0], [-1.0, 0.0, -2.0], [0.0, 0.0, 1.0]]
+#                         ]
+
+# Si_type = ["A_Si", "B_Si"]
+# Si_type_inverted = ["B_Si", "A_Si"]
+# GaAs_type = ["A_GaAs", "B_GaAs"]
+# GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
+
+# for i in range(len(list_of_coordinates)):
+#     for j in range(len(Si_type)):
+        
+#         # go down
+        
+#         elements_before = [GaAs_type[j], Si_type[j], "V", Si_type_inverted[j], "V"]
+#         elements_after = ["V", Si_type[j], GaAs_type_inverted[j], Si_type_inverted[j], "V"]
+        
+#         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+#                                                elements_before=elements_before,
+#                                                elements_after=elements_after,
+#                                                basis_sites=[0],
+#                                                rate_constant=0.0))
+        
+#         # go up
+        
+#         elements_before = ["V", Si_type[j], GaAs_type_inverted[j], Si_type_inverted[j], "V"]
+#         elements_after = [GaAs_type[j], Si_type[j], "V", Si_type_inverted[j], "V"]
+        
+#         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
+#                                                elements_before=elements_before,
+#                                                elements_after=elements_after,
+#                                                basis_sites=[0],
+#                                                rate_constant=0.0))
+
+list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [1.0, 0.0, -1.0], [1.0, 0.0, -2.0], [0.0, 0.0, 1.0]],
+                        [[0.0, 0.0, 0.0], [-1.0, 0.0, -1.0], [-1.0, 0.0, -2.0], [0.0, 0.0, 1.0]]
                         ]
 
 Si_type = ["A_Si", "B_Si"]
@@ -190,8 +226,8 @@ for i in range(len(list_of_coordinates)):
         
         # go down
         
-        elements_before = [GaAs_type[j], Si_type[j], "V", Si_type_inverted[j], "V"]
-        elements_after = ["V", Si_type[j], GaAs_type_inverted[j], Si_type_inverted[j], "V"]
+        elements_before = [GaAs_type[j], "V", Si_type_inverted[j], "V"]
+        elements_after = ["V", GaAs_type_inverted[j], Si_type_inverted[j], "V"]
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=elements_before,
@@ -201,8 +237,8 @@ for i in range(len(list_of_coordinates)):
         
         # go up
         
-        elements_before = ["V", Si_type[j], GaAs_type_inverted[j], Si_type_inverted[j], "V"]
-        elements_after = [GaAs_type[j], Si_type[j], "V", Si_type_inverted[j], "V"]
+        elements_before = ["V", GaAs_type_inverted[j], Si_type_inverted[j], "V"]
+        elements_after = [GaAs_type[j], "V", Si_type_inverted[j], "V"]
         
         processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                elements_before=elements_before,

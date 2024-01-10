@@ -72,7 +72,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         #print "coordinate"
         #print coordinate
-        if (process_number >=74 and process_number <= 81) or (process_number >=145 and process_number <= 170):
+        if (process_number >=24 and process_number <= 39):# or (process_number >=145 and process_number <= 170):
             print process_number
             #print elements_before
             return 1
