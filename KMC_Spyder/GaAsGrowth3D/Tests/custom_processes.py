@@ -260,7 +260,7 @@ GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
 
 for i in range(len(list_of_coordinates)):
     for j in range(len(GaAs_type)):
-        for k in range(GaAs_type_inverted):
+        for k in range(len(GaAs_type_inverted)):
         
             # Jump down
             
