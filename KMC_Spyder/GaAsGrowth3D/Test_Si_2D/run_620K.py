@@ -33,7 +33,7 @@ E_normal = 0.05
 E_parallel = 0.5
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 1
+SendFlux = 0
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
@@ -61,18 +61,15 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global SendFlux
         
         # Events definition
-        event_arrival = 0 <= process_number <= 7
-        event_GaAs_diffusion_on_Si = 8 <= process_number <= 23
-        event_GaAs_jumps_Si_monoatomic_step = 24 <= process_number <= 39
-        event_cycling_GaAs_jumps_Si_monoatomic_step = 40 <= process_number <= 41
-        event_GaAs_jumps_GaAs_Si = 42 <= process_number <= 47
-        event_GaAs_diffusion_on_GaAs = 48 <= process_number <= 89
-        event_cycling_GaAs_diffusion_on_GaAs = 90 <= process_number <= 97
-        event_GaAs_jumps_on_GaAs = 98 <= process_number <= 161
-        event_cycling_GaAs_jumps_on_GaAs = 162 <= process_number <= 177
+        event_arrival = 0 <= process_number <= 3
+        event_GaAs_diffusion = 4 <= process_number <= 83
         
         if event_arrival:
             return SendFlux
+        
+        if event_GaAs_diffusion:
+            print elements_before
+            return 1
         
         
         #print "coordinate"
