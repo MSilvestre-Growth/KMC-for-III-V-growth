@@ -95,9 +95,9 @@ def TrueFuction(obj):
 CustomRateCalculator.cacheRates = TrueFuction
 
 # Load initial configuration
-config = KMCConfigurationFromScript("config3D.py")
+config = KMCConfigurationFromScript("config_Si2D_for_GaAs3D.py")
 #creation of the interaction oject
-interactions = KMCInteractionsFromScript("custom_processes.py")    
+interactions = KMCInteractionsFromScript("custom_processes_Si2D_for_GaAs3D.py")    
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 

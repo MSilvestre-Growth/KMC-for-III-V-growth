@@ -31,7 +31,7 @@ number_of_steps_in_config3D = 4
 processes = []
 
 # store the configuration to get all possibles types
-config = KMCConfigurationFromScript("config3D.py")
+config = KMCConfigurationFromScript("config_Si2D_for_GaAs3D.py")
 
 # -----------------------------------------------------------------------
 # List of all possible deplacements
