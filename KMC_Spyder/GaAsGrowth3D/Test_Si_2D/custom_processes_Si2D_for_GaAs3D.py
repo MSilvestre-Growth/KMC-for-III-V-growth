@@ -40,8 +40,8 @@ config = KMCConfigurationFromScript("config_Si2D_for_GaAs3D.py")
 
 # test
 processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
-                                       elements_before=["A_GaAs"],
-                                       elements_after=["B_GaAs"],
+                                       elements_before=["A_GaAs", "V"],
+                                       elements_after=["B_GaAs","V"],
                                        basis_sites=[0],
                                        rate_constant=0.0))
 
