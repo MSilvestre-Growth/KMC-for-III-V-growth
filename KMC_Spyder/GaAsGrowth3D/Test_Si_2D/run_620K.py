@@ -61,15 +61,19 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global SendFlux
         
         # Events definition
-        event_arrival = 0 <= process_number <= 3
+        # event_arrival = 0 <= process_number <= 3
         event_GaAs_diffusion = 4 <= process_number <= 83
         
-        if event_arrival:
-            return SendFlux
-        
-        if event_GaAs_diffusion:
-            print elements_before
+        if process_number == 0:
             return 1
+        else:
+            return 0
+        # if event_arrival:
+        #     return SendFlux
+        
+        # if event_GaAs_diffusion:
+        #     print elements_before
+        #     return 1
         
         
         #print "coordinate"
