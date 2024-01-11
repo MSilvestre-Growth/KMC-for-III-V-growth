@@ -67,7 +67,7 @@ def add_Si_column(column_height, interface="N", Dimere_list=types, max_height=Z,
     if column_height > max_height:
         print "You entered height higher than Z !"
         return 0
-    if Si_type="_"
+    if Si_type=="_":
         marker = 0
         for i in range(max_height):
             if i < column_height:
@@ -85,14 +85,14 @@ def add_Si_column(column_height, interface="N", Dimere_list=types, max_height=Z,
                     
                 else :
                     Dimere_list.append("V")
-    if Si_type="A_Si":
+    if Si_type=="A_Si":
         for i in range(max_height):
             if i < column_height:
                 Dimere_list.append("A_Si")
             else:
                 Dimere_list.append("V")
                 
-    if Si_type="B_Si":
+    if Si_type=="B_Si":
         for i in range(max_height):
             if i < column_height:
                 Dimere_list.append("B_Si")
