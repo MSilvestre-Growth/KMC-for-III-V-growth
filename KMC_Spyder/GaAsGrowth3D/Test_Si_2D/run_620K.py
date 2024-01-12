@@ -44,9 +44,6 @@ print "E_parallel = ", E_parallel
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
     
-    def element_type(self, element):
-        return element[0]
-    
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
         #print process_number
@@ -76,7 +73,6 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         if process_number == 0:
 	    print elements_before
-        print element_type(concerned_element)
             return 1
         else:
             return 0
