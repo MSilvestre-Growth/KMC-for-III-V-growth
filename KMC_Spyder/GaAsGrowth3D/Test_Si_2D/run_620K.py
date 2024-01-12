@@ -97,32 +97,32 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_normal += 1
                 if Xm1 == "B_GaAs":
                     n_wrong_bond += 1
-                if Xm1 == "V":
-                    pass
+                # if Xm1 == "V":
+                #     pass
                 
                 # Xp1
                 if Xp1 == "A_GaAs":
                     n_normal += 1
                 if Xp1 == "B_GaAs":
                     n_wrong_bond += 1
-                if Xp1 == "V":
-                    pass
+                # if Xp1 == "V":
+                #     pass
                 
                 # Ym1
                 if Ym1 == "A_GaAs":
                     n_parallel += 1
                 if Ym1 == "B_GaAs":
                     n_wrong_bond += 1
-                if Ym1 == "V":
-                    pass
+                # if Ym1 == "V":
+                #     pass
                 
                 # Yp1
                 if Yp1 == "A_GaAs":
                     n_parallel += 1
                 if Yp1 == "B_GaAs":
                     n_wrong_bond += 1
-                if Yp1 == "V":
-                    pass
+                # if Yp1 == "V":
+                #     pass
                 
                 # Zm1
                 if Zm1 == "A_GaAs":
@@ -131,8 +131,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_wrong_bond += 1
                 
                 # Mettre energie de liaison différente avec le substrat ?
-                if Zm1 == "A_Si":
-                    pass
+                # if Zm1 == "A_Si":
+                #     pass
                 
             if elements_before[0] == "B":
                 # Xm1
@@ -140,42 +140,42 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     n_wrong_bond += 1
                 if Xm1 == "B_GaAs":
                     n_parallel += 1
-                if Xm1 == "V":
-                    pass
+                # if Xm1 == "V":
+                #     pass
                 
                 # Xp1
                 if Xp1 == "A_GaAs":
                     n_wrong_bond += 1
                 if Xp1 == "B_GaAs":
                     n_parallel += 1
-                if Xp1 == "V":
-                    pass
+                # if Xp1 == "V":
+                #     pass
                 
                 # Ym1
                 if Ym1 == "A_GaAs":
                     n_wrong_bond += 1
                 if Ym1 == "B_GaAs":
                     n_normal += 1
-                if Ym1 == "V":
-                    pass
+                # if Ym1 == "V":
+                #     pass
                 
                 # Yp1
                 if Yp1 == "A_GaAs":
                     n_wrong_bond += 1
                 if Yp1 == "B_GaAs":
                     n_normal += 1
-                if Yp1 == "V":
-                    pass
+                # if Yp1 == "V":
+                #     pass
                 
                 # Zm1
                 if Zm1 == "A_GaAs":
                     n_wrong_bond
-                if Zm1 == "B_GaAs":
-                    pass
+                # if Zm1 == "B_GaAs":
+                #     pass
                 
                 # Mettre energie de liaison différente avec le substrat ?
-                if Zm1 == "B_Si":
-                    pass
+                # if Zm1 == "B_Si":
+                #     pass
             
             E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond
             
