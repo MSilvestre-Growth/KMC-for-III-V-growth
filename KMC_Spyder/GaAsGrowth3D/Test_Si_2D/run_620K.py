@@ -44,6 +44,8 @@ print "E_parallel = ", E_parallel
 class CustomRateCalculator(KMCRateCalculatorPlugin):
     """ Class for defining the custom rates function for the KMCLib paper. """
     
+    def element_type(self, element):
+        return element[0]
     
     def rate(self, geometry, elements_before, elements_after, rate_constant, process_number, coordinate):
         """ Overloaded base class API function """
@@ -60,12 +62,21 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         global SendFlux
         
+        concerned_element = elements_before[0]
+        Xm1 = elements_before[1]
+        Xp1 = elements_before[6]
+        Ym1 = elements_before[2]
+        Yp1 = elements_before[5]
+        Zm1 = elements_before[3]
+        Zp1 = elements_before[4]
+        
         # Events definition
         # event_arrival = 0 <= process_number <= 3
         event_GaAs_diffusion = 4 <= process_number <= 83
         
         if process_number == 0:
 	    print elements_before
+        print element_type(concerned_element)
             return 1
         else:
             return 0
