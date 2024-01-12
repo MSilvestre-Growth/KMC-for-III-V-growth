@@ -36,7 +36,7 @@ config = KMCConfigurationFromScript("config_Si2D_for_GaAs3D.py")
 # -----------------------------------------------------------------------
 # List of all possible deplacements
 
-# # test
+# test
 # processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
 #                                        elements_before=["A_GaAs", "V"],
 #                                        elements_after=["B_GaAs","V"],
