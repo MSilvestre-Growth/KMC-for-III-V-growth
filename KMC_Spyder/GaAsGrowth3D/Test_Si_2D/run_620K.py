@@ -41,7 +41,7 @@ E_wrong_bond = 0.3
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 0
+SendFlux = 0 
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
@@ -67,7 +67,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global k0
 
         global SendFlux
-        
+	print process_number
+	print elements_before        
         concerned_element = elements_before[0]
         Xm1 = elements_before[1]
         Xp1 = elements_before[6]
