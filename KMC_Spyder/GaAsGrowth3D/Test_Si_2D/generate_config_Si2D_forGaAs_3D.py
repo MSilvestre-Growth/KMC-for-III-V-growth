@@ -127,22 +127,22 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
 
 # first step
 step_width = 10
-Si_height = 1
+Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
 # second step
 step_width = 10
-Si_height = 1
+Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
 
 # third step
 step_width = 10
-Si_height = 1
+Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
 # fourth step
 step_width = 10
-Si_height = 1
+Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
 
 # # interface buffer
