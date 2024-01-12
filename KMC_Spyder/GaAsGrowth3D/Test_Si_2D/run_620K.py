@@ -41,7 +41,7 @@ E_wrong_bond = 0.3
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 0 
+SendFlux = k0 
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
@@ -67,8 +67,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global k0
 
         global SendFlux
-	print process_number
-	print elements_before        
+	#print process_number
+	#print elements_before        
         concerned_element = elements_before[0]
         Xm1 = elements_before[1]
         Xp1 = elements_before[6]
@@ -83,6 +83,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         
         if event_arrival:
+	    print "arrival"
             return SendFlux
         
         if event_GaAs_diffusion:
@@ -206,10 +207,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps=1000000
+number_of_steps = 10
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval=100000,
+                                          dump_interval=1,
                                           seed=596312)
 name = "trajectory_test.py"
 model.run(control_parameters, trajectory_filename=name)
