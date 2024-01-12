@@ -82,7 +82,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         event_GaAs_diffusion = 4 <= process_number <= 83
         
         if event_arrival:
- 	    print "arrival"
+ 	    #print "arrival"
             return SendFlux
         
         if event_GaAs_diffusion:
