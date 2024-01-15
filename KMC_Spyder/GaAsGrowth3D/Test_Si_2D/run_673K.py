@@ -80,9 +80,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 
         # Events definition
         event_arrival = 0 <= process_number <= 3
-        event_GaAs_diffusion = 4 <= process_number <= 83
+        event_GaAs_diffusion = 4 <= process_number <= 98
         
-        event_jump_alone = 20 <= process_number <= 35 or 52 <= process_number <= 83
+        event_jump_alone = 20 <= process_number <= 51 or 67 <= process_number <= 98
         
         # is alone section (avoid 2 stacked atoms alone)
         

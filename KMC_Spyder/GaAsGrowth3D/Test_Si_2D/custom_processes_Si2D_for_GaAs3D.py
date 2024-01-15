@@ -126,7 +126,7 @@ for i in range(len(list_of_coordinates)):
                                                rate_constant=0.0))
 
 # GaAs jumps from GaAs on Si
-# process_number in [20, 35]
+# process_number in [20, 51]
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -178,7 +178,7 @@ for i in range(4):
 
 # GaAs diffusion on GaAs
 
-# X_GaAs diffusion on X_GaAs : number process in [36, 43]
+# X_GaAs diffusion on X_GaAs : number process in [52, 59]
 # Same GaAs species and no jumps --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -203,7 +203,7 @@ for i in range(len(list_of_coordinates)):
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# Y_GaAs diffusion on X_GaAs : number process in [44, 51] (8 processes)
+# Y_GaAs diffusion on X_GaAs : number process in [60, 67] (8 processes)
 # Change in GaAs phase A --> B
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -237,7 +237,7 @@ for i in range(len(list_of_coordinates)):
                                            rate_constant=0.0))
 
 # X_GaAs jumps to a X_GaAs simple step (no phase change)
-# process_number in [52, 67] (16 processes)
+# process_number in [67, 82] (16 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -284,7 +284,7 @@ for i in range(4):
                                                rate_constant=0.0))
 
 # Y_GaAs jumps to a X_GaAs simple step (NO PHASE CHANGE)
-# process_number in [68, 83] (16 processes)
+# process_number in [83, 98] (16 processes)
 
 GaAs_type = ["A_GaAs", "B_GaAs"]
 GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
