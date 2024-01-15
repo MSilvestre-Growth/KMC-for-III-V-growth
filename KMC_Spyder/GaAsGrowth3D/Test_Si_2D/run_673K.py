@@ -209,7 +209,7 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 40000
+number_of_steps = 80000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           dump_interval=4000,
