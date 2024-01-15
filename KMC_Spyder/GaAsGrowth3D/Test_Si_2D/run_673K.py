@@ -33,7 +33,7 @@ q = 1.6*10**(-19)
 # DOI : 10.1103/PhysRevB.46.6825
 E_substrate = 1.3
 E_normal = 0.3
-E_parallel = 0.03
+E_parallel = 0.15
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
