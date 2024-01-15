@@ -42,7 +42,7 @@ E_wrong_bond = 0.0
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 2
+SendFlux = 0.6
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
@@ -209,10 +209,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 100000
+number_of_steps = 10000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval=10000,
+                                          dump_interval=1000,
                                           seed=596312)
 name = "trajectory_test.py"
 model.run(control_parameters, trajectory_filename=name)
