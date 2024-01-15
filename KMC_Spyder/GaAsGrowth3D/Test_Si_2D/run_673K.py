@@ -31,9 +31,9 @@ q = 1.6*10**(-19)
 
 # ref : Misorientation dependence of epitaxial growth on vicinal GaAs(001)
 # DOI : 10.1103/PhysRevB.46.6825
-E_substrate = 0.75
-E_normal = 0.18
-E_parallel = 0.126
+E_substrate = 1.3
+E_normal = 0.32
+E_parallel = 0.266
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
@@ -42,7 +42,7 @@ E_wrong_bond = 0.0
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 0.5
+SendFlux = 0.6
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
@@ -209,10 +209,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 100000
+number_of_steps = 1000000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval=10000,
+                                          dump_interval=100000,
                                           seed=596312)
 name = "trajectory_test.py"
 model.run(control_parameters, trajectory_filename=name)
