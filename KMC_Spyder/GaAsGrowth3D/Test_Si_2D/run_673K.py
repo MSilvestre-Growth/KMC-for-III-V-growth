@@ -37,7 +37,7 @@ E_parallel = 0.15
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
-E_wrong_bond = 0.3
+E_wrong_bond = 0.0 # 0.3
 
 
 k0 = 10**13 #hopping constant for the Boltzman's law
