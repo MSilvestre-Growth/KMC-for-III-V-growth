@@ -37,7 +37,8 @@ E_parallel = 0.158
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
-E_wrong_bond = 0.3
+# E_wrong_bond = 0.3
+E_wrong_bond = 0.0
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
@@ -208,10 +209,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 10000
+number_of_steps = 100000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval=1000,
+                                          dump_interval=10000,
                                           seed=596312)
 name = "trajectory_test.py"
 model.run(control_parameters, trajectory_filename=name)
