@@ -40,8 +40,8 @@ unit_cell = KMCUnitCell(
 
 # Precise the number of pixel in each direction (at least 1)
 X = 40
-Y = 10
-Z = 10
+Y = 40
+Z = 5
 
 # Precise if you want your structure to be periodic in different directions
 # (True or False)
