@@ -93,7 +93,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 is_alone += 1
         
         if event_jump_alone and is_alone > 0:
-            return k0
+            return 20000*k0
         
         
         if event_arrival:
