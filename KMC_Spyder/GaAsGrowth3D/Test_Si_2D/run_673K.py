@@ -31,9 +31,9 @@ q = 1.6*10**(-19)
 
 # ref : Misorientation dependence of epitaxial growth on vicinal GaAs(001)
 # DOI : 10.1103/PhysRevB.46.6825
-E_substrate = 1.3 
+E_substrate = 0.3
 E_normal = 1.3
-E_parallel = 0.266
+E_parallel = 0.5
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
@@ -42,7 +42,7 @@ E_wrong_bond = 0.0
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 0.6
+SendFlux = 2
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
