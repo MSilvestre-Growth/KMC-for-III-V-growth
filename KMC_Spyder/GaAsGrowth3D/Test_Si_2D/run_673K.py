@@ -92,7 +92,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             if elements_before[in_plan_nearest_neighbours[i]] != "V":
                 is_alone += 1
         
-        if event_jump_alone and is_alone > 0:
+        if event_jump_alone and is_alone == 0:
             return 20000*k0
         
         
