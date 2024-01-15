@@ -10,8 +10,8 @@ path = "C:/Users/msilvestre/Documents/GitHub/Images/GaAsGrowth/Arrival_test/"
 ####################
 
 X = 40
-Y = 10
-Z = 10
+Y = 40
+Z = 5
 
 ####################
 
@@ -85,8 +85,8 @@ for i in range(len(types)):
     # X-axis : right 33.60440199006097
     # Y-axis : bottom -6.302167259329746
     # Y-axis : top 19.411372879235586
-    # plt.xlim((10.268365867838938,35.98190600640428))
-    # plt.ylim((-12.04950983931609,13.66403029924924))
+    plt.xlim((10.268365867838938,45))
+    plt.ylim((-12.04950983931609,20))
     
     ax.voxels(voxelarray, facecolors=colors, edgecolor='#FF000000')
     plt.savefig(path+file_name) 

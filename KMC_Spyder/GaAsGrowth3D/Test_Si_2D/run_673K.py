@@ -37,8 +37,8 @@ E_parallel = 0.03
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
-# E_wrong_bond = 0.3
-E_wrong_bond = 0.0
+E_wrong_bond = 0.3
+
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
@@ -96,32 +96,32 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 # Xm1
                 if Xm1 == "A_GaAs":
                     n_normal += 1
-                if Xm1 == "B_GaAs":
-                    n_wrong_bond += 1
+                # if Xm1 == "B_GaAs":
+                #     n_wrong_bond += 1
                 # if Xm1 == "V":
                 #     pass
                 
                 # Xp1
                 if Xp1 == "A_GaAs":
                     n_normal += 1
-                if Xp1 == "B_GaAs":
-                    n_wrong_bond += 1
+                # if Xp1 == "B_GaAs":
+                #     n_wrong_bond += 1
                 # if Xp1 == "V":
                 #     pass
                 
                 # Ym1
                 if Ym1 == "A_GaAs":
                     n_parallel += 1
-                if Ym1 == "B_GaAs":
-                    n_wrong_bond += 1
+                # if Ym1 == "B_GaAs":
+                #     n_wrong_bond += 1
                 # if Ym1 == "V":
                 #     pass
                 
                 # Yp1
                 if Yp1 == "A_GaAs":
                     n_parallel += 1
-                if Yp1 == "B_GaAs":
-                    n_wrong_bond += 1
+                # if Yp1 == "B_GaAs":
+                #     n_wrong_bond += 1
                 # if Yp1 == "V":
                 #     pass
                 
@@ -137,32 +137,32 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 
             if elements_before[0][0] == "B":
                 # Xm1
-                if Xm1 == "A_GaAs":
-                    n_wrong_bond += 1
+                # if Xm1 == "A_GaAs":
+                #     n_wrong_bond += 1
                 if Xm1 == "B_GaAs":
                     n_parallel += 1
                 # if Xm1 == "V":
                 #     pass
                 
                 # Xp1
-                if Xp1 == "A_GaAs":
-                    n_wrong_bond += 1
+                # if Xp1 == "A_GaAs":
+                #     n_wrong_bond += 1
                 if Xp1 == "B_GaAs":
                     n_parallel += 1
                 # if Xp1 == "V":
                 #     pass
                 
                 # Ym1
-                if Ym1 == "A_GaAs":
-                    n_wrong_bond += 1
+                # if Ym1 == "A_GaAs":
+                #     n_wrong_bond += 1
                 if Ym1 == "B_GaAs":
                     n_normal += 1
                 # if Ym1 == "V":
                 #     pass
                 
                 # Yp1
-                if Yp1 == "A_GaAs":
-                    n_wrong_bond += 1
+                # if Yp1 == "A_GaAs":
+                #     n_wrong_bond += 1
                 if Yp1 == "B_GaAs":
                     n_normal += 1
                 # if Yp1 == "V":
@@ -170,7 +170,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 
                 # Zm1
                 if Zm1 == "A_GaAs":
-                    n_wrong_bond
+                    n_wrong_bond += 1
                 # if Zm1 == "B_GaAs":
                 #     pass
                 
