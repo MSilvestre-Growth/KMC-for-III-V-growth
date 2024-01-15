@@ -82,6 +82,20 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         event_arrival = 0 <= process_number <= 3
         event_GaAs_diffusion = 4 <= process_number <= 83
         
+        event_jump_alone = 20 <= process_number <= 35 or 57 <= process_number <= 83
+        
+        # is alone section (avoid 2 stacked atoms alone)
+        
+        is_alone = 0
+        in_plan_nearest_neighbours = [1, 2, 5, 6]
+        for in range(4):
+            if elements_before[in_plan_nearest_neighbours[i]] =! "V":
+                is_alone += 1
+        
+        if event_jump_alone and is_alone > 0:
+            return k0
+        
+        
         if event_arrival:
  	    #print "arrival"
             return SendFlux
