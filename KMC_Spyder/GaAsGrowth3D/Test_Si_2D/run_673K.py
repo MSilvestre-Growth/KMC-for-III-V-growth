@@ -31,9 +31,9 @@ q = 1.6*10**(-19)
 
 # ref : Misorientation dependence of epitaxial growth on vicinal GaAs(001)
 # DOI : 10.1103/PhysRevB.46.6825
-E_substrate = 0.6
-E_normal = 0.075
-E_parallel = 0.3
+E_substrate = 0.75
+E_normal = 0.18
+E_parallel = 0.126
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
