@@ -39,7 +39,7 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 40
+X = 80
 Y = 10
 Z = 10
 
@@ -126,22 +126,22 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
 #######################################
 
 # first step
-step_width = 10
+step_width = X/4
 Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
 # second step
-step_width = 10
+step_width = X/4
 Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
 
 # third step
-step_width = 10
+step_width = X/4
 Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
 # fourth step
-step_width = 10
+step_width = X/4
 Si_height = 2
 add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
 
