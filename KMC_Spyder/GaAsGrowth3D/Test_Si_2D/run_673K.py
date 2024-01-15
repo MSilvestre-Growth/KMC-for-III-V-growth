@@ -88,8 +88,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
         is_alone = 0
         in_plan_nearest_neighbours = [1, 2, 5, 6]
-        for in range(4):
-            if elements_before[in_plan_nearest_neighbours[i]] =! "V":
+        for i in range(4):
+            if elements_before[in_plan_nearest_neighbours[i]] != "V":
                 is_alone += 1
         
         if event_jump_alone and is_alone > 0:
