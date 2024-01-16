@@ -83,16 +83,19 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         event_GaAs_diffusion = 4 <= process_number <= 98
         
         event_jump_alone = 20 <= process_number <= 51 or 68 <= process_number <= 98
-        
+        #print event_jump_alone
         # is alone section (avoid 2 stacked atoms alone)
         
         is_alone = 0
         in_plan_nearest_neighbours = [1, 2, 5, 6]
         for i in range(4):
-            if elements_before[in_plan_nearest_neighbours[i]] != "V":
+	    #print elements_before[in_plan_nearest_neighbours[i]],
+            if elements_before[in_plan_nearest_neighbours[i]] == "V":
                 is_alone += 1
+	print is_alone, event_jump_alone
         
-        if event_jump_alone and is_alone == 0:
+        if event_jump_alone and (is_alone == 4):
+	    print "toto"
             for i in range(4):
                 print elements_before[in_plan_nearest_neighbours[i]]
             return 20000*k0
