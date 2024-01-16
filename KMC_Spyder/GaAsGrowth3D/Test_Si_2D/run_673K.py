@@ -205,6 +205,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             
             if E_underlayer == 0:
                 print process_number
+		print elements_before
             E_tot = E_underlayer + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond
             
             return k0*np.exp( - E_tot * q / (kb * T) )
