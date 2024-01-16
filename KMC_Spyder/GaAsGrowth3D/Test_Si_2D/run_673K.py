@@ -31,9 +31,11 @@ q = 1.6*10**(-19)
 
 # ref : Misorientation dependence of epitaxial growth on vicinal GaAs(001)
 # DOI : 10.1103/PhysRevB.46.6825
-E_substrate = 1.3
+E_GaAs = 1.3
 E_normal = 0.3
 E_parallel = 0.15
+
+E_Si = 1.0
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
@@ -62,7 +64,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         global T
         global kb
         global q
-        global E_substrate
+        global E_GaAs
         global E_normal
         global E_parallel
         global k0
@@ -132,13 +134,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 
                 # Zm1
                 if Zm1 == "A_GaAs":
-                    pass
+                    E_underlayer = E_GaAs
                 if Zm1 == "B_GaAs":
                     n_wrong_bond += 1
+                    E_underlayer = E_GaAs
                 
-                # Mettre energie de liaison différente avec le substrat ?
-                # if Zm1 == "A_Si":
-                #     pass
+                #Mettre energie de liaison différente avec le substrat ?
+                if Zm1 == "A_Si":
+                    E_underlayer = E_Si
                 
             if elements_before[0][0] == "B":
                 # Xm1
@@ -176,14 +179,15 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 # Zm1
                 if Zm1 == "A_GaAs":
                     n_wrong_bond += 1
-                # if Zm1 == "B_GaAs":
-                #     pass
+                    E_underlayer = E_GaAs
+                if Zm1 == "B_GaAs":
+                    E_underlayer = E_GaAs
                 
-                # Mettre energie de liaison différente avec le substrat ?
-                # if Zm1 == "B_Si":
-                #     pass
+                #Mettre energie de liaison différente avec le substrat ?
+                if Zm1 == "B_Si":
+                    E_underlayer = E_Si
             
-            E_tot = E_substrate + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond
+            E_tot = E_underlayer + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond
             
             return k0*np.exp( - E_tot * q / (kb * T) )
  	else:
