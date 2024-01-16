@@ -133,7 +133,7 @@ add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 # second step
 step_width = X/4
 Si_height = 2
-add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
+add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
 # third step
 step_width = X/4
@@ -143,7 +143,7 @@ add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 # fourth step
 step_width = X/4
 Si_height = 2
-add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
+add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
 # # interface buffer
 # add_an_interface_buffer(Si_steps_max_height=4)
