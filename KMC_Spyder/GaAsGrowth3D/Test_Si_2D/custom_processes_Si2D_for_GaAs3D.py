@@ -328,5 +328,32 @@ for i in range(4):
                                                basis_sites=[0],
                                                rate_constant=0.0))
         
+# Jump alone (no isolated 2 atom high agregate)
+# process_number in [100, 115] (16 processes)
+list_of_coordinates = [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, -1.0, -1.0], [1.0, 0.0, -1.0], [-1.0, 0.0, -1.0]]
+GaAs_type = ["A_GaAs", "B_GaAs"]
+GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
+
+for i in range(len(GaAs_type)):
+    for j in range(len(GaAs_type_inverted)):
+        
+        elements_before = [GaAs_type[i], GaAs_type_inverted[j], "V", "V", "V", "V"]
+        elements_after = []
+        
+        # The 4 possibilities of jumping down are constructed here
+        for k in range(4):
+            elements_after.append("V")
+            elements_after.append(GaAs_type_inverted[j])
+            for l in range(4):
+                if l == k:
+                   elements_after.append(GaAs_type_inverted[j])
+                else:
+                    elements_after.append("V")
+            processes.append(KMCProcess(coordinates=list_of_coordinates,
+                                                   elements_before=elements_before,
+                                                   elements_after=elements_after,
+                                                   basis_sites=[0],
+                                                   rate_constant=0.0))
+        
 # Create the interactions object with previous parameters.
 interactions = KMCInteractions(processes, implicit_wildcards=True)
