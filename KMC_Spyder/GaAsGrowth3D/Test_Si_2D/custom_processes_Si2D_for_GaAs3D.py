@@ -36,12 +36,12 @@ config = KMCConfigurationFromScript("config_Si2D_for_GaAs3D.py")
 # -----------------------------------------------------------------------
 # List of all possible deplacements
 
-# test
-# processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
-#                                        elements_before=["A_GaAs", "V"],
-#                                        elements_after=["B_GaAs","V"],
-#                                        basis_sites=[0],
-#                                        rate_constant=0.0))
+test
+processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+                                        elements_before=["A_GaAs", "V"],
+                                        elements_after=["B_GaAs","V"],
+                                        basis_sites=[0],
+                                        rate_constant=0.0))
 
 # Atom arrival on Si and GaAs
 
