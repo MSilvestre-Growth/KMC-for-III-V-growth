@@ -237,7 +237,7 @@ for i in range(len(list_of_coordinates)):
                                            rate_constant=0.0))
 
 # X_GaAs jumps to a X_GaAs simple step (no phase change)
-# process_number in [67, 82] (16 processes)
+# process_number in [68, 83] (16 processes)
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, 1.0, -1.0], [0.0, 1.0, -2.0], [0.0, 0.0, 1.0]],
                         [[0.0, 0.0, 0.0], [0.0, 0.0, -1.0], [0.0, -1.0, -1.0], [0.0, -1.0, -2.0], [0.0, 0.0, 1.0]],
@@ -284,7 +284,7 @@ for i in range(4):
                                                rate_constant=0.0))
 
 # Y_GaAs jumps to a X_GaAs simple step (NO PHASE CHANGE)
-# process_number in [83, 98] (16 processes)
+# process_number in [84, 99] (16 processes)
 
 GaAs_type = ["A_GaAs", "B_GaAs"]
 GaAs_type_inverted = ["B_GaAs", "A_GaAs"]
