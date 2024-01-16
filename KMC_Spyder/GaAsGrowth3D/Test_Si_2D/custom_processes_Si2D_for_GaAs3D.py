@@ -338,10 +338,10 @@ for i in range(len(GaAs_type)):
     for j in range(len(GaAs_type_inverted)):
         
         elements_before = [GaAs_type[i], GaAs_type_inverted[j], "V", "V", "V", "V"]
-        elements_after = []
         
         # The 4 possibilities of jumping down are constructed here
         for k in range(4):
+            elements_after = []
             elements_after.append("V")
             elements_after.append(GaAs_type_inverted[j])
             for l in range(4):
