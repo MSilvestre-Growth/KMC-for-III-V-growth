@@ -170,6 +170,8 @@ for i in range(4):
             elements_before = [GaAs_type[j], Si_type[j], GaAs_type_inverted[k], "V", "V"]
             elements_after = ["V", Si_type[j], GaAs_type_inverted[k], GaAs_type[j], "V"]
             
+            print elements_before
+            print elements_after
             processes.append(KMCProcess(coordinates=list_of_coordinates[i],
                                                     elements_before=elements_before,
                                                     elements_after=elements_after,
