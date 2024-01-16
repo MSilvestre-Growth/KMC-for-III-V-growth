@@ -85,7 +85,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         event_jump_alone = 20 <= process_number <= 51 or 68 <= process_number <= 98
         #print event_jump_alone
         # is alone section (avoid 2 stacked atoms alone)
-        
+        print process_number,
         is_alone = 0
         in_plan_nearest_neighbours = [1, 2, 5, 6]
         for i in range(4):
