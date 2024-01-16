@@ -107,6 +107,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             n_parallel = 0
             n_normal = 0
             n_wrong_bond = 0
+            E_underlayer = 0
             
             if elements_before[0][0] == "A":
                 # Xm1
@@ -201,7 +202,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     E_underlayer = E_Si
                 if Zm1 == "B_Si":
                     E_underlayer = E_Si
-           
+            
+            if E_underlayer == 0:
+                print process_number
             E_tot = E_underlayer + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond
             
             return k0*np.exp( - E_tot * q / (kb * T) )
