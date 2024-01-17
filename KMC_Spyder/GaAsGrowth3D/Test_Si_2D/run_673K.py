@@ -35,22 +35,28 @@ E_GaAs = 1.3
 E_normal = 0.3
 E_parallel = 0.15
 
-E_Si = 1.0
+E_Si = 1.1
+
+k0 = 10**13 #hopping constant for the Boltzman's law
+
+SendFlux = 0.6
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
 E_wrong_bond = 0.0 # 0.3
 
+# ref : Influence of Schwoebel barrier and diffusion anisotropy on step density oscillation amplitude during epitaxial growth
+# DOI : 10.1016/j.commatsci.2005.03.020
 
-k0 = 10**13 #hopping constant for the Boltzman's law
-
-SendFlux = 0.6
+E_sc = 2.3*kb*T/q
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
 print "E_normal = ", E_normal
 print "E_parallel = ", E_parallel
 print "E_wrong_bond = ", E_wrong_bond
+print "E_Si = ", E_Si
+print "E_sc = ", E_sc
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -108,6 +114,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             n_normal = 0
             n_wrong_bond = 0
             E_underlayer = 0
+            
+            n_step_edge = 0
+            if 12 <= process_number <= 19:
+                n_step_edge = 1
             
             if elements_before[0][0] == "A":
                 # Xm1
@@ -206,7 +216,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             if E_underlayer == 0:
                 print process_number
 		print elements_before
-            E_tot = E_underlayer + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond
+            E_tot = E_underlayer + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond + n_step_edge * E_sc
             
             return k0*np.exp( - E_tot * q / (kb * T) )
  	else:

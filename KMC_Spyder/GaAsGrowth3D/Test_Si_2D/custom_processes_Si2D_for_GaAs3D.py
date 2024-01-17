@@ -90,7 +90,7 @@ processes.append(KMCProcess(coordinates=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
 
 # GaAs diffusion on Si (no step, GaAs phase changes allowed when Si change its phase)
 
-# GaAs diffusion on Si : number process in [4, 19] (16 processes)
+# GaAs diffusion on Si : number process in [4, 11] (8 processes)
 # Jumps are not allowed --> no change in the GaAs type
 
 list_of_coordinates = [[[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 1.0, -1.0], [0.0, 0.0, 1.0]],
@@ -115,6 +115,10 @@ for i in range(len(list_of_coordinates)):
                                                elements_after=elements_after,
                                                basis_sites=[0],
                                                rate_constant=0.0))
+
+# jump from a Si phase = Si step jump --> more difficult ? [12, 19] (8 processes)
+for i in range(len(list_of_coordinates)):
+    for j in range(len(Si_type)):
         
         elements_before = [GaAs_type[j], "V", Si_type_inverted[j], "V"]
         elements_after = ["V", GaAs_type_inverted[j], Si_type_inverted[j], "V"]
