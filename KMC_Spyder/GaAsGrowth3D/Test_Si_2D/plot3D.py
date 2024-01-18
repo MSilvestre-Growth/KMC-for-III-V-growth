@@ -85,8 +85,8 @@ for i in range(len(types)):
     # X-axis : right 33.60440199006097
     # Y-axis : bottom -6.302167259329746
     # Y-axis : top 19.411372879235586
-    plt.xlim((10.268365867838938,45))
-    plt.ylim((-12.04950983931609,20))
+    plt.xlim((10.268365867838938,70))
+    plt.ylim((-12.04950983931609,50))
     
     ax.voxels(voxelarray, facecolors=colors, edgecolor='#FF000000')
     plt.savefig(path+file_name) 
