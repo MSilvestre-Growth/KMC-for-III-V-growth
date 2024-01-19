@@ -48,7 +48,12 @@ E_wrong_bond = 0.0 # 0.3
 # ref : Influence of Schwoebel barrier and diffusion anisotropy on step density oscillation amplitude during epitaxial growth
 # DOI : 10.1016/j.commatsci.2005.03.020
 
-E_sc = 2.3*kb*T/q
+E_sc = 0 # 2.3*kb*T/q
+
+# ref : Anisotropy in surface migration of Si and Ge on Si(OO1)
+# DOI : 10.1016/0039-6028(91)91177-Y
+k_parallel = 1
+k_normal = 1000
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
@@ -57,6 +62,8 @@ print "E_parallel = ", E_parallel
 print "E_wrong_bond = ", E_wrong_bond
 print "E_Si = ", E_Si
 print "E_sc = ", E_sc
+print "k_parallel = ", k_parallel
+print "k_normal = ", k_normal
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -114,10 +121,26 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             n_normal = 0
             n_wrong_bond = 0
             E_underlayer = 0
+            k = k0
             
             n_step_edge = 0
             if 12 <= process_number <= 19:
                 n_step_edge = 1
+            
+            # diffusion anisotropy on Si
+            if 4 <= process_number <= 51:
+                if (process_number-4 % 4 == 0) or (process_number-4 % 4 == 1):
+                    if elements_before[0][0] == "A":
+                        k = k * k_parallel
+                    if elements_before[0][0] == "B":
+                        k = k * k_normal
+                        
+                if (process_number-4 % 4 == 2) or (process_number-4 % 4 == 3):
+                    if elements_before[0][0] == "A":
+                        k = k * k_normal
+                    if elements_before[0][0] == "B":
+                        k = k * k_parallel
+            
             
             if elements_before[0][0] == "A":
                 # Xm1
@@ -218,7 +241,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 		print elements_before
             E_tot = E_underlayer + n_normal * E_normal + n_parallel * E_parallel + n_wrong_bond * E_wrong_bond + n_step_edge * E_sc
             
-            return k0*np.exp( - E_tot * q / (kb * T) )
+            return k*np.exp( - E_tot * q / (kb * T) )
  	else:
  	    return 0
         
@@ -247,10 +270,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 600000
+number_of_steps = 10000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval=20000,
+                                          dump_interval=1000,
                                           seed=596312)
 name = "trajectory_test.py"
 model.run(control_parameters, trajectory_filename=name)
