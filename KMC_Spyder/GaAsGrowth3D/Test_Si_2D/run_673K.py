@@ -131,6 +131,9 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             n_step_edge = 0
             if 12 <= process_number <= 19:
                 n_step_edge = 1
+                
+            if 60 <= process_number <= 67:
+                n_wrong_bond += 1
             
             # diffusion anisotropy on Si
             if 4 <= process_number <= 51:
@@ -185,7 +188,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                     E_underlayer = E_GaAs
                     k = k * k_parallel_GaAs
                 if Zm1 == "B_GaAs":
-                    n_wrong_bond += 1
+                    #n_wrong_bond += 1
                     E_underlayer = E_GaAs
                     k = k * k_normal_GaAs
                
@@ -193,7 +196,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if Zm1 == "A_Si":
                     E_underlayer = E_Si
                 if Zm1 == "B_Si":
-                    n_wrong_bond += 1
+                    #n_wrong_bond += 1
                     E_underlayer = E_Si
                
             if elements_before[0][0] == "B":
@@ -231,7 +234,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                
                 # Zm1
                 if Zm1 == "A_GaAs":
-                    n_wrong_bond += 1
+                    #n_wrong_bond += 1
                     E_underlayer = E_GaAs
                     k = k * k_normal_GaAs
                 if Zm1 == "B_GaAs":
@@ -240,7 +243,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                
                 #Mettre energie de liaison différente avec le substrat ?
                 if Zm1 == "A_Si":
-                    n_wrong_bond += 1
+                    #n_wrong_bond += 1
                     E_underlayer = E_Si
                 if Zm1 == "B_Si":
                     E_underlayer = E_Si
