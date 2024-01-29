@@ -60,7 +60,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         global SendFlux
         
-        if process_number == 0 or processe_number == 1 or processe_number == 2:
+        if process_number == 0 or process_number == 1 or process_number == 2:
             return 0.0
         else:
             return 1.0
