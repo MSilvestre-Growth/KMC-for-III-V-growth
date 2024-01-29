@@ -60,29 +60,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
 
         global SendFlux
         
-        # Events definition
-        event_arrival = 0 <= process_number <= 7
-        event_GaAs_diffusion_on_Si = 8 <= process_number <= 23
-        event_GaAs_jumps_Si_monoatomic_step = 24 <= process_number <= 39
-        event_cycling_GaAs_jumps_Si_monoatomic_step = 40 <= process_number <= 41
-        event_GaAs_jumps_GaAs_Si = 42 <= process_number <= 47
-        event_GaAs_diffusion_on_GaAs = 48 <= process_number <= 89
-        event_cycling_GaAs_diffusion_on_GaAs = 90 <= process_number <= 97
-        event_GaAs_jumps_on_GaAs = 98 <= process_number <= 161
-        event_cycling_GaAs_jumps_on_GaAs = 162 <= process_number <= 177
-        
-        if event_arrival:
-            return SendFlux
-        
-        
-        #print "coordinate"
-        #print coordinate
-        if (process_number >=42 and process_number <= 57):# or (process_number >=145 and process_number <= 170):
-            print process_number
-            #print elements_before
-            return 1
+        if process_number == 0 or processe_number == 1 or processe_number == 2:
+            return 0.0
         else:
-            return 0
+            return 1.0
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
@@ -96,7 +77,7 @@ CustomRateCalculator.cacheRates = TrueFuction
 # Load initial configuration
 config = KMCConfigurationFromScript("config3D.py")
 #creation of the interaction oject
-interactions = KMCInteractionsFromScript("custom_processes.py")    
+interactions = KMCInteractionsFromScript("custom_processes_bis.py")    
 #setting of the CustomRateCalculator in the interaction object
 interactions.setRateCalculator(rate_calculator=CustomRateCalculator)
 

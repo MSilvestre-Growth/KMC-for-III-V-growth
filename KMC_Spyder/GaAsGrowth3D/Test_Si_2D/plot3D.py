@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 
-#path = "C:/Users/msilvestre/Documents/GitHub/Images/GaAsGrowth/Arrival_test/"
-path = "D:/Milan/Images KMC/GaAs-Growth/Test/"
+path = "C:/Users/msilvestre/Documents/GitHub/Images/GaAsGrowth/Arrival_test/"
+#path = "D:/Milan/Images KMC/GaAs-Growth/Test/"
 ####################
 #    Image size    #
 ####################
