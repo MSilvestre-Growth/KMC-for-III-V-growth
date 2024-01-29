@@ -52,8 +52,13 @@ E_sc = 0 # 2.3*kb*T/q
 
 # ref : Anisotropy in surface migration of Si and Ge on Si(OO1)
 # DOI : 10.1016/0039-6028(91)91177-Y
-k_parallel = 1
-k_normal = 1000
+k_parallel_Si = 1
+k_normal_Si = 1000
+
+# ref : ANISOTROPIC SURFACE MIGRATION OF Ga ATOMS ON GaAs (001)
+# DOI : 10.1016/0022-0248(89)90354-0
+k_parallel_GaAs = 4
+k_normal_GaAs = 1
 
 print "T°C = ", T
 print "SendFlux = ", SendFlux
@@ -62,8 +67,8 @@ print "E_parallel = ", E_parallel
 print "E_wrong_bond = ", E_wrong_bond
 print "E_Si = ", E_Si
 print "E_sc = ", E_sc
-print "k_parallel = ", k_parallel
-print "k_normal = ", k_normal
+print "k_parallel_Si = ", k_parallel_Si
+print "k_normal_Si = ", k_normal_Si
 
 # Set the custom rate --> all the physics is here !!!
 class CustomRateCalculator(KMCRateCalculatorPlugin):
@@ -131,15 +136,15 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             if 4 <= process_number <= 51:
                 if (process_number-4 % 4 == 0) or (process_number-4 % 4 == 1):
                     if elements_before[0][0] == "A":
-                        k = k * k_parallel
+                        k = k * k_parallel_Si
                     if elements_before[0][0] == "B":
-                        k = k * k_normal
+                        k = k * k_normal_Si
                         
                 if (process_number-4 % 4 == 2) or (process_number-4 % 4 == 3):
                     if elements_before[0][0] == "A":
-                        k = k * k_normal
+                        k = k * k_normal_Si
                     if elements_before[0][0] == "B":
-                        k = k * k_parallel
+                        k = k * k_parallel_Si
             
             
             if elements_before[0][0] == "A":
@@ -178,9 +183,11 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 # Zm1
                 if Zm1 == "A_GaAs":
                     E_underlayer = E_GaAs
+                    k = k * k_parallel_GaAs
                 if Zm1 == "B_GaAs":
                     n_wrong_bond += 1
                     E_underlayer = E_GaAs
+                    k = k * k_normal_GaAs
                
                 #Mettre energie de liaison différente avec le substrat ?
                 if Zm1 == "A_Si":
@@ -226,8 +233,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 if Zm1 == "A_GaAs":
                     n_wrong_bond += 1
                     E_underlayer = E_GaAs
+                    k = k * k_normal_GaAs
                 if Zm1 == "B_GaAs":
                     E_underlayer = E_GaAs
+                    k = k * k_parallel_GaAs
                
                 #Mettre energie de liaison différente avec le substrat ?
                 if Zm1 == "A_Si":
@@ -270,10 +279,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 12000000
+number_of_steps = 50000000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval=600000,
+                                          dump_interval=500000,
                                           seed=596312)
 name = "trajectory_test.py"
 model.run(control_parameters, trajectory_filename=name)
