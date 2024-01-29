@@ -43,7 +43,7 @@ SendFlux = 0.6
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
-E_wrong_bond = 0.0 # 0.3
+E_wrong_bond = 0.3 # 0.3
 
 # ref : Influence of Schwoebel barrier and diffusion anisotropy on step density oscillation amplitude during epitaxial growth
 # DOI : 10.1016/j.commatsci.2005.03.020
