@@ -1,6 +1,6 @@
 # KMCLib Trajectory
 version="2013.1.0"
-creation_time="Mon Jan 29 11:40:38 2024"
+creation_time="Mon Jan 29 11:47:16 2024"
 sites=[[       0.000000,       0.000000,       0.000000],
        [       0.000000,       0.000000,       1.000000],
        [       0.000000,       0.000000,       2.000000],
@@ -4266,7 +4266,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  1.1746067317e+00)
+times.append(               inf)
 steps.append(1)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -4508,8 +4508,8 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
-              "V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V","V","A_Si",
-              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
+              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
+              "V","V","V","V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
@@ -4528,7 +4528,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  3.5741440044e+00)
+times.append(               inf)
 steps.append(2)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -4766,11 +4766,11 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
+              "V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V","V","A_Si",
+              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
+              "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
-              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
-              "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","A_GaAs","V","V",
-              "V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
@@ -4790,7 +4790,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  3.7711009498e+00)
+times.append(               inf)
 steps.append(3)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -5028,10 +5028,10 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
-              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
-              "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
-              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
-              "V","A_Si","A_GaAs","V","V","V","V","V","V","V","V","A_Si","V","V","V",
+              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","A_GaAs",
+              "V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V",
+              "A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V",
+              "V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V",
               "V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
@@ -5052,7 +5052,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  7.6826500583e+00)
+times.append(               inf)
 steps.append(4)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -5291,10 +5291,10 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
+              "V","V","V","V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V",
+              "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
+              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
-              "V","V","V","V","V","V","V","V","V","A_Si","A_GaAs","V","V","V","V","V",
-              "V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V",
-              "V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
@@ -5314,7 +5314,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  7.9246149504e+00)
+times.append(               inf)
 steps.append(5)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -5576,7 +5576,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  8.3257799255e+00)
+times.append(               inf)
 steps.append(6)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -5815,10 +5815,10 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
-              "V","V","V","V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V",
-              "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
-              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
+              "V","V","V","V","V","V","V","V","V","A_Si","A_GaAs","V","V","V","V","V",
+              "V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V",
+              "V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
@@ -5838,7 +5838,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  9.9368644419e+00)
+times.append(               inf)
 steps.append(7)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -6076,10 +6076,10 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
-              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","A_GaAs",
-              "V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V",
-              "A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V",
-              "V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V",
+              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
+              "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
+              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
+              "V","A_Si","A_GaAs","V","V","V","V","V","V","V","V","A_Si","V","V","V",
               "V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
@@ -6100,7 +6100,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  1.2598113421e+01)
+times.append(               inf)
 steps.append(8)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -6338,11 +6338,11 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
-              "V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V","V","A_Si",
-              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
-              "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
+              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
+              "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","A_GaAs","V","V",
+              "V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
@@ -6362,7 +6362,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  1.3521884088e+01)
+times.append(               inf)
 steps.append(9)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
@@ -6604,8 +6604,8 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
-              "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
-              "V","V","V","V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V",
+              "V","V","V","V","A_Si","A_GaAs","V","V","V","V","V","V","V","V","A_Si",
+              "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V",
               "V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V","V","A_Si",
@@ -6624,7 +6624,7 @@ types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si",
               "V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V","V","V","V",
               "V","A_Si","V","V","V","V","V","V","V","V","V","A_Si","V","V","V","V","V",
               "V","V","V","V"])
-times.append(  1.4697362571e+01)
+times.append(               inf)
 steps.append(10)
 types.append(["A_Si","B_Si","A_Si","B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si",
               "B_Si","V","V","V","V","V","V","A_Si","B_Si","A_Si","B_Si","V","V","V",
