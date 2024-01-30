@@ -289,7 +289,7 @@ for i in range(4):
                                                basis_sites=[0],
                                                rate_constant=0.0))
 
-# Y_GaAs jumps to a X_GaAs simple step (NO PHASE CHANGE)
+# Y_GaAs jumps to a X_GaAs simple step (PHASE CHANGE)
 # process_number in [84, 99] (16 processes)
 
 GaAs_type = ["A_GaAs", "B_GaAs"]

@@ -132,7 +132,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             if 12 <= process_number <= 19:
                 n_step_edge = 1
                 
-            if 60 <= process_number <= 67:
+            if 60 <= process_number <= 67 or 84 <= process_number <= 99:
                 n_wrong_bond += 1
             
             # diffusion anisotropy on Si
