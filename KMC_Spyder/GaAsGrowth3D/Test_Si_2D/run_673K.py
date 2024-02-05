@@ -33,7 +33,7 @@ q = 1.6*10**(-19)
 # DOI : 10.1103/PhysRevB.46.6825
 E_GaAs = 1.3
 E_normal = 0.3
-E_parallel = 0.15
+E_parallel = 0.03
 
 E_Si = 1.1
 
@@ -282,10 +282,16 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 50000000
+number_of_steps = 1 #50000000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           dump_interval=500000,
                                           seed=596312)
-name = "trajectory_test.py"
+t1 = time.clock()
+name = "~/shared/"+"Results_steps_%lg" %number_of_steps1 + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_E_GaAs_%lg" %E_GaAs + "_E_normal_%lg" %E_normal + "_E_parallel_%lg" %E_parallel + "_E_Si_%lg.py" %E_Si
 model.run(control_parameters, trajectory_filename=name)
+
+t2 = time.clock()
+
+print "simu time = "
+print t2 - t1
