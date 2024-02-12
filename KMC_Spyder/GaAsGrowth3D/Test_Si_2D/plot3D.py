@@ -11,7 +11,7 @@ path = "C:/Users/msilvestre/Documents/GitHub/Images/GaAsGrowth/Arrival_test/"
 
 X = 40
 Y = 120
-Z = 50
+Z = 100
 
 ####################
 
