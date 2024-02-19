@@ -116,7 +116,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
                 return 0
             if ((event_jump_alone-100) % 4 == 1) and elements_before[37] == "V":
                 return 0
-            if ((event_jump_alone-100) % 4 == 2) and elements_before[37] == "V":
+            if ((event_jump_alone-100) % 4 == 2) and elements_before[46] == "V":
                 return 0
             if ((event_jump_alone-100) % 4 == 3) and elements_before[37] == "V":
                 return 0
