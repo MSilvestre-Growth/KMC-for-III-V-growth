@@ -39,9 +39,9 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 6 #40
-Y = 6 #120
-Z = 6 #100
+X = 7 #40
+Y = 7 #120
+Z = 7 #100
 
 #Precise if you want your structure to be periodic in different directions
 # (True or False)
@@ -155,7 +155,7 @@ types = ["V", "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
+
          
          "V", "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V", "V",
@@ -164,7 +164,7 @@ types = ["V", "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V", 
+
          
          "V", "V", "V", "V", "V", "V", "V", 
          "V", "V", "V", "V", "V", "V", "V",
