@@ -160,6 +160,7 @@ types = ["V", "V", "V",
          "V", "A_GaAs", "V", 
          "V", "V", "V", 
          ]
+possible_types = ["V", "Vt", "A_GaAs", "B_GaAs", "A_Si", "B_Si"]
 
 
 #possible_types = ["V", "A_GaAs", "A_Up_GaAs", "A_Down_GaAs", "B_GaAs", "B_Up_GaAs", "B_Down_GaAs", "A_Si", "B_Si", "V00", "V0A", "V0B", "VA0", "VAA", "VAB", "VB0", "VBA", "VBB"]
