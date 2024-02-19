@@ -39,9 +39,9 @@ unit_cell = KMCUnitCell(
 ################################################################################
 
 # Precise the number of pixel in each direction (at least 1)
-X = 3 #40
-Y = 3 #120
-Z = 3 #100
+X = 5 #40
+Y = 5 #120
+Z = 5 #100
 
 #Precise if you want your structure to be periodic in different directions
 # (True or False)
@@ -148,17 +148,36 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
 # # # interface buffer
 # # add_an_interface_buffer(Si_steps_max_height=4)
 
-types = ["V", "V", "V",
-         "V", "A_GaAs", "V",
-         "V", "V", "V", 
+types = ["V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
          
-         "V", "V", "V", 
-         "V", "B_GaAs", "V", 
-         "V", "V", "V", 
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "A_GaAs", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "B_GaAs", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "A_GaAs", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
          
-         "V", "V", "V", 
-         "V", "A_GaAs", "V", 
-         "V", "V", "V", 
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",
+         "V", "V", "V", "V", "V",         
+
          ]
 possible_types = ["V", "Vt", "A_GaAs", "B_GaAs", "A_Si", "B_Si"]
 

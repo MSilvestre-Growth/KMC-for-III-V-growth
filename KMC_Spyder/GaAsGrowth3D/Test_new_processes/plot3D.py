@@ -13,10 +13,10 @@ path = "C:/Users/msilvestre/Documents/GitHub/Images/GaAsGrowth/Arrival_test/"
 # Y = 120
 # Z = 100
 
-# test 3x3x3
-X = 3
-Y = 3
-Z = 3
+# test 5x5x5
+X = 5
+Y = 5
+Z = 5
 
 ####################
 
