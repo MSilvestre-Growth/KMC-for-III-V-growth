@@ -149,6 +149,8 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
 # # add_an_interface_buffer(Si_steps_max_height=4)
 
 types = ["B_GaAs", "A_GaAs", "V", "V", "V", "V", "A_GaAs"]
+while len(types) != 27:
+    types.append("V")
 possible_types = ["V", "Vt", "A_GaAs", "B_GaAs", "A_Si", "B_Si"]
 
 
