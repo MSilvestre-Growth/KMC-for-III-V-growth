@@ -164,8 +164,8 @@ types = ["V", "V", "V", "V", "V", "V",
 
          "V", "V", "V", "V", "V", "V",
          "V", "V", "A_GaAs", "V", "V", "V",
-         "V", "V", "V", "A_GaAs", "A_GaAs", "V",
-         "V", "V", "A_GaAs, "V", "V", "V",
+         "V", "V", "V", "B_GaAs", "A_GaAs", "V",
+         "V", "V", "A_GaAs", "V", "V", "V",
          "V", "V", "V", "V", "V", "V",
          "V", "V", "V", "V", "V", "V",
 
