@@ -259,7 +259,7 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         
     def cutoff(self):
         """ Determines the cutoff for this custom model """
-        return 2.24
+        return 1
 
 # speedup process
 def TrueFuction(obj):
@@ -282,13 +282,14 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 50000000
+number_of_steps = 1 #50000000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           dump_interval=500000,
                                           seed=596312)
 t1 = time.clock()
-name = "~/shared/"+"Results_steps_%lg" %number_of_steps + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_E_GaAs_%lg" %E_GaAs + "_E_normal_%lg" %E_normal + "_E_parallel_%lg" %E_parallel + "_E_Si_%lg.py" %E_Si
+#name = "~/shared/"+"Results_steps_%lg" %number_of_steps + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_E_GaAs_%lg" %E_GaAs + "_E_normal_%lg" %E_normal + "_E_parallel_%lg" %E_parallel + "_E_Si_%lg.py" %E_Si
+name = "geometry test"
 model.run(control_parameters, trajectory_filename=name)
 
 t2 = time.clock()
