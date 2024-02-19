@@ -98,6 +98,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         Zm1 = elements_before[3]
         Zp1 = elements_before[4]
         
+        print elements_before
+        
         # Events definition
         event_arrival = 0 <= process_number <= 3
         event_GaAs_diffusion = 4 <= process_number <= 98
@@ -289,7 +291,7 @@ control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
                                           seed=596312)
 t1 = time.clock()
 #name = "~/shared/"+"Results_steps_%lg" %number_of_steps + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_E_GaAs_%lg" %E_GaAs + "_E_normal_%lg" %E_normal + "_E_parallel_%lg" %E_parallel + "_E_Si_%lg.py" %E_Si
-name = "geometry test"
+name = "geometry test.py"
 model.run(control_parameters, trajectory_filename=name)
 
 t2 = time.clock()
