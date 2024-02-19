@@ -33,7 +33,7 @@ unit_cell = KMCUnitCell(
 
 lattice = KMCLattice(
     unit_cell=unit_cell,
-    repetitions=(5,5,5),
+    repetitions=(6,6,6),
     periodic=(True, True, False))
 
 # -----------------------------------------------------------------------------
@@ -41,14 +41,21 @@ lattice = KMCLattice(
 
 types = ['V','V','V','V','V','V','V','V','V','V','V','V','V',
          'V','V','V','V','V','V','V','V','V','V','V','V','V',
-         'V','V','V','V','V','V','V','V','V','V','V','A_GaAs',
-         'V','V','V','V','V','V','V','V','V','V','V','V','V',
-         'V','V','V','V','V','V','V','V','V','V','V','B_GaAs',
-         'V','V','V','V','V','V','V','V','V','V','V','V','V',
-         'V','V','V','V','V','V','V','V','V','V','V','A_GaAs',
          'V','V','V','V','V','V','V','V','V','V','V','V','V',
          'V','V','V','V','V','V','V','V','V','V','V','V','V',
-         'V','V','V','V','V','V','V','V','V','V','V']
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','A_GaAs','V','V','V','V','V','A_GaAs','A_GaAs',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V','V','V','V',
+         'V','V','V','V','V','V','V','V','V','V']
 
 possible_types = ['B_Si','A_GaAs','Vt','V','A_Si','B_GaAs']
 

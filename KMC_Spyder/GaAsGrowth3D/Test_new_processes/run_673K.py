@@ -39,7 +39,7 @@ E_Si = 1.1
 
 k0 = 10**13 #hopping constant for the Boltzman's law
 
-SendFlux = 0.6
+SendFlux = 0 #0.6
 
 # ref : Nucleation and growth of GaAs on Ge and the structure of antiphase boundaries
 # DOI : 10.1116/1.583529
@@ -97,7 +97,8 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
         Yp1 = elements_before[5]
         Zm1 = elements_before[3]
         Zp1 = elements_before[4]
-        
+       
+	print process_number 
         print elements_before
         
         # Events definition
