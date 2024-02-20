@@ -112,16 +112,16 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return SendFlux
         
         if event_jump_alone:
-            if ((process_number-100) % 4 == 0) :#and elements_before[42] == "V": 
+            if ((process_number-100) % 4 == 0) and elements_before[42] == "V": 
 		# 42
                 return 0 
-            if ((process_number-100) % 4 == 1) :#and elements_before[41] == "V":
+            if ((process_number-100) % 4 == 1) and elements_before[41] == "V":
                 # 41
 		return 0
             if ((process_number-100) % 4 == 2) and elements_before[46] == "V":
 		# 46
                 return 0
-            if ((process_number-100) % 4 == 3) :#and elements_before[37] == "V":
+            if ((process_number-100) % 4 == 3) and elements_before[37] == "V":
 		# 37
                 return 0
             else:
@@ -289,10 +289,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 1 #50000000
+number_of_steps = 100000 #50000000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval= 1 , #500000,
+                                          dump_interval= 10000 , #500000,
                                           seed=596312)
 t1 = time.clock()
 #name = "~/shared/"+"Results_steps_%lg" %number_of_steps + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_E_GaAs_%lg" %E_GaAs + "_E_normal_%lg" %E_normal + "_E_parallel_%lg" %E_parallel + "_E_Si_%lg.py" %E_Si
