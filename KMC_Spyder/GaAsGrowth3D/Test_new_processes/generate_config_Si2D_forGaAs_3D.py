@@ -125,88 +125,88 @@ def add_a_Si_steps(step_width, column_height, Y_row_length=Y, interface="N", Dim
 #     writting of starting surface    #
 #######################################
 
-# # first step
-# step_width = X/4
-# Si_height = 2
-# add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
+# first step
+step_width = X/4
+Si_height = 2
+add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
-# # second step
-# step_width = X/4
-# Si_height = 2
-# add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
+# second step
+step_width = X/4
+Si_height = 2
+add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
 
-# # third step
-# step_width = X/4
-# Si_height = 2
-# add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
+# third step
+step_width = X/4
+Si_height = 2
+add_a_Si_steps(step_width, Si_height, Si_type="A_Si")
 
-# # fourth step
-# step_width = X/4
-# Si_height = 2
-# add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
+# fourth step
+step_width = X/4
+Si_height = 2
+add_a_Si_steps(step_width, Si_height, Si_type="B_Si")
 
-# # # interface buffer
-# # add_an_interface_buffer(Si_steps_max_height=4)
+# # interface buffer
+# add_an_interface_buffer(Si_steps_max_height=4)
 
-types = ["V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-
-         
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
+# types = ["V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
 
          
-         "V", "V", "V", "V", "V", "V", "V", 
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+
          
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V", 
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "B_GaAs", "A_GaAs", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "A_GaAs", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V", 
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
          
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V", 
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V", 
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "B_GaAs", "A_GaAs", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
 
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V",
-         "V", "V", "V", "V", "V", "V", "V", 
-         "V", "V", "V", "V", "V", "V", "V"
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "A_GaAs", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+         
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V", 
 
-         ]
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V",
+#          "V", "V", "V", "V", "V", "V", "V", 
+#          "V", "V", "V", "V", "V", "V", "V"
+
+#          ]
 possible_types = ["V", "Vt", "A_GaAs", "B_GaAs", "A_Si", "B_Si"]
 
 
