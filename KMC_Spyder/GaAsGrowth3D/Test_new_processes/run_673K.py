@@ -112,14 +112,14 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             return SendFlux
         
         if event_jump_alone:
-            if ((process_number-100) % 4 == 0) :#and elements_before[42] == 
+            if ((process_number-100) % 4 == 0) :#and elements_before[42] == "V": 
                 return 0 
             if ((process_number-100) % 4 == 1) :#and elements_before[46] == "V":
                 # X + 1 // 46
 		return 0
-            if ((process_number-100) % 4 == 2) :#and elements_before[46] == "V":
+            if ((process_number-100) % 4 == 2) :#and elements_before[41] == "V":
                 return 0
-            if ((process_number-100) % 4 == 3) and elements_before[37] == "V":
+            if ((process_number-100) % 4 == 3) and elements_before[41] == "V":
                 return 0
             else:
                 return k0
