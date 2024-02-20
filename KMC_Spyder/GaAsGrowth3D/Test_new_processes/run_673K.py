@@ -118,10 +118,10 @@ class CustomRateCalculator(KMCRateCalculatorPlugin):
             if ((process_number-100) % 4 == 1) :#and elements_before[41] == "V":
                 # 41
 		return 0
-            if ((process_number-100) % 4 == 2) :#and elements_before[46] == "V":
+            if ((process_number-100) % 4 == 2) and elements_before[46] == "V":
 		# 46
                 return 0
-            if ((process_number-100) % 4 == 3) and elements_before[37] == "V":
+            if ((process_number-100) % 4 == 3) :#and elements_before[37] == "V":
 		# 37
                 return 0
             else:
