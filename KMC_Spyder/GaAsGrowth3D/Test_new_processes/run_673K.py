@@ -289,10 +289,10 @@ model = KMCLatticeModel(configuration=config,
 # so we would expect slightly different results each time
 # we run this test.
 
-number_of_steps = 100000 #50000000
+number_of_steps = 2000000 #50000000
 
 control_parameters = KMCControlParameters(number_of_steps=number_of_steps,
-                                          dump_interval= 10000 , #500000,
+                                          dump_interval= 200000 , #500000,
                                           seed=596312)
 t1 = time.clock()
 #name = "~/shared/"+"Results_steps_%lg" %number_of_steps + "_Flux_%lg" %SendFlux + "_T°K_%lg" %T + "_E_GaAs_%lg" %E_GaAs + "_E_normal_%lg" %E_normal + "_E_parallel_%lg" %E_parallel + "_E_Si_%lg.py" %E_Si
