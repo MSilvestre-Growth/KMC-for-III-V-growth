@@ -22,6 +22,9 @@ Z = 7
 
 max_dimension = max([X, Y, Z])
 
+A_tot = 0
+B_tot = 0
+
 for i in range(len(types)):
     
     file_name = "Imtest%d.png" % i
@@ -49,8 +52,14 @@ for i in range(len(types)):
                     B_Si[x][y][z] = True
                 if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "A_GaAs":
                     A_GaAs[x][y][z] = True
+                    if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z + 1] == "V":
+                        A_tot += 1
+                        
                 if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "B_GaAs":
                     B_GaAs[x][y][z] = True
+                    if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z + 1] == "V":
+                        B_tot += 1
+                        
                 if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "A":
                     A[x][y][z] = True
                 if KMC_Result_current[(Y*Z) * x + (Z) * y + (1) * z] == "B":

@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['GaAsGrowth3D\\Test_Si_2D\\run_673K.py', 'GaAsGrowth3D\\Test_Si_2D\\custom_processes_Si2D_for_GaAs3D.py', 'GaAsGrowth3D\\Test_Si_2D\\plot3D.py', 'GaAsGrowth3D\\Test_Si_2D\\GIFMaker.py', 'GaAsGrowth3D\\Test_Si_2D\\generate_config_Si2D_forGaAs_3D.py', '..\\..\\..\\Logiciels\\Python\\programmes qui fonctionnent\\lecture et plot de tableau + fit a sin(x+theta) + b.py']
+recent_files = ['GaAsGrowth3D\\Test_new_processes\\custom_processes_Si2D_for_GaAs3D.py', 'GaAsGrowth3D\\Test_new_processes\\run_673K.py', 'GaAsGrowth3D\\Test_new_processes\\plot3D.py', 'GaAsGrowth3D\\Test_new_processes\\GIFMaker.py', 'GaAsGrowth3D\\Test_new_processes\\Analysis.py']
 
 [main]
 version = 0.2.0
